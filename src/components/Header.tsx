@@ -11,9 +11,12 @@ import { cn } from "@/lib/utils";
 
 const navItems = [
   { href: "/", label: "Home" },
+  { href: "/#parallax", label: "Innovation" },
   { href: "/#services", label: "Services" },
-  { href: "/#about", label: "About" },
-  { href: "/maintenance", label: "Maintenance" },
+  { href: "/#rnd", label: "R&D" },
+  { href: "/#case-studies", label: "Case Studies" },
+  { href: "/#hiring", label: "Careers" },
+  { href: "/#gallery", label: "Gallery" },
   { href: "/#contact", label: "Contact" },
 ];
 
@@ -47,7 +50,7 @@ export function Header() {
 
         <div className="hidden md:flex items-center gap-4">
           <Button asChild variant="ghost" size="sm">
-            <Link href="mailto:info@mytecsys.com">Contact</Link>
+            <Link href="mailto:bd@mytecsys.in">Contact</Link>
           </Button>
           <Button asChild size="sm">
             <Link href="/#contact">Get Started</Link>
@@ -67,8 +70,8 @@ export function Header() {
       {/* Mobile menu */}
       <div
         className={cn(
-          "md:hidden absolute top-full left-0 right-0 border-b border-border/40 bg-background/95 backdrop-blur-xl overflow-hidden transition-all duration-300",
-          mobileOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
+          "md:hidden absolute top-full left-0 right-0 border-b border-border/40 bg-background/95 backdrop-blur-xl overflow-y-auto transition-all duration-300",
+          mobileOpen ? "max-h-[70vh] opacity-100" : "max-h-0 opacity-0"
         )}
       >
         <nav className="container mx-auto flex flex-col gap-1 py-4 px-4">
@@ -84,7 +87,7 @@ export function Header() {
           ))}
           <div className="mt-2 flex flex-col gap-2 pt-2 border-t border-border/40">
             <Button asChild variant="outline" size="sm" className="w-full">
-              <Link href="mailto:info@mytecsys.com" onClick={() => setMobileOpen(false)}>
+              <Link href="mailto:info@mytecsys.in" onClick={() => setMobileOpen(false)}>
                 Contact
               </Link>
             </Button>
