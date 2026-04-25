@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 export { default as ProcessSection } from "./ProcessSection";
 export { default as WhatWeDoSection } from "./WhatWeDoSection";
 export { default as CaseStudiesSection } from "./CaseStudiesSection";
@@ -10,14 +9,10 @@ export { default as NewsSection } from "./NewsSection";
 export { default as TestimonialsSection } from "./TestimonialsSection";
 export { default as AchievementsSection } from "./AchievementsSection";
 export { default as ContactSection } from "./ContactSection";
-=======
 export { default as RnDSection } from "./RnDSection";
 export { default as QualitySection } from "./QualitySection";
 export { default as CloudSection } from "./CloudSection";
-export { default as CaseStudiesSection } from "./CaseStudiesSection";
 export { default as AwardsSection } from "./AwardsSection";
-export { default as TestimonialsSection } from "./TestimonialsSection";
 export { default as GallerySection } from "./GallerySection";
 export { default as HiringSection } from "./HiringSection";
 export { default as InternshipSection } from "./InternshipSection";
->>>>>>> 4cdbb9b6e8e08c423654676e93a1cf6229009d20
