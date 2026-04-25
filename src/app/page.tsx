@@ -26,13 +26,6 @@ import {
   AchievementsSection, 
   TestimonialsSection, 
   ContactSection,
-  RnDSection,
-  QualitySection,
-  CloudSection,
-  AwardsSection,
-  GallerySection,
-  HiringSection,
-  InternshipSection
 } from "@/components/sections";
 import { Button } from "@/components/ui/button";
 
@@ -81,11 +74,6 @@ export default function LandingPage() {
       <AboutSection />
       <WhatWeDoSection />
       
-      {/* Integrated Research & Quality Sections */}
-      <RnDSection />
-      <QualitySection />
-      <CloudSection />
-
       <CaseStudiesSection />
       <WhyUsSection />
       <FounderSection />
@@ -93,13 +81,7 @@ export default function LandingPage() {
       <NewsSection />
       <TestimonialsSection />
       <AchievementsSection />
-      <AwardsSection />
       
-      {/* Gallery & Career Sections */}
-      <GallerySection />
-      <HiringSection />
-      <InternshipSection />
-
       <ContactSection />
       <CTASection />
       <Footer />

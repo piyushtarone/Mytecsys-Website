@@ -22,11 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-<<<<<<< HEAD
     <html lang="en" suppressHydrationWarning>
-=======
-    <html lang="en">
->>>>>>> 4cdbb9b6e8e08c423654676e93a1cf6229009d20
       <body>
         <Providers>
           <Header />
