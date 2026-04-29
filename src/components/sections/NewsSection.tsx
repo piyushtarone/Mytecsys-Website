@@ -1,92 +1,156 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
+import Image from "next/image";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  type CarouselApi,
+} from "@/components/ui/carousel";
+import NewsImage1 from "@/assets/image 45.png";
+import NewsImage2 from "@/assets/image 46.png";
+import NewsImage3 from "@/assets/image 45-1.png";
+import NewsImage4 from "@/assets/image 45-2.png";
 import { cn } from "@/lib/utils";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const newsItems = [
   {
+    id: 1,
     title: "Garuda Drushti Takes Flight",
-    source: "The Hitavada",
-    image: "https://images.unsplash.com/photo-1585829365234-781f7149345f?auto=format&fit=crop&q=80&w=600",
+    image: NewsImage1,
   },
   {
+    id: 2,
     title: "Nagpur Police Bolster Social Media Monitoring",
-    source: "Lokmat",
-    image: "https://images.unsplash.com/photo-1504711432869-9d9973f239d2?auto=format&fit=crop&q=80&w=600",
+    image: NewsImage2,
   },
   {
-    title: "Innovation in Cyber Security",
-    source: "The Hitavada",
-    image: "https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&q=80&w=600",
+    id: 3,
+    title: "News Clipping 3",
+    image: NewsImage3,
+  },
+  {
+    id: 4,
+    title: "News Clipping 4",
+    image: NewsImage4,
   },
 ];
 
 const NewsSection = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [api, setApi] = React.useState<CarouselApi>();
+  const [current, setCurrent] = React.useState(0);
+  const [count, setCount] = React.useState(0);
 
-  const next = () => setCurrentIndex((i) => (i + 1) % newsItems.length);
-  const prev = () => setCurrentIndex((i) => (i - 1 + newsItems.length) % newsItems.length);
+  React.useEffect(() => {
+    if (!api) return;
+
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap());
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api]);
+
+  const NewsCard = ({ item, title }: { item: any; title?: string }) => (
+    <div className="bg-white rounded-[2rem] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 p-3 h-full transition-all duration-300 hover:shadow-[0_20px_50px_rgba(59,130,246,0.15)] group flex flex-col">
+      <div className="relative flex-1 rounded-[1.5rem] overflow-hidden bg-slate-50 border border-slate-50 min-h-[200px]">
+        <Image
+          src={item.image}
+          alt={item.title}
+          fill
+          className="object-contain p-4 transition-transform duration-700 group-hover:scale-105"
+        />
+      </div>
+      {title && (
+        <div className="p-4">
+          <h3 className="text-sm font-bold text-slate-800 line-clamp-2">{title}</h3>
+        </div>
+      )}
+    </div>
+  );
 
   return (
-    <section className="py-6 px-4 md:px-6 relative z-10 overflow-hidden bg-slate-50/30">
+    <section className="py-16 px-4 md:px-6 relative z-10 overflow-hidden bg-slate-50/50">
       <div className="container mx-auto max-w-7xl">
-        <div className="text-center mb-4">
-          <h2 className="text-lg md:text-xl font-bold text-slate-900 mb-0 font-tech">
+        <div className="text-center mb-12">
+          <h2 className="text-xl md:text-2xl font-bold text-slate-900 mb-2 font-tech tracking-tight">
             Featured News
           </h2>
-          <p className="text-slate-500 font-medium tracking-widest uppercase text-[7px]">
-            (Blogs& News)
+          <p className="text-slate-500 font-medium tracking-[0.2em] uppercase text-[10px]">
+            (Blogs & News)
           </p>
         </div>
 
-        <div className="relative group max-w-4xl mx-auto">
-          {/* Carousel */}
-          <div className="flex gap-3 transition-all duration-500 overflow-hidden">
-            <div 
-              className="flex gap-3 transition-transform duration-500 ease-out py-4"
-              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-            >
-              {newsItems.map((item, i) => (
-                <div key={i} className="min-w-full md:min-w-[33.333%] lg:min-w-[25%] flex-shrink-0 flex justify-center">
-                  <div className="bg-white rounded-xl overflow-hidden shadow-md border border-slate-200/50 p-1.5 w-full max-w-[240px]">
-                    <div className="h-[240px] w-full relative rounded-lg overflow-hidden bg-slate-100">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                      />
-                    </div>
+        <div className="relative max-w-6xl mx-auto px-4 md:px-12">
+          <Carousel
+            setApi={setApi}
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-4">
+              
+              {/* Slide 1: 70% | 30% */}
+              <CarouselItem className="pl-4 basis-full">
+                <div className="flex flex-col md:flex-row gap-4 h-[400px] md:h-[500px]">
+                  <div className="md:w-[70%] h-full">
+                    <NewsCard item={newsItems[0]} title={newsItems[0].title} />
+                  </div>
+                  <div className="md:w-[30%] h-full">
+                    <NewsCard item={newsItems[1]} title={newsItems[1].title} />
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
+              </CarouselItem>
 
-          {/* Controls - Only visible on group hover */}
-          <button
-            onClick={prev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-4 w-8 h-8 rounded-full bg-white shadow-lg flex items-center justify-center text-slate-400 hover:text-tech hover:scale-110 transition-all z-20 border border-slate-100 opacity-0 group-hover:opacity-100"
-          >
-            <ChevronLeft className="w-4 h-4" />
-          </button>
-          <button
-            onClick={next}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-4 w-8 h-8 rounded-full bg-white shadow-lg flex items-center justify-center text-slate-400 hover:text-tech hover:scale-110 transition-all z-20 border border-slate-100 opacity-0 group-hover:opacity-100"
-          >
-            <ChevronRight className="w-4 h-4" />
-          </button>
+              {/* Slide 2: 50% | 50% */}
+              <CarouselItem className="pl-4 basis-full">
+                <div className="flex flex-col md:flex-row gap-4 h-[400px] md:h-[500px]">
+                  <div className="md:w-[50%] h-full">
+                    <NewsCard item={newsItems[2]} title={newsItems[2].title} />
+                  </div>
+                  <div className="md:w-[50%] h-full">
+                    <NewsCard item={newsItems[3]} title={newsItems[3].title} />
+                  </div>
+                </div>
+              </CarouselItem>
 
-          {/* Pagination */}
-          <div className="flex justify-center gap-1 mt-4">
-            {newsItems.map((_, i) => (
+              {/* Slide 3: 40% | 60% */}
+              <CarouselItem className="pl-4 basis-full">
+                <div className="flex flex-col md:flex-row gap-4 h-[400px] md:h-[500px]">
+                  <div className="md:w-[40%] h-full">
+                    <NewsCard item={newsItems[0]} title={newsItems[0].title} />
+                  </div>
+                  <div className="md:w-[60%] h-full">
+                    <NewsCard item={newsItems[1]} title={newsItems[1].title} />
+                  </div>
+                </div>
+              </CarouselItem>
+
+            </CarouselContent>
+            
+            <CarouselPrevious className="hidden md:flex -left-6 h-12 w-12 border-none bg-white shadow-lg hover:bg-blue-50 text-blue-600 transition-all" />
+            <CarouselNext className="hidden md:flex -right-6 h-12 w-12 border-none bg-white shadow-lg hover:bg-blue-50 text-blue-600 transition-all" />
+          </Carousel>
+
+          {/* Pagination Dots */}
+          <div className="flex justify-center gap-2 mt-10">
+            {Array.from({ length: count }).map((_, i) => (
               <button
                 key={i}
-                onClick={() => setCurrentIndex(i)}
+                onClick={() => api?.scrollTo(i)}
                 className={cn(
-                  "h-0.5 rounded-full transition-all duration-300",
-                  currentIndex === i ? "w-4 bg-tech" : "w-1 bg-slate-200 hover:bg-slate-300"
+                  "h-1.5 transition-all duration-300 rounded-full",
+                  current === i 
+                    ? "w-8 bg-blue-600" 
+                    : "w-2 bg-slate-300 hover:bg-slate-400"
                 )}
+                aria-label={`Go to slide ${i + 1}`}
               />
             ))}
           </div>

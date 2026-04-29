@@ -11,21 +11,21 @@ import {
 } from "lucide-react";
 import logo from "@/assets/logo.png";
 import HexagonBackground from "@/components/HexagonBackground";
-import CapabilitiesSection from "@/components/CapabilitiesSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
-import { 
-  ProcessSection, 
-  WhatWeDoSection, 
-  CaseStudiesSection, 
-  WhyUsSection, 
-  AboutSection, 
-  FounderSection, 
-  TeamSection, 
-  NewsSection, 
-  AchievementsSection, 
-  TestimonialsSection, 
+import {
+  BrandsSection,
+  ProcessSection,
+  WhatWeDoSection,
+  CaseStudiesSection,
+  WhyUsSection,
+  AboutSection,
+  FounderSection,
+  NewsSection,
+  AchievementsSection,
+  TestimonialsSection,
   ContactSection,
+  HomeImageSection,
 } from "@/components/sections";
 import { Button } from "@/components/ui/button";
 
@@ -37,21 +37,15 @@ export default function LandingPage() {
       {/* Hero Section */}
       <section
         id="hero"
-        className="relative z-10 min-h-[90vh] flex flex-col items-center justify-center px-4 md:px-6 pt-32 pb-20"
+        className="relative z-10 min-h-[70vh] flex flex-col items-center justify-center px-4 md:px-6 pt-24 pb-16"
       >
         <div className="max-w-4xl mx-auto text-center animate-fade-in-up">
-          <Image
-            src={logo}
-            alt="My Tec Sys"
-            className="h-14 md:h-20 w-auto mx-auto mb-8"
-            priority
-          />
-          <h1 className="font-tech text-4xl md:text-6xl lg:text-7xl font-bold text-gradient-tech mb-6 tracking-tight">
+          <h1 className="font-tech text-3xl md:text-5xl lg:text-6xl font-bold text-gradient-tech mb-6 tracking-tight">
             AI-Powered Innovation
             <br />
             <span className="text-foreground">For Your Business</span>
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10">
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-10">
             Transform your ideas into reality with intelligent technology solutions.
             We combine AI research, cloud infrastructure, and engineering excellence.
           </p>
@@ -69,19 +63,19 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <CapabilitiesSection />
+      <HomeImageSection />
+      <BrandsSection />
       <ProcessSection />
-      <AboutSection />
       <WhatWeDoSection />
-      
+
       <CaseStudiesSection />
       <WhyUsSection />
+      <AboutSection />
       <FounderSection />
-      <TeamSection />
       <NewsSection />
       <TestimonialsSection />
       <AchievementsSection />
-      
+
       <ContactSection />
       <CTASection />
       <Footer />

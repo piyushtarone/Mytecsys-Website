@@ -1,30 +1,34 @@
 import React from "react";
 import { cn } from "@/lib/utils";
+import Group950 from "@/assets/Group 950.png";
+import ElegantImg from "@/assets/elegant.png";
+import TeleworkerImg from "@/assets/teleworker.png";
+import Group9501 from "@/assets/Group 9501.png";
 
 const services = [
   {
     title: "Software Development",
-    subtitle: "Experience best software develop our team",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800",
-    className: "lg:col-span-2 row-span-1",
+    subtitle: "Experience best software development with our team",
+    image: Group950.src,
+    className: "lg:col-span-3 row-span-1",
     vertical: false,
+    showLearnMore: true,
   },
   {
     title: "Product Management",
-    image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=800",
+    image: ElegantImg.src,
     className: "lg:col-span-1 row-span-1",
     vertical: true,
   },
   {
     title: "Business Development",
-    subtitle: "Your Business our team work is best combination",
-    image: "https://images.unsplash.com/photo-1522071823991-b19c7f57c5d5?auto=format&fit=crop&q=80&w=800",
-    className: "lg:col-span-2 row-span-1",
-    vertical: false,
+    image: TeleworkerImg.src,
+    className: "lg:col-span-1 row-span-1",
+    vertical: true,
   },
   {
     title: "Web Designing",
-    image: "https://images.unsplash.com/photo-1581291518151-0107e7448817?auto=format&fit=crop&q=80&w=800",
+    image: Group9501.src,
     className: "lg:col-span-1 row-span-1",
     vertical: true,
   },
@@ -43,48 +47,38 @@ const WhatWeDoSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-2 h-[350px]">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-3 h-[350px]">
           {services.map((service, index) => (
             <div
               key={index}
               className={cn(
-                "relative group rounded-[1.5rem] overflow-hidden transition-all duration-700 hover:shadow-xl hover:shadow-tech/10",
+                "relative group rounded-lg overflow-hidden transition-all duration-700 hover:shadow-xl hover:shadow-tech/10",
                 service.className
               )}
             >
               {/* Background Image */}
               <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-110"
-                style={{ backgroundImage: `url(${service.image})` }}
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105"
+                style={{ backgroundImage: `url("${service.image}")` }}
               />
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-all duration-500" />
-
-              {/* Content */}
-              <div
-                className={cn(
-                  "absolute inset-0 p-6 flex flex-col justify-center",
-                  service.vertical ? "items-center" : "items-start"
-                )}
-              >
-                {service.vertical ? (
-                  <h3 className="text-base md:text-lg font-bold text-white tracking-widest uppercase [writing-mode:vertical-lr] rotate-180 transform transition-all duration-500 group-hover:text-tech group-hover:scale-105">
+              
+              {/* Overlay Content */}
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent p-6 flex flex-col justify-end">
+                {service.title && (
+                  <h3 className="text-white font-bold text-lg leading-tight mb-1">
                     {service.title}
                   </h3>
-                ) : (
-                  <div className="max-w-xs">
-                    <h3 className="text-xs md:text-sm font-bold text-white mb-1 uppercase tracking-tight opacity-80">
-                      {service.title}
-                    </h3>
-                    {service.subtitle && (
-                      <p className="text-white text-lg md:text-xl font-bold leading-tight">
-                        {service.subtitle.split(' ').map((word, i) => (
-                          <span key={i} className={i === 1 || i === 2 ? "text-white" : "text-white/90"}>
-                            {word}{' '}
-                          </span>
-                        ))}
-                      </p>
-                    )}
+                )}
+                {service.subtitle && (
+                  <p className="text-white/90 text-sm font-medium leading-tight">
+                    {service.subtitle}
+                  </p>
+                )}
+                {service.showLearnMore && (
+                  <div className="mt-4">
+                    <span className="text-tech text-sm font-bold group-hover:underline cursor-pointer">
+                      Learn More &rarr;
+                    </span>
                   </div>
                 )}
               </div>

@@ -1,11 +1,12 @@
+export { default as BrandsSection } from "./BrandsSection";
 export { default as ProcessSection } from "./ProcessSection";
 export { default as WhatWeDoSection } from "./WhatWeDoSection";
 export { default as CaseStudiesSection } from "./CaseStudiesSection";
 export { default as WhyUsSection } from "./WhyUsSection";
 export { default as AboutSection } from "./AboutSection";
 export { default as FounderSection } from "./FounderSection";
-export { default as TeamSection } from "./TeamSection";
 export { default as NewsSection } from "./NewsSection";
 export { default as TestimonialsSection } from "./TestimonialsSection";
 export { default as AchievementsSection } from "./AchievementsSection";
 export { default as ContactSection } from "./ContactSection";
+export { default as HomeImageSection } from "./HomeImageSection";

@@ -67,9 +67,19 @@ const TestimonialsSection = () => {
   const col3 = [...testimonials, ...testimonials];
 
   return (
-    <section className="py-12 px-4 md:px-6 relative z-10 overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-b from-transparent via-tech/5 to-transparent pointer-events-none" />
+    <section className="py-12 px-4 md:px-6 relative z-10 overflow-hidden bg-blue-100">
+      {/* Hexagon Honeycomb Background Pattern */}
+      <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.06]" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="hexagons" width="28" height="49" patternUnits="userSpaceOnUse" patternTransform="scale(2.5)">
+            <path d="M14 0L28 8v16L14 32l-14-8V8l14-8zm0 4l-11 6v12l11 6 11-6V10l-11-6zM14 49L0 41v-8l14-8 14 8v8l-14 8zm0-4l11-6v-4l-11-6-11 6v4l11 6z" fill="currentColor" fillRule="evenodd" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#hexagons)" className="text-blue-900" />
+      </svg>
+      
+      {/* Background decoration gradient */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-b from-transparent via-blue-500/5 to-transparent pointer-events-none" />
       
       <div className="container mx-auto max-w-7xl relative">
         <div className="text-center mb-10">
@@ -83,8 +93,8 @@ const TestimonialsSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-[600px] overflow-hidden relative">
           {/* Fading Overlays */}
-          <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white z-20 pointer-events-none" />
-          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white z-20 pointer-events-none" />
+          <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-blue-100 z-20 pointer-events-none" />
+          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-blue-100 z-20 pointer-events-none" />
 
           {/* Column 1: Continuous Up */}
           <div className="flex flex-col gap-6 animate-marquee-up">

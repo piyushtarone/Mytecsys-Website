@@ -2,6 +2,11 @@
 
 import React, { useState } from "react";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
+import Component8 from "@/assets/Component 8.png";
+import Component9 from "@/assets/Component 9.png";
+import Component10 from "@/assets/Component 10.png";
+import Component7 from "@/assets/Component 7.png";
 
 const categories = [
   "All",
@@ -16,33 +21,27 @@ const projects = [
   {
     title: "Enterprise Dashboard",
     category: "Development",
-    image: "https://images.unsplash.com/photo-1551288049-bbda38a10ad5?auto=format&fit=crop&q=80&w=800",
+    image: Component8,
+    className: "lg:col-span-1",
+  },
+  {
+    title: "Biometric IOT",
+    category: "IOT",
+    image: Component9,
     className: "lg:col-span-1",
   },
   {
     title: "PortoCreate",
     category: "E-commerce",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
+    image: Component10,
     className: "lg:col-span-1",
   },
   {
     title: "AstroSpark",
     category: "Development",
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=800",
+    image: Component7,
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac mollis nulla.",
     className: "lg:col-span-1 lg:row-span-2",
-  },
-  {
-    title: "Biometric IOT",
-    category: "IOT",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800",
-    className: "lg:col-span-1",
-  },
-  {
-    title: "PortoCreate Mobile",
-    category: "E-commerce",
-    image: "https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?auto=format&fit=crop&q=80&w=800",
-    className: "lg:col-span-1",
   },
 ];
 
@@ -57,25 +56,25 @@ const CaseStudiesSection = () => {
   return (
     <section id="products" className="py-8 px-4 md:px-6 relative z-10 overflow-hidden bg-slate-50/50">
       <div className="container mx-auto max-w-7xl">
-        <div className="text-center mb-6">
-          <h2 className="text-xl md:text-2xl font-bold text-slate-900 mb-0.5 font-tech">
+        <div className="text-center mb-10">
+          <h2 className="text-2xl md:text-4xl font-bold text-slate-900 mb-1 font-tech">
             Case Studies
           </h2>
-          <p className="text-slate-500 font-medium tracking-widest uppercase text-[8px]">
+          <p className="text-slate-500 font-medium tracking-widest uppercase text-[12px]">
             (Work We Do)
           </p>
         </div>
 
         {/* Filter */}
-        <div className="flex flex-wrap justify-center gap-3 md:gap-5 mb-8">
+        <div className="flex flex-wrap justify-center gap-4 md:gap-8 mb-10">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
               className={cn(
-                "text-[10px] font-bold transition-all duration-300 relative py-1",
+                "text-sm md:text-base font-bold transition-all duration-300 relative py-2 px-1",
                 activeCategory === cat
-                  ? "text-tech"
+                  ? "text-tech scale-110"
                   : "text-slate-400 hover:text-slate-600"
               )}
             >
@@ -133,6 +132,12 @@ const CaseStudiesSection = () => {
             ))}
           </div>
         </div>
+
+        <div className="mt-10 flex justify-center">
+          <a href="#" className="flex items-center gap-1 text-tech font-semibold text-sm hover:underline transition-all">
+            View All <span className="text-lg leading-none">&rarr;</span>
+          </a>
+        </div>
       </div>
     </section>
   );
@@ -157,46 +162,36 @@ const ProjectCard = ({
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
     className={cn(
-      "group relative rounded-[1rem] overflow-hidden bg-slate-100/50 shadow-sm transition-all duration-700 min-h-[180px]",
+      "group relative rounded-3xl overflow-hidden bg-[#F2F8FF] transition-all duration-700 min-h-[220px] w-full",
       isHovered ? "shadow-lg scale-[1.02] z-20" : "z-10",
-      isOtherHovered ? "blur-[2px] opacity-50 scale-[0.98]" : "",
+      isOtherHovered ? "opacity-70 scale-[0.98]" : "",
       className
     )}
   >
-    {/* Image Container with Hover Animation */}
-    <div className="absolute inset-0 overflow-hidden">
-      <img
+    {/* Image Container */}
+    <div className="absolute inset-0 p-8 flex items-center justify-center">
+      <Image
         src={project.image}
         alt={project.title}
-        className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110 group-hover:blur-[2px]"
+        fill
+        className="object-contain p-8 transition-transform duration-700 group-hover:scale-105"
       />
-      <div className="absolute inset-0 bg-black/10 group-hover:bg-black/40 transition-colors duration-500" />
     </div>
 
     {/* Content Overlay */}
-    <div className="absolute inset-0 p-4 flex flex-col justify-end transform translate-y-2 group-hover:translate-y-0 transition-all duration-500 opacity-0 group-hover:opacity-100">
-      <p className="text-tech text-[8px] font-bold uppercase tracking-widest mb-0.5">
+    <div className="absolute inset-0 p-6 flex flex-col justify-end bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 opacity-0 group-hover:opacity-100 rounded-3xl">
+      <p className="text-tech text-[10px] font-bold uppercase tracking-widest mb-1">
         {project.category}
       </p>
-      <h3 className="text-base font-bold text-white mb-0.5">
+      <h3 className="text-lg font-bold text-white mb-1">
         {project.title}
       </h3>
       {project.description && (
-        <p className="text-white/80 text-[10px] line-clamp-1">
+        <p className="text-white/80 text-xs line-clamp-2">
           {project.description}
         </p>
       )}
     </div>
-
-    {/* Always visible title (bottom left) as per image style for some cards */}
-    {project.title === "AstroSpark" && (
-      <div className="absolute bottom-6 left-4 group-hover:opacity-0 transition-opacity duration-300">
-        <h3 className="text-base font-bold text-slate-900">{project.title}</h3>
-        <p className="text-slate-500 text-[10px] max-w-[150px] mt-0.5 line-clamp-2">
-          {project.description}
-        </p>
-      </div>
-    )}
   </div>
 );
 

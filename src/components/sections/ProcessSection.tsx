@@ -26,28 +26,28 @@ const steps = [
 
 const ProcessSection = () => {
   return (
-    <section className="py-24 px-4 md:px-6 relative z-10">
+    <section className="py-16 px-4 md:px-6 relative z-10">
       <div className="container mx-auto max-w-7xl">
-        <div className="flex flex-col lg:flex-row gap-16 items-center">
-          {/* Left side: Title */}
-          <div className="lg:w-1/3">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 leading-[1.1] mb-6">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center lg:items-start">
+          {/* Title Column */}
+          <div className="lg:col-span-1 text-center lg:text-left mb-8 lg:mb-0">
+            <h2 className="text-xl font-bold text-slate-900 leading-snug">
               Our Simple Process <br />
               <span className="text-tech">To Simplify Your Business</span>
             </h2>
           </div>
 
-          {/* Right side: Steps */}
-          <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-12">
+          {/* Steps Columns */}
+          <div className="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
             {steps.map((step, index) => (
-              <div key={index} className="group relative">
-                <div className="mb-6 inline-flex p-4 rounded-2xl bg-tech/5 text-tech group-hover:bg-tech group-hover:text-white transition-all duration-500 group-hover:shadow-xl group-hover:shadow-tech/20">
-                  <step.icon size={36} strokeWidth={1.5} />
+              <div key={index} className="group relative text-center">
+                <div className="mb-4 inline-flex p-3 rounded-2xl bg-tech/5 text-tech group-hover:bg-tech group-hover:text-white transition-all duration-500 group-hover:shadow-xl group-hover:shadow-tech/20">
+                  <step.icon size={28} strokeWidth={1.5} />
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-tech transition-colors duration-300">
+                <h3 className="text-base font-bold text-slate-900 mb-1 group-hover:text-tech transition-colors duration-300">
                   {step.title}
                 </h3>
-                <p className="text-slate-500 leading-relaxed max-w-xs text-base">
+                <p className="text-slate-500 leading-relaxed text-xs">
                   {step.description}
                 </p>
               </div>

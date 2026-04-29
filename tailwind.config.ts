@@ -60,10 +60,14 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        tech: ['Orbitron', 'sans-serif'],
+        tech: ['Inter', 'sans-serif'],
         sans: ['Inter', 'sans-serif'],
       },
       keyframes: {
+        marquee: {
+          "0%": { transform: "translateX(-50%)" },
+          "100%": { transform: "translateX(0%)" },
+        },
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -91,6 +95,8 @@ export default {
         "gear-spin": "gear-spin 8s linear infinite",
         "gear-spin-reverse": "gear-spin-reverse 6s linear infinite",
         "fade-in-up": "fade-in-up 0.8s ease-out forwards",
+        marquee: "marquee 25s linear infinite",
+        "gentle-pulse": "gentle-pulse 2s ease-in-out infinite",
       },
     },
   },
