@@ -53,6 +53,92 @@ const WhyUsSection = () => {
 
   return (
     <section id="industries" className="py-12 px-4 md:px-6 relative z-10 overflow-hidden bg-white">
+
+      {/* Honeycomb Background Decoration */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Top-left honeycomb cluster */}
+        <svg
+          className="absolute -top-10 -left-14 w-80 h-80 opacity-[0.05] text-tech"
+          viewBox="0 0 300 300"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          {[
+            [75,30],[150,30],[225,30],
+            [37.5,95],[112.5,95],[187.5,95],[262.5,95],
+            [75,160],[150,160],[225,160],
+            [37.5,225],[112.5,225],[187.5,225],[262.5,225],
+          ].map(([cx, cy], i) => (
+            <polygon
+              key={i}
+              points={`${cx},${cy-32} ${cx+28},${cy-16} ${cx+28},${cy+16} ${cx},${cy+32} ${cx-28},${cy+16} ${cx-28},${cy-16}`}
+              stroke="currentColor"
+              strokeWidth="2"
+              fill="none"
+            />
+          ))}
+        </svg>
+
+        {/* Bottom-right honeycomb cluster */}
+        <svg
+          className="absolute -bottom-10 -right-14 w-80 h-80 opacity-[0.05] text-tech"
+          viewBox="0 0 300 300"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          {[
+            [75,30],[150,30],[225,30],
+            [37.5,95],[112.5,95],[187.5,95],[262.5,95],
+            [75,160],[150,160],[225,160],
+            [37.5,225],[112.5,225],[187.5,225],[262.5,225],
+          ].map(([cx, cy], i) => (
+            <polygon
+              key={i}
+              points={`${cx},${cy-32} ${cx+28},${cy-16} ${cx+28},${cy+16} ${cx},${cy+32} ${cx-28},${cy+16} ${cx-28},${cy-16}`}
+              stroke="currentColor"
+              strokeWidth="2"
+              fill="none"
+            />
+          ))}
+        </svg>
+
+        {/* Top-right small filled accent */}
+        <svg
+          className="absolute top-6 right-10 w-24 h-36 opacity-[0.04] text-tech"
+          viewBox="0 0 100 160"
+          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          {[
+            [30,25],[75,25],
+            [5,75],[52,75],[98,75],
+            [30,125],[75,125],
+          ].map(([cx, cy], i) => (
+            <polygon
+              key={i}
+              points={`${cx},${cy-22} ${cx+19},${cy-11} ${cx+19},${cy+11} ${cx},${cy+22} ${cx-19},${cy+11} ${cx-19},${cy-11}`}
+            />
+          ))}
+        </svg>
+
+        {/* Bottom-left small filled accent */}
+        <svg
+          className="absolute bottom-6 left-10 w-24 h-36 opacity-[0.04] text-tech"
+          viewBox="0 0 100 160"
+          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          {[
+            [30,25],[75,25],
+            [5,75],[52,75],[98,75],
+            [30,125],[75,125],
+          ].map(([cx, cy], i) => (
+            <polygon
+              key={i}
+              points={`${cx},${cy-22} ${cx+19},${cy-11} ${cx+19},${cy+11} ${cx},${cy+22} ${cx-19},${cy+11} ${cx-19},${cy-11}`}
+            />
+          ))}
+        </svg>
+      </div>
+
       <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-10">
           <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-1 font-tech">

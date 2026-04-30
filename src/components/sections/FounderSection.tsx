@@ -68,23 +68,25 @@ const FounderSection = () => {
               }
             `}</style>
 
-            {/* Default Base Image - Entrance Animation Applied */}
-            <Image
-              src={FounderImage}
-              alt="Shhreyas Kawale"
-              fill
-              className="object-cover object-left grayscale transition-all duration-[1200ms] ease-in-out group-hover:blur-[12px] group-hover:scale-[1.05] animate-camera-focus"
-            />
+            {/* Entrance Animation Wrapper */}
+            <div className="absolute inset-0 w-full h-full animate-camera-focus">
+              {/* Default Base Image */}
+              <Image
+                src={FounderImage}
+                alt="Shhreyas Kawale"
+                fill
+                className="object-cover object-left grayscale transition-all duration-[1200ms] ease-in-out group-hover:blur-[12px] group-hover:scale-[1.05]"
+              />
+            </div>
 
             {/* Reflection on LEFT half - Clear mirror of the man */}
             <div className="absolute inset-y-0 left-0 w-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-[1200ms] ease-in-out overflow-hidden pointer-events-none z-20">
-              <div className="absolute inset-y-0 left-0 w-[200%] h-full">
+              <div className="absolute inset-y-0 left-0 w-[200%] h-full -scale-x-100">
                 <Image
                   src={FounderImage}
                   alt="Reflection"
                   fill
-                  style={{ transform: 'scaleX(-1)' }}
-                  className="object-cover object-left grayscale transition-transform duration-[1200ms] group-hover:scale-[1.05]"
+                  className="object-cover object-left grayscale transition-transform duration-[1200ms] ease-in-out group-hover:scale-[1.05]"
                 />
               </div>
             </div>
@@ -100,8 +102,8 @@ const FounderSection = () => {
                     key={idx} 
                     href="#" 
                     style={{ 
-                      transitionDelay: `${idx * 120}ms`,
-                      transitionDuration: '2000ms',
+                      transitionDelay: `${idx * 20}ms`,
+                      transitionDuration: '300ms',
                       transitionTimingFunction: 'cubic-bezier(0.22, 1, 0.36, 1)'
                     }}
                     className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 backdrop-blur-sm border border-white/20 shadow-sm hover:bg-white/20 transition-all opacity-0 blur-xl scale-90 translate-y-3 group-hover:opacity-100 group-hover:blur-0 group-hover:scale-100 group-hover:translate-y-0"
@@ -111,7 +113,7 @@ const FounderSection = () => {
                 ))}
               </div>
               <div 
-                style={{ transitionDelay: '600ms', transitionDuration: '1500ms' }}
+                style={{ transitionDelay: '100ms', transitionDuration: '300ms' }}
                 className="bg-white/80 backdrop-blur-sm text-slate-900 text-[10px] font-bold py-1.5 px-3 rounded shadow-sm uppercase tracking-wider whitespace-nowrap transition-all opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0"
               >
                 Founder & CEO

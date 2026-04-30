@@ -88,6 +88,32 @@ export default {
           from: { opacity: "0", transform: "translateY(30px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
+        "pan-horizontal": {
+          "0%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+          "100%": { backgroundPosition: "0% 50%" },
+        },
+        "zoom-pan": {
+          "0%": { 
+            transform: "translateX(-80px) scale(0.85)",
+            filter: "blur(6px)",
+            opacity: "0.6"
+          },
+          "50%": { 
+            transform: "translateX(0px) scale(1)",
+            filter: "blur(0px)",
+            opacity: "1"
+          },
+          "100%": { 
+            transform: "translateX(80px) scale(0.85)",
+            filter: "blur(6px)",
+            opacity: "0.6"
+          },
+        },
+        "zoom-rotate": {
+          "0%, 100%": { transform: "scale(1.1) rotate(-1.5deg)" },
+          "50%": { transform: "scale(1.0) rotate(1.5deg)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -97,6 +123,9 @@ export default {
         "fade-in-up": "fade-in-up 0.8s ease-out forwards",
         marquee: "marquee 25s linear infinite",
         "gentle-pulse": "gentle-pulse 2s ease-in-out infinite",
+        "pan-horizontal": "pan-horizontal 15s linear infinite",
+        "zoom-pan": "zoom-pan 8s ease-in-out infinite alternate",
+        "zoom-rotate": "zoom-rotate 12s ease-in-out infinite",
       },
     },
   },

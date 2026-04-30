@@ -68,19 +68,119 @@ const TestimonialsSection = () => {
 
   return (
     <section className="py-12 px-4 md:px-6 relative z-10 overflow-hidden bg-blue-100">
-      {/* Hexagon Honeycomb Background Pattern */}
-      <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.06]" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <pattern id="hexagons" width="28" height="49" patternUnits="userSpaceOnUse" patternTransform="scale(2.5)">
-            <path d="M14 0L28 8v16L14 32l-14-8V8l14-8zm0 4l-11 6v12l11 6 11-6V10l-11-6zM14 49L0 41v-8l14-8 14 8v8l-14 8zm0-4l11-6v-4l-11-6-11 6v4l11 6z" fill="currentColor" fillRule="evenodd" />
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#hexagons)" className="text-blue-900" />
-      </svg>
-      
-      {/* Background decoration gradient */}
+      {/* Honeycomb Background Decoration */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Top-left outlined cluster */}
+        <svg
+          className="absolute -top-10 -left-14 w-80 h-80 opacity-[0.07] text-blue-800"
+          viewBox="0 0 300 300"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          {[
+            [75,30],[150,30],[225,30],
+            [37.5,95],[112.5,95],[187.5,95],[262.5,95],
+            [75,160],[150,160],[225,160],
+            [37.5,225],[112.5,225],[187.5,225],[262.5,225],
+          ].map(([cx, cy], i) => (
+            <polygon
+              key={i}
+              points={`${cx},${cy-32} ${cx+28},${cy-16} ${cx+28},${cy+16} ${cx},${cy+32} ${cx-28},${cy+16} ${cx-28},${cy-16}`}
+              stroke="currentColor"
+              strokeWidth="2"
+              fill="none"
+            />
+          ))}
+        </svg>
+
+        {/* Top-right outlined cluster */}
+        <svg
+          className="absolute -top-10 -right-14 w-80 h-80 opacity-[0.07] text-blue-800"
+          viewBox="0 0 300 300"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          {[
+            [75,30],[150,30],[225,30],
+            [37.5,95],[112.5,95],[187.5,95],[262.5,95],
+            [75,160],[150,160],[225,160],
+            [37.5,225],[112.5,225],[187.5,225],[262.5,225],
+          ].map(([cx, cy], i) => (
+            <polygon
+              key={i}
+              points={`${cx},${cy-32} ${cx+28},${cy-16} ${cx+28},${cy+16} ${cx},${cy+32} ${cx-28},${cy+16} ${cx-28},${cy-16}`}
+              stroke="currentColor"
+              strokeWidth="2"
+              fill="none"
+            />
+          ))}
+        </svg>
+
+        {/* Bottom-left outlined cluster */}
+        <svg
+          className="absolute -bottom-10 -left-14 w-80 h-80 opacity-[0.07] text-blue-800"
+          viewBox="0 0 300 300"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          {[
+            [75,30],[150,30],[225,30],
+            [37.5,95],[112.5,95],[187.5,95],[262.5,95],
+            [75,160],[150,160],[225,160],
+            [37.5,225],[112.5,225],[187.5,225],[262.5,225],
+          ].map(([cx, cy], i) => (
+            <polygon
+              key={i}
+              points={`${cx},${cy-32} ${cx+28},${cy-16} ${cx+28},${cy+16} ${cx},${cy+32} ${cx-28},${cy+16} ${cx-28},${cy-16}`}
+              stroke="currentColor"
+              strokeWidth="2"
+              fill="none"
+            />
+          ))}
+        </svg>
+
+        {/* Bottom-right outlined cluster */}
+        <svg
+          className="absolute -bottom-10 -right-14 w-80 h-80 opacity-[0.07] text-blue-800"
+          viewBox="0 0 300 300"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          {[
+            [75,30],[150,30],[225,30],
+            [37.5,95],[112.5,95],[187.5,95],[262.5,95],
+            [75,160],[150,160],[225,160],
+            [37.5,225],[112.5,225],[187.5,225],[262.5,225],
+          ].map(([cx, cy], i) => (
+            <polygon
+              key={i}
+              points={`${cx},${cy-32} ${cx+28},${cy-16} ${cx+28},${cy+16} ${cx},${cy+32} ${cx-28},${cy+16} ${cx-28},${cy-16}`}
+              stroke="currentColor"
+              strokeWidth="2"
+              fill="none"
+            />
+          ))}
+        </svg>
+
+        {/* Centre filled accent */}
+        <svg
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 opacity-[0.03] text-blue-800"
+          viewBox="0 0 160 160"
+          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          {[
+            [40,25],[100,25],
+            [10,80],[70,80],[130,80],
+            [40,135],[100,135],
+          ].map(([cx, cy], i) => (
+            <polygon
+              key={i}
+              points={`${cx},${cy-24} ${cx+21},${cy-12} ${cx+21},${cy+12} ${cx},${cy+24} ${cx-21},${cy+12} ${cx-21},${cy-12}`}
+            />
+          ))}
+        </svg>
+      </div>
+
+      {/* Subtle gradient overlay */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-b from-transparent via-blue-500/5 to-transparent pointer-events-none" />
-      
+
       <div className="container mx-auto max-w-7xl relative">
         <div className="text-center mb-10">
           <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-1 font-tech">

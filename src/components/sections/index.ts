@@ -10,3 +10,5 @@ export { default as TestimonialsSection } from "./TestimonialsSection";
 export { default as AchievementsSection } from "./AchievementsSection";
 export { default as ContactSection } from "./ContactSection";
 export { default as HomeImageSection } from "./HomeImageSection";
+export { default as GallerySection } from "./GallerySection";
+export { HeroSection } from "./HeroSection";

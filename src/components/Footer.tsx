@@ -78,23 +78,22 @@ const Footer = () => {
               <div className="flex items-start gap-3 text-slate-500 text-sm leading-relaxed">
                 <MapPin className="w-4 h-4 text-tech mt-1 flex-shrink-0" />
                 <p>
-                  Ravi Nagar,<br />
-                  Nagpur, Maharashtra 344056
+                  Jai umiya shivam apartment, 102,<br />
+                  6579/A/47, Chandranagar, Rameshwari,<br />
+                  Nagpur, Maharashtra 440027
                 </p>
               </div>
             </div>
 
-            {/* Mini Map Placeholder */}
-            <div className="relative h-32 rounded-2xl overflow-hidden border border-slate-200 shadow-sm group">
-              <img 
-                src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80&w=600" 
-                alt="Location Map"
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+            {/* Map */}
+            <div className="relative h-48 rounded-2xl overflow-hidden border border-slate-200 shadow-sm group">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3722.1654877709774!2d79.09411907402685!3d21.10598098516086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4bf45bf38a799%3A0xc8aede22b2ac194b!2sJai%20umiya%20shivam%20apartment!5e0!3m2!1sen!2sin!4v1714352664426!5m2!1sen!2sin"
+                className="w-full h-full border-0 grayscale group-hover:grayscale-0 transition-all duration-700"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
               />
-              <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors" />
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center animate-bounce">
-                <div className="w-3 h-3 bg-primary rounded-full" />
-              </div>
             </div>
           </div>
 

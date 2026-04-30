@@ -50,9 +50,21 @@ const NewsSection = () => {
     setCount(api.scrollSnapList().length);
     setCurrent(api.selectedScrollSnap());
 
-    api.on("select", () => {
+    const onSelect = () => {
       setCurrent(api.selectedScrollSnap());
-    });
+    };
+
+    api.on("select", onSelect);
+
+    // Auto-play interval: 2 seconds
+    const intervalId = setInterval(() => {
+      api.scrollNext();
+    }, 2000);
+
+    return () => {
+      api.off("select", onSelect);
+      clearInterval(intervalId);
+    };
   }, [api]);
 
   const NewsCard = ({ item, title }: { item: any; title?: string }) => (
@@ -67,7 +79,7 @@ const NewsSection = () => {
       </div>
       {title && (
         <div className="p-4">
-          <h3 className="text-sm font-bold text-slate-800 line-clamp-2">{title}</h3>
+          <h3 className="text-sm font-bold text-slate-800 line-clamp-1">{title}</h3>
         </div>
       )}
     </div>
