@@ -1,98 +1,203 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
-// import HomeImg from "@/assets/2.jpeg";
+import { motion, AnimatePresence } from "framer-motion";
 import FarLeftImg from "@/assets/6.jpeg";
 import LeftImg from "@/assets/1.jpeg";
 import CenterImg from "@/assets/3.jpeg";
+import CyberImg from "@/assets/cyber_security.png";
 import RightImg from "@/assets/5.jpeg";
 import FarRightImg from "@/assets/4.jpeg";
 
+const CARDS = [
+  { id: "ui-ux", title: "UI/UX", img: FarLeftImg, scale: 1.8 },
+  { id: "automation", title: "AUTOMATION", img: LeftImg, scale: 1.3 },
+  { id: "ai", title: "AI", img: CenterImg, scale: 1.3 },
+  { id: "cyber-security", title: "CYBER SECURITY", img: CyberImg, scale: 1.3 },
+  { id: "dev", title: "DEV", img: FarRightImg, scale: 1.3 },
+];
+
 const HomeImageSection = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const autoplayTimerRef = useRef<NodeJS.Timeout | null>(null);
+
+  const nextSlide = useCallback(() => {
+    setCurrentIndex((prev) => (prev + 1) % CARDS.length);
+  }, []);
+
+  useEffect(() => {
+    if (!isHovered) {
+      autoplayTimerRef.current = setInterval(nextSlide, 3500);
+    }
+    return () => {
+      if (autoplayTimerRef.current) clearInterval(autoplayTimerRef.current);
+    };
+  }, [isHovered, nextSlide]);
+
+  const getSlotIndex = (itemIndex: number) => {
+    return (itemIndex + currentIndex) % CARDS.length;
+  };
+
+  const getSlotStyles = (slotIndex: number) => {
+    switch (slotIndex) {
+      case 0: // Far Left
+        return {
+          x: "-180%",
+          opacity: 0.7,
+          scale: 0.82,
+          zIndex: 10,
+          skewY: 6,
+          height: "250px",
+          filter: "blur(0px)",
+        };
+      case 1: // Left
+        return {
+          x: "-90%",
+          opacity: 0.9,
+          scale: 0.92,
+          zIndex: 20,
+          skewY: 4,
+          height: "310px",
+          filter: "blur(0px)",
+        };
+      case 2: // Center (Active)
+        return {
+          x: "0%",
+          opacity: 1,
+          scale: 1.05,
+          zIndex: 40,
+          skewY: 0,
+          height: "380px",
+          filter: "blur(0px)",
+        };
+      case 3: // Right
+        return {
+          x: "90%",
+          opacity: 0.9,
+          scale: 0.92,
+          zIndex: 20,
+          skewY: -4,
+          height: "310px",
+          filter: "blur(0px)",
+        };
+      case 4: // Far Right
+        return {
+          x: "180%",
+          opacity: 0.7,
+          scale: 0.82,
+          zIndex: 10,
+          skewY: -6,
+          height: "250px",
+          filter: "blur(0px)",
+        };
+      default:
+        return { x: "0%", opacity: 0, scale: 0.5, zIndex: 0, skewY: 0, height: "380px", filter: "blur(0px)" };
+    }
+  };
+
   return (
-    <section className="relative z-10 overflow-hidden w-full bg-transparent">
-      <div className="w-full relative flex items-end justify-center px-4">
+    <section
+      className="relative z-10 overflow-visible w-full bg-transparent pt-0 pb-0"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {/* Hexagon Pattern Background - Fixed for seamless transition */}
+      <div className="absolute inset-0 opacity-[0.05] pointer-events-none"
+        style={{ 
+          backgroundImage: 'url("https://www.transparenttextures.com/patterns/hexellence.png")',
+          backgroundAttachment: 'fixed'
+        }} />
+      <div className="w-full relative flex flex-col items-center justify-end px-4 min-h-[450px] md:min-h-[550px] lg:min-h-[600px]">
 
+        {/* Carousel Container */}
+        <div className="relative w-full max-w-7xl h-[400px] md:h-[500px] lg:h-[550px] flex items-end justify-center">
+          <AnimatePresence initial={false}>
+            {CARDS.map((card, index) => {
+              const slotIndex = getSlotIndex(index);
+              const styles = getSlotStyles(slotIndex);
+              const isActive = slotIndex === 2;
 
-        {/* Image Gallery Group */}
-        <div className="relative z-20 flex items-end gap-1 md:gap-2 lg:gap-3 pb-0">
-          {/* Far Left Image (6.jpeg) */}
-          <div className="animate-fade-in-up" style={{ animationDelay: '400ms', animationFillMode: 'both' }}>
-            <div className="flex flex-col items-center gap-2 origin-top-left skew-y-[8deg]">
-              <span className="text-blue-950 font-extrabold text-[10px] md:text-xs tracking-[0.2em] font-tech uppercase">UI/UX</span>
-              <div className="relative w-[90px] h-[105px] md:w-[160px] md:h-[185px] lg:w-[220px] lg:h-[265px] rounded-2xl overflow-hidden bg-white group animate-glow-pulse border-2 transition-all duration-500">
-                <Image
-                  src={FarLeftImg}
-                  alt="UI/UX"
-                  fill
-                  className="object-cover object-top scale-[1.8]"
-                />
-              </div>
-            </div>
-          </div>
+              return (
+                <motion.div
+                  key={card.id}
+                  animate={{
+                    x: styles.x,
+                    opacity: styles.opacity,
+                    scale: styles.scale,
+                    zIndex: styles.zIndex,
+                    skewY: styles.skewY,
+                    filter: styles.filter,
+                    y: isActive ? [0, -12, 0] : 0,
+                  }}
+                  transition={{
+                    x: { duration: 1.2, ease: [0.32, 0.72, 0, 1] },
+                    opacity: { duration: 0.8 },
+                    scale: { duration: 1.2 },
+                    skewY: { duration: 1.2 },
+                    y: isActive ? { duration: 4, repeat: Infinity, ease: "easeInOut" } : { duration: 0.5 },
+                    zIndex: { duration: 0 } // Instant depth swap to prevent overlap issues
+                  }}
+                  className="absolute bottom-12 flex flex-col items-center gap-6 md:gap-10 will-change-transform origin-bottom"
+                  style={{ zIndex: styles.zIndex }}
+                >
+                  {/* Label - Fixed visibility and z-index */}
+                  <motion.span
+                    animate={{
+                      scale: isActive ? 1.15 : 0.95,
+                      y: isActive ? -12 : 0,
+                      opacity: 1,
+                    }}
+                    className="text-blue-950 font-black text-[12px] md:text-base lg:text-xl tracking-[0.1em] font-tech uppercase drop-shadow-md z-[100] relative text-center whitespace-nowrap"
+                  >
+                    {card.title}
+                  </motion.span>
 
-          {/* Left Image (1.jpeg) */}
-          <div className="animate-fade-in-up" style={{ animationDelay: '200ms', animationFillMode: 'both' }}>
-            <div className="flex flex-col items-center gap-2 origin-top-left skew-y-[8deg]">
-              <span className="text-blue-950 font-extrabold text-[10px] md:text-xs tracking-[0.2em] font-tech uppercase">Automation</span>
-              <div className="relative w-[90px] h-[120px] md:w-[160px] md:h-[210px] lg:w-[220px] lg:h-[290px] rounded-2xl overflow-hidden bg-white group animate-glow-pulse border-2 transition-all duration-500">
-                <Image
-                  src={LeftImg}
-                  alt="Automation"
-                  fill
-                  className="object-cover object-top scale-[1.3]"
-                />
-              </div>
-            </div>
-          </div>
+                  {/* Card Body */}
+                  <motion.div
+                    animate={{
+                      height: styles.height
+                    }}
+                    className={`
+                      relative w-[120px] md:w-[210px] lg:w-[280px] 
+                      rounded-xl md:rounded-2xl lg:rounded-[1.5rem] overflow-hidden bg-white shadow-2xl transition-all duration-700
+                      border-[2px] md:border-[3px]
+                      ${isActive ? "animate-glow-pulse border-blue-400/70" : "border-slate-200/50"}
+                    `}
+                    style={{ 
+                      height: styles.height,
+                      maskImage: 'linear-gradient(to bottom, black 40%, transparent 100%)',
+                      WebkitMaskImage: 'linear-gradient(to bottom, black 40%, transparent 100%)'
+                    }}
+                  >
+                    <Image
+                      src={card.img}
+                      alt={card.title}
+                      fill
+                      className={`object-cover object-top transition-transform duration-1000 ${isActive ? "scale-110" : "scale-100"}`}
+                      style={{ transform: `scale(${card.scale})` }}
+                      priority
+                      sizes="(max-width: 768px) 140px, (max-width: 1200px) 240px, 320px"
+                    />
+ 
+                    {/* Futuristic Overlays */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-blue-900/30 via-transparent to-transparent opacity-50 pointer-events-none" />
+                  </motion.div>
 
-          {/* Middle Image (3.jpeg) */}
-          <div className="animate-fade-in-up" style={{ animationDelay: '0ms', animationFillMode: 'both' }}>
-            <div className="flex flex-col items-center gap-2">
-              <span className="text-blue-950 font-extrabold text-[10px] md:text-xs tracking-[0.2em] font-tech uppercase">AI</span>
-              <div className="relative w-[90px] h-[135px] md:w-[160px] md:h-[240px] lg:w-[220px] lg:h-[320px] rounded-2xl overflow-hidden bg-white group animate-glow-pulse border-2 transition-all duration-500">
-                <Image
-                  src={CenterImg}
-                  alt="AI"
-                  fill
-                  className="object-cover object-top scale-[1.3]"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Right Image (5.jpeg) */}
-          <div className="animate-fade-in-up" style={{ animationDelay: '200ms', animationFillMode: 'both' }}>
-            <div className="flex flex-col items-center gap-2 origin-top-right -skew-y-[8deg]">
-              <span className="text-blue-950 font-extrabold text-[10px] md:text-xs tracking-[0.2em] font-tech uppercase">AR</span>
-              <div className="relative w-[90px] h-[120px] md:w-[160px] md:h-[210px] lg:w-[220px] lg:h-[290px] rounded-2xl overflow-hidden bg-white group animate-glow-pulse border-2 transition-all duration-500">
-                <Image
-                  src={RightImg}
-                  alt="AR"
-                  fill
-                  className="object-cover object-top scale-[1.3]"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Far Right Image (4.jpeg) */}
-          <div className="animate-fade-in-up" style={{ animationDelay: '400ms', animationFillMode: 'both' }}>
-            <div className="flex flex-col items-center gap-2 origin-top-right -skew-y-[8deg]">
-              <span className="text-blue-950 font-extrabold text-[10px] md:text-xs tracking-[0.2em] font-tech uppercase">Dev</span>
-              <div className="relative w-[90px] h-[105px] md:w-[160px] md:h-[185px] lg:w-[220px] lg:h-[265px] rounded-2xl overflow-hidden bg-white group animate-glow-pulse border-2 transition-all duration-500">
-                <Image
-                  src={FarRightImg}
-                  alt="Dev"
-                  fill
-                  className="object-cover object-top scale-[1.3]"
-                />
-              </div>
-            </div>
-          </div>
+                  {/* Reflection/Glow under active card */}
+                  {isActive && (
+                    <motion.div
+                      layoutId="glow-bottom"
+                      className="absolute -bottom-16 w-[130%] h-16 bg-blue-500/15 blur-[60px] rounded-full -z-10"
+                    />
+                  )}
+                </motion.div>
+              );
+            })}
+          </AnimatePresence>
         </div>
 
-        {/* Bottom Smooth Blend to White - Now on top of images (z-30) to create 'cut' effect */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 md:h-32 bg-gradient-to-t from-white via-white/90 to-transparent z-30" />
       </div>
     </section>
   );

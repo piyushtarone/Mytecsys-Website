@@ -71,7 +71,7 @@ const WhatWeDoSection = () => {
 
 
   return (
-    <section className="py-10 px-4 md:px-6 relative z-10 overflow-hidden">
+    <section id="services" className="py-10 px-4 md:px-6 relative z-10 overflow-hidden scroll-mt-20">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-8">
           <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-1 font-tech">

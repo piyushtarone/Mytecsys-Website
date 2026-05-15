@@ -52,7 +52,7 @@ const WhyUsSection = () => {
   };
 
   return (
-    <section id="industries" className="py-12 px-4 md:px-6 relative z-10 overflow-hidden bg-white">
+    <section id="industries" className="py-12 px-4 md:px-6 relative z-10 overflow-hidden bg-white scroll-mt-20">
 
       {/* Honeycomb Background Decoration */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">

@@ -86,14 +86,14 @@ const megaMenuData: Record<string, Record<string, {
 
 // ─── Nav Structure ─────────────────────────────────────────────────────────────
 const navItems = [
-  { href: "/", label: "Home" },
+  { href: "#hero", label: "Home" },
   { href: "#about", label: "About" },
   { href: "#services", label: "Services", megaKey: "Services",
     items: ["Web Development", "Mobile Apps", "AI Solutions"] },
   { href: "#industries", label: "Industries" },
   { href: "#products", label: "Products", megaKey: "Products",
     items: ["Product Alpha", "Product Beta"] },
-  { href: "#research", label: "Research & Insights" },
+  { href: "#case-studies", label: "Research & Insights" },
   { href: "#careers", label: "Careers" },
 ];
 

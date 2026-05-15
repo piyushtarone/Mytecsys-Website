@@ -21,7 +21,7 @@ const AboutSection = () => {
   const [activeTab, setActiveTab] = useState("mission");
 
   return (
-    <section id="about" className="py-16 px-4 md:px-6 relative z-10 overflow-hidden bg-sky-400/[0.07]">
+    <section id="about" className="py-16 px-4 md:px-6 relative z-10 overflow-hidden bg-sky-400/[0.07] scroll-mt-20">
       {/* Decorative background elements */}
       <div className="absolute top-0 right-0 -z-10 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 -z-10 w-96 h-96 bg-sky-300/20 rounded-full blur-3xl" />
