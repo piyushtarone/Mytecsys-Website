@@ -93,7 +93,9 @@ const AchievementsSection = () => {
           {/* LEFT COLUMN */}
           <div className="flex flex-col gap-2">
             {/* Rectangle 34 — index 0 */}
-            <button onClick={() => openImage(0)} className="rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm h-[300px] md:h-[380px] cursor-pointer group/img">
+            <button 
+              suppressHydrationWarning={true}
+              onClick={() => openImage(0)} className="rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm h-[300px] md:h-[380px] cursor-pointer group/img">
               <Image
                 src={Rectangle34}
                 alt="Cyber Hack 1st Runner Up"
@@ -103,7 +105,9 @@ const AchievementsSection = () => {
             
             {/* Group 90 (index 7) and Image 43 (index 8) */}
             <div className="grid grid-cols-12 gap-2 h-[120px] md:h-[160px]">
-              <button onClick={() => openImage(7)} className="col-span-8 rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm cursor-pointer group/img">
+              <button 
+                suppressHydrationWarning={true}
+                onClick={() => openImage(7)} className="col-span-8 rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm cursor-pointer group/img">
                 <Image
                   src={Group90}
                   alt="Special Recognition"
@@ -111,7 +115,9 @@ const AchievementsSection = () => {
                 />
               </button>
               <div className="col-span-4 flex items-center justify-center">
-                <button onClick={() => openImage(8)} className="bg-white/90 backdrop-blur-md p-3 md:p-4 rounded-2xl shadow-lg border border-slate-100 w-full h-full flex items-center justify-center cursor-pointer hover:bg-slate-50 transition-colors">
+                <button 
+                  suppressHydrationWarning={true}
+                  onClick={() => openImage(8)} className="bg-white/90 backdrop-blur-md p-3 md:p-4 rounded-2xl shadow-lg border border-slate-100 w-full h-full flex items-center justify-center cursor-pointer hover:bg-slate-50 transition-colors">
                   <Image
                     src={Image43}
                     alt="MTS Logo"
@@ -122,7 +128,9 @@ const AchievementsSection = () => {
             </div>
 
             {/* Image 39 — index 6 */}
-            <button onClick={() => openImage(6)} className="rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm h-[200px] md:h-[240px] cursor-pointer group/img">
+            <button 
+              suppressHydrationWarning={true}
+              onClick={() => openImage(6)} className="rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm h-[200px] md:h-[240px] cursor-pointer group/img">
               <Image
                 src={Image39}
                 alt="Industry Leadership"
@@ -135,14 +143,18 @@ const AchievementsSection = () => {
           <div className="flex flex-col gap-2">
             {/* Top Pair: Rectangle 36 (index 1) and Image 38 (index 2) */}
             <div className="grid grid-cols-2 gap-2 h-[150px] md:h-[200px]">
-              <button onClick={() => openImage(1)} className="rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm cursor-pointer group/img">
+              <button 
+                suppressHydrationWarning={true}
+                onClick={() => openImage(1)} className="rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm cursor-pointer group/img">
                 <Image
                   src={Rectangle36}
                   alt="Cyber Hack 2024"
                   className="w-full h-full object-cover group-hover/img:scale-[1.04] transition-transform duration-500"
                 />
               </button>
-              <button onClick={() => openImage(2)} className="rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm cursor-pointer group/img">
+              <button 
+                suppressHydrationWarning={true}
+                onClick={() => openImage(2)} className="rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm cursor-pointer group/img">
                 <Image
                   src={Image38}
                   alt="Innovation Award"
@@ -152,7 +164,9 @@ const AchievementsSection = () => {
             </div>
 
             {/* Image 40 — index 3 */}
-            <button onClick={() => openImage(3)} className="rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm h-[270px] md:h-[340px] cursor-pointer group/img">
+            <button 
+              suppressHydrationWarning={true}
+              onClick={() => openImage(3)} className="rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm h-[270px] md:h-[340px] cursor-pointer group/img">
               <Image
                 src={Image40}
                 alt="Govt of Maharashtra Recognition"
@@ -162,14 +176,18 @@ const AchievementsSection = () => {
 
             {/* Bottom Pair: Rectangle 35 (index 4) and Image 40_1 (index 5) */}
             <div className="grid grid-cols-5 gap-2 h-[200px] md:h-[240px]">
-              <button onClick={() => openImage(4)} className="col-span-3 rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm cursor-pointer group/img">
+              <button 
+                suppressHydrationWarning={true}
+                onClick={() => openImage(4)} className="col-span-3 rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm cursor-pointer group/img">
                 <Image
                   src={Rectangle35}
                   alt="Academic Excellence"
                   className="w-full h-full object-cover group-hover/img:scale-[1.04] transition-transform duration-500"
                 />
               </button>
-              <button onClick={() => openImage(5)} className="col-span-2 rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm cursor-pointer group/img">
+              <button 
+                suppressHydrationWarning={true}
+                onClick={() => openImage(5)} className="col-span-2 rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm cursor-pointer group/img">
                 <Image
                   src={Image40_1}
                   alt="Achievement"
@@ -184,6 +202,7 @@ const AchievementsSection = () => {
       {/* View More Button */}
       <div className="mt-12 text-center">
         <button 
+          suppressHydrationWarning={true}
           onClick={openGallery}
           className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-slate-900 text-white font-semibold hover:bg-tech transition-all duration-300 shadow-lg shadow-slate-200 group"
         >

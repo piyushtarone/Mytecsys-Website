@@ -30,7 +30,9 @@ const CTASection = () => {
               </p>
             </div>
 
-            <Button size="lg" className="rounded-xl px-10 py-7 text-lg bg-primary hover:bg-primary/90 text-white shadow-xl shadow-primary/20 group">
+            <Button 
+              suppressHydrationWarning={true}
+              size="lg" className="rounded-xl px-8 h-12 bg-[#2589e9] hover:bg-[#1d76cc] text-white shadow-xl font-semibold group transition-all text-base">
               Get Started
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Button>

@@ -52,6 +52,7 @@ const AboutSection = () => {
               <div className="flex gap-6 border-b border-slate-200 mb-4">
                 {tabs.map((tab) => (
                   <button
+                    suppressHydrationWarning={true}
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id)}
                     className={cn(
@@ -73,7 +74,9 @@ const AboutSection = () => {
               </p>
             </div>
 
-            <Button asChild size="sm" className="rounded-xl px-6 bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/20 group">
+            <Button 
+              suppressHydrationWarning={true}
+              asChild size="sm" className="rounded-xl px-7 h-11 bg-[#2589e9] hover:bg-[#1d76cc] text-white shadow-sm font-semibold group transition-all">
               <a href="/#about-more">
                 More About Us
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />

@@ -185,6 +185,7 @@ const WhyUsSection = () => {
 
               return (
                 <motion.div
+                  suppressHydrationWarning={true}
                   key={img.id}
                   initial={false}
                   animate={{

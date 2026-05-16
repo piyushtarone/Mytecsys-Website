@@ -160,6 +160,7 @@ function NavDropdown({ item }: { item: typeof navItems[0] }) {
   return (
     <div ref={ref} className="relative">
       <button
+        suppressHydrationWarning
         onClick={() => setIsOpen((v) => !v)}
         className={cn(
           "inline-flex h-10 items-center justify-center rounded-md px-4 py-2 text-[13px] font-semibold transition-colors",
@@ -245,7 +246,10 @@ export function Header() {
         {/* Actions */}
         <div className="flex-1 flex justify-end items-center gap-4 pr-4 md:pr-8">
           <Link href="#contact" className="hidden md:block">
-            <Button className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-6 text-[13px] font-bold transition-all hover:scale-105 active:scale-95 shadow-lg shadow-blue-500/20">
+            <Button 
+              suppressHydrationWarning
+              className="bg-[#2589e9] hover:bg-[#1d76cc] text-white rounded-lg px-6 h-11 text-sm font-semibold transition-all hover:scale-105 active:scale-95 shadow-md border-none"
+            >
               Contact Us
             </Button>
           </Link>
@@ -299,7 +303,7 @@ export function Header() {
           ))}
           <div className="pt-4 px-4">
             <Link href="#contact" onClick={() => setMobileOpen(false)}>
-              <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-full py-6 text-sm font-bold shadow-lg shadow-blue-500/20">
+              <Button className="w-full bg-[#2589e9] hover:bg-[#1d76cc] text-white rounded-lg py-3 text-sm font-semibold shadow-md border-none transition-all active:scale-95">
                 Contact Us
               </Button>
             </Link>

@@ -47,7 +47,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative z-10 min-h-[50vh] flex flex-col items-center justify-center px-4 md:px-6 pt-32 md:pt-40 pb-8 overflow-hidden"
+      className="relative z-10 min-h-[60vh] flex flex-col items-center justify-center px-4 md:px-6 pt-16 md:pt-20 pb-16 md:pb-20 overflow-visible"
     >
       <div className="max-w-4xl mx-auto text-center">
         <motion.div
@@ -55,13 +55,13 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="font-tech text-4xl md:text-6xl lg:text-7xl font-bold mb-2 tracking-tight min-h-[1.4em] flex items-center justify-center leading-tight">
-            <span className="text-gradient-tech inline-block py-2">
+          <h1 className="font-tech text-3xl md:text-5xl lg:text-6xl font-bold mb-4 tracking-tight min-h-[1.1em] flex items-center justify-center leading-[1.1]">
+            <span className="text-blue-600 inline-block py-2">
               {text}
               <motion.span
                 animate={{ opacity: [1, 0] }}
                 transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
-                className="ml-1 inline-block w-1.5 h-10 md:h-16 bg-blue-600 align-middle"
+                className="ml-1 inline-block w-1 h-6 md:h-10 bg-blue-600/40 align-middle"
               />
             </span>
           </h1>
@@ -71,8 +71,9 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
+          className="-mt-2 md:-mt-4"
         >
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-8 tracking-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a] mb-6 tracking-tight">
             For Your Business
           </h2>
         </motion.div>
@@ -82,10 +83,9 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed">
-            Transform your ideas into reality with intelligent technology solutions.
-            We combine AI research, cloud infrastructure, and engineering excellence
-            to build the future.
+          <p className="text-sm md:text-base text-slate-500 max-w-xl mx-auto mb-4 leading-relaxed font-medium">
+            Transform your ideas into reality with intelligent technology solutions. We combine
+            AI research, cloud infrastructure, and engineering excellence.
           </p>
         </motion.div>
 
@@ -95,13 +95,17 @@ export function HeroSection() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="flex flex-col sm:flex-row gap-5 justify-center items-center"
         >
-          <Button asChild size="lg" className="group bg-blue-600 hover:bg-blue-700 text-white rounded-full px-8 h-14 text-base font-bold shadow-xl shadow-blue-500/25 transition-all hover:scale-105 active:scale-95">
+          <Button 
+            suppressHydrationWarning
+            asChild size="lg" className="group bg-[#2589e9] hover:bg-[#1d76cc] text-white rounded-lg px-6 h-11 text-sm font-semibold transition-all hover:scale-105 active:scale-95 border-none shadow-md">
             <Link href="/#contact">
               Get in Touch
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </Button>
-          <Button asChild variant="outline" size="lg" className="rounded-full px-8 h-14 text-base font-bold border-slate-200 hover:bg-slate-50 transition-all hover:scale-105 active:scale-95">
+          <Button 
+            suppressHydrationWarning
+            asChild variant="outline" size="lg" className="rounded-lg px-6 h-11 text-sm font-semibold border-[#e2e8f0] bg-[#f8fafc]/50 hover:bg-white transition-all hover:scale-105 active:scale-95 text-[#1e293b]">
             <Link href="/maintenance">View Status</Link>
           </Button>
         </motion.div>

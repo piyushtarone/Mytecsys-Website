@@ -63,6 +63,7 @@ const ContactSection = () => {
                     Full Name
                   </label>
                   <input
+                    suppressHydrationWarning={true}
                     type="text"
                     placeholder="John Doe"
                     className="w-full px-5 py-3 rounded-xl border border-slate-200 focus:border-tech focus:ring-1 focus:ring-tech outline-none transition-all text-sm bg-slate-50/50"
@@ -73,6 +74,7 @@ const ContactSection = () => {
                     Email Address
                   </label>
                   <input
+                    suppressHydrationWarning={true}
                     type="email"
                     placeholder="john@example.com"
                     className="w-full px-5 py-3 rounded-xl border border-slate-200 focus:border-tech focus:ring-1 focus:ring-tech outline-none transition-all text-sm bg-slate-50/50"
@@ -85,6 +87,7 @@ const ContactSection = () => {
                   Subject
                 </label>
                 <input
+                  suppressHydrationWarning={true}
                   type="text"
                   placeholder="Project Inquiry"
                   className="w-full px-5 py-3 rounded-xl border border-slate-200 focus:border-tech focus:ring-1 focus:ring-tech outline-none transition-all text-sm bg-slate-50/50"
@@ -96,15 +99,18 @@ const ContactSection = () => {
                   Message
                 </label>
                 <textarea
+                  suppressHydrationWarning={true}
                   rows={4}
                   placeholder="How can we help you?"
                   className="w-full px-5 py-3 rounded-xl border border-slate-200 focus:border-tech focus:ring-1 focus:ring-tech outline-none transition-all text-sm bg-slate-50/50 resize-none"
                 />
               </div>
 
-              <Button className="w-full py-6 rounded-xl bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/20 group">
+              <Button 
+                suppressHydrationWarning={true}
+                className="w-full py-7 rounded-xl bg-[#2589e9] hover:bg-[#1d76cc] text-white shadow-sm font-semibold group transition-all text-lg">
                 Send Message
-                <Send className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                <Send className="ml-3 h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
               </Button>
             </form>
           </div>

@@ -145,6 +145,7 @@ const CaseStudiesSection = () => {
         <div className="flex flex-wrap justify-center gap-4 md:gap-8 mb-10">
           {categories.map((cat) => (
             <button
+              suppressHydrationWarning={true}
               key={cat}
               onClick={() => setActiveCategory(cat)}
               className={cn(
