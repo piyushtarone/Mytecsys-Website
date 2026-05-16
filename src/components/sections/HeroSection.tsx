@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
@@ -47,7 +48,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative z-10 min-h-[60vh] flex flex-col items-center justify-center px-4 md:px-6 pt-16 md:pt-20 pb-16 md:pb-20 overflow-visible"
+      className="relative z-30 min-h-[60vh] flex flex-col items-center justify-center px-4 md:px-6 pt-16 md:pt-20 pb-6 md:pb-8 overflow-visible"
     >
       <div className="max-w-4xl mx-auto text-center">
         <motion.div
@@ -89,23 +90,64 @@ export function HeroSection() {
           </p>
         </motion.div>
 
+        {/* Trusted Clients Section - Uniform Spacing Version */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="flex flex-col items-center justify-center mb-8 mt-4 px-4"
+        >
+          {/* Logo Row */}
+          <div className="flex items-center justify-center gap[20px]">
+            <div className="relative h-8 md:h-14 w-24 md:w-32">
+              <Image
+                src="/Rectangle 448 (1).png"
+                alt="Nagpur City Police"
+                fill
+                className="object-contain opacity-90"
+              />
+            </div>
+            <div className="relative h-8 md:h-14 w-24 md:w-32">
+              <Image
+                src="/Rectangle 449.png"
+                alt="Bhartia Nagpur"
+                fill
+                className="object-contain opacity-90"
+              />
+            </div>
+            <div className="relative h-8 md:h-14 w-24 md:w-32">
+              <Image
+                src="/Rectangle 450.png"
+                alt="UCN"
+                fill
+                className="object-contain opacity-90"
+              />
+            </div>
+          </div>
+
+          {/* Label Below */}
+          <span className="text-slate-500 font-bold text-[9px] md:text-[11px] uppercase tracking-[0.25em] mt-3">
+            Our Trusted Clients
+          </span>
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="flex flex-col sm:flex-row gap-5 justify-center items-center"
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-sm mx-auto sm:max-w-none"
         >
-          <Button 
+          <Button
             suppressHydrationWarning
-            asChild size="lg" className="group bg-[#2589e9] hover:bg-[#1d76cc] text-white rounded-lg px-6 h-11 text-sm font-semibold transition-all hover:scale-105 active:scale-95 border-none shadow-md">
+            asChild size="lg" className="w-full sm:w-auto group bg-[#2589e9] hover:bg-[#1d76cc] text-white rounded-lg px-8 h-12 text-sm font-bold transition-all hover:scale-105 active:scale-95 border-none shadow-md">
             <Link href="/#contact">
               Get in Touch
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </Button>
-          <Button 
+          <Button
             suppressHydrationWarning
-            asChild variant="outline" size="lg" className="rounded-lg px-6 h-11 text-sm font-semibold border-[#e2e8f0] bg-[#f8fafc]/50 hover:bg-white transition-all hover:scale-105 active:scale-95 text-[#1e293b]">
+            asChild variant="outline" size="lg" className="w-full sm:w-auto rounded-lg px-8 h-12 text-sm font-bold border-[#e2e8f0] bg-[#f8fafc]/50 hover:bg-[#2589e9] hover:text-white hover:border-[#2589e9] transition-all hover:scale-105 active:scale-95 text-[#1e293b]">
             <Link href="/maintenance">View Status</Link>
           </Button>
         </motion.div>

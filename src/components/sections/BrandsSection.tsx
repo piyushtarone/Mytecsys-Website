@@ -14,7 +14,7 @@ const brands = [
 
 const BrandsSection = () => {
   return (
-    <section className="pt-24 pb-6 bg-transparent overflow-hidden relative mt-0 z-20">
+    <section className="pt-0 pb-6 bg-transparent overflow-hidden relative mt-0 z-20">
       {/* Hexagon Pattern Background - Fixed for seamless transition */}
       <div className="absolute inset-0 opacity-[0.05] pointer-events-none"
         style={{ 

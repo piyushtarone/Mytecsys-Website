@@ -97,7 +97,7 @@ const NewsSection = () => {
           </p>
         </div>
 
-        <div className="relative max-w-6xl mx-auto px-4 md:px-12">
+        <div className="relative max-w-7xl mx-auto px-0">
           <Carousel
             setApi={setApi}
             opts={{
@@ -107,7 +107,7 @@ const NewsSection = () => {
             className="w-full"
           >
             <CarouselContent className="-ml-4">
-              
+
               {/* Slide 1: 70% | 30% */}
               <CarouselItem className="pl-4 basis-full">
                 <div className="flex flex-col md:flex-row gap-4 h-[400px] md:h-[500px]">
@@ -145,9 +145,9 @@ const NewsSection = () => {
               </CarouselItem>
 
             </CarouselContent>
-            
-            <CarouselPrevious className="hidden md:flex -left-6 h-12 w-12 border-none bg-white shadow-lg hover:bg-blue-50 text-blue-600 transition-all" />
-            <CarouselNext className="hidden md:flex -right-6 h-12 w-12 border-none bg-white shadow-lg hover:bg-blue-50 text-blue-600 transition-all" />
+
+            <CarouselPrevious className="hidden md:flex left-4 h-12 w-12 border-none bg-white shadow-lg hover:bg-blue-50 text-blue-600 transition-all" />
+            <CarouselNext className="hidden md:flex right-4 h-12 w-12 border-none bg-white shadow-lg hover:bg-blue-50 text-blue-600 transition-all" />
           </Carousel>
 
           {/* Pagination Dots */}
@@ -158,8 +158,8 @@ const NewsSection = () => {
                 onClick={() => api?.scrollTo(i)}
                 className={cn(
                   "h-1.5 transition-all duration-300 rounded-full",
-                  current === i 
-                    ? "w-8 bg-blue-600" 
+                  current === i
+                    ? "w-8 bg-blue-600"
                     : "w-2 bg-slate-300 hover:bg-slate-400"
                 )}
                 aria-label={`Go to slide ${i + 1}`}

@@ -12,7 +12,7 @@ const FounderSection = () => {
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
-    
+
     // Calculate mouse position relative to the center of the container (-0.5 to 0.5)
     const x = (e.clientX - rect.left) / rect.width - 0.5;
     const y = (e.clientY - rect.top) / rect.height - 0.5;
@@ -39,11 +39,11 @@ const FounderSection = () => {
 
         <div className="relative border border-tech/20 rounded-[1.5rem] overflow-hidden bg-white/50 backdrop-blur-sm flex flex-col md:flex-row items-stretch">
           {/* Left: Image Container with Tilt Effect */}
-          <div 
+          <div
             ref={containerRef}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            style={{ 
+            style={{
               transform: `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
               transition: "transform 1.2s cubic-bezier(0.22, 1, 0.36, 1)"
             }}
@@ -75,7 +75,7 @@ const FounderSection = () => {
                 src={FounderImage}
                 alt="Shhreyas Kawale"
                 fill
-                className="object-cover object-left grayscale transition-all duration-[1200ms] ease-in-out group-hover:blur-[12px] group-hover:scale-[1.05]"
+                className="object-cover object-left grayscale transition-all duration-[1200ms] ease-in-out group-hover:opacity-0 group-hover:scale-[1.05]"
               />
             </div>
 
@@ -91,30 +91,30 @@ const FounderSection = () => {
               </div>
             </div>
 
-            {/* Fade on RIGHT half on hover - Background vibe without the man */}
-            <div className="absolute inset-y-0 right-0 w-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-[1200ms] ease-in-out bg-white/40 backdrop-blur-md pointer-events-none z-10" />
+            {/* Fade on RIGHT half on hover - Background vibe with BRAND BLUE blur */}
+            <div className="absolute inset-y-0 right-0 w-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-[1200ms] ease-in-out bg-blue-600/10 backdrop-blur-xl pointer-events-none z-10" />
 
             {/* Social Icons & Label centered on RIGHT half */}
             <div className="absolute top-1/2 -translate-y-1/2 right-[25%] translate-x-1/2 flex flex-col items-center gap-6 z-10">
               <div className="flex flex-col gap-4">
                 {[Twitter, Linkedin, Instagram, Facebook].map((Icon, idx) => (
-                  <a 
-                    key={idx} 
-                    href="#" 
-                    style={{ 
+                  <a
+                    key={idx}
+                    href="#"
+                    style={{
                       transitionDelay: `${idx * 20}ms`,
                       transitionDuration: '300ms',
                       transitionTimingFunction: 'cubic-bezier(0.22, 1, 0.36, 1)'
                     }}
-                    className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 backdrop-blur-sm border border-white/20 shadow-sm hover:bg-white/20 transition-all opacity-0 blur-xl scale-90 translate-y-3 group-hover:opacity-100 group-hover:blur-0 group-hover:scale-100 group-hover:translate-y-0"
+                    className="w-10 h-10 flex items-center justify-center rounded-full bg-white border border-blue-100 shadow-md hover:bg-blue-50 transition-all opacity-0 blur-xl scale-90 translate-y-3 group-hover:opacity-100 group-hover:blur-0 group-hover:scale-100 group-hover:translate-y-0 pointer-events-auto"
                   >
-                    <Icon className="w-5 h-5 text-slate-900 stroke-[1.5]" />
+                    <Icon className="w-5 h-5 text-blue-600 stroke-[2]" />
                   </a>
                 ))}
               </div>
-              <div 
+              <div
                 style={{ transitionDelay: '100ms', transitionDuration: '300ms' }}
-                className="bg-white/80 backdrop-blur-sm text-slate-900 text-[10px] font-bold py-1.5 px-3 rounded shadow-sm uppercase tracking-wider whitespace-nowrap transition-all opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0"
+                className="bg-white/90 backdrop-blur-sm text-slate-900 text-[10px] font-bold py-1.5 px-3 rounded shadow-sm uppercase tracking-wider whitespace-nowrap transition-all opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0"
               >
                 Founder & CEO
               </div>
@@ -127,7 +127,7 @@ const FounderSection = () => {
               Shhreyas Kawale
             </h3>
             <p className="text-slate-600 mb-4 leading-relaxed italic text-base">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac mollis nulla. 
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac mollis nulla.
               Integer dictum porta felis vel rhoncus.
             </p>
 

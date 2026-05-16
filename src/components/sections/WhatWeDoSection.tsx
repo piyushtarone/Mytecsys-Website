@@ -82,7 +82,7 @@ const WhatWeDoSection = () => {
           </p>
         </div>
 
-        <div 
+        <div
           className="flex flex-col lg:flex-row gap-3 h-auto lg:h-[350px] w-full"
           onMouseLeave={() => setIsHovered(false)}
         >
@@ -103,70 +103,71 @@ const WhatWeDoSection = () => {
                   activeIndex === index ? "z-20" : "z-10"
                 )}
               >
-                  {/* Background Image */}
-              <div
-                className="absolute inset-0 bg-cover bg-center animate-zoom-rotate"
-                style={{ 
-                  backgroundImage: `url("${service.image}")`,
-                }}
-              />
-              
-              {/* Overlay Content */}
-              <div 
-                className={cn(
-                  "absolute inset-0 p-6 flex transition-all duration-700",
-                  service.isPan 
-                    ? "bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent" 
-                    : "bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent"
-                )}
-              >
-                <div className="relative w-full h-full">
-                  {/* Vertical Text Layout */}
-                  {service.hasVertical && (
-                    <motion.div 
-                      animate={{ 
-                        opacity: activeIndex === index ? 0 : 1 
-                      }}
-                      transition={{ duration: 0.8, ease: "easeInOut" }}
-                      className="absolute inset-0 flex flex-col items-center justify-end pb-8 pointer-events-none"
-                    >
-                      <h3 
-                        className="text-white font-bold leading-tight text-lg tracking-widest uppercase opacity-90 whitespace-nowrap"
-                        style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
-                      >
-                        {service.title}
-                      </h3>
-                    </motion.div>
-                  )}
+                {/* Background Image */}
+                <div
+                  className="absolute inset-0 bg-cover bg-center animate-zoom-rotate"
+                  style={{
+                    backgroundImage: `url("${service.image}")`,
+                  }}
+                />
 
-                  {/* Horizontal Text Layout */}
-                  {service.hasHorizontal && (
-                    <motion.div 
-                      animate={{ 
-                        opacity: activeIndex === index ? 1 : 0 
-                      }}
-                      transition={{ duration: 0.8, ease: "easeInOut" }}
-                      className="absolute inset-0 flex flex-col justify-end pointer-events-none"
-                    >
-                      <h3 className="text-white font-bold leading-tight text-xl md:text-2xl mb-2">
-                        {service.title}
-                      </h3>
-                      {service.subtitle && (
-                        <p className="text-white/90 text-sm font-medium leading-tight mb-4">
-                          {service.subtitle}
-                        </p>
-                      )}
-                      <div className="pointer-events-auto mt-2">
-                        <span className="text-tech text-sm font-bold group-hover:underline cursor-pointer">
-                          Learn More &rarr;
-                        </span>
-                      </div>
-                    </motion.div>
+                {/* Overlay Content */}
+                <div
+                  className={cn(
+                    "absolute inset-0 p-6 flex transition-all duration-700",
+                    service.isPan
+                      ? "bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent"
+                      : "bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent"
                   )}
+                >
+                  <div className="relative w-full h-full">
+                    {/* Vertical Text Layout */}
+                    {service.hasVertical && (
+                      <motion.div
+                        animate={{
+                          opacity: activeIndex === index ? 0 : 1
+                        }}
+                        transition={{ duration: 0.8, ease: "easeInOut" }}
+                        className="absolute inset-0 flex flex-col items-center justify-end pb-8 pointer-events-none"
+                      >
+                        <h3
+                          className="text-white font-bold leading-tight text-lg tracking-widest uppercase opacity-90 whitespace-nowrap"
+                          style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
+                        >
+                          {service.title}
+                        </h3>
+                      </motion.div>
+                    )}
+
+                    {/* Horizontal Text Layout */}
+                    {service.hasHorizontal && (
+                      <motion.div
+                        animate={{
+                          opacity: activeIndex === index ? 1 : 0
+                        }}
+                        transition={{ duration: 0.8, ease: "easeInOut" }}
+                        className="absolute inset-0 flex flex-col justify-end pointer-events-none"
+                      >
+                        <h3 className="text-white font-bold leading-tight text-xl md:text-2xl mb-2">
+                          {service.title}
+                        </h3>
+                        {service.subtitle && (
+                          <p className="text-white/90 text-sm font-medium leading-tight mb-4">
+                            {service.subtitle}
+                          </p>
+                        )}
+                        <div className="pointer-events-auto mt-2">
+                          <span className="text-tech text-sm font-bold group-hover:underline cursor-pointer">
+                            Learn More &rarr;
+                          </span>
+                        </div>
+                      </motion.div>
+                    )}
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-        )})}
+              </motion.div>
+            )
+          })}
         </div>
       </div>
     </section>

@@ -63,14 +63,14 @@ const WhyUsSection = () => {
           xmlns="http://www.w3.org/2000/svg"
         >
           {[
-            [75,30],[150,30],[225,30],
-            [37.5,95],[112.5,95],[187.5,95],[262.5,95],
-            [75,160],[150,160],[225,160],
-            [37.5,225],[112.5,225],[187.5,225],[262.5,225],
+            [75, 30], [150, 30], [225, 30],
+            [37.5, 95], [112.5, 95], [187.5, 95], [262.5, 95],
+            [75, 160], [150, 160], [225, 160],
+            [37.5, 225], [112.5, 225], [187.5, 225], [262.5, 225],
           ].map(([cx, cy], i) => (
             <polygon
               key={i}
-              points={`${cx},${cy-32} ${cx+28},${cy-16} ${cx+28},${cy+16} ${cx},${cy+32} ${cx-28},${cy+16} ${cx-28},${cy-16}`}
+              points={`${cx},${cy - 32} ${cx + 28},${cy - 16} ${cx + 28},${cy + 16} ${cx},${cy + 32} ${cx - 28},${cy + 16} ${cx - 28},${cy - 16}`}
               stroke="currentColor"
               strokeWidth="2"
               fill="none"
@@ -85,14 +85,14 @@ const WhyUsSection = () => {
           xmlns="http://www.w3.org/2000/svg"
         >
           {[
-            [75,30],[150,30],[225,30],
-            [37.5,95],[112.5,95],[187.5,95],[262.5,95],
-            [75,160],[150,160],[225,160],
-            [37.5,225],[112.5,225],[187.5,225],[262.5,225],
+            [75, 30], [150, 30], [225, 30],
+            [37.5, 95], [112.5, 95], [187.5, 95], [262.5, 95],
+            [75, 160], [150, 160], [225, 160],
+            [37.5, 225], [112.5, 225], [187.5, 225], [262.5, 225],
           ].map(([cx, cy], i) => (
             <polygon
               key={i}
-              points={`${cx},${cy-32} ${cx+28},${cy-16} ${cx+28},${cy+16} ${cx},${cy+32} ${cx-28},${cy+16} ${cx-28},${cy-16}`}
+              points={`${cx},${cy - 32} ${cx + 28},${cy - 16} ${cx + 28},${cy + 16} ${cx},${cy + 32} ${cx - 28},${cy + 16} ${cx - 28},${cy - 16}`}
               stroke="currentColor"
               strokeWidth="2"
               fill="none"
@@ -108,13 +108,13 @@ const WhyUsSection = () => {
           xmlns="http://www.w3.org/2000/svg"
         >
           {[
-            [30,25],[75,25],
-            [5,75],[52,75],[98,75],
-            [30,125],[75,125],
+            [30, 25], [75, 25],
+            [5, 75], [52, 75], [98, 75],
+            [30, 125], [75, 125],
           ].map(([cx, cy], i) => (
             <polygon
               key={i}
-              points={`${cx},${cy-22} ${cx+19},${cy-11} ${cx+19},${cy+11} ${cx},${cy+22} ${cx-19},${cy+11} ${cx-19},${cy-11}`}
+              points={`${cx},${cy - 22} ${cx + 19},${cy - 11} ${cx + 19},${cy + 11} ${cx},${cy + 22} ${cx - 19},${cy + 11} ${cx - 19},${cy - 11}`}
             />
           ))}
         </svg>
@@ -127,19 +127,19 @@ const WhyUsSection = () => {
           xmlns="http://www.w3.org/2000/svg"
         >
           {[
-            [30,25],[75,25],
-            [5,75],[52,75],[98,75],
-            [30,125],[75,125],
+            [30, 25], [75, 25],
+            [5, 75], [52, 75], [98, 75],
+            [30, 125], [75, 125],
           ].map(([cx, cy], i) => (
             <polygon
               key={i}
-              points={`${cx},${cy-22} ${cx+19},${cy-11} ${cx+19},${cy+11} ${cx},${cy+22} ${cx-19},${cy+11} ${cx-19},${cy-11}`}
+              points={`${cx},${cy - 22} ${cx + 19},${cy - 11} ${cx + 19},${cy + 11} ${cx},${cy + 22} ${cx - 19},${cy + 11} ${cx - 19},${cy - 11}`}
             />
           ))}
         </svg>
       </div>
 
-      <div className="container mx-auto max-w-5xl">
+      <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-10">
           <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-1 font-tech">
             Why Mytecsys
@@ -150,18 +150,18 @@ const WhyUsSection = () => {
         </div>
 
         <div className="flex justify-center">
-          <div className="relative flex flex-col md:flex-row items-center border border-blue-100 rounded-[2rem] bg-white p-6 md:p-10 shadow-[0_0_50px_-12px_rgba(59,130,246,0.15)] gap-8 md:gap-12 w-full max-w-4xl overflow-hidden">
-            
+          <div className="relative flex flex-col md:flex-row items-center border border-blue-100 rounded-[2rem] bg-white p-6 md:p-10 shadow-[0_0_50px_-12px_rgba(59,130,246,0.15)] gap-8 md:gap-12 w-full max-w-7xl overflow-hidden">
+
             {/* Left Content Area */}
             <div className="md:w-1/2 text-left order-2 md:order-1 relative z-[60]">
-              <motion.h3 
+              <motion.h3
                 animate={{ color: activeImage ? "#ffffff" : "#0f172a" }}
                 transition={{ duration: 1 }}
                 className="text-lg md:text-xl font-black mb-4 font-tech leading-snug"
               >
                 We Build Trust by our transparent services
               </motion.h3>
-              <motion.p 
+              <motion.p
                 animate={{ color: activeImage ? "rgba(255, 255, 255, 0.9)" : "#64748b" }}
                 transition={{ duration: 1 }}
                 className="text-sm md:text-sm leading-relaxed font-semibold"
@@ -172,7 +172,7 @@ const WhyUsSection = () => {
                 nibh, vitae dapibus elit.
               </motion.p>
             </div>
-            
+
             {/* Right Images Container Spacer */}
             <div className="md:w-1/2 flex justify-center md:justify-end order-1 md:order-2 w-full relative h-[200px] md:h-[240px]" />
 
@@ -217,7 +217,7 @@ const WhyUsSection = () => {
                         className="object-cover"
                       />
                     </motion.div>
-                    <motion.div 
+                    <motion.div
                       animate={{ opacity: isActive ? 1 : 0 }}
                       transition={{ duration: 1 }}
                       className="absolute inset-0 bg-black/40"
@@ -228,7 +228,7 @@ const WhyUsSection = () => {
             })}
 
             {!isAutoPlaying && (
-              <div 
+              <div
                 onMouseEnter={handleFirstInteraction}
                 className="absolute inset-0 z-[100] cursor-pointer"
               />

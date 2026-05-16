@@ -52,7 +52,7 @@ const HomeImageSection = () => {
           scale: 0.9,
           zIndex: 10,
           skewY: 12,
-          height: "420px",
+          height: "320px",
           filter: "blur(0.5px)",
         };
       case 1: // Left
@@ -63,7 +63,7 @@ const HomeImageSection = () => {
           scale: 0.95,
           zIndex: 20,
           skewY: 6,
-          height: "420px",
+          height: "320px",
           filter: "blur(0px)",
         };
       case 2: // Center (Active)
@@ -74,7 +74,7 @@ const HomeImageSection = () => {
           scale: 1.05,
           zIndex: 40,
           skewY: 0,
-          height: "420px",
+          height: "320px",
           filter: "blur(0px)",
         };
       case 3: // Right
@@ -85,7 +85,7 @@ const HomeImageSection = () => {
           scale: 0.95,
           zIndex: 20,
           skewY: -6,
-          height: "420px",
+          height: "320px",
           filter: "blur(0px)",
         };
       case 4: // Far Right
@@ -96,7 +96,7 @@ const HomeImageSection = () => {
           scale: 0.9,
           zIndex: 10,
           skewY: -12,
-          height: "420px",
+          height: "320px",
           filter: "blur(0.5px)",
         };
       default:
@@ -106,15 +106,19 @@ const HomeImageSection = () => {
 
   return (
     <section
-      className="relative z-10 overflow-visible w-full bg-transparent pt-0 pb-0"
+      className="relative z-10 min-h-[350px] md:min-h-[400px] lg:min-h-[450px] pt-4 md:pt-6 pb-0 flex flex-col items-center justify-start overflow-visible bg-transparent"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
 
-      <div className="w-full relative flex flex-col items-center justify-end px-4">
+      <div className="relative z-10 w-full max-w-7xl px-4 flex flex-col items-center gap-8 md:gap-12">
 
-        {/* Carousel Container */}
-        <div className="relative w-full max-w-7xl h-[460px] md:h-[480px] lg:h-[500px] flex items-end justify-center -mt-12 md:-mt-20">
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+          className="relative w-full max-w-7xl h-[400px] md:h-[420px] lg:h-[450px] flex items-end justify-center -mt-16 md:-mt-24"
+        >
           <AnimatePresence initial={false}>
             {CARDS.map((card, index) => {
               const slotIndex = getSlotIndex(index);
@@ -136,9 +140,9 @@ const HomeImageSection = () => {
                     skewY: styles.skewY,
                   }}
                   transition={{
-                    x: { 
-                      duration: isJump ? 0 : 0.8, 
-                      ease: [0.32, 0.72, 0, 1] 
+                    x: {
+                      duration: isJump ? 0 : 0.8,
+                      ease: [0.32, 0.72, 0, 1]
                     },
                     y: { duration: 0.8, ease: [0.32, 0.72, 0, 1] },
                     opacity: { duration: 0.5 },
@@ -146,28 +150,23 @@ const HomeImageSection = () => {
                     zIndex: { duration: 0 },
                     skewY: { duration: 0.8, ease: [0.32, 0.72, 0, 1] }
                   }}
-                  className="absolute bottom-0 flex flex-col items-center gap-3 will-change-transform origin-bottom"
+                  className="absolute bottom-0 flex flex-col items-center gap-3 origin-bottom"
                   style={{ zIndex: styles.zIndex }}
                 >
-                  {/* Label - Fixed visibility and z-index */}
+                  {/* Label */}
                   <motion.span
                     animate={{
-                      scale: isActive ? 1.1 : 0.9,
+                      scale: isActive ? 1.05 : 0.9,
                       y: 0,
                       opacity: 1,
                     }}
-                      className="text-[#0a192f] font-bold text-[11px] md:text-sm lg:text-[15px] tracking-[0.15em] font-tech uppercase z-[100] relative text-center whitespace-nowrap flex items-center gap-2"
+                    className="text-[#0f172a] font-black text-[10px] md:text-xs lg:text-[13px] tracking-[0.2em] font-tech uppercase z-[100] relative text-center whitespace-nowrap mb-2"
                   >
                     {card.title}
-                    {card.title === "UI/UX" && (
-                      <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
-                    )}
                   </motion.span>
 
-                  {/* Background Glow Aura */}
-                  <motion.div
-                    className="absolute inset-0 -z-10 bg-sky-400/20 blur-[40px] md:blur-[60px] rounded-full scale-[1.2] opacity-40"
-                  />
+                  {/* Soft Background Glow */}
+                  <div className={`absolute -inset-8 rounded-[3rem] bg-blue-400/20 blur-3xl -z-10 transition-opacity duration-700 ${isActive ? 'opacity-100' : 'opacity-40'}`} />
 
                   {/* Card Body */}
                   <motion.div
@@ -180,16 +179,16 @@ const HomeImageSection = () => {
                       y: { duration: 0.5 }
                     }}
                     className={`
-                      relative w-[100px] md:w-[160px] lg:w-[220px] 
-                      rounded-lg md:rounded-xl lg:rounded-2xl overflow-hidden bg-white transition-all duration-700
-                      border-[1.5px] md:border-[2px] border-sky-400/60 shadow-[0_0_25px_rgba(56,189,248,0.3)]
-                      ${isActive ? "animate-glow-pulse" : ""}
+                      relative w-[95px] md:w-[150px] lg:w-[210px] 
+                      rounded-lg md:rounded-xl lg:rounded-2xl overflow-hidden bg-white/10 backdrop-blur-sm transition-all duration-700
+                      border-[2px] border-blue-500/60 
+                      shadow-[0_0_20px_rgba(59,130,246,0.3)]
                     `}
                     style={{
                       height: styles.height,
-                      maskImage: 'linear-gradient(to bottom, black 40%, transparent 100%)',
-                      WebkitMaskImage: 'linear-gradient(to bottom, black 40%, transparent 100%)',
-                      filter: 'drop-shadow(0 0 12px rgba(56, 189, 248, 0.3))'
+                      zIndex: styles.zIndex,
+                      maskImage: 'linear-gradient(to bottom, black 0%, black 85%, transparent 100%)',
+                      WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 85%, transparent 100%)'
                     }}
                   >
                     <Image
@@ -217,9 +216,10 @@ const HomeImageSection = () => {
               );
             })}
           </AnimatePresence>
-        </div>
+        </motion.div>
 
       </div>
+
     </section>
   );
 };

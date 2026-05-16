@@ -10,11 +10,7 @@ const CTASection = () => {
       <div className="container mx-auto max-w-7xl">
         <div className="relative overflow-hidden bg-white/40 backdrop-blur-md border border-tech/20 rounded-[2.5rem] p-8 md:p-12">
           {/* Decorative background pattern */}
-          <div className="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
-            <svg viewBox="0 0 400 400" className="w-full h-full text-tech">
-              <path d="M0,100 C150,150 250,50 400,100 L400,400 L0,400 Z" fill="currentColor" />
-            </svg>
-          </div>
+
 
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
             <div className="max-w-2xl">

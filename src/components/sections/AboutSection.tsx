@@ -25,7 +25,7 @@ const AboutSection = () => {
       {/* Decorative background elements */}
       <div className="absolute top-0 right-0 -z-10 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 -z-10 w-96 h-96 bg-sky-300/20 rounded-full blur-3xl" />
-      
+
       <div className="container mx-auto max-w-7xl relative">
         <div className="text-center mb-8">
           <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-1 font-tech">
@@ -74,9 +74,9 @@ const AboutSection = () => {
               </p>
             </div>
 
-            <Button 
+            <Button
               suppressHydrationWarning={true}
-              asChild size="sm" className="rounded-xl px-7 h-11 bg-[#2589e9] hover:bg-[#1d76cc] text-white shadow-sm font-semibold group transition-all">
+              asChild size="lg" className="w-full sm:w-auto group bg-[#2589e9] hover:bg-[#1d76cc] text-white rounded-lg px-8 h-12 text-sm font-bold transition-all hover:scale-105 active:scale-95 border-none shadow-md">
               <a href="/#about-more">
                 More About Us
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
