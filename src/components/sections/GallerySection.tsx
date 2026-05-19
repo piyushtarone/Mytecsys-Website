@@ -6,26 +6,28 @@ import { ChevronLeft, ChevronRight, Minus, Plus, Maximize, ArrowLeft, ChevronDow
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-import Rectangle34 from "@/assets/Rectangle 34.jpg";
-import Rectangle35 from "@/assets/Rectangle 35.png";
-import Rectangle36 from "@/assets/Rectangle 36.jpg";
-import Image38 from "@/assets/image 38.jpg";
-import Image39 from "@/assets/image 39.jpg";
-import Image40 from "@/assets/image 40.jpg";
-import Image43 from "@/assets/image 43.png";
-import Group90 from "@/assets/Group 90.png";
-import Image40_1 from "@/assets/image 40 (1).jpg";
+import achievementCheck from "@/assets/achievement_check.png";
+import achievementStage from "@/assets/achievement_stage.png";
+import achievementBag from "@/assets/achievement_bag.png";
+import achievementPolice from "@/assets/achievement_police.jpg";
+import achievementAcademic from "@/assets/achievement_academic.jpg";
+import achievementEcode from "@/assets/achievement_ecode.png";
+import achievementOutside from "@/assets/achievement_outside.png";
+import achievementPurple from "@/assets/achievement_purple.png";
+import achievementBni from "@/assets/achievement_bni.png";
+import achievementLogo from "@/assets/achievement_logo.png";
 
 const images = [
-  { src: Rectangle34, alt: "Cyber Hack 1st Runner Up" },
-  { src: Rectangle36, alt: "Cyber Hack 2024" },
-  { src: Image38, alt: "Innovation Award" },
-  { src: Image40, alt: "Govt of Maharashtra Recognition" },
-  { src: Rectangle35, alt: "Academic Excellence" },
-  { src: Image40_1, alt: "Achievement" },
-  { src: Image39, alt: "Industry Leadership" },
-  { src: Group90, alt: "Special Recognition" },
-  { src: Image43, alt: "MTS Logo" },
+  { src: achievementCheck, alt: "Cyber Hack 1st Runner Up" },
+  { src: achievementStage, alt: "Cyber Hack 2024" },
+  { src: achievementBag, alt: "Innovation Award" },
+  { src: achievementPolice, alt: "Govt of Maharashtra Recognition" },
+  { src: achievementAcademic, alt: "Academic Excellence" },
+  { src: achievementEcode, alt: "Achievement" },
+  { src: achievementOutside, alt: "Industry Leadership" },
+  { src: achievementPurple, alt: "Special Recognition" },
+  { src: achievementBni, alt: "Special Recognition" },
+  { src: achievementLogo, alt: "MTS Logo" },
 ];
 
 interface GalleryModalProps {
@@ -90,73 +92,61 @@ const GallerySection = ({ isOpen, onClose, initialIndex = 0, singleImageMode = f
     <AnimatePresence>
       {isOpen && (
         <motion.div
+          id="gallery-container"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[999] bg-white flex flex-col font-sans overflow-hidden"
+          className="fixed inset-0 z-[48] bg-white flex flex-col font-sans overflow-hidden pt-20"
         >
-          {/* Main Site Header Simulation */}
-          <header className="w-full bg-white border-b border-slate-50 px-6 md:px-12 py-5 flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 relative">
-                <Image src={Image43} alt="Logo" fill className="object-contain" />
-              </div>
-              <div className="flex flex-col -gap-1">
-                <span className="text-lg font-black text-[#0f4c81] tracking-tight uppercase leading-none">my tec sys</span>
-                <span className="text-[8px] text-[#0f4c81]/60 font-medium tracking-tight uppercase">We bring your imagination into the Real World</span>
-              </div>
-            </div>
-
-            <nav className="hidden lg:flex items-center gap-10">
-              <a href="#" className="text-[13px] font-bold text-slate-900 relative">
-                Home
-                <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1 h-1 bg-blue-600 rounded-full" />
-              </a>
-              {["About", "Services", "Industries", "Products", "Research & Insights", "Careers"].map((item) => (
-                <a key={item} href="#" className="text-[13px] font-bold text-slate-700 hover:text-slate-900 flex items-center gap-1">
-                  {item} {(item === "Services" || item === "Products") && <ChevronDown className="w-3 h-3" />}
-                </a>
-              ))}
-            </nav>
-
-            <button className="px-7 py-3 bg-[#3498db] text-white text-[12px] font-bold rounded-lg shadow-sm hover:bg-[#2980b9] transition-colors">
-              Contact Us
-            </button>
-          </header>
+          <div className="absolute inset-0 z-0">
+            <div className="absolute inset-0 bg-white/40 backdrop-blur-[2px]" />
+          </div>
 
           {/* Gallery Viewport */}
-          <div className="flex-1 relative bg-white flex flex-col items-center justify-center p-6 md:p-12">
+          <div className="flex-1 relative z-10 flex flex-col items-center justify-center p-6 md:p-12 pt-24 md:pt-28">
             
             {/* Top-Left BACK button */}
-            <div className="absolute top-8 left-8 md:top-12 md:left-12 z-[70]">
+            <div className="absolute top-24 left-8 md:top-28 md:left-12 z-[70]">
               <button
-                onClick={onClose}
-                className="flex items-center gap-2 px-5 py-2.5 bg-white border-2 border-slate-900 rounded-lg shadow-sm hover:bg-slate-50 transition-all"
+                onClick={() => {
+                  if (document.fullscreenElement) document.exitFullscreen();
+                  onClose();
+                }}
+                className="flex items-center gap-2 px-5 py-2.5 bg-white/80 backdrop-blur-md border border-slate-200 rounded-xl shadow-sm hover:bg-slate-50 hover:text-blue-600 hover:border-blue-200 transition-all text-slate-700 group"
               >
-                <ArrowLeft className="w-5 h-5 text-slate-900" />
-                <span className="text-sm font-black text-slate-900 uppercase tracking-widest">Back</span>
+                <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" />
+                <span className="text-sm font-bold uppercase tracking-widest">Back</span>
               </button>
             </div>
 
             {/* Top-Right ZOOM controls */}
-            <div className="absolute top-8 right-8 md:top-12 md:right-12 z-[70]">
-              <div className="flex flex-col border-2 border-slate-900 rounded-xl bg-white overflow-hidden shadow-sm">
-                <button onClick={handleZoomIn} className="p-3 hover:bg-slate-100 text-slate-900" title="Zoom In"><Plus className="w-5 h-5 stroke-[2.5]" /></button>
-                <div className="h-px bg-slate-900" />
-                <button onClick={handleZoomOut} className="p-3 hover:bg-slate-100 text-slate-900" title="Zoom Out"><Minus className="w-5 h-5 stroke-[2.5]" /></button>
-                <div className="h-px bg-slate-900" />
-                <button onClick={resetZoom} className="p-3 hover:bg-slate-100 text-slate-900" title="Fit to Screen"><Maximize className="w-5 h-5 stroke-[2.5]" /></button>
+            <div className="absolute top-24 right-8 md:top-28 md:right-12 z-[70]">
+              <div className="flex flex-col border border-slate-200 rounded-2xl bg-white/80 backdrop-blur-md overflow-hidden shadow-sm">
+                <button onClick={handleZoomIn} className="p-3 hover:bg-slate-50 hover:text-blue-600 text-slate-700 transition-colors" title="Zoom In"><Plus className="w-5 h-5 stroke-[2.5]" /></button>
+                <div className="h-px bg-slate-200/50" />
+                <button onClick={handleZoomOut} className="p-3 hover:bg-slate-50 hover:text-blue-600 text-slate-700 transition-colors" title="Zoom Out"><Minus className="w-5 h-5 stroke-[2.5]" /></button>
+                <div className="h-px bg-slate-200/50" />
+                <button onClick={() => {
+                  const el = document.getElementById("gallery-container");
+                  if (el) {
+                    if (!document.fullscreenElement) {
+                      el.requestFullscreen();
+                    } else {
+                      document.exitFullscreen();
+                    }
+                  }
+                }} className="p-3 hover:bg-slate-50 hover:text-blue-600 text-slate-700 transition-colors" title="Toggle Full Screen"><Maximize className="w-5 h-5 stroke-[2.5]" /></button>
               </div>
             </div>
 
             {/* Content Row: Prev Arrow | Image | Next Arrow */}
-            <div className="w-full max-w-screen-2xl flex items-center justify-between gap-4 md:gap-10">
+            <div className="w-full max-w-screen-2xl flex items-center justify-between gap-4 md:gap-10 mt-16 md:mt-0">
               
               {/* Left Arrow Button */}
               {!singleImageMode && (
                 <button
                   onClick={prevSlide}
-                  className="p-3 border-2 border-slate-900 rounded-lg bg-white hover:bg-slate-900 hover:text-white transition-all shadow-sm z-50 flex-shrink-0"
+                  className="p-3 border border-slate-200 rounded-xl bg-white/80 backdrop-blur-md hover:bg-slate-50 hover:text-blue-600 hover:border-blue-200 text-slate-700 transition-all shadow-sm z-50 flex-shrink-0"
                 >
                   <ChevronLeft className="w-6 h-6 stroke-[3]" />
                 </button>
@@ -168,11 +158,10 @@ const GallerySection = ({ isOpen, onClose, initialIndex = 0, singleImageMode = f
                   <motion.div
                     key={currentIndex}
                     initial={{ opacity: 0, scale: 0.98 }}
-                    animate={{ opacity: 1, scale: 1 }}
+                    animate={{ opacity: 1, scale: zoom }}
                     exit={{ opacity: 0, scale: 1.02 }}
                     transition={{ duration: 0.25 }}
                     className="relative w-full h-full"
-                    style={{ transform: `scale(${zoom})`, transition: "transform 0.2s ease-out" }}
                   >
                     <div className="relative w-full h-full overflow-hidden">
                       <Image
@@ -195,7 +184,7 @@ const GallerySection = ({ isOpen, onClose, initialIndex = 0, singleImageMode = f
               {!singleImageMode && (
                 <button
                   onClick={nextSlide}
-                  className="p-3 border-2 border-slate-900 rounded-lg bg-white hover:bg-slate-900 hover:text-white transition-all shadow-sm z-50 flex-shrink-0"
+                  className="p-3 border border-slate-200 rounded-xl bg-white/80 backdrop-blur-md hover:bg-slate-50 hover:text-blue-600 hover:border-blue-200 text-slate-700 transition-all shadow-sm z-50 flex-shrink-0"
                 >
                   <ChevronRight className="w-6 h-6 stroke-[3]" />
                 </button>
@@ -214,10 +203,10 @@ const GallerySection = ({ isOpen, onClose, initialIndex = 0, singleImageMode = f
                         setCurrentIndex(index);
                       }}
                       className={cn(
-                        "relative w-16 h-16 md:w-20 md:h-20 rounded-xl overflow-hidden border-2 transition-all duration-300 flex-shrink-0 shadow-md",
+                        "relative w-16 h-16 md:w-20 md:h-20 rounded-[14px] overflow-hidden border-2 transition-all duration-300 flex-shrink-0",
                         currentIndex === index 
-                          ? "border-slate-900 scale-110 shadow-xl ring-4 ring-slate-50 z-10" 
-                          : "border-transparent opacity-40 hover:opacity-100"
+                          ? "border-blue-500 scale-110 shadow-[0_0_15px_rgba(37,137,233,0.4)] z-10" 
+                          : "border-transparent opacity-50 hover:opacity-100"
                       )}
                     >
                       <Image src={img.src} alt={img.alt} fill className="object-cover" />

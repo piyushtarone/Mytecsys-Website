@@ -5,22 +5,22 @@ const steps = [
   {
     icon: FolderSearch,
     title: "Discover",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    description: "We analyze your core workflows to identify high-impact AI and automation opportunities.",
   },
   {
     icon: UserCheck,
     title: "Define",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    description: "We architect scalable cloud blueprints and draft custom technical roadmaps.",
   },
   {
     icon: Workflow,
     title: "Develop",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    description: "Our engineering experts build high-performance software with state-of-the-art security.",
   },
   {
     icon: FolderUp,
     title: "Deploy",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    description: "Seamless launching, cloud optimization, and proactive continuous monitoring for your success.",
   },
 ];
 

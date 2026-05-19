@@ -2,10 +2,10 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import Group950 from "@/assets/Group 950.png";
-import ElegantImg from "@/assets/elegant.png";
-import TeleworkerImg from "@/assets/teleworker.png";
-import Group9501 from "@/assets/Group 9501.png";
+import SoftwareDevImg from "@/assets/software_development.png";
+import ProductMgmtImg from "@/assets/product_management.png";
+import BusinessDevImg from "@/assets/business_development.png";
+import WebDesignImg from "@/assets/web_design.png";
 
 interface Service {
   id: string;
@@ -22,7 +22,7 @@ const services: Service[] = [
     id: "SD",
     title: "Software Development",
     subtitle: "Experience best software development with our team",
-    image: Group950.src,
+    image: SoftwareDevImg.src,
     hasHorizontal: true,
     hasVertical: true,
     isPan: false,
@@ -31,7 +31,7 @@ const services: Service[] = [
     id: "PM",
     title: "Product Management",
     subtitle: "We build best product experience for you",
-    image: ElegantImg.src,
+    image: ProductMgmtImg.src,
     hasHorizontal: true,
     hasVertical: true,
     isPan: false,
@@ -40,7 +40,7 @@ const services: Service[] = [
     id: "BD",
     title: "Business Development",
     subtitle: "Drive growth and expand your business horizons",
-    image: TeleworkerImg.src,
+    image: BusinessDevImg.src,
     hasHorizontal: true,
     hasVertical: true,
     isPan: false,
@@ -49,7 +49,7 @@ const services: Service[] = [
     id: "WD",
     title: "Web Designing",
     subtitle: "Create stunning, responsive digital experiences",
-    image: Group9501.src,
+    image: WebDesignImg.src,
     hasHorizontal: true,
     hasVertical: true,
     isPan: false,
@@ -72,6 +72,7 @@ const WhatWeDoSection = () => {
 
   return (
     <section id="services" className="py-10 px-4 md:px-6 relative z-10 overflow-hidden scroll-mt-20">
+      {/* Background image removed */}
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-8">
           <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-1 font-tech">

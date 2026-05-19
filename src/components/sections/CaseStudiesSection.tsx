@@ -63,73 +63,7 @@ const CaseStudiesSection = () => {
   return (
     <section id="case-studies" className="py-8 px-4 md:px-6 relative z-10 overflow-hidden bg-slate-50/50 scroll-mt-20">
 
-      {/* Honeycomb Background Decoration */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Top-right honeycomb cluster */}
-        <svg
-          className="absolute -top-8 -right-12 w-72 h-72 opacity-[0.06] text-tech"
-          viewBox="0 0 300 300"
-          fill="currentColor"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          {[
-            [75,30],[150,30],[225,30],
-            [37.5,95],[112.5,95],[187.5,95],[262.5,95],
-            [75,160],[150,160],[225,160],
-            [37.5,225],[112.5,225],[187.5,225],[262.5,225],
-          ].map(([cx, cy], i) => (
-            <polygon
-              key={i}
-              points={`${cx},${cy-32} ${cx+28},${cy-16} ${cx+28},${cy+16} ${cx},${cy+32} ${cx-28},${cy+16} ${cx-28},${cy-16}`}
-              stroke="currentColor"
-              strokeWidth="2"
-              fill="none"
-            />
-          ))}
-        </svg>
-
-        {/* Bottom-left honeycomb cluster */}
-        <svg
-          className="absolute -bottom-8 -left-12 w-72 h-72 opacity-[0.06] text-tech"
-          viewBox="0 0 300 300"
-          fill="currentColor"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          {[
-            [75,30],[150,30],[225,30],
-            [37.5,95],[112.5,95],[187.5,95],[262.5,95],
-            [75,160],[150,160],[225,160],
-            [37.5,225],[112.5,225],[187.5,225],[262.5,225],
-          ].map(([cx, cy], i) => (
-            <polygon
-              key={i}
-              points={`${cx},${cy-32} ${cx+28},${cy-16} ${cx+28},${cy+16} ${cx},${cy+32} ${cx-28},${cy+16} ${cx-28},${cy-16}`}
-              stroke="currentColor"
-              strokeWidth="2"
-              fill="none"
-            />
-          ))}
-        </svg>
-
-        {/* Center-left accent honeycomb (smaller, filled) */}
-        <svg
-          className="absolute top-1/2 -translate-y-1/2 -left-6 w-32 h-48 opacity-[0.04] text-tech"
-          viewBox="0 0 130 200"
-          fill="currentColor"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          {[
-            [40,35],[100,35],
-            [10,95],[70,95],[130,95],
-            [40,155],[100,155],
-          ].map(([cx, cy], i) => (
-            <polygon
-              key={i}
-              points={`${cx},${cy-28} ${cx+24},${cy-14} ${cx+24},${cy+14} ${cx},${cy+28} ${cx-24},${cy+14} ${cx-24},${cy-14}`}
-            />
-          ))}
-        </svg>
-      </div>
+      {/* Removed Honeycomb Background Decoration */}
 
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-10">

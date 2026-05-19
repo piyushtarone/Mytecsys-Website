@@ -10,32 +10,28 @@ import {
   CarouselPrevious,
   type CarouselApi,
 } from "@/components/ui/carousel";
-import NewsImage1 from "@/assets/image 45.png";
-import NewsImage2 from "@/assets/image 46.png";
-import NewsImage3 from "@/assets/image 45-1.png";
-import NewsImage4 from "@/assets/image 45-2.png";
 import { cn } from "@/lib/utils";
 
 const newsItems = [
   {
     id: 1,
     title: "Garuda Drushti Takes Flight",
-    image: NewsImage1,
+    image: "/news/2a1384a6ed53571e2c4a3e14edc3bf888dde118b.jpg",
   },
   {
     id: 2,
     title: "Nagpur Police Bolster Social Media Monitoring",
-    image: NewsImage2,
+    image: "/news/5385e99218c7bf42b19366687b4c7f5590e67bf0.jpg",
   },
   {
     id: 3,
     title: "News Clipping 3",
-    image: NewsImage3,
+    image: "/news/5d2a2f96f7c45e1914197f0ff784fdf83cd423a3.jpg",
   },
   {
     id: 4,
     title: "News Clipping 4",
-    image: NewsImage4,
+    image: "/news/c4fd77e3e3b3adb76ab25d15e1c83990da68e532.jpg",
   },
 ];
 

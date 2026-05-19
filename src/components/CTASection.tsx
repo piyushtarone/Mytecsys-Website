@@ -18,11 +18,10 @@ const CTASection = () => {
                 Get Started
               </h2>
               <h3 className="text-lg md:text-xl font-bold text-slate-700 mb-4">
-                Its your Product, Invest in your way
+                It&apos;s your vision. Let&apos;s build it your way.
               </h3>
-              <p className="text-slate-500 leading-relaxed max-w-xl">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac mollis nulla. 
-                Integer dictum porta felis vel rhoncus. Sed quis quam mauris.
+              <p className="text-slate-500 leading-relaxed max-w-xl font-semibold text-sm">
+                Partner with Mytecsys to bring your digital products to life. From next-generation artificial intelligence to highly scalable enterprise cloud architectures, we engineer reliable software that drives real-world business growth.
               </p>
             </div>
 

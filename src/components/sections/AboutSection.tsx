@@ -6,19 +6,19 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const tabs = [
+  { id: "vision", label: "Our Vision" },
   { id: "mission", label: "Our Mission" },
-  { id: "vision", label: "Our Vission" },
-  { id: "value", label: "Our Value" },
+  { id: "value", label: "Our Values" },
 ];
 
 const tabContent = {
-  mission: "We deliver innovative, reliable, and scalable solutions tailored to your business needs. We deliver innovative, reliable, and scalable solutions tailored to your business needs.",
-  vision: "Our vision is to be the leading technology partner for businesses worldwide, empowering them with cutting-edge AI and cloud solutions that redefine industry standards.",
-  value: "Innovation, integrity, and excellence are the core values that drive everything we do. We are committed to delivering exceptional value and fostering long-term partnerships.",
+  vision: "To build powerful, scalable, and innovative software solutions that drive digital transformation and business growth across industries.",
+  mission: "Through this collaboration, we aim to enhance technological capabilities, expand market reach, and create value-driven solutions for our clients.",
+  value: "At Mytecsys, our core values are built upon our engineering excellence: absolute Security & Trust, pioneering AI & Technical Innovation, deep Collaborative Synergy, and high-performance Scalable Cloud Solutions.",
 };
 
 const AboutSection = () => {
-  const [activeTab, setActiveTab] = useState("mission");
+  const [activeTab, setActiveTab] = useState("vision");
 
   return (
     <section id="about" className="py-16 px-4 md:px-6 relative z-10 overflow-hidden bg-sky-400/[0.07] scroll-mt-20">
@@ -39,12 +39,11 @@ const AboutSection = () => {
         <div className="flex flex-col lg:flex-row gap-10 items-center">
           {/* Left Content */}
           <div className="lg:w-3/5">
-            <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-2">
+            <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-2 font-tech">
               Mytecsys
             </h3>
-            <p className="text-slate-600 mb-6 max-w-2xl text-base leading-relaxed">
-              Found in 2022, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-              ac mollis nulla. Integer dictum porta felis vel rhoncus. Sed quis quam mauris.
+            <p className="text-slate-600 mb-6 max-w-2xl text-base leading-relaxed font-semibold">
+              Founded in 2022, Mytecsys is a premium technology development partner dedicated to designing, building, and deploying elite software solutions. We empower enterprises globally with custom-tailored cloud architectures, enterprise security, and pioneering artificial intelligence.
             </p>
 
             {/* Interactive Tabs */}
@@ -85,29 +84,36 @@ const AboutSection = () => {
           </div>
 
           {/* Right Stats */}
-          <div className="lg:w-2/5 w-full flex flex-col gap-8">
+          <div className="lg:w-2/5 w-full flex flex-col gap-12 mt-10 lg:mt-0">
             {[
               {
                 value: "20+",
-                label: "Countries Global Clients",
+                label1: "Countries",
+                label2: "Global Clients",
+                marginClass: "ml-0",
               },
               {
                 value: "100+",
-                label: "Cities We Work",
+                label1: "Cities",
+                label2: "We Work",
+                marginClass: "ml-8 md:ml-20",
               },
               {
                 value: "$1000+",
-                label: "Revenue /month",
+                label1: "Revenue",
+                label2: "/month",
+                marginClass: "ml-16 md:ml-40",
               },
             ].map((stat, i) => (
-              <div key={i} className="flex items-center gap-4">
-                <span className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tighter">
+              <div key={i} className={cn("flex items-center gap-5", stat.marginClass)}>
+                <span className="text-4xl md:text-5xl font-bold text-[#0f3566] tracking-tight">
                   {stat.value}
                 </span>
-                <div className="h-10 w-px bg-tech/30" />
-                <span className="text-slate-500 text-xs font-medium leading-tight max-w-[100px]">
-                  {stat.label}
-                </span>
+                <div className="h-10 w-[2px] bg-blue-300/50" />
+                <div className="text-[#8ba3ba] text-xs font-medium leading-tight flex flex-col justify-center min-w-[100px]">
+                  <span>{stat.label1}</span>
+                  <span>{stat.label2}</span>
+                </div>
               </div>
             ))}
           </div>

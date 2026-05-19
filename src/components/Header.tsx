@@ -214,9 +214,24 @@ function NavDropdown({ item }: { item: typeof navItems[0] }) {
 // ─── Header ───────────────────────────────────────────────────────────────────
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Run initially
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 w-full border-b border-border/40 bg-white/80 backdrop-blur-xl supports-[backdrop-filter]:bg-white/60">
+    <header className={cn(
+      "fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300",
+      isScrolled
+        ? "border-b border-border/40 bg-white/80 backdrop-blur-xl supports-[backdrop-filter]:bg-white/60"
+        : "border-b border-transparent bg-transparent"
+    )}>
       <div className="container mx-auto flex h-20 items-center px-4 md:px-6">
         {/* Logo */}
         <div className="flex-1 flex justify-start">

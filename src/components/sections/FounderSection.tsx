@@ -97,10 +97,17 @@ const FounderSection = () => {
             {/* Social Icons & Label centered on RIGHT half */}
             <div className="absolute top-1/2 -translate-y-1/2 right-[25%] translate-x-1/2 flex flex-col items-center gap-6 z-10">
               <div className="flex flex-col gap-4">
-                {[Twitter, Linkedin, Instagram, Facebook].map((Icon, idx) => (
+                {[
+                  { Icon: Twitter, url: "#" },
+                  { Icon: Linkedin, url: "https://www.linkedin.com/in/shreyas-kawale-39a5a8144/" },
+                  { Icon: Instagram, url: "#" },
+                  { Icon: Facebook, url: "#" },
+                ].map(({ Icon, url }, idx) => (
                   <a
                     key={idx}
-                    href="#"
+                    href={url}
+                    target={url !== "#" ? "_blank" : undefined}
+                    rel={url !== "#" ? "noopener noreferrer" : undefined}
                     style={{
                       transitionDelay: `${idx * 20}ms`,
                       transitionDuration: '300ms',
@@ -123,19 +130,18 @@ const FounderSection = () => {
 
           {/* Right: Content */}
           <div className="md:w-2/3 p-6 md:p-10 flex flex-col justify-center">
-            <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-2">
-              Shhreyas Kawale
+            <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-2 font-tech">
+              Shreyas Kawale
             </h3>
-            <p className="text-slate-600 mb-4 leading-relaxed italic text-base">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac mollis nulla.
-              Integer dictum porta felis vel rhoncus.
+            <p className="text-slate-600 mb-4 leading-relaxed italic text-base font-semibold">
+              &ldquo;Empowering modern enterprises by engineering powerful, high-performance software and intelligent automation that turn visionary concepts into reality.&rdquo;
             </p>
 
             <ul className="space-y-2">
               {[
-                "Over 15 years of experience in industry",
-                "Before a founder, was a Full-stack developer with broader view towards business management.",
-                "Love for tech, problem-solving, and innovation connects him with clients valuing efficiency, while music and leadership spark creativity and collaboration",
+                "Over 15 years of technology leadership and software engineering experience.",
+                "Distinguished full-stack engineer and solutions architect with a deep focus on scalable enterprise system design.",
+                "Driven by a passion for technical excellence, creative problem-solving, and building high-trust partnerships with global enterprises.",
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-2 text-slate-700 text-sm leading-tight">
                   <span className="mt-1.5 w-1 h-1 rounded-full bg-tech flex-shrink-0" />

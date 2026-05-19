@@ -1,6 +1,6 @@
 const HexagonBackground = () => {
   return (
-    <div className="fixed inset-0 overflow-hidden pointer-events-none">
+    <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
       {/* SVG Hexagon Pattern */}
       <svg 
         className="absolute inset-0 w-full h-full opacity-20"

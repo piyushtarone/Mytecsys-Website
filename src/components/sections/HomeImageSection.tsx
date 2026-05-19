@@ -31,7 +31,7 @@ const HomeImageSection = () => {
 
   useEffect(() => {
     if (!isHovered) {
-      autoplayTimerRef.current = setInterval(nextSlide, 3000);
+      autoplayTimerRef.current = setInterval(nextSlide, 1500);
     }
     return () => {
       if (autoplayTimerRef.current) clearInterval(autoplayTimerRef.current);
@@ -46,25 +46,23 @@ const HomeImageSection = () => {
     switch (slotIndex) {
       case 0: // Far Left
         return {
-          x: "-210%",
+          x: "-208%",
           y: "0px",
-          opacity: 0.7,
+          opacity: 1,
           scale: 0.9,
           zIndex: 10,
           skewY: 12,
           height: "320px",
-          filter: "blur(0.5px)",
         };
       case 1: // Left
         return {
-          x: "-105%",
+          x: "-108%",
           y: "0px",
-          opacity: 0.9,
+          opacity: 1,
           scale: 0.95,
           zIndex: 20,
           skewY: 6,
           height: "320px",
-          filter: "blur(0px)",
         };
       case 2: // Center (Active)
         return {
@@ -75,32 +73,29 @@ const HomeImageSection = () => {
           zIndex: 40,
           skewY: 0,
           height: "320px",
-          filter: "blur(0px)",
         };
       case 3: // Right
         return {
-          x: "105%",
+          x: "108%",
           y: "0px",
-          opacity: 0.9,
+          opacity: 1,
           scale: 0.95,
           zIndex: 20,
           skewY: -6,
           height: "320px",
-          filter: "blur(0px)",
         };
       case 4: // Far Right
         return {
-          x: "210%",
+          x: "208%",
           y: "0px",
-          opacity: 0.7,
+          opacity: 1,
           scale: 0.9,
           zIndex: 10,
           skewY: -12,
           height: "320px",
-          filter: "blur(0.5px)",
         };
       default:
-        return { x: "0%", y: "0px", opacity: 0, scale: 0.5, zIndex: 0, skewY: 0, height: "420px", filter: "blur(0px)" };
+        return { x: "0%", y: "0px", opacity: 0, scale: 0.5, zIndex: 0, skewY: 0, height: "420px" };
     }
   };
 
@@ -113,11 +108,15 @@ const HomeImageSection = () => {
 
       <div className="relative z-10 w-full max-w-7xl px-4 flex flex-col items-center gap-8 md:gap-12">
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
           className="relative w-full max-w-7xl h-[400px] md:h-[420px] lg:h-[450px] flex items-end justify-center -mt-16 md:-mt-24"
+          style={{
+            maskImage: 'linear-gradient(to bottom, black 0%, black 50%, transparent 92%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 50%, transparent 92%)'
+          }}
         >
           <AnimatePresence initial={false}>
             {CARDS.map((card, index) => {
@@ -133,24 +132,43 @@ const HomeImageSection = () => {
                   animate={{
                     x: styles.x,
                     y: styles.y,
-                    opacity: styles.opacity,
+                    opacity: isJump ? [0.7, 0, 0, 0.7] : styles.opacity,
                     scale: styles.scale,
                     zIndex: styles.zIndex,
-                    filter: styles.filter,
                     skewY: styles.skewY,
                   }}
                   transition={{
                     x: {
                       duration: isJump ? 0 : 0.8,
-                      ease: [0.32, 0.72, 0, 1]
+                      delay: isJump ? 0.3 : 0,
+                      ease: [0.4, 0, 0.2, 1]
                     },
-                    y: { duration: 0.8, ease: [0.32, 0.72, 0, 1] },
-                    opacity: { duration: 0.5 },
-                    scale: { duration: 0.8 },
+                    y: {
+                      duration: isJump ? 0 : 0.8,
+                      delay: isJump ? 0.3 : 0,
+                      ease: [0.4, 0, 0.2, 1]
+                    },
+                    opacity: isJump ? {
+                      duration: 0.8,
+                      times: [0, 0.375, 0.375, 1],
+                      ease: "easeInOut"
+                    } : {
+                      duration: 0.8,
+                      ease: [0.4, 0, 0.2, 1]
+                    },
+                    scale: {
+                      duration: isJump ? 0 : 0.8,
+                      delay: isJump ? 0.3 : 0,
+                      ease: [0.4, 0, 0.2, 1]
+                    },
                     zIndex: { duration: 0 },
-                    skewY: { duration: 0.8, ease: [0.32, 0.72, 0, 1] }
+                    skewY: {
+                      duration: isJump ? 0 : 0.8,
+                      delay: isJump ? 0.3 : 0,
+                      ease: [0.4, 0, 0.2, 1]
+                    }
                   }}
-                  className="absolute bottom-0 flex flex-col items-center gap-3 origin-bottom"
+                  className="absolute bottom-0 flex flex-col items-center gap-3 origin-bottom will-change-transform"
                   style={{ zIndex: styles.zIndex }}
                 >
                   {/* Label */}
@@ -166,7 +184,7 @@ const HomeImageSection = () => {
                   </motion.span>
 
                   {/* Soft Background Glow */}
-                  <div className={`absolute -inset-8 rounded-[3rem] bg-blue-400/20 blur-3xl -z-10 transition-opacity duration-700 ${isActive ? 'opacity-100' : 'opacity-40'}`} />
+                  <div className={`absolute -inset-8 rounded-[3rem] bg-blue-400/15 blur-3xl -z-10 transition-opacity duration-700 ${isActive ? 'opacity-90' : 'opacity-30'}`} />
 
                   {/* Card Body */}
                   <motion.div
@@ -175,20 +193,24 @@ const HomeImageSection = () => {
                       y: 0
                     }}
                     transition={{
-                      height: { duration: 0.8, ease: [0.32, 0.72, 0, 1] },
-                      y: { duration: 0.5 }
+                      height: {
+                        duration: isJump ? 0 : 0.8,
+                        delay: isJump ? 0.3 : 0,
+                        ease: [0.4, 0, 0.2, 1]
+                      },
+                      y: {
+                        duration: isJump ? 0 : 0.8,
+                        delay: isJump ? 0.3 : 0
+                      }
                     }}
                     className={`
                       relative w-[95px] md:w-[150px] lg:w-[210px] 
-                      rounded-lg md:rounded-xl lg:rounded-2xl overflow-hidden bg-white/10 backdrop-blur-sm transition-all duration-700
-                      border-[2px] border-blue-500/60 
-                      shadow-[0_0_20px_rgba(59,130,246,0.3)]
+                      rounded-lg md:rounded-xl lg:rounded-2xl overflow-hidden bg-[#0f172a] transition-all duration-700
+                      border-[1.5px] border-blue-400/80 shadow-[0_0_22px_rgba(96,165,250,0.45),inset_0_0_15px_rgba(96,165,250,0.2)]
                     `}
                     style={{
                       height: styles.height,
-                      zIndex: styles.zIndex,
-                      maskImage: 'linear-gradient(to bottom, black 0%, black 85%, transparent 100%)',
-                      WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 85%, transparent 100%)'
+                      zIndex: styles.zIndex
                     }}
                   >
                     <Image
@@ -209,7 +231,7 @@ const HomeImageSection = () => {
                   {isActive && (
                     <motion.div
                       layoutId="glow-bottom"
-                      className="absolute -bottom-16 w-[130%] h-16 bg-blue-500/15 blur-[60px] rounded-full -z-10"
+                      className="absolute -bottom-16 w-[130%] h-16 bg-blue-500/10 blur-[60px] rounded-full -z-10"
                     />
                   )}
                 </motion.div>

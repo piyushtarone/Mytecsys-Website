@@ -14,13 +14,8 @@ const brands = [
 
 const BrandsSection = () => {
   return (
-    <section className="pt-0 pb-6 bg-transparent overflow-hidden relative mt-0 z-20">
-      {/* Hexagon Pattern Background - Fixed for seamless transition */}
-      <div className="absolute inset-0 opacity-[0.05] pointer-events-none"
-        style={{ 
-          backgroundImage: 'url("https://www.transparenttextures.com/patterns/hexellence.png")',
-          backgroundAttachment: 'fixed'
-        }} />
+    <section className="pt-0 pb-6 bg-transparent overflow-hidden relative -mt-10 md:-mt-16 z-20">
+      {/* Removed Hexagon Pattern Background */}
 
       {/* Floating Accent Particles */}
       <div className="absolute top-1/3 left-[15%] w-2 h-2 bg-blue-500 rounded-full blur-[1px] opacity-40 animate-pulse" />
@@ -41,7 +36,7 @@ const BrandsSection = () => {
 
       {/* Brand Slider (Marquee) */}
       <div className="relative flex items-center overflow-hidden group">
-        <div className="flex animate-marquee gap-24 py-6 whitespace-nowrap items-center">
+        <div className="flex animate-marquee gap-24 py-6 whitespace-nowrap items-center will-change-transform">
           {/* First Set */}
           <div className="flex gap-24 items-center px-12">
             {brands.map((brand, index) => (

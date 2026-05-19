@@ -4,10 +4,34 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import Image8 from "@/assets/image 8.png";
-import Image7 from "@/assets/image 7.png";
-import Image6 from "@/assets/image 6.png";
-import Image5 from "@/assets/image 5.png";
+import WhyCloudImg from "@/assets/why_cloud.png";
+import WhyCollaborationImg from "@/assets/why_collaboration.png";
+import WhyInnovationImg from "@/assets/why_innovation.png";
+import WhySecurityImg from "@/assets/why_security.png";
+
+const contentMap: Record<number, { title: string; copy: string }> = {
+  8: {
+    title: "Security & Global Trust",
+    copy: "We build enterprise-grade security protocols, robust end-to-end data encryption, and transparent developer practices to secure your business assets.",
+  },
+  7: {
+    title: "Next-Gen AI & Tech Innovation",
+    copy: "We leverage state-of-the-art machine learning models, neural processing pipelines, and smart automation to keep you ahead of the digital curve.",
+  },
+  6: {
+    title: "Deep Collaborative Synergy",
+    copy: "We act as your dedicated engineering and product management partners, working side-by-side to translate business objectives into scalable software.",
+  },
+  5: {
+    title: "Scalable Cloud Architecture",
+    copy: "We architect high-performance, cost-optimized cloud solutions with automated continuous deployment to scale seamlessly with your growing user base.",
+  },
+};
+
+const defaultContent = {
+  title: "We Build Trust Through Modern Engineering & Transparency",
+  copy: "At Mytecsys, we stand on four foundational pillars: secure, transparent software engineering; pioneering AI innovations; deeply collaborative enterprise growth; and scalable, cost-optimized cloud solutions. We translate advanced technologies into reliable, long-term business advantages.",
+};
 
 const WhyUsSection = () => {
   const [activeImage, setActiveImage] = React.useState<number | null>(null);
@@ -21,11 +45,12 @@ const WhyUsSection = () => {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
+  // Ordered in visual front-to-back stacking order (Security -> Innovation -> Collaboration -> Cloud)
   const images = [
-    { id: 5, src: Image5, x: 0, z: 10 },
-    { id: 6, src: Image6, x: -40, z: 20 },
-    { id: 7, src: Image7, x: -80, z: 30 },
-    { id: 8, src: Image8, x: -120, z: 40 },
+    { id: 8, src: WhySecurityImg, x: -120, z: 40 },
+    { id: 7, src: WhyInnovationImg, x: -80, z: 30 },
+    { id: 6, src: WhyCollaborationImg, x: -40, z: 20 },
+    { id: 5, src: WhyCloudImg, x: 0, z: 10 },
   ];
 
   // Auto-cycle effect
@@ -47,97 +72,16 @@ const WhyUsSection = () => {
     return () => clearInterval(interval);
   }, [isAutoPlaying]);
 
+  const currentContent = activeImage ? contentMap[activeImage] : defaultContent;
+
   const handleFirstInteraction = () => {
     if (!isAutoPlaying) setIsAutoPlaying(true);
   };
 
   return (
-    <section id="industries" className="py-12 px-4 md:px-6 relative z-10 overflow-hidden bg-white scroll-mt-20">
+    <section id="industries" className="py-12 px-4 md:px-6 relative z-10 overflow-hidden bg-transparent scroll-mt-20">
 
-      {/* Honeycomb Background Decoration */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Top-left honeycomb cluster */}
-        <svg
-          className="absolute -top-10 -left-14 w-80 h-80 opacity-[0.05] text-tech"
-          viewBox="0 0 300 300"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          {[
-            [75, 30], [150, 30], [225, 30],
-            [37.5, 95], [112.5, 95], [187.5, 95], [262.5, 95],
-            [75, 160], [150, 160], [225, 160],
-            [37.5, 225], [112.5, 225], [187.5, 225], [262.5, 225],
-          ].map(([cx, cy], i) => (
-            <polygon
-              key={i}
-              points={`${cx},${cy - 32} ${cx + 28},${cy - 16} ${cx + 28},${cy + 16} ${cx},${cy + 32} ${cx - 28},${cy + 16} ${cx - 28},${cy - 16}`}
-              stroke="currentColor"
-              strokeWidth="2"
-              fill="none"
-            />
-          ))}
-        </svg>
-
-        {/* Bottom-right honeycomb cluster */}
-        <svg
-          className="absolute -bottom-10 -right-14 w-80 h-80 opacity-[0.05] text-tech"
-          viewBox="0 0 300 300"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          {[
-            [75, 30], [150, 30], [225, 30],
-            [37.5, 95], [112.5, 95], [187.5, 95], [262.5, 95],
-            [75, 160], [150, 160], [225, 160],
-            [37.5, 225], [112.5, 225], [187.5, 225], [262.5, 225],
-          ].map(([cx, cy], i) => (
-            <polygon
-              key={i}
-              points={`${cx},${cy - 32} ${cx + 28},${cy - 16} ${cx + 28},${cy + 16} ${cx},${cy + 32} ${cx - 28},${cy + 16} ${cx - 28},${cy - 16}`}
-              stroke="currentColor"
-              strokeWidth="2"
-              fill="none"
-            />
-          ))}
-        </svg>
-
-        {/* Top-right small filled accent */}
-        <svg
-          className="absolute top-6 right-10 w-24 h-36 opacity-[0.04] text-tech"
-          viewBox="0 0 100 160"
-          fill="currentColor"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          {[
-            [30, 25], [75, 25],
-            [5, 75], [52, 75], [98, 75],
-            [30, 125], [75, 125],
-          ].map(([cx, cy], i) => (
-            <polygon
-              key={i}
-              points={`${cx},${cy - 22} ${cx + 19},${cy - 11} ${cx + 19},${cy + 11} ${cx},${cy + 22} ${cx - 19},${cy + 11} ${cx - 19},${cy - 11}`}
-            />
-          ))}
-        </svg>
-
-        {/* Bottom-left small filled accent */}
-        <svg
-          className="absolute bottom-6 left-10 w-24 h-36 opacity-[0.04] text-tech"
-          viewBox="0 0 100 160"
-          fill="currentColor"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          {[
-            [30, 25], [75, 25],
-            [5, 75], [52, 75], [98, 75],
-            [30, 125], [75, 125],
-          ].map(([cx, cy], i) => (
-            <polygon
-              key={i}
-              points={`${cx},${cy - 22} ${cx + 19},${cy - 11} ${cx + 19},${cy + 11} ${cx},${cy + 22} ${cx - 19},${cy + 11} ${cx - 19},${cy - 11}`}
-            />
-          ))}
-        </svg>
-      </div>
+      {/* Removed Honeycomb Background Decoration */}
 
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-10">
@@ -153,23 +97,32 @@ const WhyUsSection = () => {
           <div className="relative flex flex-col md:flex-row items-center border border-blue-100 rounded-[2rem] bg-white p-6 md:p-10 shadow-[0_0_50px_-12px_rgba(59,130,246,0.15)] gap-8 md:gap-12 w-full max-w-7xl overflow-hidden">
 
             {/* Left Content Area */}
-            <div className="md:w-1/2 text-left order-2 md:order-1 relative z-[60]">
+            <div className="md:w-1/2 text-left order-2 md:order-1 relative z-[60] min-h-[140px] flex flex-col justify-center">
               <motion.h3
-                animate={{ color: activeImage ? "#ffffff" : "#0f172a" }}
-                transition={{ duration: 1 }}
+                key={currentContent.title}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ 
+                  opacity: 1, 
+                  y: 0,
+                  color: activeImage ? "#ffffff" : "#0f172a" 
+                }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
                 className="text-lg md:text-xl font-black mb-4 font-tech leading-snug"
               >
-                We Build Trust by our transparent services
+                {currentContent.title}
               </motion.h3>
               <motion.p
-                animate={{ color: activeImage ? "rgba(255, 255, 255, 0.9)" : "#64748b" }}
-                transition={{ duration: 1 }}
+                key={currentContent.copy}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ 
+                  opacity: 1, 
+                  y: 0,
+                  color: activeImage ? "rgba(255, 255, 255, 0.9)" : "#64748b" 
+                }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
                 className="text-sm md:text-sm leading-relaxed font-semibold"
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-                ultricies libero accumsan, bibendum metus id, convallis velit. Integer
-                consequat mi vitae ligula iaculis auctor. Curabitur quis pharetra
-                nibh, vitae dapibus elit.
+                {currentContent.copy}
               </motion.p>
             </div>
 

@@ -24,8 +24,8 @@ const Footer = () => {
               <Image src={LogoImg} alt="Mytecsys" width={160} height={40} className="object-contain" />
             </div>
             <div className="space-y-4">
-              <p className="text-slate-600 text-[12px] leading-relaxed max-w-[280px] font-medium">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac mollis nulla. Integer dictum porta felis vel rhoncus. Sed quis quam mauris. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac mollis nulla.
+              <p className="text-slate-600 text-[12px] leading-relaxed max-w-[280px] font-semibold">
+                Mytecsys is a premium technology development partner. We engineer custom artificial intelligence models, secure automated workflows, and robust cloud architectures to drive digital transformation and scale enterprises globally.
               </p>
             </div>
           </div>
