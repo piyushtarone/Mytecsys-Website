@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown, ChevronRight, Globe, Smartphone, Brain, ShoppingCart, BarChart3, Cpu, Code2, Layers, Bot, Eye, Zap, Database, Shield, Activity, Settings, Cloud } from "lucide-react";
 import logo from "@/assets/logo.png";
 import { NavLink } from "@/components/NavLink";
@@ -94,11 +95,12 @@ const navItems = [
   { href: "#products", label: "Products", megaKey: "Products",
     items: ["Product Alpha", "Product Beta"] },
   { href: "#case-studies", label: "Research & Insights" },
-  { href: "#careers", label: "Careers" },
+  { href: "/careers", label: "Careers" },
 ];
 
 // ─── Mega Menu Panel ──────────────────────────────────────────────────────────
 function MegaMenuPanel({ menuKey, activeItem }: { menuKey: string; activeItem: string }) {
+  const pathname = usePathname();
   const data = megaMenuData[menuKey]?.[activeItem];
   if (!data) return null;
   const Icon = data.icon;
@@ -119,10 +121,11 @@ function MegaMenuPanel({ menuKey, activeItem }: { menuKey: string; activeItem: s
         <div className="grid grid-cols-2 gap-2 pb-4">
           {data.items.map((item) => {
             const ItemIcon = item.icon;
+            const resolvedHref = item.href.startsWith("#") && pathname !== "/" ? `/${item.href}` : item.href;
             return (
               <Link
                 key={item.label}
-                href={item.href}
+                href={resolvedHref}
                 className="flex items-start gap-3 p-3 rounded-xl hover:bg-zinc-100 transition-colors group"
               >
                 <div className="w-8 h-8 rounded-lg bg-slate-100 group-hover:bg-zinc-200 flex items-center justify-center flex-shrink-0 transition-colors mt-0.5">
@@ -213,6 +216,7 @@ function NavDropdown({ item }: { item: typeof navItems[0] }) {
 
 // ─── Header ───────────────────────────────────────────────────────────────────
 export function Header() {
+  const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -228,7 +232,7 @@ export function Header() {
   return (
     <header className={cn(
       "fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300",
-      isScrolled
+      (isScrolled || pathname !== "/")
         ? "border-b border-border/40 bg-white/80 backdrop-blur-xl supports-[backdrop-filter]:bg-white/60"
         : "border-b border-transparent bg-transparent"
     )}>
@@ -242,25 +246,26 @@ export function Header() {
 
         {/* Desktop Nav */}
         <nav className="hidden xl:flex items-center justify-center gap-1">
-          {navItems.map((item) =>
-            item.items ? (
+          {navItems.map((item) => {
+            const resolvedHref = item.href ? (item.href.startsWith("#") && pathname !== "/" ? `/${item.href}` : item.href) : undefined;
+            return item.items ? (
               <NavDropdown key={item.label} item={item} />
             ) : (
               <NavLink
                 key={item.label}
-                href={item.href!}
+                href={resolvedHref!}
                 className="inline-flex h-10 items-center justify-center rounded-md px-4 py-2 text-[13px] font-semibold text-slate-700 hover:text-black transition-colors relative"
-                activeClassName="text-black font-black after:content-[''] after:absolute after:-bottom-2 after:left-1/2 after:-translate-x-1/2 after:w-[5px] after:h-[5px] after:bg-blue-600 after:rounded-full"
+                activeClassName="text-black font-black"
               >
                 {item.label}
               </NavLink>
-            )
-          )}
+            );
+          })}
         </nav>
 
         {/* Actions */}
         <div className="flex-1 flex justify-end items-center gap-4 pr-4 md:pr-8">
-          <Link href="#contact" className="hidden md:block">
+          <Link href={pathname !== "/" ? "/#contact" : "#contact"} className="hidden md:block">
             <Button 
               suppressHydrationWarning
               className="bg-[#2589e9] hover:bg-[#1d76cc] text-white rounded-lg px-6 h-11 text-sm font-semibold transition-all hover:scale-105 active:scale-95 shadow-md border-none"
@@ -285,39 +290,45 @@ export function Header() {
         mobileOpen ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0"
       )}>
         <nav className="container mx-auto flex flex-col gap-1 py-6 px-4">
-          {navItems.map((item) => (
-            <div key={item.label} className="flex flex-col">
-              <Link
-                href={item.href ?? "#"}
-                className="py-3 px-4 rounded-lg text-sm font-medium text-foreground hover:text-black hover:bg-muted/50 transition-colors flex justify-between items-center"
-                onClick={() => setMobileOpen(false)}
-              >
-                {item.label}
-              </Link>
-              {item.items && (
-                <div className="pl-4 flex flex-col gap-1 pb-2">
-                  {item.items.map((sub) => (
-                    <div key={sub}>
-                      <p className="text-xs font-bold text-slate-700 px-4 py-2">{sub}</p>
-                      {item.megaKey && megaMenuData[item.megaKey]?.[sub]?.items.map((mi) => (
-                        <Link
-                          key={mi.label}
-                          href={mi.href}
-                          className="flex items-center gap-2 pl-8 pr-4 py-1.5 text-xs text-slate-500 hover:text-blue-600 transition-colors"
-                          onClick={() => setMobileOpen(false)}
-                        >
-                          <mi.icon className="w-3 h-3" />
-                          {mi.label}
-                        </Link>
-                      ))}
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
+          {navItems.map((item) => {
+            const resolvedHref = item.href ? (item.href.startsWith("#") && pathname !== "/" ? `/${item.href}` : item.href) : "#";
+            return (
+              <div key={item.label} className="flex flex-col">
+                <Link
+                  href={resolvedHref}
+                  className="py-3 px-4 rounded-lg text-sm font-medium text-foreground hover:text-black hover:bg-muted/50 transition-colors flex justify-between items-center"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {item.label}
+                </Link>
+                {item.items && (
+                  <div className="pl-4 flex flex-col gap-1 pb-2">
+                    {item.items.map((sub) => (
+                      <div key={sub}>
+                        <p className="text-xs font-bold text-slate-700 px-4 py-2">{sub}</p>
+                        {item.megaKey && megaMenuData[item.megaKey]?.[sub]?.items.map((mi) => {
+                          const resolvedSubHref = mi.href.startsWith("#") && pathname !== "/" ? `/${mi.href}` : mi.href;
+                          return (
+                            <Link
+                              key={mi.label}
+                              href={resolvedSubHref}
+                              className="flex items-center gap-2 pl-8 pr-4 py-1.5 text-xs text-slate-500 hover:text-blue-600 transition-colors"
+                              onClick={() => setMobileOpen(false)}
+                            >
+                              <mi.icon className="w-3 h-3" />
+                              {mi.label}
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })}
           <div className="pt-4 px-4">
-            <Link href="#contact" onClick={() => setMobileOpen(false)}>
+            <Link href={pathname !== "/" ? "/#contact" : "#contact"} onClick={() => setMobileOpen(false)}>
               <Button className="w-full bg-[#2589e9] hover:bg-[#1d76cc] text-white rounded-lg py-3 text-sm font-semibold shadow-md border-none transition-all active:scale-95">
                 Contact Us
               </Button>

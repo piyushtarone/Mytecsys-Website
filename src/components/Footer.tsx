@@ -34,10 +34,14 @@ const Footer = () => {
             <div className="space-y-6">
               <h4 className="text-slate-500 font-medium text-[13px]">About</h4>
               <ul className="space-y-4">
-                {["Case Studies", "Research & Insights", "Gallery"].map((link) => (
-                  <li key={link}>
-                    <Link href="#" className="text-slate-900 font-bold text-[13px] hover:text-blue-600 transition-colors">
-                      {link}
+                {[
+                  { label: "Case Studies", href: "/#case-studies" },
+                  { label: "Research & Insights", href: "/#case-studies" },
+                  { label: "Gallery", href: "/#gallery-container" }
+                ].map((link) => (
+                  <li key={link.label}>
+                    <Link href={link.href} className="text-slate-900 font-bold text-[13px] hover:text-blue-600 transition-colors">
+                      {link.label}
                     </Link>
                   </li>
                 ))}
@@ -47,10 +51,13 @@ const Footer = () => {
             <div className="space-y-6">
               <h4 className="text-slate-500 font-medium text-[13px]">Industries</h4>
               <ul className="space-y-4">
-                {["Services", "Careers"].map((link) => (
-                  <li key={link}>
-                    <Link href="#" className="text-slate-900 font-bold text-[13px] hover:text-blue-600 transition-colors">
-                      {link}
+                {[
+                  { label: "Services", href: "/#services" },
+                  { label: "Careers", href: "/careers" }
+                ].map((link) => (
+                  <li key={link.label}>
+                    <Link href={link.href} className="text-slate-900 font-bold text-[13px] hover:text-blue-600 transition-colors">
+                      {link.label}
                     </Link>
                   </li>
                 ))}

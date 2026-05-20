@@ -41,14 +41,16 @@ export default function LandingPage() {
             backgroundImage: "url('/hero background .jpeg')",
             backgroundSize: 'cover',
             backgroundPosition: 'center -100px',
-            backgroundRepeat: 'no-repeat'
+            backgroundRepeat: 'no-repeat',
+            maskImage: 'linear-gradient(to bottom, black 0%, black 40%, transparent 85%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 40%, transparent 85%)'
           }}
         />
-        {/* Gradient Overlay on top of the image */}
+        {/* Radial Gradient Overlay around cards */}
         <div 
           className="absolute inset-0 z-10 w-full h-full pointer-events-none"
           style={{
-            background: "linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 35%, rgba(255, 255, 255, 0) 72.5%, rgba(255, 255, 255, 1) 88.5%, rgba(255, 255, 255, 1) 100%)"
+            background: "radial-gradient(ellipse at 50% 50%, rgba(25, 118, 210, 0.15) 2%, rgba(255, 255, 255, 1) 89%)"
           }}
         />
         <div className="relative z-20">
@@ -59,12 +61,18 @@ export default function LandingPage() {
 
       {/* Static Background Images for all sections except Hero */}
       <div 
-        className="fixed left-0 top-1/2 -translate-y-1/2 w-[180px] sm:w-[250px] md:w-[320px] h-[400px] md:h-[470px] z-0 bg-no-repeat bg-left bg-contain pointer-events-none opacity-[0.85] select-none"
-        style={{ backgroundImage: "url('/back.png')" }}
+        className="fixed left-0 top-1/2 -translate-y-1/2 w-[180px] sm:w-[250px] md:w-[320px] h-[400px] md:h-[470px] z-0 bg-no-repeat bg-left bg-contain pointer-events-none opacity-[0.9] select-none"
+        style={{ 
+          backgroundImage: "url('/back.png')",
+          filter: 'brightness(0.5) contrast(1.3) saturate(1.2)'
+        }}
       />
       <div 
-        className="fixed right-0 top-1/2 -translate-y-1/2 w-[160px] sm:w-[220px] md:w-[280px] h-[350px] md:h-[420px] z-0 bg-no-repeat bg-right bg-contain pointer-events-none opacity-[0.85] select-none"
-        style={{ backgroundImage: "url('/back right.png')" }}
+        className="fixed right-0 top-1/2 -translate-y-1/2 w-[160px] sm:w-[220px] md:w-[280px] h-[350px] md:h-[420px] z-0 bg-no-repeat bg-right bg-contain pointer-events-none opacity-[0.9] select-none"
+        style={{ 
+          backgroundImage: "url('/back right.png')",
+          filter: 'brightness(0.5) contrast(1.3) saturate(1.2)'
+        }}
       />
 
       <BrandsSection />

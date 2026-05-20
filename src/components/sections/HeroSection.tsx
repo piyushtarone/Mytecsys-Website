@@ -53,13 +53,13 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="font-tech text-3xl md:text-5xl lg:text-6xl font-bold mb-4 tracking-tight min-h-[1.1em] flex items-center justify-center leading-[1.1]">
+          <h1 className="font-tech text-[56px] font-bold mb-4 tracking-normal min-h-[1.1em] flex items-center justify-center leading-[1.1]">
             <span className="text-blue-600 inline-block py-2">
               {text}
               <motion.span
                 animate={{ opacity: [1, 0] }}
                 transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
-                className="ml-1 inline-block w-1 h-6 md:h-10 bg-blue-600/40 align-middle"
+                className="ml-1 inline-block w-1 h-[56px] bg-blue-600/40 align-middle"
               />
             </span>
           </h1>
@@ -71,7 +71,7 @@ export function HeroSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="-mt-2 md:-mt-4"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0f172a] mb-1 tracking-tight">
+          <h2 className="text-[32px] font-bold text-[#0f172a] mb-1 tracking-normal">
             For Your Business
           </h2>
         </motion.div>
@@ -81,9 +81,8 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <p className="text-sm md:text-base text-slate-500 max-w-xl mx-auto mb-4 leading-relaxed font-medium">
-            Transform your ideas into reality with intelligent technology solutions. We combine
-            AI research, cloud infrastructure, and engineering excellence.
+          <p className="text-[24px] text-slate-500 max-w-2xl mx-auto mb-4 leading-relaxed font-medium">
+            Intelligent technology solutions combining AI research, cloud infrastructure, and engineering excellence.
           </p>
         </motion.div>
 
@@ -123,7 +122,7 @@ export function HeroSection() {
           </div>
 
           {/* Label Below */}
-          <span className="text-slate-500 font-extrabold text-[9px] md:text-[11px] uppercase tracking-[0.25em] mt-3">
+          <span className="text-[12px] text-slate-500 font-extrabold uppercase tracking-normal mt-3">
             Trusted by 100+ Renowned Clients
           </span>
         </motion.div>

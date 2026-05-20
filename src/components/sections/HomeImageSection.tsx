@@ -206,7 +206,7 @@ const HomeImageSection = () => {
                     className={`
                       relative w-[95px] md:w-[150px] lg:w-[210px] 
                       rounded-lg md:rounded-xl lg:rounded-2xl overflow-hidden bg-[#0f172a] transition-all duration-700
-                      border-[1.5px] border-blue-400/80 shadow-[0_0_22px_rgba(96,165,250,0.45),inset_0_0_15px_rgba(96,165,250,0.2)]
+                      border-[1.5px] border-blue-400/80 shadow-[4px_4px_44px_4px_rgba(25,118,210,0.1),0_0_22px_rgba(96,165,250,0.45),inset_0_0_15px_rgba(96,165,250,0.2)]
                     `}
                     style={{
                       height: styles.height,

@@ -26,8 +26,11 @@ const steps = [
 
 const ProcessSection = () => {
   return (
-    <section className="py-16 px-4 md:px-6 relative z-10">
-      <div className="container mx-auto max-w-7xl">
+    <section className="py-16 px-4 md:px-6 relative z-10 bg-white overflow-hidden">
+      {/* Darkened Background Overlay */}
+      <div className="absolute inset-0 bg-white/60 pointer-events-none z-0" />
+      
+      <div className="container mx-auto max-w-7xl relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center lg:items-start">
           {/* Title Column */}
           <div className="lg:col-span-1 text-center lg:text-left mb-8 lg:mb-0">

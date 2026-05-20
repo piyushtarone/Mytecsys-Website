@@ -43,7 +43,7 @@ const AboutSection = () => {
               Mytecsys
             </h3>
             <p className="text-slate-600 mb-6 max-w-2xl text-base leading-relaxed font-semibold">
-              Founded in 2022, Mytecsys is a premium technology development partner dedicated to designing, building, and deploying elite software solutions. We empower enterprises globally with custom-tailored cloud architectures, enterprise security, and pioneering artificial intelligence.
+              Founded in 2020 Mytecsys is a premium technology development partner dedicated to designing, building, and deploying elite software solutions. We empower enterprises globally with custom-tailored cloud architectures, enterprise security, and pioneering artificial intelligence.
             </p>
 
             {/* Interactive Tabs */}
