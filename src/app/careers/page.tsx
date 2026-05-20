@@ -157,7 +157,7 @@ export default function CareersPage() {
             {/* Background Office Image with overlay */}
             <div className="absolute inset-0 z-0">
               <Image 
-                src="/careers_hero_bg.png" 
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/careers_hero_bg.png`} 
                 alt="Mytecsys Office Banner" 
                 fill
                 priority
@@ -226,7 +226,7 @@ export default function CareersPage() {
                     className="relative w-full max-w-md h-[300px] rounded-2xl overflow-hidden cursor-pointer group shadow-lg border border-slate-100"
                   >
                     <Image 
-                      src="/careers_handshake.png" 
+                      src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/careers_handshake.png`} 
                       alt="Explore Opportunities"
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -268,7 +268,7 @@ export default function CareersPage() {
               </div>
               <div className="relative min-h-[350px] md:min-h-full">
                 <Image 
-                  src="/careers_culture.png" 
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/careers_culture.png`} 
                   alt="Culture at Mytecsys" 
                   fill
                   className="object-cover"
@@ -280,7 +280,7 @@ export default function CareersPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 min-h-[440px]">
               <div className="relative min-h-[350px] md:min-h-full order-2 md:order-1">
                 <Image 
-                  src="/careers_benefits.png" 
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/careers_benefits.png`} 
                   alt="Benefits for You" 
                   fill
                   className="object-cover"
@@ -312,7 +312,7 @@ export default function CareersPage() {
               </div>
               <div className="relative min-h-[350px] md:min-h-full">
                 <Image 
-                  src="/careers_change.png" 
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/careers_change.png`} 
                   alt="Drive Meaningful Change" 
                   fill
                   className="object-cover"

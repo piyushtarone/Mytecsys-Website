@@ -97,7 +97,7 @@ export function HeroSection() {
           <div className="flex items-center justify-center gap[20px]">
             <div className="relative h-18 md:h-20 w-24 md:w-32">
               <Image
-                src="/Rectangle 448 (1).png"
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/Rectangle 448 (1).png`}
                 alt="Nagpur City Police"
                 fill
                 className="object-contain opacity-100"
@@ -105,7 +105,7 @@ export function HeroSection() {
             </div>
             <div className="relative h-8 md:h-20 w-24 md:w-32">
               <Image
-                src="/Rectangle 449.png"
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/Rectangle 449.png`}
                 alt="Bhartia Nagpur"
                 fill
                 className="object-contain opacity-100"
@@ -113,7 +113,7 @@ export function HeroSection() {
             </div>
             <div className="relative h-8 md:h-20 w-44 md:w-32">
               <Image
-                src="/Rectangle 450.png"
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/Rectangle 450.png`}
                 alt="UCN"
                 fill
                 className="object-contain opacity-100"

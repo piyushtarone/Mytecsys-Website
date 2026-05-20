@@ -152,7 +152,7 @@ const Footer = () => {
             <div className="bg-black text-white px-3 py-1.5 rounded-lg flex items-center gap-2 cursor-pointer hover:bg-slate-900 transition-all shadow-md border border-white/5">
               <div className="relative w-6 h-6 flex items-center justify-center">
                 <Image 
-                  src="/cromstore.png" 
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/cromstore.png`} 
                   alt="Chrome Store" 
                   width={24} 
                   height={24} 
@@ -169,7 +169,7 @@ const Footer = () => {
             <div className="bg-black text-white px-3 py-1.5 rounded-lg flex items-center gap-2 cursor-pointer hover:bg-slate-900 transition-all shadow-md border border-white/5">
               <div className="relative w-6 h-6 flex items-center justify-center">
                 <Image 
-                  src="/playstore.png" 
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/playstore.png`} 
                   alt="Google Play" 
                   width={24} 
                   height={24} 
