@@ -16,22 +16,22 @@ const newsItems = [
   {
     id: 1,
     title: "Garuda Drushti Takes Flight",
-    image: "/news/2a1384a6ed53571e2c4a3e14edc3bf888dde118b.jpg",
+    image: "/News/2a1384a6ed53571e2c4a3e14edc3bf888dde118b.jpg",
   },
   {
     id: 2,
     title: "Nagpur Police Bolster Social Media Monitoring",
-    image: "/news/5385e99218c7bf42b19366687b4c7f5590e67bf0.jpg",
+    image: "/News/5385e99218c7bf42b19366687b4c7f5590e67bf0.jpg",
   },
   {
     id: 3,
     title: "News Clipping 3",
-    image: "/news/5d2a2f96f7c45e1914197f0ff784fdf83cd423a3.jpg",
+    image: "/News/5d2a2f96f7c45e1914197f0ff784fdf83cd423a3.jpg",
   },
   {
     id: 4,
     title: "News Clipping 4",
-    image: "/news/c4fd77e3e3b3adb76ab25d15e1c83990da68e532.jpg",
+    image: "/News/c4fd77e3e3b3adb76ab25d15e1c83990da68e532.jpg",
   },
 ];
 
