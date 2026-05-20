@@ -38,7 +38,7 @@ export default function LandingPage() {
         <div 
           className="absolute inset-0 z-0 w-full h-full opacity-[0.35]"
           style={{
-            backgroundImage: "url('/hero background .jpeg')",
+            backgroundImage: `url('${process.env.NEXT_PUBLIC_BASE_PATH || ""}/hero background .jpeg')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center -100px',
             backgroundRepeat: 'no-repeat',
@@ -63,14 +63,14 @@ export default function LandingPage() {
       <div 
         className="fixed left-0 top-1/2 -translate-y-1/2 w-[180px] sm:w-[250px] md:w-[320px] h-[400px] md:h-[470px] z-0 bg-no-repeat bg-left bg-contain pointer-events-none opacity-[0.9] select-none"
         style={{ 
-          backgroundImage: "url('/back.png')",
+          backgroundImage: `url('${process.env.NEXT_PUBLIC_BASE_PATH || ""}/back.png')`,
           filter: 'brightness(0.5) contrast(1.3) saturate(1.2)'
         }}
       />
       <div 
         className="fixed right-0 top-1/2 -translate-y-1/2 w-[160px] sm:w-[220px] md:w-[280px] h-[350px] md:h-[420px] z-0 bg-no-repeat bg-right bg-contain pointer-events-none opacity-[0.9] select-none"
         style={{ 
-          backgroundImage: "url('/back right.png')",
+          backgroundImage: `url('${process.env.NEXT_PUBLIC_BASE_PATH || ""}/back right.png')`,
           filter: 'brightness(0.5) contrast(1.3) saturate(1.2)'
         }}
       />

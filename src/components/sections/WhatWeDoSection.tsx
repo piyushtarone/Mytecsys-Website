@@ -108,7 +108,7 @@ const WhatWeDoSection = () => {
                 <div
                   className="absolute inset-0 bg-cover bg-center animate-zoom-rotate"
                   style={{
-                    backgroundImage: `url("${service.image}")`,
+                    backgroundImage: `url('${process.env.NEXT_PUBLIC_BASE_PATH || ""}${service.image}')`,
                   }}
                 />
 

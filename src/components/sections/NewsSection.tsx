@@ -67,7 +67,7 @@ const NewsSection = () => {
     <div className="bg-white rounded-[2rem] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 p-3 h-full transition-all duration-300 hover:shadow-[0_20px_50px_rgba(59,130,246,0.15)] group flex flex-col">
       <div className="relative flex-1 rounded-[1.5rem] overflow-hidden bg-slate-50 border border-slate-50 min-h-[200px]">
         <Image
-          src={item.image}
+          src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}${item.image}`}
           alt={item.title}
           fill
           className="object-contain p-4 transition-transform duration-700 group-hover:scale-105"
