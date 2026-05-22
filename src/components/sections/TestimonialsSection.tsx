@@ -84,7 +84,7 @@ const TestimonialsSection = () => {
   const col3 = [...testimonials, ...testimonials];
 
   return (
-    <section className="py-12 px-4 md:px-6 relative z-10 overflow-hidden bg-[#2589e9]/[0.04]">
+    <section className="py-12 px-4 md:px-6 relative z-10 overflow-hidden bg-[#1b6cd5]/[0.04]">
       {/* Removed Honeycomb Background Decoration */}
 
       {/* Subtle gradient overlay */}

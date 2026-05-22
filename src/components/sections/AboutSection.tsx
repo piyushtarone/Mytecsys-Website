@@ -1,9 +1,69 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
+const AnimatedCounter = ({ value }: { value: string }) => {
+  const [count, setCount] = useState(0);
+  const elementRef = useRef<HTMLSpanElement>(null);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  // Extract the numeric part and prefix/suffix
+  const numericMatch = value.match(/\d+/);
+  const target = numericMatch ? parseInt(numericMatch[0], 10) : 0;
+  const prefix = value.startsWith("$") ? "$" : "";
+  const suffix = value.endsWith("+") ? "+" : "";
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
+          const duration = 1800; // 1.8 seconds for smooth progression
+          const startTime = performance.now();
+
+          const animate = (currentTime: number) => {
+            const elapsedTime = currentTime - startTime;
+            const progress = Math.min(elapsedTime / duration, 1);
+            
+            // Cubic ease out: 1 - Math.pow(1 - progress, 3)
+            const easeProgress = 1 - Math.pow(1 - progress, 3);
+            const currentCount = Math.floor(easeProgress * target);
+
+            setCount(currentCount);
+
+            if (progress < 1) {
+              requestAnimationFrame(animate);
+            }
+          };
+
+          requestAnimationFrame(animate);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
+
+    return () => {
+      if (elementRef.current) {
+        observer.unobserve(elementRef.current);
+      }
+    };
+  }, [target, hasAnimated]);
+
+  return (
+    <span ref={elementRef}>
+      {prefix}
+      {count}
+      {suffix}
+    </span>
+  );
+};
 
 const tabs = [
   { id: "vision", label: "Our Vision" },
@@ -75,7 +135,7 @@ const AboutSection = () => {
 
             <Button
               suppressHydrationWarning={true}
-              asChild size="lg" className="w-full sm:w-auto group bg-[#2589e9] hover:bg-[#1d76cc] text-white rounded-lg px-8 h-12 text-sm font-bold transition-all hover:scale-105 active:scale-95 border-none shadow-md">
+              asChild size="lg" className="w-full sm:w-auto group bg-[#1b6cd5] hover:bg-[#1558b0] text-white rounded-lg px-8 h-12 text-sm font-bold transition-all hover:scale-105 active:scale-95 border-none shadow-md">
               <a href="/#about-more">
                 More About Us
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -106,8 +166,8 @@ const AboutSection = () => {
               },
             ].map((stat, i) => (
               <div key={i} className={cn("flex items-center gap-5", stat.marginClass)}>
-                <span className="text-4xl md:text-5xl font-bold text-[#0f3566] tracking-tight">
-                  {stat.value}
+                <span className="text-4xl md:text-5xl font-bold text-[#0f3566] tracking-tight tabular-nums min-w-[70px] md:min-w-[90px] inline-block">
+                  <AnimatedCounter value={stat.value} />
                 </span>
                 <div className="h-10 w-[2px] bg-blue-300/50" />
                 <div className="text-[#8ba3ba] text-xs font-medium leading-tight flex flex-col justify-center min-w-[100px]">

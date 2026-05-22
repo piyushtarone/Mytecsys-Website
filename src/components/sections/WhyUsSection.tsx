@@ -96,6 +96,13 @@ const WhyUsSection = () => {
         <div className="flex justify-center">
           <div className="relative flex flex-col md:flex-row items-center border border-blue-100 rounded-[2rem] bg-white p-6 md:p-10 shadow-[0_0_50px_-12px_rgba(59,130,246,0.15)] gap-8 md:gap-12 w-full max-w-7xl overflow-hidden">
 
+            {/* Dark background fade-in to prevent text color contrast flashes */}
+            <motion.div
+              animate={{ opacity: activeImage ? 1 : 0 }}
+              transition={{ duration: 0.4 }}
+              className="absolute inset-0 bg-slate-950 z-0 pointer-events-none"
+            />
+
             {/* Left Content Area */}
             <div className="md:w-1/2 text-left order-2 md:order-1 relative z-[60] min-h-[140px] flex flex-col justify-center">
               <motion.h3
@@ -135,6 +142,8 @@ const WhyUsSection = () => {
               const padding = isMobile ? 24 : 40;
               const baseWidth = isMobile ? "200px" : "220px";
               const translateX = isMobile ? img.x * 0.75 : img.x;
+              const rightOffset = isActive ? 0 : (padding - translateX);
+              const leftOffset = isActive ? 0 : `calc(100% - ${baseWidth} - ${rightOffset}px)`;
 
               return (
                 <motion.div
@@ -144,23 +153,22 @@ const WhyUsSection = () => {
                   animate={{
                     top: isActive ? 0 : padding,
                     bottom: isActive ? 0 : padding,
-                    right: isActive ? 0 : padding,
-                    left: isActive ? 0 : "auto",
+                    right: rightOffset,
+                    left: leftOffset,
                     width: isActive ? "100%" : baseWidth,
-                    x: isActive ? 0 : translateX,
                     zIndex: isActive ? 50 : img.z,
                     borderRadius: isActive ? "2rem" : "0.5rem",
                   }}
                   transition={{
-                    duration: 1,
-                    ease: [0.22, 1, 0.36, 1],
+                    duration: 0.8,
+                    ease: [0.25, 1, 0.5, 1],
                   }}
                   className="absolute overflow-hidden transform-gpu pointer-events-none"
                 >
                   <div className="relative w-full h-full">
                     <motion.div
-                      animate={{ scale: isActive ? 1.5 : 1 }}
-                      transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+                      animate={{ scale: isActive ? 1.4 : 1 }}
+                      transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
                       className="absolute inset-0"
                     >
                       <Image
@@ -170,10 +178,11 @@ const WhyUsSection = () => {
                         className="object-cover"
                       />
                     </motion.div>
+                    {/* Rich black gradient overlay for readability */}
                     <motion.div
                       animate={{ opacity: isActive ? 1 : 0 }}
-                      transition={{ duration: 1 }}
-                      className="absolute inset-0 bg-black/40"
+                      transition={{ duration: 0.5 }}
+                      className="absolute inset-0 bg-black/40 bg-gradient-to-t from-black/90 via-black/45 to-transparent md:bg-gradient-to-r md:from-black/95 md:via-black/50 md:to-transparent"
                     />
                   </div>
                 </motion.div>

@@ -181,7 +181,7 @@ const AchievementsSection = () => {
           <button
             suppressHydrationWarning={true}
             onClick={openGallery}
-            className="inline-flex items-center gap-2 text-[#2589e9] font-bold hover:text-[#1d76cc] transition-all group text-base"
+            className="inline-flex items-center gap-2 text-[#1b6cd5] font-bold hover:text-[#1558b0] transition-all group text-base"
           >
             View All
             <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-2" />

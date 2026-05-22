@@ -94,7 +94,7 @@ const navItems = [
   { href: "#industries", label: "Industries" },
   { href: "#products", label: "Products", megaKey: "Products",
     items: ["Product Alpha", "Product Beta"] },
-  { href: "#case-studies", label: "Research & Insights" },
+  { href: "#news", label: "Research & Insights" },
   { href: "/careers", label: "Careers" },
 ];
 
@@ -268,7 +268,7 @@ export function Header() {
           <Link href={pathname !== "/" ? "/#contact" : "#contact"} className="hidden md:block">
             <Button 
               suppressHydrationWarning
-              className="bg-[#2589e9] hover:bg-[#1d76cc] text-white rounded-lg px-6 h-11 text-sm font-semibold transition-all hover:scale-105 active:scale-95 shadow-md border-none"
+              className="bg-[#1b6cd5] hover:bg-[#1558b0] text-white rounded-lg px-6 h-11 text-sm font-semibold transition-all hover:scale-105 active:scale-95 shadow-md border-none"
             >
               Contact Us
             </Button>
@@ -329,7 +329,7 @@ export function Header() {
           })}
           <div className="pt-4 px-4">
             <Link href={pathname !== "/" ? "/#contact" : "#contact"} onClick={() => setMobileOpen(false)}>
-              <Button className="w-full bg-[#2589e9] hover:bg-[#1d76cc] text-white rounded-lg py-3 text-sm font-semibold shadow-md border-none transition-all active:scale-95">
+              <Button className="w-full bg-[#1b6cd5] hover:bg-[#1558b0] text-white rounded-lg py-3 text-sm font-semibold shadow-md border-none transition-all active:scale-95">
                 Contact Us
               </Button>
             </Link>

@@ -96,7 +96,7 @@ const WhatWeDoSection = () => {
                   setIsHovered(true);
                 }}
                 animate={{
-                  flexGrow: activeIndex === index ? 3 : 1,
+                  flexGrow: activeIndex === index ? 5 : 1,
                 }}
                 transition={{ duration: 1.2, ease: "easeInOut" }}
                 className={cn(
@@ -112,15 +112,18 @@ const WhatWeDoSection = () => {
                   }}
                 />
 
-                {/* Overlay Content */}
+                {/* Black Overlay for readability */}
                 <div
                   className={cn(
-                    "absolute inset-0 p-6 flex transition-all duration-700",
-                    service.isPan
-                      ? "bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent"
-                      : "bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent"
+                    "absolute inset-0 transition-all duration-700",
+                    activeIndex === index
+                      ? "bg-black/45 bg-gradient-to-t from-black/95 via-black/50 to-transparent"
+                      : "bg-black/60 bg-gradient-to-t from-black/85 via-black/20 to-transparent"
                   )}
-                >
+                />
+
+                {/* Overlay Content */}
+                <div className="absolute inset-0 p-6 flex">
                   <div className="relative w-full h-full">
                     {/* Vertical Text Layout */}
                     {service.hasVertical && (
@@ -158,8 +161,8 @@ const WhatWeDoSection = () => {
                           </p>
                         )}
                         <div className="pointer-events-auto mt-2">
-                          <span className="text-tech text-sm font-bold group-hover:underline cursor-pointer">
-                            Learn More &rarr;
+                          <span className="text-white text-sm font-bold group-hover:underline cursor-pointer inline-flex items-center gap-1.5 transition-all duration-200">
+                            Learn More <span className="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
                           </span>
                         </div>
                       </motion.div>

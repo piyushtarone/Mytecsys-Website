@@ -108,7 +108,7 @@ const ContactSection = () => {
 
               <Button 
                 suppressHydrationWarning={true}
-                className="w-full py-7 rounded-xl bg-[#2589e9] hover:bg-[#1d76cc] text-white shadow-sm font-semibold group transition-all text-lg">
+                className="w-full py-7 rounded-xl bg-[#1b6cd5] hover:bg-[#1558b0] text-white shadow-sm font-semibold group transition-all text-lg">
                 Send Message
                 <Send className="ml-3 h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
               </Button>

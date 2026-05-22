@@ -186,7 +186,7 @@ const HomeImageSection = () => {
                   {/* Soft Background Glow */}
                   <div className={`absolute -inset-8 rounded-[3rem] bg-blue-400/15 blur-3xl -z-10 transition-opacity duration-700 ${isActive ? 'opacity-90' : 'opacity-30'}`} />
 
-                  {/* Card Body */}
+                  {/* Card Body — gradient border wrapper */}
                   <motion.div
                     animate={{
                       height: styles.height,
@@ -203,28 +203,33 @@ const HomeImageSection = () => {
                         delay: isJump ? 0.3 : 0
                       }
                     }}
-                    className={`
-                      relative w-[95px] md:w-[150px] lg:w-[210px] 
-                      rounded-lg md:rounded-xl lg:rounded-2xl overflow-hidden bg-[#0f172a] transition-all duration-700
-                      border-[1.5px] border-blue-400/50 shadow-[4px_4px_44px_4px_rgba(25,118,210,0.1),0_0_22px_rgba(96,165,250,0.25),inset_0_0_15px_rgba(96,165,250,0.12)]
-                    `}
+                    className="relative w-[95px] md:w-[150px] lg:w-[210px] overflow-hidden transition-all duration-700 shadow-[4px_4px_44px_4px_rgba(25,118,210,0.1),0_0_22px_rgba(96,165,250,0.25),inset_0_0_15px_rgba(96,165,250,0.12)]"
                     style={{
                       height: styles.height,
-                      zIndex: styles.zIndex
+                      zIndex: styles.zIndex,
+                      borderRadius: '24px',
+                      padding: '1.5px',
+                      background: 'linear-gradient(180deg, #9FCFFF 21%, #FFFFFF 53%, #9FCFFF 88%)',
                     }}
                   >
-                    <Image
-                      src={card.img}
-                      alt={card.title}
-                      fill
-                      className={`object-cover object-top transition-transform duration-1000 ${isActive ? "scale-110" : "scale-100"}`}
-                      style={{ transform: `scale(${card.scale})` }}
-                      priority
-                      sizes="(max-width: 768px) 140px, (max-width: 1200px) 240px, 320px"
-                    />
+                    {/* Inner card content */}
+                    <div
+                      className="relative w-full h-full overflow-hidden bg-[#0f172a]"
+                      style={{ borderRadius: '22.5px' }}
+                    >
+                      <Image
+                        src={card.img}
+                        alt={card.title}
+                        fill
+                        className={`object-cover object-top transition-transform duration-1000 ${isActive ? "scale-110" : "scale-100"}`}
+                        style={{ transform: `scale(${card.scale})` }}
+                        priority
+                        sizes="(max-width: 768px) 140px, (max-width: 1200px) 240px, 320px"
+                      />
 
-                    {/* Futuristic Overlays */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-blue-900/30 via-transparent to-transparent opacity-50 pointer-events-none" />
+                      {/* Futuristic Overlays */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-blue-900/30 via-transparent to-transparent opacity-50 pointer-events-none" />
+                    </div>
                   </motion.div>
 
                   {/* Reflection/Glow under active card */}

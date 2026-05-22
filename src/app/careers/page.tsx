@@ -195,7 +195,7 @@ export default function CareersPage() {
                 {/* Bold Text: 16px / 18px */}
                 <button 
                   type="submit"
-                  className="bg-[#2589e9] hover:bg-[#1d76cc] text-white px-6 md:px-8 py-2.5 md:py-3 rounded-full font-bold text-[16px] transition-all hover:scale-105 active:scale-95 flex-shrink-0 shadow-md tracking-normal"
+                  className="bg-[#1b6cd5] hover:bg-[#1558b0] text-white px-6 md:px-8 py-2.5 md:py-3 rounded-full font-bold text-[16px] transition-all hover:scale-105 active:scale-95 flex-shrink-0 shadow-md tracking-normal"
                 >
                   Search
                 </button>
@@ -463,7 +463,7 @@ export default function CareersPage() {
                       setSearchQuery("");
                       handleResetFilters();
                     }}
-                    className="bg-[#2589e9] hover:bg-[#1d76cc] text-white px-6 py-3 rounded-xl font-bold text-[16px] shadow-md transition-all flex-shrink-0 border-none tracking-normal"
+                    className="bg-[#1b6cd5] hover:bg-[#1558b0] text-white px-6 py-3 rounded-xl font-bold text-[16px] shadow-md transition-all flex-shrink-0 border-none tracking-normal"
                   >
                     Reset
                   </button>
@@ -483,7 +483,7 @@ export default function CareersPage() {
                     <div key={job.id} className="py-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-left group">
                       <div className="space-y-1">
                         {/* Bold Text: 18px */}
-                        <h4 className="text-[18px] font-bold text-slate-900 group-hover:text-[#2589e9] transition-colors font-tech tracking-normal">
+                        <h4 className="text-[18px] font-bold text-slate-900 group-hover:text-[#1b6cd5] transition-colors font-tech tracking-normal">
                           {job.title}
                         </h4>
                         {/* Small Text: 12px */}
@@ -580,7 +580,7 @@ export default function CareersPage() {
                           placeholder="e.g. John Doe"
                           value={formData.name}
                           onChange={handleInputChange}
-                          className="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 text-[16px] font-normal text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-[#2589e9] transition-all tracking-normal"
+                          className="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 text-[16px] font-normal text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-[#1b6cd5] transition-all tracking-normal"
                         />
                       </div>
 
@@ -598,7 +598,7 @@ export default function CareersPage() {
                           placeholder="e.g. john@example.com"
                           value={formData.email}
                           onChange={handleInputChange}
-                          className="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 text-[16px] font-normal text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-[#2589e9] transition-all tracking-normal"
+                          className="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 text-[16px] font-normal text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-[#1b6cd5] transition-all tracking-normal"
                         />
                       </div>
                     </div>
@@ -618,7 +618,7 @@ export default function CareersPage() {
                           placeholder="e.g. +91 94057 41343"
                           value={formData.phone}
                           onChange={handleInputChange}
-                          className="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 text-[16px] font-normal text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-[#2589e9] transition-all tracking-normal"
+                          className="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 text-[16px] font-normal text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-[#1b6cd5] transition-all tracking-normal"
                         />
                       </div>
 
@@ -633,7 +633,7 @@ export default function CareersPage() {
                           name="interest"
                           value={formData.interest}
                           onChange={handleInputChange}
-                          className="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 text-[16px] font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-[#2589e9] transition-all cursor-pointer tracking-normal"
+                          className="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 text-[16px] font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-[#1b6cd5] transition-all cursor-pointer tracking-normal"
                         >
                           <option value="AI & Machine Learning">AI & Machine Learning</option>
                           <option value="Frontend Development (React/Next.js)">Frontend Development</option>
@@ -658,7 +658,7 @@ export default function CareersPage() {
                           placeholder="e.g. linkedin.com/in/username"
                           value={formData.linkedin}
                           onChange={handleInputChange}
-                          className="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 text-[16px] font-normal text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-[#2589e9] transition-all tracking-normal"
+                          className="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 text-[16px] font-normal text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-[#1b6cd5] transition-all tracking-normal"
                         />
                       </div>
 
@@ -675,7 +675,7 @@ export default function CareersPage() {
                           placeholder="e.g. drive.google.com/file/..."
                           value={formData.resumeUrl}
                           onChange={handleInputChange}
-                          className="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 text-[16px] font-normal text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-[#2589e9] transition-all tracking-normal"
+                          className="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 text-[16px] font-normal text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-[#1b6cd5] transition-all tracking-normal"
                         />
                       </div>
                     </div>
@@ -693,7 +693,7 @@ export default function CareersPage() {
                         placeholder="Highlight your notable technical builds, research work, or what gets you excited about engineering..."
                         value={formData.message}
                         onChange={handleInputChange}
-                        className="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 text-[16px] font-normal text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-[#2589e9] transition-all resize-none tracking-normal"
+                        className="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 text-[16px] font-normal text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-[#1b6cd5] transition-all resize-none tracking-normal"
                       />
                     </div>
 
@@ -761,7 +761,7 @@ export default function CareersPage() {
                     </Button>
                     <button 
                       onClick={() => setViewMode("landing")}
-                      className="bg-[#2589e9] hover:bg-[#1d76cc] text-white rounded-lg px-6 h-11 text-[16px] font-bold transition-all hover:scale-105 active:scale-95 border-none shadow-md tracking-normal"
+                      className="bg-[#1b6cd5] hover:bg-[#1558b0] text-white rounded-lg px-6 h-11 text-[16px] font-bold transition-all hover:scale-105 active:scale-95 border-none shadow-md tracking-normal"
                     >
                       Back to Overview
                     </button>

@@ -17,9 +17,10 @@ const Footer = () => {
         }} />
 
       <div className="container mx-auto max-w-7xl px-4 relative z-10">
-        <div className="flex flex-col lg:flex-row items-start justify-between gap-12 lg:gap-8 mb-12">
+        <div className="flex flex-col lg:flex-row items-start justify-between gap-10 mb-12">
           
-          <div className="lg:w-[28%] space-y-6">
+          {/* Logo & Description */}
+          <div className="lg:w-[25%] space-y-6 flex flex-col justify-start">
             <div className="flex items-center gap-3">
               <Image src={LogoImg} alt="Mytecsys" width={160} height={40} className="object-contain" />
             </div>
@@ -30,59 +31,56 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="flex-1 grid grid-cols-2 md:grid-cols-3 gap-8 lg:gap-4">
-            <div className="space-y-6">
-              <h4 className="text-slate-500 font-medium text-[13px]">About</h4>
-              <ul className="space-y-4">
-                {[
-                  { label: "Case Studies", href: "/#case-studies" },
-                  { label: "Research & Insights", href: "/#case-studies" },
-                  { label: "Gallery", href: "/#gallery-container" }
-                ].map((link) => (
-                  <li key={link.label}>
-                    <Link href={link.href} className="text-slate-900 font-bold text-[13px] hover:text-blue-600 transition-colors">
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          {/* Quick Links */}
+          <div className="lg:w-[18%] space-y-6 flex flex-col justify-start">
+            <h4 className="text-slate-900 font-bold text-[13px] uppercase tracking-wider">ABOUT</h4>
+            <ul className="space-y-4">
+              {[
+                { label: "Case Studies", href: "/#case-studies" },
+                { label: "Research & Insights", href: "/#news" },
+                { label: "Gallery", href: "/#achievements" }
+              ].map((link) => (
+                <li key={link.label}>
+                  <Link href={link.href} className="text-slate-900 font-bold text-[13px] hover:text-blue-600 transition-colors">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <div className="flex items-center gap-2.5 text-slate-900 font-bold text-[13px] flex-wrap">
+                  <Link href="/#services" className="hover:text-blue-600 transition-colors">
+                    Services
+                  </Link>
+                  <span className="text-slate-300 font-normal">|</span>
+                  <Link href="/careers" className="hover:text-blue-600 transition-colors">
+                    Careers
+                  </Link>
+                </div>
+              </li>
+            </ul>
+          </div>
 
-            <div className="space-y-6">
-              <h4 className="text-slate-500 font-medium text-[13px]">Industries</h4>
-              <ul className="space-y-4">
-                {[
-                  { label: "Services", href: "/#services" },
-                  { label: "Careers", href: "/careers" }
-                ].map((link) => (
-                  <li key={link.label}>
-                    <Link href={link.href} className="text-slate-900 font-bold text-[13px] hover:text-blue-600 transition-colors">
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="space-y-6">
+          {/* Contact & Address */}
+          <div className="lg:w-[27%] space-y-8 flex flex-col justify-start">
+            {/* Contact Us */}
+            <div className="space-y-4">
               <h4 className="text-slate-900 font-bold text-[13px] uppercase tracking-wider">Contact Us</h4>
-              <div className="space-y-4">
-                <a href="tel:+919405741343" className="flex items-center gap-3 text-slate-600 hover:text-blue-600 transition-colors text-[13px] font-bold whitespace-nowrap">
+              <div className="space-y-3.5">
+                <a href="tel:+919405741343" className="flex items-center gap-3 text-slate-900 hover:text-blue-600 transition-colors text-[13px] font-bold whitespace-nowrap">
                   <Phone className="w-5 h-5 text-slate-400" />
                   (+91) 9405741343
                 </a>
-                <a href="mailto:info@mytecsys.in" className="flex items-center gap-3 text-slate-600 hover:text-blue-600 transition-colors text-[13px] font-bold whitespace-nowrap">
+                <a href="mailto:info@mytecsys.in" className="flex items-center gap-3 text-slate-900 hover:text-blue-600 transition-colors text-[13px] font-bold whitespace-nowrap">
                   <Mail className="w-5 h-5 text-slate-400" />
                   info@mytecsys.in
                 </a>
               </div>
             </div>
-          </div>
 
-          <div className="lg:w-[32%] space-y-10">
-            <div className="space-y-6">
+            {/* Address */}
+            <div className="space-y-4">
               <h4 className="text-slate-900 font-bold text-[13px] uppercase tracking-wider">Address</h4>
-              <div className="flex items-start gap-4 text-slate-600 text-[13px] leading-relaxed font-bold">
+              <div className="flex items-start gap-3.5 text-slate-900 text-[13px] leading-relaxed font-bold">
                 <MapPin className="w-5 h-5 text-slate-400 mt-1 flex-shrink-0" />
                 <p className="whitespace-nowrap">
                   Jai umiya shivam apartment, 102,<br />
@@ -91,22 +89,25 @@ const Footer = () => {
                 </p>
               </div>
             </div>
+          </div>
 
+          {/* Map */}
+          <div className="lg:w-[30%] flex flex-col justify-start">
             <a 
-              href="https://www.google.com/maps/search/..."
+              href="https://www.google.com/maps/search/?api=1&query=Mytecsys,+Jai+umiya+shivam+apartment,+102,+6579/A/47,+Chandranagar,+Rameshwari,+Nagpur,+Maharashtra+440027"
               target="_blank"
               rel="noopener noreferrer"
-              className="block group relative"
+              className="block group relative w-full"
             >
-              <div className="bg-white/40 backdrop-blur-sm rounded-[2rem] p-8 border border-blue-100 shadow-sm relative overflow-hidden h-[240px] flex flex-col items-center justify-center group-hover:border-blue-300 transition-all duration-500">
+              <div className="bg-white/40 backdrop-blur-sm rounded-[2rem] p-6 border border-blue-100 shadow-sm relative overflow-hidden h-[200px] flex flex-col items-center justify-center group-hover:border-blue-300 transition-all duration-500">
                 <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/hexellence.png")' }} />
                 <div className="relative z-10 flex flex-col items-center">
-                  <div className="bg-white rounded-2xl px-6 py-4 shadow-xl border border-slate-50 text-center relative">
+                  <div className="bg-white rounded-2xl px-5 py-3.5 shadow-xl border border-slate-50 text-center relative">
                     <p className="text-slate-900 font-black text-sm">Mytecsys</p>
                     <p className="text-[10px] text-slate-400 mt-0.5 font-bold">Nagpur, Maharashtra (India)</p>
                   </div>
-                  <div className="mt-4 relative">
-                    <svg viewBox="0 0 384 512" className="w-10 h-10 fill-[#FF3B30] drop-shadow-lg">
+                  <div className="mt-3 relative">
+                    <svg viewBox="0 0 384 512" className="w-8 h-8 fill-[#FF3B30] drop-shadow-lg">
                       <path d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"/>
                     </svg>
                   </div>
@@ -114,6 +115,7 @@ const Footer = () => {
               </div>
             </a>
           </div>
+
         </div>
 
         <div className="flex flex-col lg:flex-row items-center justify-between gap-6 py-8 border-t border-slate-100">

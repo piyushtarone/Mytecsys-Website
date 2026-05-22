@@ -36,7 +36,7 @@ export default function LandingPage() {
       <div className="relative overflow-hidden bg-white z-20">
         {/* Background Image with custom opacity */}
         <div 
-          className="absolute inset-0 z-0 w-full h-full opacity-[0.35]"
+          className="absolute inset-0 z-0 w-full h-full opacity-[0.55]"
           style={{
             backgroundImage: `url('${process.env.NEXT_PUBLIC_BASE_PATH || ""}/hero_background.jpeg')`,
             backgroundSize: 'cover',
@@ -61,7 +61,7 @@ export default function LandingPage() {
 
       {/* Static Background Images for all sections except Hero */}
       <div 
-        className="fixed left-0 top-1/2 -translate-y-1/2 w-[180px] sm:w-[250px] md:w-[320px] h-[400px] md:h-[470px] z-0 bg-no-repeat bg-left bg-contain pointer-events-none opacity-[0.9] select-none"
+        className="fixed left-0 top-1/2 -translate-y-1/2 w-[160px] sm:w-[220px] md:w-[280px] h-[350px] md:h-[420px] z-0 bg-no-repeat bg-left bg-contain pointer-events-none opacity-[0.9] select-none"
         style={{ 
           backgroundImage: `url('${process.env.NEXT_PUBLIC_BASE_PATH || ""}/back.png')`,
           filter: 'brightness(0.5) contrast(1.3) saturate(1.2)'

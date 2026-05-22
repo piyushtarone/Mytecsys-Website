@@ -27,7 +27,7 @@ const CTASection = () => {
 
             <Button 
               suppressHydrationWarning={true}
-              size="lg" className="rounded-xl px-8 h-12 bg-[#2589e9] hover:bg-[#1d76cc] text-white shadow-xl font-semibold group transition-all text-base">
+              size="lg" className="rounded-xl px-8 h-12 bg-[#1b6cd5] hover:bg-[#1558b0] text-white shadow-xl font-semibold group transition-all text-base">
               Get Started
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Button>
