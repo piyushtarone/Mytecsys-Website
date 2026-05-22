@@ -4,22 +4,22 @@ import { FolderSearch, UserCheck, Workflow, FolderUp } from "lucide-react";
 const steps = [
   {
     icon: FolderSearch,
-    title: "Discover",
+    title: "Discover user needs",
     description: "We analyze your core workflows to identify high-impact AI and automation opportunities.",
   },
   {
     icon: UserCheck,
-    title: "Define",
+    title: "Define user thoughts",
     description: "We architect scalable cloud blueprints and draft custom technical roadmaps.",
   },
   {
     icon: Workflow,
-    title: "Develop",
+    title: "Develop those in application",
     description: "Our engineering experts build high-performance software with state-of-the-art security.",
   },
   {
     icon: FolderUp,
-    title: "Deploy",
+    title: "Deploy with user feedbacks",
     description: "Seamless launching, cloud optimization, and proactive continuous monitoring for your success.",
   },
 ];
@@ -29,7 +29,7 @@ const ProcessSection = () => {
     <section className="py-16 px-4 md:px-6 relative z-10 bg-white overflow-hidden">
       {/* Darkened Background Overlay */}
       <div className="absolute inset-0 bg-white/60 pointer-events-none z-0" />
-      
+
       <div className="container mx-auto max-w-7xl relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center lg:items-start">
           {/* Title Column */}
@@ -43,7 +43,7 @@ const ProcessSection = () => {
           {/* Steps Columns */}
           <div className="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
             {steps.map((step, index) => (
-              <div key={index} className="group relative text-center">
+              <div key={index} className="group relative text-left">
                 <div className="mb-4 inline-flex p-3 rounded-2xl bg-tech/5 text-tech group-hover:bg-tech group-hover:text-white transition-all duration-500 group-hover:shadow-xl group-hover:shadow-tech/20">
                   <step.icon size={28} strokeWidth={1.5} />
                 </div>

@@ -145,7 +145,7 @@ function MegaMenuPanel({ menuKey, activeItem }: { menuKey: string; activeItem: s
 }
 
 // ─── Nav Dropdown with Mega Menu ──────────────────────────────────────────────
-function NavDropdown({ item }: { item: typeof navItems[0] }) {
+function NavDropdown({ item, isActive }: { item: typeof navItems[0]; isActive: boolean }) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSubItem, setActiveSubItem] = useState(item.items?.[0] ?? "");
   const ref = useRef<HTMLDivElement>(null);
@@ -168,7 +168,7 @@ function NavDropdown({ item }: { item: typeof navItems[0] }) {
         className={cn(
           "inline-flex h-10 items-center justify-center rounded-md px-4 py-2 text-[13px] font-semibold transition-colors",
           "text-slate-700 hover:text-black",
-          isOpen && "text-black"
+          (isOpen || isActive) && "text-black font-black"
         )}
       >
         {item.label}
@@ -219,6 +219,7 @@ export function Header() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("hero");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -228,6 +229,51 @@ export function Header() {
     handleScroll(); // Run initially
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (pathname !== "/") {
+      setActiveSection("");
+      return;
+    }
+
+    const handleScrollActive = () => {
+      const sectionIds = ["hero", "services", "products", "industries", "about", "news"];
+      const scrollPosition = window.scrollY + 200; // 200px offset for trigger
+
+      // Check if we are at the bottom of the page
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 50) {
+        setActiveSection("news");
+        return;
+      }
+
+      // Find which section is current
+      for (let i = sectionIds.length - 1; i >= 0; i--) {
+        const el = document.getElementById(sectionIds[i]);
+        if (el) {
+          if (el.offsetTop <= scrollPosition) {
+            setActiveSection(sectionIds[i]);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScrollActive);
+    handleScrollActive(); // run once initially
+
+    return () => window.removeEventListener("scroll", handleScrollActive);
+  }, [pathname]);
+
+  const isItemActive = (item: typeof navItems[0]) => {
+    if (item.href === "/careers") {
+      return pathname.startsWith("/careers");
+    }
+    if (pathname === "/") {
+      const sectionId = item.href?.startsWith("#") ? item.href.slice(1) : "";
+      return activeSection === sectionId;
+    }
+    return false;
+  };
 
   return (
     <header className={cn(
@@ -248,14 +294,16 @@ export function Header() {
         <nav className="hidden xl:flex items-center justify-center gap-1">
           {navItems.map((item) => {
             const resolvedHref = item.href ? (item.href.startsWith("#") && pathname !== "/" ? `/${item.href}` : item.href) : undefined;
+            const active = isItemActive(item);
             return item.items ? (
-              <NavDropdown key={item.label} item={item} />
+              <NavDropdown key={item.label} item={item} isActive={active} />
             ) : (
               <NavLink
                 key={item.label}
                 href={resolvedHref!}
                 className="inline-flex h-10 items-center justify-center rounded-md px-4 py-2 text-[13px] font-semibold text-slate-700 hover:text-black transition-colors relative"
                 activeClassName="text-black font-black"
+                isActive={active}
               >
                 {item.label}
               </NavLink>
@@ -292,11 +340,17 @@ export function Header() {
         <nav className="container mx-auto flex flex-col gap-1 py-6 px-4">
           {navItems.map((item) => {
             const resolvedHref = item.href ? (item.href.startsWith("#") && pathname !== "/" ? `/${item.href}` : item.href) : "#";
+            const active = isItemActive(item);
             return (
               <div key={item.label} className="flex flex-col">
                 <Link
                   href={resolvedHref}
-                  className="py-3 px-4 rounded-lg text-sm font-medium text-foreground hover:text-black hover:bg-muted/50 transition-colors flex justify-between items-center"
+                  className={cn(
+                    "py-3 px-4 rounded-lg text-sm font-medium transition-colors flex justify-between items-center",
+                    active
+                      ? "text-black font-black bg-muted/60"
+                      : "text-foreground hover:text-black hover:bg-muted/50"
+                  )}
                   onClick={() => setMobileOpen(false)}
                 >
                   {item.label}

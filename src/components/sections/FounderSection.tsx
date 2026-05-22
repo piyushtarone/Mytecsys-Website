@@ -66,6 +66,35 @@ const FounderSection = () => {
               .animate-camera-focus {
                 animation: cameraFocus 2.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
               }
+              .base-image-el {
+                transform: rotateY(0deg);
+                opacity: 1;
+                transition: transform 1.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+                transform-style: preserve-3d;
+                backface-visibility: hidden;
+                -webkit-backface-visibility: hidden;
+              }
+              .group:hover .base-image-el {
+                transform: rotateY(180deg);
+                opacity: 0;
+              }
+              .reflection-container {
+                opacity: 0;
+                transition: opacity 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+              }
+              .group:hover .reflection-container {
+                opacity: 1;
+              }
+              .reflection-inner-el {
+                transform: rotateY(-180deg) scaleX(-1);
+                transition: transform 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+                transform-style: preserve-3d;
+                backface-visibility: hidden;
+                -webkit-backface-visibility: hidden;
+              }
+              .group:hover .reflection-inner-el {
+                transform: rotateY(0deg) scaleX(-1);
+              }
             `}</style>
 
             {/* Entrance Animation Wrapper */}
@@ -75,27 +104,27 @@ const FounderSection = () => {
                 src={FounderImage}
                 alt="Shhreyas Kawale"
                 fill
-                className="object-cover object-left grayscale transition-all duration-[1200ms] ease-in-out group-hover:opacity-0 group-hover:scale-[1.05]"
+                className="object-cover object-left grayscale base-image-el"
               />
             </div>
 
-            {/* Reflection on LEFT half - Clear mirror of the man */}
-            <div className="absolute inset-y-0 left-0 w-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-[1200ms] ease-in-out overflow-hidden pointer-events-none z-20">
-              <div className="absolute inset-y-0 left-0 w-[200%] h-full -scale-x-100">
+            {/* Reflection - Full-width mirror of the picture */}
+            <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-20 reflection-container">
+              <div className="absolute inset-0 w-full h-full reflection-inner-el">
                 <Image
                   src={FounderImage}
                   alt="Reflection"
                   fill
-                  className="object-cover object-left grayscale transition-transform duration-[1200ms] ease-in-out group-hover:scale-[1.05]"
+                  className="object-cover object-left grayscale"
                 />
               </div>
             </div>
 
-            {/* Fade on RIGHT half on hover - Background vibe with BRAND BLUE blur */}
-            <div className="absolute inset-y-0 right-0 w-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-[1200ms] ease-in-out bg-blue-600/10 backdrop-blur-xl pointer-events-none z-10" />
+            {/* Blur overlay on RIGHT half on hover, letting the image show through blurry */}
+            <div className="absolute inset-y-0 right-0 w-1/2 bg-slate-900/10 backdrop-blur-xl pointer-events-none z-30 reflection-container" />
 
             {/* Social Icons & Label centered on RIGHT half */}
-            <div className="absolute top-1/2 -translate-y-1/2 right-[25%] translate-x-1/2 flex flex-col items-center gap-6 z-10">
+            <div className="absolute top-1/2 -translate-y-1/2 right-[25%] translate-x-1/2 flex flex-col items-center gap-6 z-40">
               <div className="flex flex-col gap-4">
                 {[
                   { Icon: Twitter, url: "#" },

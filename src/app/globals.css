@@ -175,3 +175,8 @@ html {
   scrollbar-width: none;  /* Firefox */
 }
 
+/* High z-index for main header/navbar when gallery is active */
+body.gallery-open header {
+  z-index: 10000 !important;
+}
+

@@ -10,14 +10,17 @@ interface NavLinkProps
   className?: string;
   activeClassName?: string;
   pendingClassName?: string;
+  isActive?: boolean;
 }
 
 const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(
-  ({ className, activeClassName, href, ...props }, ref) => {
+  ({ className, activeClassName, href, isActive: customIsActive, ...props }, ref) => {
     const pathname = usePathname();
     const isActive =
-      pathname === href ||
-      (typeof href === "string" && pathname.startsWith(href));
+      customIsActive !== undefined
+        ? customIsActive
+        : pathname === href ||
+          (typeof href === "string" && pathname.startsWith(href) && href !== "/");
 
     return (
       <Link

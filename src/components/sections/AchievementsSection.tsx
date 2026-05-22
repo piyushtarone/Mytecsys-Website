@@ -54,14 +54,14 @@ const AchievementsSection = () => {
 
         {/* Two Column Layout */}
         <div className="relative group w-full max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
 
             {/* LEFT COLUMN */}
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-4">
               {/* achievementCheck — index 0 */}
               <button
                 suppressHydrationWarning={true}
-                onClick={() => openImage(0)} className="rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm h-[300px] md:h-[380px] cursor-pointer group/img">
+                onClick={() => openImage(0)} className="w-full rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm h-[300px] md:h-[380px] cursor-pointer group/img">
                 <Image
                   src={achievementCheck}
                   alt="Cyber Hack 1st Runner Up"
@@ -70,104 +70,100 @@ const AchievementsSection = () => {
               </button>
 
               {/* achievementPurple (index 7), achievementBni (index 8) and achievementLogo (index 9) */}
-              <div className="grid grid-cols-12 gap-2 h-[120px] md:h-[160px]">
-                <div className="col-span-8 grid grid-cols-2 gap-2 h-full">
-                  <button
-                    suppressHydrationWarning={true}
-                    onClick={() => openImage(7)} className="rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm cursor-pointer group/img h-full">
-                    <Image
-                      src={achievementPurple}
-                      alt="Special Recognition"
-                      className="w-full h-full object-cover group-hover/img:scale-[1.04] transition-transform duration-500"
-                    />
-                  </button>
-                  <button
-                    suppressHydrationWarning={true}
-                    onClick={() => openImage(8)} className="rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm cursor-pointer group/img h-full">
-                    <Image
-                      src={achievementBni}
-                      alt="Special Recognition"
-                      className="w-full h-full object-cover group-hover/img:scale-[1.04] transition-transform duration-500"
-                    />
-                  </button>
-                </div>
-                <div className="col-span-4 flex items-center justify-center">
-                  <button
-                    suppressHydrationWarning={true}
-                    onClick={() => openImage(9)} className="bg-white/90 backdrop-blur-md p-3 md:p-4 rounded-2xl shadow-lg border border-slate-100 w-full h-full flex items-center justify-center cursor-pointer hover:bg-slate-50 transition-colors">
-                    <Image
-                      src={achievementLogo}
-                      alt="MTS Logo"
-                      className="w-12 md:w-16 h-auto drop-shadow-sm"
-                    />
-                  </button>
-                </div>
+              <div className="grid grid-cols-3 gap-4 h-[120px] md:h-[160px]">
+                <button
+                  suppressHydrationWarning={true}
+                  onClick={() => openImage(7)} className="w-full h-full rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm cursor-pointer group/img">
+                  <Image
+                    src={achievementPurple}
+                    alt="Special Recognition"
+                    className="w-full h-full object-cover group-hover/img:scale-[1.04] transition-transform duration-500"
+                  />
+                </button>
+                <button
+                  suppressHydrationWarning={true}
+                  onClick={() => openImage(8)} className="w-full h-full rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm cursor-pointer group/img">
+                  <Image
+                    src={achievementBni}
+                    alt="Special Recognition"
+                    className="w-full h-full object-cover group-hover/img:scale-[1.04] transition-transform duration-500"
+                  />
+                </button>
+                <button
+                  suppressHydrationWarning={true}
+                  onClick={() => openImage(9)} className="bg-white/90 backdrop-blur-md p-3 md:p-4 rounded-2xl shadow-lg border border-slate-100 w-full h-full flex items-center justify-center cursor-pointer hover:bg-slate-50 transition-colors">
+                  <Image
+                    src={achievementLogo}
+                    alt="MTS Logo"
+                    className="w-12 md:w-16 h-auto drop-shadow-sm"
+                  />
+                </button>
               </div>
 
-              {/* achievementOutside — index 6 */}
+              {/* achievementStage — index 1 */}
               <button
                 suppressHydrationWarning={true}
-                onClick={() => openImage(6)} className="rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm h-[200px] md:h-[240px] cursor-pointer group/img">
+                onClick={() => openImage(1)} className="w-full rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm h-[200px] md:h-[240px] cursor-pointer group/img">
                 <Image
-                  src={achievementOutside}
-                  alt="Industry Leadership"
-                  className="w-full h-full object-cover group-hover/img:scale-[1.04] transition-transform duration-500"
+                  src={achievementStage}
+                  alt="Cyber Hack 2024"
+                  className="w-full h-full object-cover object-top group-hover/img:scale-[1.04] transition-transform duration-500"
                 />
               </button>
             </div>
 
             {/* RIGHT COLUMN */}
-            <div className="flex flex-col gap-2">
-              {/* Top Pair: achievementStage (index 1) and achievementBag (index 2) */}
-              <div className="grid grid-cols-2 gap-2 h-[150px] md:h-[200px]">
+            <div className="flex flex-col gap-4">
+              {/* Top Pair: achievementOutside (index 6) and achievementPolice (index 3) */}
+              <div className="grid grid-cols-2 gap-4 h-[150px] md:h-[200px]">
                 <button
                   suppressHydrationWarning={true}
-                  onClick={() => openImage(1)} className="rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm cursor-pointer group/img">
+                  onClick={() => openImage(6)} className="w-full h-full rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm cursor-pointer group/img">
                   <Image
-                    src={achievementStage}
-                    alt="Cyber Hack 2024"
+                    src={achievementOutside}
+                    alt="Industry Leadership"
                     className="w-full h-full object-cover group-hover/img:scale-[1.04] transition-transform duration-500"
                   />
                 </button>
                 <button
                   suppressHydrationWarning={true}
-                  onClick={() => openImage(2)} className="rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm cursor-pointer group/img">
+                  onClick={() => openImage(3)} className="w-full h-full rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm cursor-pointer group/img">
                   <Image
-                    src={achievementBag}
-                    alt="Innovation Award"
+                    src={achievementPolice}
+                    alt="Govt of Maharashtra Recognition"
                     className="w-full h-full object-cover group-hover/img:scale-[1.04] transition-transform duration-500"
                   />
                 </button>
               </div>
 
-              {/* achievementPolice — index 3 */}
+              {/* achievementAcademic — index 4 */}
               <button
                 suppressHydrationWarning={true}
-                onClick={() => openImage(3)} className="rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm h-[270px] md:h-[340px] cursor-pointer group/img">
+                onClick={() => openImage(4)} className="w-full rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm h-[270px] md:h-[340px] cursor-pointer group/img">
                 <Image
-                  src={achievementPolice}
-                  alt="Govt of Maharashtra Recognition"
+                  src={achievementAcademic}
+                  alt="Academic Excellence"
                   className="w-full h-full object-cover group-hover/img:scale-[1.04] transition-transform duration-500"
                 />
               </button>
 
-              {/* Bottom Pair: achievementAcademic (index 4) and achievementEcode (index 5) */}
-              <div className="grid grid-cols-5 gap-2 h-[200px] md:h-[240px]">
+              {/* Bottom Pair: achievementEcode (index 5) and achievementBag (index 2) */}
+              <div className="grid grid-cols-2 gap-4 h-[200px] md:h-[240px]">
                 <button
                   suppressHydrationWarning={true}
-                  onClick={() => openImage(4)} className="col-span-3 rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm cursor-pointer group/img">
+                  onClick={() => openImage(5)} className="w-full h-full rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm cursor-pointer group/img">
                   <Image
-                    src={achievementAcademic}
-                    alt="Academic Excellence"
+                    src={achievementEcode}
+                    alt="Achievement"
                     className="w-full h-full object-cover group-hover/img:scale-[1.04] transition-transform duration-500"
                   />
                 </button>
                 <button
                   suppressHydrationWarning={true}
-                  onClick={() => openImage(5)} className="col-span-2 rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm cursor-pointer group/img">
+                  onClick={() => openImage(2)} className="w-full h-full rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm cursor-pointer group/img">
                   <Image
-                    src={achievementEcode}
-                    alt="Achievement"
+                    src={achievementBag}
+                    alt="Innovation Award"
                     className="w-full h-full object-cover group-hover/img:scale-[1.04] transition-transform duration-500"
                   />
                 </button>

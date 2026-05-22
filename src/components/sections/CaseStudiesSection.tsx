@@ -61,7 +61,8 @@ const CaseStudiesSection = () => {
   );
 
   return (
-    <section id="case-studies" className="py-8 px-4 md:px-6 relative z-10 overflow-hidden bg-slate-50/50 scroll-mt-20">
+    <section id="products" className="py-8 px-4 md:px-6 relative z-10 overflow-hidden bg-slate-50/50 scroll-mt-20">
+      <div id="case-studies" className="absolute top-0 left-0 w-0 h-0 scroll-mt-20 pointer-events-none" />
 
       {/* Removed Honeycomb Background Decoration */}
 
