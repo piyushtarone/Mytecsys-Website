@@ -26,7 +26,7 @@ const steps = [
 
 const ProcessSection = () => {
   return (
-    <section className="py-16 px-4 md:px-6 relative z-10 bg-white overflow-hidden">
+    <section className="py-[60px] px-4 md:px-6 relative z-10 bg-white overflow-hidden">
       {/* Darkened Background Overlay */}
       <div className="absolute inset-0 bg-white/60 pointer-events-none z-0" />
 
@@ -34,7 +34,7 @@ const ProcessSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center lg:items-start">
           {/* Title Column */}
           <div className="lg:col-span-1 text-center lg:text-left mb-8 lg:mb-0">
-            <h2 className="text-xl font-bold text-slate-900 leading-snug">
+            <h2 className="text-[32px] font-bold text-slate-900 leading-snug font-tech tracking-normal">
               Our Simple Process <br />
               <span className="text-tech">To Simplify Your Business</span>
             </h2>

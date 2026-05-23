@@ -8,7 +8,7 @@ import LogoImg from "@/assets/logo.png";
 
 const Footer = () => {
   return (
-    <footer className="relative overflow-hidden bg-white pt-12 pb-0">
+    <footer className="relative overflow-hidden bg-white pt-[60px] pb-0">
       {/* Hexagon Pattern Background */}
       <div className="absolute inset-0 opacity-[0.04] pointer-events-none"
         style={{ 
@@ -32,13 +32,15 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div className="lg:w-[18%] space-y-6 flex flex-col justify-start">
-            <h4 className="text-slate-900 font-bold text-[13px] uppercase tracking-wider">ABOUT</h4>
+          <div className="lg:w-[18%] flex flex-col justify-start">
             <ul className="space-y-4">
               {[
+                { label: "About Us", href: "/#about" },
                 { label: "Case Studies", href: "/#case-studies" },
                 { label: "Research & Insights", href: "/#news" },
-                { label: "Gallery", href: "/#achievements" }
+                { label: "Gallery", href: "/#achievements" },
+                { label: "Services", href: "/#services" },
+                { label: "Careers", href: "/careers" }
               ].map((link) => (
                 <li key={link.label}>
                   <Link href={link.href} className="text-slate-900 font-bold text-[13px] hover:text-blue-600 transition-colors">
@@ -46,17 +48,6 @@ const Footer = () => {
                   </Link>
                 </li>
               ))}
-              <li>
-                <div className="flex items-center gap-2.5 text-slate-900 font-bold text-[13px] flex-wrap">
-                  <Link href="/#services" className="hover:text-blue-600 transition-colors">
-                    Services
-                  </Link>
-                  <span className="text-slate-300 font-normal">|</span>
-                  <Link href="/careers" className="hover:text-blue-600 transition-colors">
-                    Careers
-                  </Link>
-                </div>
-              </li>
             </ul>
           </div>
 
@@ -189,8 +180,8 @@ const Footer = () => {
 
       <div className="bg-blue-50/50 py-4 border-t border-blue-100/50">
         <div className="container mx-auto max-w-7xl px-4 flex justify-center items-center">
-          <p className="text-slate-400 text-[11px] font-bold tracking-[0.2em] uppercase">
-            2026 Mytecsys., All right reserved.
+          <p className="text-slate-600 text-[15px] font-medium tracking-wide">
+            &copy; 2026 Mytecsys.,@All right reserved.
           </p>
         </div>
       </div>

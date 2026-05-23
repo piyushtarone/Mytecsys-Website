@@ -78,13 +78,8 @@ const testimonials = [
 ];
 
 const TestimonialsSection = () => {
-  // Group testimonials into 3 columns
-  const col1 = [...testimonials, ...testimonials];
-  const col2 = [...testimonials.slice().reverse(), ...testimonials.slice().reverse()];
-  const col3 = [...testimonials, ...testimonials];
-
   return (
-    <section className="py-12 px-4 md:px-6 relative z-10 overflow-hidden bg-[#1b6cd5]/[0.04]">
+    <section className="pt-[120px] pb-[60px] px-4 md:px-6 relative z-10 overflow-hidden bg-[#1b6cd5]/[0.04]">
       {/* Removed Honeycomb Background Decoration */}
 
       {/* Subtle gradient overlay */}
@@ -92,7 +87,7 @@ const TestimonialsSection = () => {
 
       <div className="container mx-auto max-w-7xl relative">
         <div className="text-center mb-10">
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-1 font-tech">
+          <h2 className="text-[32px] font-bold text-slate-900 mb-1 font-tech tracking-normal">
             Trust We Build
           </h2>
           <p className="text-slate-500 font-medium tracking-widest uppercase text-[10px]">
@@ -106,24 +101,45 @@ const TestimonialsSection = () => {
           <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-blue-100 z-20 pointer-events-none" />
 
           {/* Column 1: Continuous Up */}
-          <div className="flex flex-col gap-6 animate-marquee-up">
-            {col1.map((t, i) => (
-              <TestimonialCard key={`col1-${i}`} testimonial={t} />
-            ))}
+          <div className="flex flex-col animate-marquee-up">
+            <div className="flex flex-col gap-6 pb-6">
+              {testimonials.map((t, i) => (
+                <TestimonialCard key={`col1-s1-${i}`} testimonial={t} />
+              ))}
+            </div>
+            <div className="flex flex-col gap-6 pb-6">
+              {testimonials.map((t, i) => (
+                <TestimonialCard key={`col1-s2-${i}`} testimonial={t} />
+              ))}
+            </div>
           </div>
 
           {/* Column 2: Continuous Down */}
-          <div className="flex flex-col gap-6 animate-marquee-down">
-            {col2.map((t, i) => (
-              <TestimonialCard key={`col2-${i}`} testimonial={t} />
-            ))}
+          <div className="flex flex-col animate-marquee-down">
+            <div className="flex flex-col gap-6 pb-6">
+              {testimonials.slice().reverse().map((t, i) => (
+                <TestimonialCard key={`col2-s1-${i}`} testimonial={t} />
+              ))}
+            </div>
+            <div className="flex flex-col gap-6 pb-6">
+              {testimonials.slice().reverse().map((t, i) => (
+                <TestimonialCard key={`col2-s2-${i}`} testimonial={t} />
+              ))}
+            </div>
           </div>
 
           {/* Column 3: Continuous Up (Slower) */}
-          <div className="flex flex-col gap-6 animate-marquee-up-slow">
-            {col3.map((t, i) => (
-              <TestimonialCard key={`col3-${i}`} testimonial={t} />
-            ))}
+          <div className="flex flex-col animate-marquee-up-slow">
+            <div className="flex flex-col gap-6 pb-6">
+              {testimonials.map((t, i) => (
+                <TestimonialCard key={`col3-s1-${i}`} testimonial={t} />
+              ))}
+            </div>
+            <div className="flex flex-col gap-6 pb-6">
+              {testimonials.map((t, i) => (
+                <TestimonialCard key={`col3-s2-${i}`} testimonial={t} />
+              ))}
+            </div>
           </div>
         </div>
       </div>

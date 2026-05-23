@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 
 const CTASection = () => {
   return (
-    <section className="py-12 px-4 md:px-6 relative z-10 overflow-hidden">
+    <section className="py-[60px] px-4 md:px-6 relative z-10 overflow-hidden">
       <div className="container mx-auto max-w-7xl">
         <div className="relative overflow-hidden bg-white/40 backdrop-blur-md border border-tech/20 rounded-[2.5rem] p-8 md:p-12">
           {/* Decorative background pattern */}
@@ -14,7 +14,7 @@ const CTASection = () => {
 
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
             <div className="max-w-2xl">
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-2 font-tech">
+              <h2 className="text-[32px] font-bold text-slate-900 mb-2 font-tech tracking-normal">
                 Get Started
               </h2>
               <h3 className="text-lg md:text-xl font-bold text-slate-700 mb-4">

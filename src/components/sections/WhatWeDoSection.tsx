@@ -71,11 +71,11 @@ const WhatWeDoSection = () => {
 
 
   return (
-    <section id="services" className="py-10 px-4 md:px-6 relative z-10 overflow-hidden scroll-mt-20">
+    <section id="services" className="py-[60px] px-4 md:px-6 relative z-10 overflow-hidden scroll-mt-20">
       {/* Background image removed */}
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-1 font-tech">
+          <h2 className="text-[32px] font-bold text-slate-900 mb-1 font-tech tracking-normal">
             What We Do
           </h2>
           <p className="text-slate-500 font-medium tracking-widest uppercase text-[10px]">

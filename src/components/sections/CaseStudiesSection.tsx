@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 import Component8 from "@/assets/Component 8.png";
 import Component9 from "@/assets/Component 9.png";
 import Component10 from "@/assets/Component 10.png";
@@ -61,14 +62,14 @@ const CaseStudiesSection = () => {
   );
 
   return (
-    <section id="products" className="py-8 px-4 md:px-6 relative z-10 overflow-hidden bg-slate-50/50 scroll-mt-20">
+    <section id="products" className="py-[60px] px-4 md:px-6 relative z-10 overflow-hidden bg-slate-50/50 scroll-mt-20">
       <div id="case-studies" className="absolute top-0 left-0 w-0 h-0 scroll-mt-20 pointer-events-none" />
 
       {/* Removed Honeycomb Background Decoration */}
 
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-10">
-          <h2 className="text-2xl md:text-4xl font-bold text-slate-900 mb-1 font-tech">
+          <h2 className="text-[32px] font-bold text-slate-900 mb-1 font-tech tracking-normal">
             Case Studies
           </h2>
           <p className="text-slate-500 font-medium tracking-widest uppercase text-[12px]">
@@ -145,9 +146,13 @@ const CaseStudiesSection = () => {
           </div>
         </div>
 
-        <div className="mt-10 flex justify-center">
-          <a href="#" className="flex items-center gap-1 text-tech font-semibold text-sm hover:underline transition-all">
-            View All <span className="text-lg leading-none">&rarr;</span>
+        <div className="mt-12 text-center">
+          <a
+            href="#"
+            className="inline-flex items-center gap-2 text-[#1b6cd5] font-bold hover:text-[#1558b0] transition-all group text-base"
+          >
+            View All
+            <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-2" />
           </a>
         </div>
       </div>

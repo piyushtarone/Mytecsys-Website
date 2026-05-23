@@ -23,12 +23,12 @@ const megaMenuData: Record<string, Record<string, {
       description: "Modern, scalable web applications built to perform.",
       icon: Globe,
       items: [
-        { icon: Code2, label: "Frontend Development", desc: "React, Next.js, Vue.js", href: "#web" },
-        { icon: Database, label: "Backend Development", desc: "Node.js, Python, Go", href: "#web" },
-        { icon: Layers, label: "Full Stack Solutions", desc: "End-to-end development", href: "#web" },
-        { icon: Globe, label: "Progressive Web Apps", desc: "Fast, offline-ready PWAs", href: "#web" },
-        { icon: ShoppingCart, label: "E-commerce Platforms", desc: "Shopify, WooCommerce", href: "#web" },
-        { icon: Settings, label: "CMS Development", desc: "WordPress, Strapi, Contentful", href: "#web" },
+        { icon: Code2, label: "Frontend Development", desc: "React, Next.js, Vue.js", href: "#services" },
+        { icon: Database, label: "Backend Development", desc: "Node.js, Python, Go", href: "#services" },
+        { icon: Layers, label: "Full Stack Solutions", desc: "End-to-end development", href: "#services" },
+        { icon: Globe, label: "Progressive Web Apps", desc: "Fast, offline-ready PWAs", href: "#services" },
+        { icon: ShoppingCart, label: "E-commerce Platforms", desc: "Shopify, WooCommerce", href: "#services" },
+        { icon: Settings, label: "CMS Development", desc: "WordPress, Strapi, Contentful", href: "#services" },
       ],
     },
     "Mobile Apps": {
@@ -36,10 +36,10 @@ const megaMenuData: Record<string, Record<string, {
       description: "Native and cross-platform mobile experiences.",
       icon: Smartphone,
       items: [
-        { icon: Smartphone, label: "iOS Development", desc: "Swift, SwiftUI", href: "#mobile" },
-        { icon: Cpu, label: "Android Development", desc: "Kotlin, Jetpack Compose", href: "#mobile" },
-        { icon: Zap, label: "React Native", desc: "Cross-platform apps", href: "#mobile" },
-        { icon: Layers, label: "Flutter", desc: "Beautiful native UIs", href: "#mobile" },
+        { icon: Smartphone, label: "iOS Development", desc: "Swift, SwiftUI", href: "#services" },
+        { icon: Cpu, label: "Android Development", desc: "Kotlin, Jetpack Compose", href: "#services" },
+        { icon: Zap, label: "React Native", desc: "Cross-platform apps", href: "#services" },
+        { icon: Layers, label: "Flutter", desc: "Beautiful native UIs", href: "#services" },
       ],
     },
     "AI Solutions": {
@@ -47,15 +47,15 @@ const megaMenuData: Record<string, Record<string, {
       description: "Intelligent automation powered by cutting-edge AI.",
       icon: Brain,
       items: [
-        { icon: Brain, label: "Machine Learning", desc: "Custom ML models & pipelines", href: "#ai" },
-        { icon: Bot, label: "NLP & Chatbots", desc: "Text, speech & conversational AI", href: "#ai" },
-        { icon: Eye, label: "Computer Vision", desc: "Image & video recognition", href: "#ai" },
-        { icon: BarChart3, label: "Predictive Analytics", desc: "Data-driven forecasting", href: "#ai" },
-        { icon: Zap, label: "Process Automation", desc: "Smart RPA & workflow AI", href: "#ai" },
-        { icon: Code2, label: "Custom AI Models", desc: "Tailored machine learning", href: "#ai" },
-        { icon: Database, label: "Data Science", desc: "Big data processing", href: "#ai" },
-        { icon: Shield, label: "AI Governance", desc: "Ethics & security", href: "#ai" },
-        { icon: Cloud, label: "Edge AI", desc: "On-device intelligence", href: "#ai" },
+        { icon: Brain, label: "Machine Learning", desc: "Custom ML models & pipelines", href: "#services" },
+        { icon: Bot, label: "NLP & Chatbots", desc: "Text, speech & conversational AI", href: "#services" },
+        { icon: Eye, label: "Computer Vision", desc: "Image & video recognition", href: "#services" },
+        { icon: BarChart3, label: "Predictive Analytics", desc: "Data-driven forecasting", href: "#services" },
+        { icon: Zap, label: "Process Automation", desc: "Smart RPA & workflow AI", href: "#services" },
+        { icon: Code2, label: "Custom AI Models", desc: "Tailored machine learning", href: "#services" },
+        { icon: Database, label: "Data Science", desc: "Big data processing", href: "#services" },
+        { icon: Shield, label: "AI Governance", desc: "Ethics & security", href: "#services" },
+        { icon: Cloud, label: "Edge AI", desc: "On-device intelligence", href: "#services" },
       ],
     },
   },
@@ -65,10 +65,10 @@ const megaMenuData: Record<string, Record<string, {
       description: "Enterprise-grade management & analytics platform.",
       icon: BarChart3,
       items: [
-        { icon: BarChart3, label: "Analytics Dashboard", desc: "Real-time KPI insights", href: "#product1" },
-        { icon: Shield, label: "Security Suite", desc: "Enterprise-grade protection", href: "#product1" },
-        { icon: Cloud, label: "API Integration", desc: "Connect all your tools", href: "#product1" },
-        { icon: Activity, label: "Live Monitoring", desc: "System health & alerts", href: "#product1" },
+        { icon: BarChart3, label: "Analytics Dashboard", desc: "Real-time KPI insights", href: "#products" },
+        { icon: Shield, label: "Security Suite", desc: "Enterprise-grade protection", href: "#products" },
+        { icon: Cloud, label: "API Integration", desc: "Connect all your tools", href: "#products" },
+        { icon: Activity, label: "Live Monitoring", desc: "System health & alerts", href: "#products" },
       ],
     },
     "Product Beta": {
@@ -76,10 +76,10 @@ const megaMenuData: Record<string, Record<string, {
       description: "Next-gen IoT management and monitoring platform.",
       icon: Cpu,
       items: [
-        { icon: Cpu, label: "Device Management", desc: "Control thousands of devices", href: "#product2" },
-        { icon: Activity, label: "Real-time Monitoring", desc: "Live data streams & alerts", href: "#product2" },
-        { icon: Settings, label: "Remote Configuration", desc: "Update firmware anywhere", href: "#product2" },
-        { icon: Shield, label: "Security & Compliance", desc: "IoT-grade security", href: "#product2" },
+        { icon: Cpu, label: "Device Management", desc: "Control thousands of devices", href: "#products" },
+        { icon: Activity, label: "Real-time Monitoring", desc: "Live data streams & alerts", href: "#products" },
+        { icon: Settings, label: "Remote Configuration", desc: "Update firmware anywhere", href: "#products" },
+        { icon: Shield, label: "Security & Compliance", desc: "IoT-grade security", href: "#products" },
       ],
     },
   },
@@ -89,11 +89,15 @@ const megaMenuData: Record<string, Record<string, {
 const navItems = [
   { href: "#hero", label: "Home" },
   { href: "#about", label: "About" },
-  { href: "#services", label: "Services", megaKey: "Services",
-    items: ["Web Development", "Mobile Apps", "AI Solutions"] },
+  {
+    href: "#services", label: "Services", megaKey: "Services",
+    items: ["Web Development", "Mobile Apps", "AI Solutions"]
+  },
   { href: "#industries", label: "Industries" },
-  { href: "#products", label: "Products", megaKey: "Products",
-    items: ["Product Alpha", "Product Beta"] },
+  {
+    href: "#products", label: "Products", megaKey: "Products",
+    items: ["Product Alpha", "Product Beta"]
+  },
   { href: "#news", label: "Research & Insights" },
   { href: "/careers", label: "Careers" },
 ];
@@ -115,7 +119,7 @@ function MegaMenuPanel({ menuKey, activeItem }: { menuKey: string; activeItem: s
           <p className="text-xs text-slate-500 leading-tight max-w-[200px]">{data.description}</p>
         </div>
       </div>
-      
+
       {/* Scrollable Items Area */}
       <div className="flex-1 overflow-y-auto pr-2 custom-scrollbar">
         <div className="grid grid-cols-2 gap-2 pb-4">
@@ -314,7 +318,7 @@ export function Header() {
         {/* Actions */}
         <div className="flex-1 flex justify-end items-center gap-4 pr-4 md:pr-8">
           <Link href={pathname !== "/" ? "/#contact" : "#contact"} className="hidden md:block">
-            <Button 
+            <Button
               suppressHydrationWarning
               className="bg-[#1b6cd5] hover:bg-[#1558b0] text-white rounded-lg px-6 h-11 text-sm font-semibold transition-all hover:scale-105 active:scale-95 shadow-md border-none"
             >

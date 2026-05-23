@@ -79,13 +79,13 @@ const WhyUsSection = () => {
   };
 
   return (
-    <section id="industries" className="py-12 px-4 md:px-6 relative z-10 overflow-hidden bg-transparent scroll-mt-20">
+    <section id="industries" className="py-[60px] px-4 md:px-6 relative z-10 overflow-hidden bg-transparent scroll-mt-20">
 
       {/* Removed Honeycomb Background Decoration */}
 
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-10">
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-1 font-tech">
+          <h2 className="text-[32px] font-bold text-slate-900 mb-1 font-tech tracking-normal">
             Why Mytecsys
           </h2>
           <p className="text-slate-500 font-medium tracking-widest uppercase text-[10px] mb-8">
@@ -108,10 +108,10 @@ const WhyUsSection = () => {
               <motion.h3
                 key={currentContent.title}
                 initial={{ opacity: 0, y: 10 }}
-                animate={{ 
-                  opacity: 1, 
+                animate={{
+                  opacity: 1,
                   y: 0,
-                  color: activeImage ? "#ffffff" : "#0f172a" 
+                  color: activeImage ? "#ffffff" : "#0f172a"
                 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
                 className="text-lg md:text-xl font-black mb-4 font-tech leading-snug"
@@ -121,10 +121,10 @@ const WhyUsSection = () => {
               <motion.p
                 key={currentContent.copy}
                 initial={{ opacity: 0, y: 10 }}
-                animate={{ 
-                  opacity: 1, 
+                animate={{
+                  opacity: 1,
                   y: 0,
-                  color: activeImage ? "rgba(255, 255, 255, 0.9)" : "#64748b" 
+                  color: activeImage ? "rgba(255, 255, 255, 0.9)" : "#64748b"
                 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
                 className="text-sm md:text-sm leading-relaxed font-semibold"

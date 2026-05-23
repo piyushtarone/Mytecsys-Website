@@ -26,10 +26,10 @@ const FounderSection = () => {
   };
 
   return (
-    <section className="py-8 px-4 md:px-6 relative z-10 overflow-hidden">
+    <section className="pt-[120px] pb-[60px] px-4 md:px-6 relative z-10 overflow-hidden">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-6">
-          <h2 className="text-xl md:text-2xl font-bold text-slate-900 mb-0.5 font-tech">
+          <h2 className="text-[32px] font-bold text-slate-900 mb-0.5 font-tech tracking-normal">
             Meet The Founder
           </h2>
           <p className="text-slate-500 font-medium tracking-widest uppercase text-[8px]">

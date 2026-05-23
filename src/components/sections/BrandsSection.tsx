@@ -14,7 +14,7 @@ const brands = [
 
 const BrandsSection = () => {
   return (
-    <section className="pt-0 pb-6 bg-transparent overflow-hidden relative -mt-10 md:-mt-16 z-20">
+    <section className="pt-[60px] pb-[60px] bg-transparent overflow-hidden relative z-20">
       {/* Removed Hexagon Pattern Background */}
 
       {/* Floating Accent Particles */}
@@ -24,7 +24,7 @@ const BrandsSection = () => {
 
       <div className="container mx-auto max-w-7xl px-4 mb-10 relative z-10">
         <div className="flex flex-col items-center">
-          <h2 className="text-black font-tech font-black text-2xl md:text-3xl tracking-[0.3em] uppercase text-center drop-shadow-sm">
+          <h2 className="text-black font-tech font-bold text-[32px] tracking-normal text-center drop-shadow-sm">
             Associated Brands
           </h2>
           <p className="text-slate-500 font-bold text-[9px] md:text-[11px] mt-4 uppercase tracking-[0.3em] opacity-70 text-center">
@@ -36,9 +36,9 @@ const BrandsSection = () => {
 
       {/* Brand Slider (Marquee) */}
       <div className="relative flex items-center overflow-hidden group">
-        <div className="flex animate-marquee gap-24 py-6 whitespace-nowrap items-center will-change-transform">
+        <div className="flex animate-marquee py-6 whitespace-nowrap items-center will-change-transform">
           {/* First Set */}
-          <div className="flex gap-24 items-center px-12">
+          <div className="flex gap-20 items-center pr-20">
             {brands.map((brand, index) => (
               <div
                 key={`b1-${index}`}
@@ -124,7 +124,7 @@ const BrandsSection = () => {
           </div>
 
           {/* Second Set (Duplicate) */}
-          <div className="flex gap-24 items-center px-12">
+          <div className="flex gap-20 items-center pr-20">
             {brands.map((brand, index) => (
               <div
                 key={`b2-${index}`}

@@ -100,10 +100,10 @@ const NewsSection = () => {
 
   return (
     <>
-      <section id="news" className="py-16 px-4 md:px-6 relative z-10 overflow-hidden bg-slate-50/50 scroll-mt-20">
+      <section id="news" className="pt-[120px] pb-[60px] px-4 md:px-6 relative z-10 overflow-hidden bg-slate-50/50 scroll-mt-20">
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-12">
-            <h2 className="text-xl md:text-2xl font-bold text-slate-900 mb-2 font-tech tracking-tight">
+            <h2 className="text-[32px] font-bold text-slate-900 mb-2 font-tech tracking-normal">
               Featured News
             </h2>
             <p className="text-slate-500 font-medium tracking-[0.2em] uppercase text-[10px]">

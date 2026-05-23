@@ -38,13 +38,13 @@ const AchievementsSection = () => {
   };
 
   return (
-    <section id="achievements" className={`py-12 px-4 md:px-6 relative overflow-hidden bg-slate-50/50 ${isGalleryOpen ? 'z-[48]' : 'z-10'}`}>
+    <section id="achievements" className={`pt-[120px] pb-[60px] px-4 md:px-6 relative overflow-hidden bg-slate-50/50 scroll-mt-20 ${isGalleryOpen ? 'z-[48]' : 'z-10'}`}>
 
       {/* Removed Honeycomb Background Decoration */}
 
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-10">
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-1 font-tech">
+          <h2 className="text-[32px] font-bold text-slate-850 mb-1 font-tech tracking-normal">
             Our Achievements
           </h2>
           <p className="text-slate-500 font-medium tracking-widest uppercase text-[10px]">

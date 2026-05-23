@@ -27,7 +27,7 @@ const AnimatedCounter = ({ value }: { value: string }) => {
           const animate = (currentTime: number) => {
             const elapsedTime = currentTime - startTime;
             const progress = Math.min(elapsedTime / duration, 1);
-            
+
             // Cubic ease out: 1 - Math.pow(1 - progress, 3)
             const easeProgress = 1 - Math.pow(1 - progress, 3);
             const currentCount = Math.floor(easeProgress * target);
@@ -81,19 +81,17 @@ const AboutSection = () => {
   const [activeTab, setActiveTab] = useState("vision");
 
   return (
-    <section id="about" className="py-16 px-4 md:px-6 relative z-10 overflow-hidden bg-sky-400/[0.07] scroll-mt-20">
+    <section id="about" className="py-[60px] px-4 md:px-6 relative z-10 overflow-hidden bg-sky-400/[0.07] scroll-mt-20">
       {/* Decorative background elements */}
       <div className="absolute top-0 right-0 -z-10 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 -z-10 w-96 h-96 bg-sky-300/20 rounded-full blur-3xl" />
 
       <div className="container mx-auto max-w-7xl relative">
-        <div className="text-center mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-1 font-tech">
+        <div className="text-center mb-[40px]">
+          <p className="text-blue-600 font-black tracking-[0.2em] uppercase text-[11px] mb-2">ABOUT US</p>
+          <h2 className="text-[32px] font-bold text-slate-900 mb-1 font-tech tracking-normal">
             About Us
           </h2>
-          <p className="text-slate-500 font-medium tracking-widest uppercase text-[10px]">
-            (Let&apos;s understand Mytecsys)
-          </p>
         </div>
 
         <div className="flex flex-col lg:flex-row gap-10 items-center">
@@ -144,7 +142,7 @@ const AboutSection = () => {
           </div>
 
           {/* Right Stats */}
-          <div className="lg:w-2/5 w-full flex flex-col gap-12 mt-10 lg:mt-0">
+          <div className="lg:w-2/5 w-full flex flex-col gap-12 mt-10 lg:mt-0 pl-[20px]">
             {[
               {
                 value: "20+",

@@ -47,7 +47,7 @@ const HomeImageSection = () => {
       case 0: // Far Left
         return {
           x: "-208%",
-          y: "0px",
+          y: "30px",
           opacity: 1,
           scale: 0.9,
           zIndex: 10,
@@ -87,7 +87,7 @@ const HomeImageSection = () => {
       case 4: // Far Right
         return {
           x: "208%",
-          y: "0px",
+          y: "30px",
           opacity: 1,
           scale: 0.9,
           zIndex: 10,
@@ -101,7 +101,7 @@ const HomeImageSection = () => {
 
   return (
     <section
-      className="relative z-10 min-h-[350px] md:min-h-[400px] lg:min-h-[450px] pt-4 md:pt-6 pb-0 flex flex-col items-center justify-start overflow-visible bg-transparent"
+      className="relative z-10 pt-2 md:pt-3 pb-[30px] flex flex-col items-center justify-start overflow-visible bg-transparent"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -168,7 +168,7 @@ const HomeImageSection = () => {
                       ease: [0.4, 0, 0.2, 1]
                     }
                   }}
-                  className="absolute bottom-0 flex flex-col items-center gap-3 origin-bottom will-change-transform"
+                  className="absolute bottom-0 flex flex-col items-center gap-1 origin-bottom will-change-transform"
                   style={{ zIndex: styles.zIndex }}
                 >
                   {/* Label */}
@@ -178,7 +178,7 @@ const HomeImageSection = () => {
                       y: 0,
                       opacity: 1,
                     }}
-                    className="text-[#0f172a] font-black text-[10px] md:text-xs lg:text-[13px] tracking-[0.2em] font-tech uppercase z-[100] relative text-center whitespace-nowrap mb-2"
+                    className="text-[#0f172a] font-black text-[10px] md:text-xs lg:text-[13px] tracking-[0.2em] font-tech uppercase z-[100] relative text-center whitespace-nowrap mb-0"
                   >
                     {card.title}
                   </motion.span>
@@ -203,13 +203,13 @@ const HomeImageSection = () => {
                         delay: isJump ? 0.3 : 0
                       }
                     }}
-                    className="relative w-[95px] md:w-[150px] lg:w-[210px] overflow-hidden transition-all duration-700 shadow-[4px_4px_44px_4px_rgba(25,118,210,0.1),0_0_22px_rgba(96,165,250,0.25),inset_0_0_15px_rgba(96,165,250,0.12)]"
+                    className="relative w-[95px] md:w-[150px] lg:w-[210px] overflow-hidden transition-all duration-700 shadow-[0_-4px_16px_rgba(21,88,176,0.45)]"
                     style={{
                       height: styles.height,
                       zIndex: styles.zIndex,
                       borderRadius: '24px',
                       padding: '1.5px',
-                      background: 'linear-gradient(180deg, #9FCFFF 21%, #FFFFFF 53%, #9FCFFF 88%)',
+                      background: 'linear-gradient(180deg, #9fcfff 0%, #1b6cd5 50%, #1558b0 100%)',
                     }}
                   >
                     {/* Inner card content */}

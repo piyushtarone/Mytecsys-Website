@@ -45,7 +45,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative z-30 min-h-[60vh] flex flex-col items-center justify-center px-4 md:px-6 pt-16 md:pt-20 pb-6 md:pb-8 overflow-visible"
+      className="relative z-30 min-h-[60vh] flex flex-col items-center justify-start px-4 md:px-6 pt-[120px] pb-3 md:pb-4 overflow-visible"
     >
       <div className="max-w-4xl mx-auto text-center">
         <motion.div
@@ -53,13 +53,13 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="font-tech text-[56px] font-bold mb-4 tracking-normal min-h-[1.1em] flex items-center justify-center leading-[1.1]">
-            <span className="text-blue-600 inline-block py-2">
+          <h1 className="font-tech text-[56px] font-bold mb-1 tracking-normal min-h-[1.1em] flex items-center justify-center leading-[1.1]">
+            <span className="text-blue-600 inline-block py-0">
               {text}
               <motion.span
                 animate={{ opacity: [1, 0] }}
                 transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
-                className="ml-1 inline-block w-1 h-[56px] bg-blue-600/40 align-middle"
+                className="ml-2 inline-block w-[5px] h-[50px] bg-blue-600 align-middle"
               />
             </span>
           </h1>
@@ -69,9 +69,9 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="-mt-2 md:-mt-4"
+          className="-mt-1 mb-[16px]"
         >
-          <h2 className="text-[32px] font-bold text-[#0f172a] mb-1 tracking-normal">
+          <h2 className="text-[32px] font-bold text-[#0f172a] mb-0 tracking-normal">
             For Your Business
           </h2>
         </motion.div>
@@ -80,8 +80,9 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
+          className="mb-[24px]"
         >
-          <p className="text-[24px] text-slate-500 max-w-2xl mx-auto mb-4 leading-relaxed font-medium">
+          <p className="text-[18px] text-slate-500 max-w-2xl mx-auto mb-0 leading-relaxed font-medium">
             Intelligent technology solutions combining AI research, cloud infrastructure, and engineering excellence.
           </p>
         </motion.div>
@@ -91,11 +92,11 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="flex flex-col items-center justify-center mb-2 mt-4 px-4"
+          className="flex flex-col items-center justify-center mb-2 mt-0 px-4"
         >
           {/* Logo Row */}
-          <div className="flex items-center justify-center gap[20px]">
-            <div className="relative h-18 md:h-20 w-24 md:w-32">
+          <div className="flex items-center justify-center gap-6">
+            <div className="relative h-14 md:h-16 w-20 md:w-28">
               <Image
                 src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/Rectangle 448 (1).png`}
                 alt="Nagpur City Police"
@@ -103,7 +104,7 @@ export function HeroSection() {
                 className="object-contain opacity-100"
               />
             </div>
-            <div className="relative h-8 md:h-20 w-24 md:w-32">
+            <div className="relative h-6 md:h-16 w-20 md:w-28">
               <Image
                 src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/Rectangle 449.png`}
                 alt="Bhartia Nagpur"
@@ -111,7 +112,7 @@ export function HeroSection() {
                 className="object-contain opacity-100"
               />
             </div>
-            <div className="relative h-8 md:h-20 w-44 md:w-32">
+            <div className="relative h-6 md:h-16 w-36 md:w-28">
               <Image
                 src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/Rectangle 450.png`}
                 alt="UCN"
