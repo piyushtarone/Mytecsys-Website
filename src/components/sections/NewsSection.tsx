@@ -61,10 +61,10 @@ const NewsSection = () => {
 
     api.on("select", onSelect);
 
-    // Auto-play interval: 2 seconds
+    // Auto-play interval: 5 seconds
     const intervalId = setInterval(() => {
       api.scrollNext();
-    }, 2000);
+    }, 5000);
 
     return () => {
       api.off("select", onSelect);

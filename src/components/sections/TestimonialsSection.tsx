@@ -154,13 +154,13 @@ const TestimonialsSection = () => {
           100% { transform: translateY(0); }
         }
         .animate-marquee-up {
-          animation: marquee-up 30s linear infinite;
+          animation: marquee-up 80s linear infinite;
         }
         .animate-marquee-up-slow {
-          animation: marquee-up 40s linear infinite;
+          animation: marquee-up 90s linear infinite;
         }
         .animate-marquee-down {
-          animation: marquee-down 35s linear infinite;
+          animation: marquee-down 85s linear infinite;
         }
         .animate-marquee-up:hover, .animate-marquee-up-slow:hover, .animate-marquee-down:hover {
           animation-play-state: paused;

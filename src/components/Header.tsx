@@ -170,7 +170,7 @@ function NavDropdown({ item, isActive }: { item: typeof navItems[0]; isActive: b
         suppressHydrationWarning
         onClick={() => setIsOpen((v) => !v)}
         className={cn(
-          "inline-flex h-10 items-center justify-center rounded-md px-4 py-2 text-[13px] font-semibold transition-colors",
+          "inline-flex h-10 items-center justify-center rounded-md px-4 py-2 text-[12px] font-normal transition-colors",
           "text-slate-700 hover:text-black",
           (isOpen || isActive) && "text-black font-black"
         )}
@@ -305,7 +305,7 @@ export function Header() {
               <NavLink
                 key={item.label}
                 href={resolvedHref!}
-                className="inline-flex h-10 items-center justify-center rounded-md px-4 py-2 text-[13px] font-semibold text-slate-700 hover:text-black transition-colors relative"
+                className="inline-flex h-10 items-center justify-center rounded-md px-4 py-2 text-[12px] font-normal text-slate-700 hover:text-black transition-colors relative"
                 activeClassName="text-black font-black"
                 isActive={active}
               >
