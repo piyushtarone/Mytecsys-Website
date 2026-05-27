@@ -22,7 +22,7 @@ const projects = [
   {
     title: "HRMS",
     category: "Development",
-    image: "/hrms.jpg",
+    image: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/hrms.jpg`,
     isSpecial: true,
     className: "lg:col-span-1",
   },

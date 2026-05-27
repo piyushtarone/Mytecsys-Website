@@ -94,7 +94,7 @@ const WhatWeDoSection = () => {
               <div
                 className="absolute inset-0 bg-cover bg-center scale-105 transition-transform duration-700 group-active:scale-110"
                 style={{
-                  backgroundImage: `url('${process.env.NEXT_PUBLIC_BASE_PATH || ""}${service.image}')`,
+                  backgroundImage: `url('${service.image}')`,
                 }}
               />
               {/* Gradient overlay */}
@@ -141,7 +141,7 @@ const WhatWeDoSection = () => {
                 <div
                   className="absolute inset-0 bg-cover bg-center animate-zoom-rotate"
                   style={{
-                    backgroundImage: `url('${process.env.NEXT_PUBLIC_BASE_PATH || ""}${service.image}')`,
+                    backgroundImage: `url('${service.image}')`,
                   }}
                 />
 
