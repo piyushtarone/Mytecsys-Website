@@ -35,7 +35,7 @@ const BrandsSection = () => {
 
       <div className="container mx-auto max-w-7xl px-2 md:px-4 mb-2 md:mb-4 relative z-10">
         <div className="flex flex-col items-center">
-          <h2 className="text-[#1a183b] font-sans font-black text-[38px] md:text-[54px] tracking-tight text-center">
+          <h2 className="text-[#1a183b] font-sans font-black text-[28px] md:text-[32px] tracking-tight text-center">
             Associated Brands
           </h2>
           <p className="text-slate-500 font-bold text-[9px] md:text-[11px] mt-4 uppercase tracking-[0.3em] opacity-70 text-center">

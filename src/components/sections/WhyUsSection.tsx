@@ -85,12 +85,13 @@ const WhyUsSection = () => {
 
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-10">
-          <h2 className="text-[32px] font-bold text-slate-900 mb-1 font-tech tracking-normal">
+          <h2 className="text-[#1a183b] font-sans font-black text-[28px] md:text-[32px] tracking-tight text-center">
             Why Mytecsys
           </h2>
-          <p className="text-slate-500 font-medium tracking-widest uppercase text-[10px] mb-8">
+          <p className="text-slate-500 font-bold text-[9px] md:text-[11px] mt-4 uppercase tracking-[0.3em] opacity-70 text-center mb-8">
             (Why we are best)
           </p>
+          <div className="w-14 h-1.5 bg-blue-600 mt-5 rounded-full mx-auto mb-8" />
         </div>
 
         <div className="flex justify-center">

@@ -61,7 +61,7 @@ const HomeImageSection = () => {
           opacity: 1,
           scale: 0.9,
           zIndex: 10,
-          skewY: 12,
+          skewY: isMobile ? 0 : 12,
           height: "320px",
         };
       case 1: // Left
@@ -71,7 +71,7 @@ const HomeImageSection = () => {
           opacity: 1,
           scale: 0.95,
           zIndex: 20,
-          skewY: 6,
+          skewY: isMobile ? 0 : 6,
           height: "320px",
         };
       case 2: // Center (Active)
@@ -91,7 +91,7 @@ const HomeImageSection = () => {
           opacity: 1,
           scale: 0.95,
           zIndex: 20,
-          skewY: -6,
+          skewY: isMobile ? 0 : -6,
           height: "320px",
         };
       case 4: // Far Right
@@ -101,7 +101,7 @@ const HomeImageSection = () => {
           opacity: 1,
           scale: 0.9,
           zIndex: 10,
-          skewY: -12,
+          skewY: isMobile ? 0 : -12,
           height: "320px",
         };
       default:
@@ -111,7 +111,7 @@ const HomeImageSection = () => {
 
   return (
     <section
-      className="relative z-[100] pt-2 md:pt-3 pb-[30px] flex flex-col items-center justify-start overflow-visible bg-transparent"
+      className="relative z-[100] pt-2 md:pt-3 pb-8 md:pb-[30px] flex flex-col items-center justify-start overflow-visible bg-transparent"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -119,14 +119,14 @@ const HomeImageSection = () => {
       <div className="relative z-[100] w-full max-w-7xl px-2 md:px-4 flex flex-col items-center gap-8 md:gap-12">
 
         <motion.div
-          initial={{ opacity: 0, y: 40, scale: isMobile ? 0.45 : 1 }}
-          animate={{ opacity: 1, y: 0, scale: isMobile ? 0.45 : 1 }}
+          initial={{ opacity: 0, y: 40, scale: isMobile ? 0.65 : 1 }}
+          animate={{ opacity: 1, y: 0, scale: isMobile ? 0.65 : 1 }}
           transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-          className="relative max-w-7xl h-[380px] md:h-[420px] lg:h-[450px] flex items-end justify-center -mt-48 md:-mt-20"
+          className="relative max-w-7xl h-[420px] md:h-[420px] lg:h-[450px] flex items-end justify-center -mt-48 md:-mt-20"
           style={{
             width: isMobile ? '800px' : '100%',
-            maskImage: isMobile ? 'linear-gradient(to bottom, black 0%, black 50%, transparent 95%)' : 'linear-gradient(to bottom, black 0%, black 55%, transparent 95%)',
-            WebkitMaskImage: isMobile ? 'linear-gradient(to bottom, black 0%, black 50%, transparent 95%)' : 'linear-gradient(to bottom, black 0%, black 55%, transparent 95%)',
+            maskImage: isMobile ? 'linear-gradient(to bottom, black 0%, black 55%, transparent 95%)' : 'linear-gradient(to bottom, black 0%, black 55%, transparent 95%)',
+            WebkitMaskImage: isMobile ? 'linear-gradient(to bottom, black 0%, black 55%, transparent 95%)' : 'linear-gradient(to bottom, black 0%, black 55%, transparent 95%)',
             transformOrigin: "bottom center"
           }}
         >
@@ -137,7 +137,7 @@ const HomeImageSection = () => {
               const isJump = (slotIndex === 0 && prevSlotIndex === 4) || (slotIndex === 4 && prevSlotIndex === 0);
               const styles = getSlotStyles(slotIndex);
               const isActive = slotIndex === 2;
-              
+
               const startOpacity = getSlotStyles(prevSlotIndex).opacity;
               const endOpacity = styles.opacity;
               const opacityValue = isJump
@@ -239,7 +239,7 @@ const HomeImageSection = () => {
                         fill
                         className="object-cover object-top transition-transform duration-1000"
                         style={{
-                          transform: `scale(${isActive ? (isMobile ? 1.05 * 1.08 : card.scale * 1.08) : (isMobile ? 1.05 : card.scale)})`
+                          transform: `scale(${isActive ? (isMobile ? 1.15 * 1.08 : card.scale * 1.08) : (isMobile ? 1.15 : card.scale)})`
                         }}
                         priority
                         sizes="(max-width: 768px) 140px, (max-width: 1200px) 240px, 320px"

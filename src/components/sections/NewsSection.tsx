@@ -114,12 +114,13 @@ const NewsSection = () => {
       <section id="news" className="pt-[120px] pb-[60px] px-2 md:px-6 relative z-10 overflow-hidden bg-slate-50/50 scroll-mt-20">
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-12">
-            <h2 className="text-[32px] font-bold text-slate-900 mb-2 font-tech tracking-normal">
+            <h2 className="text-[#1a183b] font-sans font-black text-[28px] md:text-[32px] tracking-tight text-center">
               Featured News
             </h2>
-            <p className="text-slate-500 font-medium tracking-[0.2em] uppercase text-[10px]">
-              (Blogs & News)
+            <p className="text-slate-500 font-bold text-[9px] md:text-[11px] mt-4 uppercase tracking-[0.3em] opacity-70 text-center">
+              (Blogs &amp; News)
             </p>
+            <div className="w-14 h-1.5 bg-blue-600 mt-5 rounded-full mx-auto" />
           </div>
 
           <div className="relative max-w-7xl mx-auto px-0">

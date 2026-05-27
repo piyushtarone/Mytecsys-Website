@@ -32,11 +32,11 @@ const NewsMarqueeSection = () => {
 
       <div className="container mx-auto max-w-7xl px-2 md:px-4 mb-10 relative z-10">
         <div className="flex flex-col items-center">
-          <h2 className="text-black font-tech font-bold text-[32px] tracking-normal text-center drop-shadow-sm">
+          <h2 className="text-[#1a183b] font-sans font-black text-[28px] md:text-[32px] tracking-tight text-center">
             Media Coverage
           </h2>
           <p className="text-slate-500 font-bold text-[9px] md:text-[11px] mt-4 uppercase tracking-[0.3em] opacity-70 text-center">
-            (News & Media)
+            (News &amp; Media)
           </p>
           <div className="w-14 h-1.5 bg-blue-600 mt-5 rounded-full" />
         </div>

@@ -65,26 +65,59 @@ const WhatWeDoSection = () => {
 
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % services.length);
-    }, 2000); // Progresses the cycle every 2 seconds
+    }, 2000);
     return () => clearInterval(interval);
   }, [isHovered]);
 
-
   return (
     <section id="services" className="py-[60px] px-2 md:px-6 relative z-10 overflow-hidden scroll-mt-20">
-      {/* Background image removed */}
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-8">
-          <h2 className="text-[32px] font-bold text-slate-900 mb-1 font-tech tracking-normal">
+          <h2 className="text-[#1a183b] font-sans font-black text-[28px] md:text-[32px] tracking-tight text-center">
             What We Do
           </h2>
-          <p className="text-slate-500 font-medium tracking-widest uppercase text-[10px]">
+          <p className="text-slate-500 font-bold text-[9px] md:text-[11px] mt-4 uppercase tracking-[0.3em] opacity-70 text-center">
             (Services)
           </p>
+          <div className="w-14 h-1.5 bg-blue-600 mt-5 rounded-full mx-auto" />
         </div>
 
+        {/* ── MOBILE: 2×2 grid ── */}
+        <div className="grid grid-cols-2 gap-3 lg:hidden">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className="relative group overflow-hidden rounded-xl h-[180px] cursor-pointer"
+              onClick={() => setActiveIndex(index)}
+            >
+              {/* Background Image */}
+              <div
+                className="absolute inset-0 bg-cover bg-center scale-105 transition-transform duration-700 group-active:scale-110"
+                style={{
+                  backgroundImage: `url('${process.env.NEXT_PUBLIC_BASE_PATH || ""}${service.image}')`,
+                }}
+              />
+              {/* Gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+              {/* Content */}
+              <div className="absolute inset-0 p-3 flex flex-col justify-end">
+                <span className="text-[9px] font-black text-blue-300 uppercase tracking-widest mb-1">
+                  {service.id}
+                </span>
+                <h3 className="text-white font-bold leading-tight text-[13px] mb-1">
+                  {service.title}
+                </h3>
+                <p className="text-white/75 text-[10px] leading-snug line-clamp-2">
+                  {service.subtitle}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* ── DESKTOP: animated flex accordion ── */}
         <div
-          className="flex flex-col lg:flex-row gap-3 h-auto lg:h-[350px] w-full"
+          className="hidden lg:flex gap-3 h-[350px] w-full"
           onMouseLeave={() => setIsHovered(false)}
         >
           {services.map((service, index) => {
@@ -100,7 +133,7 @@ const WhatWeDoSection = () => {
                 }}
                 transition={{ duration: 1.2, ease: "easeInOut" }}
                 className={cn(
-                  "relative group overflow-hidden rounded-lg transition-shadow duration-700 hover:shadow-xl hover:shadow-tech/10 w-full lg:w-auto h-[300px] lg:h-full basis-0 min-w-0",
+                  "relative group overflow-hidden rounded-lg transition-shadow duration-700 hover:shadow-xl hover:shadow-tech/10 h-full basis-0 min-w-0",
                   activeIndex === index ? "z-20" : "z-10"
                 )}
               >
@@ -152,7 +185,7 @@ const WhatWeDoSection = () => {
                         transition={{ duration: 0.8, ease: "easeInOut" }}
                         className="absolute inset-0 flex flex-col justify-end pointer-events-none"
                       >
-                        <h3 className="text-white font-bold leading-tight text-xl md:text-2xl mb-2">
+                        <h3 className="text-white font-bold leading-tight text-2xl mb-2">
                           {service.title}
                         </h3>
                         {service.subtitle && (
