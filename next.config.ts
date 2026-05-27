@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-const basePath = "";
+const basePath = process.env.GITHUB_ACTIONS === "true" ? "/Mytecsys-Website" : "";
 
 const nextConfig: NextConfig = {
   output: "export",
