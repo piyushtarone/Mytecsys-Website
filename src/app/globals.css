@@ -19,7 +19,7 @@ html {
     --popover: 0 0% 100%;
     --popover-foreground: 210 50% 15%;
 
-    --primary: 214 77% 47%;
+    --primary: 210 64% 45%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 207 60% 94%;
@@ -41,10 +41,10 @@ html {
     --radius: 0.5rem;
 
     /* Custom tokens */
-    --tech-blue: 214 77% 47%;
-    --tech-blue-dark: 214 77% 37%;
-    --tech-blue-light: 214 77% 75%;
-    --tech-blue-glow: 214 90% 65%;
+    --tech-blue: 210 64% 45%;
+    --tech-blue-dark: 210 64% 35%;
+    --tech-blue-light: 210 64% 70%;
+    --tech-blue-glow: 210 80% 62%;
     --hex-line: 207 50% 80%;
   }
 

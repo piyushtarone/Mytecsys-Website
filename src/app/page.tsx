@@ -10,7 +10,6 @@ import {
   Bot,
 } from "lucide-react";
 import logo from "@/assets/logo.png";
-import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import {
   BrandsSection,
@@ -21,6 +20,7 @@ import {
   AboutSection,
   FounderSection,
   NewsSection,
+  NewsMarqueeSection,
   AchievementsSection,
   TestimonialsSection,
   ContactSection,
@@ -42,8 +42,8 @@ export default function LandingPage() {
             backgroundSize: 'cover',
             backgroundPosition: 'center -100px',
             backgroundRepeat: 'no-repeat',
-            maskImage: 'linear-gradient(to bottom, black 0%, black 40%, transparent 85%)',
-            WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 40%, transparent 85%)'
+            maskImage: 'linear-gradient(to bottom, transparent 0%, black 10%, black 40%, transparent 55%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 10%, black 40%, transparent 55%)'
           }}
         />
         {/* Radial Gradient Overlay around cards */}
@@ -54,8 +54,8 @@ export default function LandingPage() {
           }}
         />
         {/* Smooth transition overlay to next section */}
-        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none z-10" />
-        <div className="relative z-20">
+        <div className="absolute bottom-0 left-0 right-0 h-72 md:h-96 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none z-10" />
+        <div className="relative z-50">
           <HeroSection />
           <HomeImageSection />
         </div>
@@ -86,10 +86,10 @@ export default function LandingPage() {
       <AboutSection />
       <FounderSection />
       <NewsSection />
+      <NewsMarqueeSection />
       <TestimonialsSection />
       <AchievementsSection />
       <ContactSection />
-      <CTASection />
       <Footer />
     </div>
   );

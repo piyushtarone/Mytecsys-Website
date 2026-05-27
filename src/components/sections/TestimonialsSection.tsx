@@ -79,7 +79,7 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   return (
-    <section className="pt-[120px] pb-[60px] px-4 md:px-6 relative z-10 overflow-hidden bg-[#1b6cd5]/[0.04]">
+    <section className="pt-[120px] pb-[60px] px-2 md:px-6 relative z-10 overflow-hidden bg-[#1b6cd5]/[0.04]">
       {/* Removed Honeycomb Background Decoration */}
 
       {/* Subtle gradient overlay */}

@@ -71,7 +71,7 @@ const WhatWeDoSection = () => {
 
 
   return (
-    <section id="services" className="py-[60px] px-4 md:px-6 relative z-10 overflow-hidden scroll-mt-20">
+    <section id="services" className="py-[60px] px-2 md:px-6 relative z-10 overflow-hidden scroll-mt-20">
       {/* Background image removed */}
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-8">

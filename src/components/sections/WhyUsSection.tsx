@@ -79,7 +79,7 @@ const WhyUsSection = () => {
   };
 
   return (
-    <section id="industries" className="py-[60px] px-4 md:px-6 relative z-10 overflow-hidden bg-transparent scroll-mt-20">
+    <section id="industries" className="py-[60px] px-2 md:px-6 relative z-10 overflow-hidden bg-transparent scroll-mt-20">
 
       {/* Removed Honeycomb Background Decoration */}
 
@@ -139,11 +139,20 @@ const WhyUsSection = () => {
             {/* Layered Images */}
             {images.map((img) => {
               const isActive = activeImage === img.id;
-              const padding = isMobile ? 24 : 40;
-              const baseWidth = isMobile ? "200px" : "220px";
-              const translateX = isMobile ? img.x * 0.75 : img.x;
-              const rightOffset = isActive ? 0 : (padding - translateX);
-              const leftOffset = isActive ? 0 : `calc(100% - ${baseWidth} - ${rightOffset}px)`;
+
+              const inactiveTop = isMobile ? 24 : 40;
+              const inactiveBottom = isMobile ? "calc(100% - 204px)" : 40;
+
+              let inactiveLeft, inactiveRight;
+              if (isMobile) {
+                const translateX = (img.x + 120) * 0.6;
+                inactiveLeft = `calc(50% - 116px + ${translateX}px)`;
+                inactiveRight = `calc(50% - 44px - ${translateX}px)`;
+              } else {
+                const translateX = img.x;
+                inactiveRight = 40 - translateX;
+                inactiveLeft = `calc(100% - 220px - ${inactiveRight}px)`;
+              }
 
               return (
                 <motion.div
@@ -151,11 +160,10 @@ const WhyUsSection = () => {
                   key={img.id}
                   initial={false}
                   animate={{
-                    top: isActive ? 0 : padding,
-                    bottom: isActive ? 0 : padding,
-                    right: rightOffset,
-                    left: leftOffset,
-                    width: isActive ? "100%" : baseWidth,
+                    top: isActive ? 0 : inactiveTop,
+                    bottom: isActive ? 0 : inactiveBottom,
+                    right: isActive ? 0 : inactiveRight,
+                    left: isActive ? 0 : inactiveLeft,
                     zIndex: isActive ? 50 : img.z,
                     borderRadius: isActive ? "2rem" : "0.5rem",
                   }}

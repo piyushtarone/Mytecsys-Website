@@ -5,11 +5,9 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import Component8 from "@/assets/Component 8.png";
 import Component9 from "@/assets/Component 9.png";
 import Component10 from "@/assets/Component 10.png";
 import Component7 from "@/assets/Component 7.png";
-import Image33 from "@/assets/image 33.png";
 
 const categories = [
   "All",
@@ -24,8 +22,7 @@ const projects = [
   {
     title: "HRMS",
     category: "Development",
-    image: Component8,
-    secondaryImage: Image33,
+    image: "/hrms.jpg",
     isSpecial: true,
     className: "lg:col-span-1",
   },
@@ -46,8 +43,7 @@ const projects = [
   {
     title: "PortoCreate",
     category: "Development",
-    image: Component7,
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac mollis nulla.",
+    image: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/event flow.jpeg`,
     isSpecial: true,
     className: "lg:col-span-1 lg:row-span-2",
   },
@@ -62,7 +58,7 @@ const CaseStudiesSection = () => {
   );
 
   return (
-    <section id="products" className="py-[60px] px-4 md:px-6 relative z-10 overflow-hidden bg-slate-50/50 scroll-mt-20">
+    <section id="products" className="py-[60px] px-2 md:px-6 relative z-10 overflow-hidden bg-slate-50/50 scroll-mt-20">
       <div id="case-studies" className="absolute top-0 left-0 w-0 h-0 scroll-mt-20 pointer-events-none" />
 
       {/* Removed Honeycomb Background Decoration */}
@@ -149,7 +145,7 @@ const CaseStudiesSection = () => {
         <div className="mt-12 text-center">
           <a
             href="#"
-            className="inline-flex items-center gap-2 text-[#1b6cd5] font-bold hover:text-[#1558b0] transition-all group text-base"
+            className="inline-flex items-center gap-2 text-[#1976D2] font-bold hover:text-[#155DA8] transition-all group text-base"
           >
             View All
             <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-2" />
@@ -194,7 +190,7 @@ const ProjectCard = ({
     >
       {/* Image Container — zoom effect */}
       <motion.div
-        className="absolute inset-0 p-8 flex items-center justify-center"
+        className="absolute inset-0 p-3 md:p-8 flex items-center justify-center"
         animate={isSpecial ? { scale: isHovered ? 1.6 : 1, opacity: isHovered ? 0.7 : 1 } : { scale: 1, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeInOut" }}
       >
@@ -202,7 +198,7 @@ const ProjectCard = ({
           src={project.image}
           alt={project.title}
           fill
-          className="object-contain p-8"
+          className="object-contain p-3 md:p-8"
         />
       </motion.div>
 

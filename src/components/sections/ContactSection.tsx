@@ -7,7 +7,7 @@ import { Send, Phone, Mail, MapPin } from "lucide-react";
 
 const ContactSection = () => {
   return (
-    <section id="contact" className="pt-[120px] pb-[60px] px-4 md:px-6 relative z-10 overflow-hidden bg-slate-50/30 scroll-mt-20">
+    <section id="contact" className="pt-[120px] pb-[60px] px-2 md:px-6 relative z-10 overflow-hidden bg-slate-50/30 scroll-mt-20">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-10">
           <h2 className="text-[32px] font-bold text-slate-900 mb-1 font-tech tracking-normal">
@@ -108,7 +108,7 @@ const ContactSection = () => {
 
               <Button
                 suppressHydrationWarning={true}
-                className="w-full py-7 rounded-xl bg-[#1b6cd5] hover:bg-[#1558b0] text-white shadow-sm font-semibold group transition-all text-lg">
+                className="w-full py-7 rounded-xl bg-[#1976D2] hover:bg-[#155DA8] text-white shadow-sm font-semibold group transition-all text-lg">
                 Send Message
                 <Send className="ml-3 h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
               </Button>

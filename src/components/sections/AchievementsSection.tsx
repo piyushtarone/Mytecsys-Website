@@ -38,7 +38,7 @@ const AchievementsSection = () => {
   };
 
   return (
-    <section id="achievements" className={`pt-[120px] pb-[60px] px-4 md:px-6 relative overflow-hidden bg-slate-50/50 scroll-mt-20 ${isGalleryOpen ? 'z-[48]' : 'z-10'}`}>
+    <section id="achievements" className={`pt-[120px] pb-[60px] px-2 md:px-6 relative overflow-hidden bg-slate-50/50 scroll-mt-20 ${isGalleryOpen ? 'z-[48]' : 'z-10'}`}>
 
       {/* Removed Honeycomb Background Decoration */}
 
@@ -177,7 +177,7 @@ const AchievementsSection = () => {
           <button
             suppressHydrationWarning={true}
             onClick={openGallery}
-            className="inline-flex items-center gap-2 text-[#1b6cd5] font-bold hover:text-[#1558b0] transition-all group text-base"
+            className="inline-flex items-center gap-2 text-[#1976D2] font-bold hover:text-[#155DA8] transition-all group text-base"
           >
             View All
             <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-2" />

@@ -26,7 +26,7 @@ const steps = [
 
 const ProcessSection = () => {
   return (
-    <section className="py-[60px] px-4 md:px-6 relative z-10 bg-white overflow-hidden">
+    <section className="pt-[30px] md:pt-[60px] pb-[60px] px-2 md:px-6 relative z-10 bg-white overflow-hidden">
       {/* Darkened Background Overlay */}
       <div className="absolute inset-0 bg-white/60 pointer-events-none z-0" />
 

@@ -250,7 +250,7 @@ export default function CareersPage() {
                 />
                 <button
                   type="submit"
-                  className="bg-[#1b6cd5] hover:bg-[#1558b0] text-white px-5 py-2 rounded-full font-bold text-[14px] transition-all hover:scale-105 active:scale-95 flex-shrink-0 shadow-md tracking-normal"
+                  className="bg-[#1976D2] hover:bg-[#155DA8] text-white px-5 py-2 rounded-full font-bold text-[14px] transition-all hover:scale-105 active:scale-95 flex-shrink-0 shadow-md tracking-normal"
                 >
                   Search
                 </button>
@@ -392,7 +392,7 @@ export default function CareersPage() {
             <div className="mb-6 text-left">
               <button
                 onClick={() => setViewMode("landing")}
-                className="inline-flex items-center gap-2 text-[12px] font-bold text-[#1b6cd5] hover:text-[#1558b0] transition-colors uppercase tracking-normal bg-transparent border-none p-0 shadow-none"
+                className="inline-flex items-center gap-2 text-[12px] font-bold text-[#1976D2] hover:text-[#155DA8] transition-colors uppercase tracking-normal bg-transparent border-none p-0 shadow-none"
               >
                 <ArrowLeft className="w-4 h-4" />
                 Careers Overview
@@ -419,7 +419,7 @@ export default function CareersPage() {
                     />
                     <button
                       type="submit"
-                      className="border border-[#1b6cd5] text-[#1b6cd5] hover:bg-[#1b6cd5]/10 bg-transparent rounded-lg px-6 h-11 text-sm font-semibold transition-all hover:scale-105 active:scale-95 flex-shrink-0"
+                      className="border border-[#1976D2] text-[#1976D2] hover:bg-[#1976D2]/10 bg-transparent rounded-lg px-6 h-11 text-sm font-semibold transition-all hover:scale-105 active:scale-95 flex-shrink-0"
                     >
                       Add
                     </button>
@@ -502,7 +502,7 @@ export default function CareersPage() {
                         setShowAppForm(false);
                         setJobApplied(false);
                       }}
-                      className="inline-flex items-center gap-2 text-[12px] font-bold text-[#1b6cd5] hover:text-[#1558b0] transition-colors uppercase tracking-normal bg-transparent border-none p-0 shadow-none"
+                      className="inline-flex items-center gap-2 text-[12px] font-bold text-[#1976D2] hover:text-[#155DA8] transition-colors uppercase tracking-normal bg-transparent border-none p-0 shadow-none"
                     >
                       <ArrowLeft className="w-4 h-4" />
                       Back to Job Openings
@@ -691,7 +691,7 @@ export default function CareersPage() {
                           setSearchQuery("");
                           handleResetFilters();
                         }}
-                        className="border border-[#1b6cd5] bg-transparent hover:bg-[#1b6cd5]/10 text-[#1b6cd5] rounded-lg px-6 h-11 text-sm font-semibold transition-all hover:scale-105 active:scale-95 flex-shrink-0 tracking-normal"
+                        className="border border-[#1976D2] bg-transparent hover:bg-[#1976D2]/10 text-[#1976D2] rounded-lg px-6 h-11 text-sm font-semibold transition-all hover:scale-105 active:scale-95 flex-shrink-0 tracking-normal"
                       >
                         Clear
                       </button>
@@ -707,7 +707,7 @@ export default function CareersPage() {
                       {filteredJobs.map((job) => (
                         <div key={job.id} className="py-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-left group">
                           <div className="space-y-2">
-                            <h4 className="text-[18px] font-bold text-slate-900 group-hover:text-[#1b6cd5] transition-colors font-tech tracking-normal">
+                            <h4 className="text-[18px] font-bold text-slate-900 group-hover:text-[#1976D2] transition-colors font-tech tracking-normal">
                               {job.title}
                             </h4>
                             <div className="flex items-center gap-2 text-[12px] font-bold text-slate-400 tracking-normal">
@@ -726,7 +726,7 @@ export default function CareersPage() {
                                 {job.skills.map((skill) => (
                                   <span
                                     key={skill}
-                                    className="bg-[#1b6cd5]/10 text-[#1b6cd5] px-2.5 py-0.5 rounded text-[11px] font-bold tracking-normal uppercase"
+                                    className="bg-[#1976D2]/10 text-[#1976D2] px-2.5 py-0.5 rounded text-[11px] font-bold tracking-normal uppercase"
                                   >
                                     {skill}
                                   </span>
@@ -761,7 +761,7 @@ export default function CareersPage() {
                           </p>
                           <button
                             onClick={handleResetFilters}
-                            className="bg-[#1b6cd5] hover:bg-[#1558b0] text-white rounded-lg px-6 h-11 text-sm font-semibold transition-all hover:scale-105 active:scale-95 shadow-md border-none tracking-normal"
+                            className="bg-[#1976D2] hover:bg-[#155DA8] text-white rounded-lg px-6 h-11 text-sm font-semibold transition-all hover:scale-105 active:scale-95 shadow-md border-none tracking-normal"
                           >
                             Reset All Filters
                           </button>
@@ -781,3 +781,4 @@ export default function CareersPage() {
     </div>
   );
 }
+

@@ -6,9 +6,11 @@ export { default as WhyUsSection } from "./WhyUsSection";
 export { default as AboutSection } from "./AboutSection";
 export { default as FounderSection } from "./FounderSection";
 export { default as NewsSection } from "./NewsSection";
+export { default as NewsMarqueeSection } from "./NewsMarqueeSection";
 export { default as TestimonialsSection } from "./TestimonialsSection";
 export { default as AchievementsSection } from "./AchievementsSection";
 export { default as ContactSection } from "./ContactSection";
 export { default as HomeImageSection } from "./HomeImageSection";
 export { default as GallerySection } from "./GallerySection";
 export { HeroSection } from "./HeroSection";
+

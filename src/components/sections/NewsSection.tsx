@@ -18,21 +18,25 @@ const newsItems = [
     id: 1,
     title: "Garuda Drushti Takes Flight",
     image: "/News/2a1384a6ed53571e2c4a3e14edc3bf888dde118b.jpg",
+    date: "Lokmat : May 28, 2025",
   },
   {
     id: 2,
     title: "Nagpur Police Bolster Social Media Monitoring",
     image: "/News/5385e99218c7bf42b19366687b4c7f5590e67bf0.jpg",
+    date: "The Hitwada Times : May 28, 2025",
   },
   {
     id: 3,
-    title: "News Clipping 3",
+    title: "Driving Growth and Tech Evolution with Bharti Web",
     image: "/News/5d2a2f96f7c45e1914197f0ff784fdf83cd423a3.jpg",
+    date: "The Hitwada Times :May 28, 2025",
   },
   {
     id: 4,
-    title: "News Clipping 4",
+    title: "Next-Gen Software Integrations Highlighted in Nagpur Union",
     image: "/News/c4fd77e3e3b3adb76ab25d15e1c83990da68e532.jpg",
+    date: "Lokmat : May 28, 2025",
   },
 ];
 
@@ -91,8 +95,15 @@ const NewsSection = () => {
         />
       </div>
       {title && (
-        <div className="p-4">
-          <h3 className="text-sm font-bold text-slate-800 line-clamp-1">{title}</h3>
+        <div className="p-4 flex flex-col gap-1">
+          {item.date && (
+            <span className="text-[10px] font-semibold text-blue-600 uppercase tracking-wider mb-0.5">
+              {item.date}
+            </span>
+          )}
+          <h3 className="text-sm font-bold text-slate-800 line-clamp-2 leading-snug group-hover:text-blue-600 transition-colors duration-300">
+            {title}
+          </h3>
         </div>
       )}
     </div>
@@ -100,7 +111,7 @@ const NewsSection = () => {
 
   return (
     <>
-      <section id="news" className="pt-[120px] pb-[60px] px-4 md:px-6 relative z-10 overflow-hidden bg-slate-50/50 scroll-mt-20">
+      <section id="news" className="pt-[120px] pb-[60px] px-2 md:px-6 relative z-10 overflow-hidden bg-slate-50/50 scroll-mt-20">
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-12">
             <h2 className="text-[32px] font-bold text-slate-900 mb-2 font-tech tracking-normal">
@@ -120,11 +131,11 @@ const NewsSection = () => {
               }}
               className="w-full"
             >
-              <CarouselContent className="-ml-4">
+              <CarouselContent className="-ml-4 py-6">
 
                 {/* Slide 1: 70% | 30% */}
                 <CarouselItem className="pl-4 basis-full">
-                  <div className="flex flex-col md:flex-row gap-4 h-[400px] md:h-[500px]">
+                  <div className="flex flex-col md:flex-row gap-4 h-auto md:h-[500px]">
                     <div className="md:w-[70%] h-full">
                       <NewsCard item={newsItems[0]} title={newsItems[0].title} newsIndex={0} />
                     </div>
@@ -136,7 +147,7 @@ const NewsSection = () => {
 
                 {/* Slide 2: 50% | 50% */}
                 <CarouselItem className="pl-4 basis-full">
-                  <div className="flex flex-col md:flex-row gap-4 h-[400px] md:h-[500px]">
+                  <div className="flex flex-col md:flex-row gap-4 h-auto md:h-[500px]">
                     <div className="md:w-[50%] h-full">
                       <NewsCard item={newsItems[2]} title={newsItems[2].title} newsIndex={2} />
                     </div>
@@ -148,7 +159,7 @@ const NewsSection = () => {
 
                 {/* Slide 3: 40% | 60% */}
                 <CarouselItem className="pl-4 basis-full">
-                  <div className="flex flex-col md:flex-row gap-4 h-[400px] md:h-[500px]">
+                  <div className="flex flex-col md:flex-row gap-4 h-auto md:h-[500px]">
                     <div className="md:w-[40%] h-full">
                       <NewsCard item={newsItems[0]} title={newsItems[0].title} newsIndex={0} />
                     </div>

@@ -81,7 +81,7 @@ const AboutSection = () => {
   const [activeTab, setActiveTab] = useState("vision");
 
   return (
-    <section id="about" className="py-[60px] px-4 md:px-6 relative z-10 overflow-hidden bg-sky-400/[0.07] scroll-mt-20">
+    <section id="about" className="py-[60px] px-2 md:px-6 relative z-10 overflow-hidden bg-sky-400/[0.07] scroll-mt-20">
       {/* Decorative background elements */}
       <div className="absolute top-0 right-0 -z-10 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 -z-10 w-96 h-96 bg-sky-300/20 rounded-full blur-3xl" />
@@ -133,7 +133,7 @@ const AboutSection = () => {
 
             <Button
               suppressHydrationWarning={true}
-              asChild size="lg" className="w-full sm:w-auto group bg-[#1b6cd5] hover:bg-[#1558b0] text-white rounded-lg px-8 h-12 text-sm font-bold transition-all hover:scale-105 active:scale-95 border-none shadow-md">
+              asChild size="lg" className="w-full sm:w-auto group bg-[#1976D2] hover:bg-[#155DA8] text-white rounded-lg px-8 h-12 text-sm font-bold transition-all hover:scale-105 active:scale-95 border-none shadow-md">
               <a href="/#about-more">
                 More About Us
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -154,13 +154,13 @@ const AboutSection = () => {
                 value: "100+",
                 label1: "Cities",
                 label2: "We Work",
-                marginClass: "ml-8 md:ml-20",
+                marginClass: "ml-4 md:ml-20",
               },
               {
                 value: "$1000+",
                 label1: "Revenue",
                 label2: "/month",
-                marginClass: "ml-16 md:ml-40",
+                marginClass: "ml-8 md:ml-40",
               },
             ].map((stat, i) => (
               <div key={i} className={cn("flex items-center gap-5", stat.marginClass)}>

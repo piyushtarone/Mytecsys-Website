@@ -22,12 +22,22 @@ const HomeImageSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [prevIndex, setPrevIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const autoplayTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   const nextSlide = useCallback(() => {
     setPrevIndex(currentIndex);
     setCurrentIndex((prev) => (prev + 1) % CARDS.length);
   }, [currentIndex]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     if (!isHovered) {
@@ -101,21 +111,23 @@ const HomeImageSection = () => {
 
   return (
     <section
-      className="relative z-10 pt-2 md:pt-3 pb-[30px] flex flex-col items-center justify-start overflow-visible bg-transparent"
+      className="relative z-[100] pt-2 md:pt-3 pb-[30px] flex flex-col items-center justify-start overflow-visible bg-transparent"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
 
-      <div className="relative z-10 w-full max-w-7xl px-4 flex flex-col items-center gap-8 md:gap-12">
+      <div className="relative z-[100] w-full max-w-7xl px-2 md:px-4 flex flex-col items-center gap-8 md:gap-12">
 
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 40, scale: isMobile ? 0.45 : 1 }}
+          animate={{ opacity: 1, y: 0, scale: isMobile ? 0.45 : 1 }}
           transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-          className="relative w-full max-w-7xl h-[400px] md:h-[420px] lg:h-[450px] flex items-end justify-center -mt-16 md:-mt-24"
+          className="relative max-w-7xl h-[380px] md:h-[420px] lg:h-[450px] flex items-end justify-center -mt-48 md:-mt-20"
           style={{
-            maskImage: 'linear-gradient(to bottom, black 0%, black 50%, transparent 92%)',
-            WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 50%, transparent 92%)'
+            width: isMobile ? '800px' : '100%',
+            maskImage: isMobile ? 'linear-gradient(to bottom, black 0%, black 50%, transparent 95%)' : 'linear-gradient(to bottom, black 0%, black 55%, transparent 95%)',
+            WebkitMaskImage: isMobile ? 'linear-gradient(to bottom, black 0%, black 50%, transparent 95%)' : 'linear-gradient(to bottom, black 0%, black 55%, transparent 95%)',
+            transformOrigin: "bottom center"
           }}
         >
           <AnimatePresence initial={false}>
@@ -125,6 +137,12 @@ const HomeImageSection = () => {
               const isJump = (slotIndex === 0 && prevSlotIndex === 4) || (slotIndex === 4 && prevSlotIndex === 0);
               const styles = getSlotStyles(slotIndex);
               const isActive = slotIndex === 2;
+              
+              const startOpacity = getSlotStyles(prevSlotIndex).opacity;
+              const endOpacity = styles.opacity;
+              const opacityValue = isJump
+                ? [startOpacity, 0, 0, endOpacity]
+                : endOpacity;
 
               return (
                 <motion.div
@@ -132,9 +150,8 @@ const HomeImageSection = () => {
                   animate={{
                     x: styles.x,
                     y: styles.y,
-                    opacity: isJump ? [0.7, 0, 0, 0.7] : styles.opacity,
+                    opacity: opacityValue,
                     scale: styles.scale,
-                    zIndex: styles.zIndex,
                     skewY: styles.skewY,
                   }}
                   transition={{
@@ -161,7 +178,6 @@ const HomeImageSection = () => {
                       delay: isJump ? 0.3 : 0,
                       ease: [0.4, 0, 0.2, 1]
                     },
-                    zIndex: { duration: 0 },
                     skewY: {
                       duration: isJump ? 0 : 0.8,
                       delay: isJump ? 0.3 : 0,
@@ -178,7 +194,7 @@ const HomeImageSection = () => {
                       y: 0,
                       opacity: 1,
                     }}
-                    className="text-[#0f172a] font-black text-[10px] md:text-xs lg:text-[13px] tracking-[0.2em] font-tech uppercase z-[100] relative text-center whitespace-nowrap mb-0"
+                    className="text-[#0f172a] font-black text-[9px] md:text-xs lg:text-[13px] tracking-[0.1em] md:tracking-[0.2em] font-tech uppercase z-[100] relative text-center whitespace-nowrap mb-0"
                   >
                     {card.title}
                   </motion.span>
@@ -203,13 +219,13 @@ const HomeImageSection = () => {
                         delay: isJump ? 0.3 : 0
                       }
                     }}
-                    className="relative w-[95px] md:w-[150px] lg:w-[210px] overflow-hidden transition-all duration-700 shadow-[0_-4px_16px_rgba(21,88,176,0.45)]"
+                    className="relative w-[150px] md:w-[150px] lg:w-[210px] overflow-hidden transition-all duration-700 shadow-[0_-4px_16px_rgba(21,88,176,0.45)]"
                     style={{
                       height: styles.height,
                       zIndex: styles.zIndex,
                       borderRadius: '24px',
                       padding: '1.5px',
-                      background: 'linear-gradient(180deg, #9fcfff 0%, #1b6cd5 50%, #1558b0 100%)',
+                      background: 'linear-gradient(180deg, #9fcfff 0%, #1976D2 50%, #155DA8 100%)',
                     }}
                   >
                     {/* Inner card content */}
@@ -221,8 +237,10 @@ const HomeImageSection = () => {
                         src={card.img}
                         alt={card.title}
                         fill
-                        className={`object-cover object-top transition-transform duration-1000 ${isActive ? "scale-110" : "scale-100"}`}
-                        style={{ transform: `scale(${card.scale})` }}
+                        className="object-cover object-top transition-transform duration-1000"
+                        style={{
+                          transform: `scale(${isActive ? (isMobile ? 1.05 * 1.08 : card.scale * 1.08) : (isMobile ? 1.05 : card.scale)})`
+                        }}
                         priority
                         sizes="(max-width: 768px) 140px, (max-width: 1200px) 240px, 320px"
                       />

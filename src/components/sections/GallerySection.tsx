@@ -162,26 +162,35 @@ const GallerySection = ({ isOpen, onClose, initialIndex = 0, singleImageMode = f
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed inset-0 z-[9999] bg-white/35 backdrop-blur-[4px] flex flex-col font-sans overflow-hidden pt-20"
+          className="fixed inset-0 z-[99999] bg-white md:bg-white/35 backdrop-blur-[4px] flex flex-col font-sans overflow-hidden pt-2 md:pt-6"
           onClick={handleBackdropClick}
         >
           {/* Subtle background pattern */}
           <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_50%_30%,rgba(59,130,246,0.06)_0%,transparent_70%)]" />
 
           {/* ===== TOP BAR ===== */}
-          <div className="relative z-[70] flex items-center justify-between px-4 md:px-10 py-2 md:py-3 bg-transparent">
+          <div className="relative z-[70] flex items-center justify-between px-2 md:px-10 py-2 md:py-3 bg-transparent">
             {/* Close / Back button — icon-based for clean web look */}
-            <button
-              onClick={handleClose}
-              className="p-2.5 rounded-full bg-slate-100 hover:bg-red-500/20 hover:text-red-600 text-slate-700 border border-slate-200/50 transition-all duration-200 group"
-              title="Close gallery"
-            >
-              <X className="w-5 h-5 transition-transform group-hover:rotate-90 duration-300" />
-            </button>
+            <div className="flex items-center gap-3">
+              <button
+                onClick={handleClose}
+                className="flex items-center gap-1.5 px-3 py-1.5 md:p-2.5 rounded-full bg-slate-100 hover:bg-red-500/20 hover:text-red-600 text-slate-800 border border-slate-200/50 transition-all duration-200 group shadow-sm"
+                title="Close gallery"
+              >
+                <ChevronLeft className="w-5 h-5 md:hidden" />
+                <span className="md:hidden font-bold text-sm">Back</span>
+                <X className="w-5 h-5 hidden md:block transition-transform group-hover:rotate-90 duration-300" />
+              </button>
+              {!singleImageMode && (
+                <div className="sm:hidden text-xs font-semibold text-slate-500 select-none no-close">
+                  {currentIndex + 1} / {galleryImages.length}
+                </div>
+              )}
+            </div>
 
             {/* Image counter */}
             {!singleImageMode && (
-              <div className="absolute left-1/2 -translate-x-1/2 text-sm md:text-base font-medium text-slate-500 tracking-wide select-none no-close">
+              <div className="hidden sm:block absolute left-1/2 -translate-x-1/2 text-sm md:text-base font-medium text-slate-500 tracking-wide select-none no-close">
                 <span className="text-slate-800 font-bold">{currentIndex + 1}</span>
                 <span className="mx-1.5 text-slate-300">/</span>
                 <span>{galleryImages.length}</span>
@@ -237,7 +246,7 @@ const GallerySection = ({ isOpen, onClose, initialIndex = 0, singleImageMode = f
 
             {/* Image display */}
             <div
-              className="relative w-full h-full max-w-6xl mx-auto px-4 md:px-16 lg:px-20 py-4 md:py-6 flex items-center justify-center min-h-0"
+              className="relative w-full h-full max-w-6xl mx-auto px-2 md:px-16 lg:px-20 py-4 md:py-6 flex items-center justify-center min-h-0"
               onTouchStart={handleTouchStart}
               onTouchEnd={handleTouchEnd}
             >
@@ -248,7 +257,7 @@ const GallerySection = ({ isOpen, onClose, initialIndex = 0, singleImageMode = f
                   animate={{ opacity: 1, scale: zoom, x: 0 }}
                   exit={{ opacity: 0, scale: 1.02 }}
                   transition={{ duration: 0.25, ease: "easeOut" }}
-                  className="relative flex items-center justify-center max-w-full max-h-full"
+                  className="relative flex items-center justify-center w-full h-full"
                   onClick={(e) => e.stopPropagation()}
                 >
                   <img
@@ -256,7 +265,7 @@ const GallerySection = ({ isOpen, onClose, initialIndex = 0, singleImageMode = f
                     alt={activeImage?.alt || "Gallery Image"}
                     loading="eager"
                     className={cn(
-                      "max-w-full max-h-[70vh] md:max-h-[75vh] w-auto h-auto object-contain rounded-2xl shadow-xl transition-opacity duration-300",
+                      "max-w-full max-h-full w-auto h-auto object-contain rounded-2xl shadow-xl transition-opacity duration-300",
                       isLoaded ? "opacity-100" : "opacity-0"
                     )}
                     onLoad={() => setIsLoaded(true)}
@@ -272,22 +281,22 @@ const GallerySection = ({ isOpen, onClose, initialIndex = 0, singleImageMode = f
             </div>
 
             {/* Image caption */}
-            <div className="absolute bottom-3 md:bottom-6 left-1/2 -translate-x-1/2 z-40 no-close">
+            <div className="absolute bottom-4 md:bottom-6 left-4 right-4 md:left-1/2 md:right-auto md:-translate-x-1/2 z-40 no-close flex justify-center">
               <motion.div
                 key={currentIndex}
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.15 }}
-                className="px-5 py-1.5 bg-white/90 backdrop-blur-md border border-slate-200/80 rounded-full shadow-md"
+                className="px-2 py-2.5 md:px-5 md:py-1.5 bg-white/95 backdrop-blur-md border border-slate-200/80 rounded-xl md:rounded-full shadow-lg text-center"
               >
-                <span className="text-xs md:text-sm font-medium text-slate-800">{galleryImages[currentIndex].alt}</span>
+                <span className="text-sm md:text-sm font-semibold text-slate-800 leading-snug inline-block">{galleryImages[currentIndex].alt}</span>
               </motion.div>
             </div>
           </div>
 
           {/* ===== BOTTOM THUMBNAIL STRIP ===== */}
           {!singleImageMode && (
-            <div className="relative z-[60] border-t border-slate-200 bg-white/25 backdrop-blur-[4px] px-4 md:px-10 pt-1 pb-2 md:pt-2 md:pb-3 shadow-[0_-4px_20px_rgba(0,0,0,0.02)] no-close">
+            <div className="relative z-[60] border-t border-slate-200 bg-white/25 backdrop-blur-[4px] px-2 md:px-10 pt-1 pb-2 md:pt-2 md:pb-3 shadow-[0_-4px_20px_rgba(0,0,0,0.02)] no-close">
               <div className="flex items-center gap-3 md:gap-4 max-w-5xl mx-auto">
                 {/* Mobile prev arrow */}
                 <button
