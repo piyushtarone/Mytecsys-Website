@@ -167,6 +167,14 @@ const MEDIA_ITEMS: MediaItem[] = [
   }
 ];
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
+function getMediaUrl(path?: string) {
+  if (!path) return "";
+  if (path.startsWith("http")) return path;
+  return `${basePath}${path}`;
+}
+
 function SlideshowTile({ item }: { item: MediaItem }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -195,7 +203,7 @@ function SlideshowTile({ item }: { item: MediaItem }) {
           className="absolute inset-0 w-full h-full"
         >
           <Image
-            src={item.images[currentIndex]}
+            src={getMediaUrl(item.images[currentIndex])}
             alt={`${item.title} - ${currentIndex + 1}`}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -223,7 +231,7 @@ function VideoTile({ item }: { item: MediaItem }) {
       {/* Fallback Thumbnail Image (Optional if provided) */}
       {item.thumbnail && (
         <Image
-          src={item.thumbnail}
+          src={getMediaUrl(item.thumbnail)}
           alt={item.title}
           fill
           className={`object-cover transition-opacity duration-1000 ease-in-out ${isLoaded ? "opacity-0" : "opacity-100"} z-0`}
@@ -233,7 +241,7 @@ function VideoTile({ item }: { item: MediaItem }) {
       {/* HTML5 Video acting like a GIF. It shows thumbnail implicitly if no poster is provided before loading. */}
       <video
         ref={videoRef}
-        src={item.src}
+        src={getMediaUrl(item.src)}
         autoPlay
         loop
         muted
@@ -277,7 +285,7 @@ export function EventsGrid() {
                 <SlideshowTile item={item} />
               ) : item.type === "image" ? (
                 <Image
-                  src={item.src!}
+                  src={getMediaUrl(item.src)}
                   alt={item.title}
                   fill
                   className="object-cover group-hover/item:scale-[1.05] transition-transform duration-700 ease-in-out cursor-pointer"
@@ -325,13 +333,13 @@ export function EventsGrid() {
             >
               {selectedMedia.type === "image" ? (
                 <img
-                  src={selectedMedia.src}
+                  src={getMediaUrl(selectedMedia.src)}
                   alt={selectedMedia.title}
                   className="w-auto h-auto max-w-full max-h-[85vh] object-contain rounded-xl"
                 />
               ) : (
                 <video
-                  src={selectedMedia.src}
+                  src={getMediaUrl(selectedMedia.src)}
                   autoPlay
                   controls
                   className="w-auto h-auto max-w-full max-h-[85vh] object-contain rounded-xl bg-black"
