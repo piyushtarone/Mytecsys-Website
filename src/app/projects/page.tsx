@@ -8,8 +8,9 @@ import Image from "next/image";
 import HexagonBackground from "@/components/HexagonBackground";
 import { MacbookMockup } from "@/components/ui/MacbookMockup";
 import Footer from "@/components/Footer";
-import Component9 from "@/assets/Component 9.png";
-import Component10 from "@/assets/Component 10.png";
+import Component7 from "@/assets/Component 7.png";
+import Component8 from "@/assets/Component 8.png";
+import Component18 from "@/assets/Component 18.png";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
@@ -24,26 +25,35 @@ const projects = [
     imageClassName: "object-cover object-top"
   },
   {
-    id: "biometric-iot",
-    title: "Biometric IOT",
-    description: "Advanced biometric integration for secure and seamless access control. Experience real-time hardware tracking and comprehensive physical security in a single digital interface.",
-    features: ["Access Control", "Real-time Tracking", "Security Integration", "Hardware Sync"],
-    image: Component9,
+    id: "processos",
+    title: "ProcessOS",
+    description: "Comprehensive workflow, access, project, and employee management platform. Automate your processes and manage your team efficiently.",
+    features: ["Project Management", "Access Control", "Employee Directory", "Workflow Builder"],
+    image: `${basePath}/projects/processOS.png`,
     link: "#",
-    imageClassName: "object-contain"
+    imageClassName: "object-cover object-top"
   },
   {
-    id: "astrospark",
-    title: "AstroSpark",
-    description: "A modern E-commerce platform built for scale. Manage products, supply chain logistics, and make accurate records of your digital storefront with powerful analytics.",
-    features: ["E-commerce", "Supply Chain", "Product Management", "Storefront Analytics"],
-    image: Component10,
+    id: "formflow",
+    title: "FormFlow",
+    description: "Manage, collect, and process form data at a single centralized location. Create dynamic drag-and-drop forms with real-time analytics.",
+    features: ["Unified Inbox", "Form Builder", "Cloud Sync", "Real-time Analytics"],
+    image: `${basePath}/projects/formflow.png`,
     link: "#",
-    imageClassName: "object-contain"
+    imageClassName: "object-contain object-top"
   },
   {
-    id: "portocreate",
-    title: "PortoCreate",
+    id: "erp",
+    title: "ERP",
+    description: "Manage products, supply chain, and make accurate records of imports and exports. Optimize inventory control and demand forecasting.",
+    features: ["Inventory Tracking", "Supply Chain", "Product Recording", "Stock Analytics"],
+    image: Component18,
+    link: "#",
+    imageClassName: "object-contain bg-white"
+  },
+  {
+    id: "mixeventz",
+    title: "MixEventz",
     description: "Streamlined event flow and coordination platform. Manage multiple events, timelines, and attendee engagements seamlessly with our comprehensive event builder.",
     features: ["Event Flow", "Timelines", "Attendee Management", "Insights"],
     image: `${basePath}/event flow.jpeg`,
@@ -114,7 +124,7 @@ export default function ProjectsPage() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.7 }}
-                  className="w-full lg:w-3/5"
+                  className="w-full lg:w-1/2"
                 >
                   <MacbookMockup 
                     src={typeof project.image === 'string' ? project.image : (project.image as any).src} 
@@ -129,7 +139,7 @@ export default function ProjectsPage() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.7, delay: 0.2 }}
-                  className="w-full lg:w-2/5 flex flex-col items-start"
+                  className={`w-full lg:w-1/2 flex flex-col items-start ${isEven ? "lg:pl-10" : "lg:pr-10 lg:pl-8"}`}
                 >
                   <h2 className="text-[32px] font-bold text-slate-900 mb-4 tracking-tight leading-snug">
                     {project.title}

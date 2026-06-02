@@ -137,7 +137,7 @@ const navItems = [
 ];
 
 // ─── Mega Menu Panel ──────────────────────────────────────────────────────────
-function MegaMenuPanel({ menuKey, activeItem }: { menuKey: string; activeItem: string }) {
+function MegaMenuPanel({ menuKey, activeItem, closeMenu }: { menuKey: string; activeItem: string; closeMenu: () => void }) {
   const pathname = usePathname();
   const data = megaMenuData[menuKey]?.[activeItem];
   if (!data) return null;
@@ -164,6 +164,7 @@ function MegaMenuPanel({ menuKey, activeItem }: { menuKey: string; activeItem: s
               <Link
                 key={item.label}
                 href={resolvedHref}
+                onClick={closeMenu}
                 className="flex items-start gap-3 p-3 rounded-xl hover:bg-zinc-100 transition-colors group"
               >
                 <div className="w-8 h-8 rounded-lg bg-slate-100 group-hover:bg-zinc-200 flex items-center justify-center flex-shrink-0 transition-colors mt-0.5">
@@ -199,9 +200,14 @@ function NavDropdown({ item, isActive }: { item: typeof navItems[0]; isActive: b
   }, []);
 
   return (
-    <div ref={ref} className="relative">
+    <div 
+      ref={ref} 
+      className="relative"
+      onMouseEnter={() => setIsOpen(true)}
+      onMouseLeave={() => setIsOpen(false)}
+    >
       <button
-        suppressHydrationWarning
+        type="button"
         onClick={() => setIsOpen((v) => !v)}
         className={cn(
           "inline-flex h-10 items-center justify-center rounded-md px-4 py-2 text-[12px] font-normal transition-colors",
@@ -243,7 +249,7 @@ function NavDropdown({ item, isActive }: { item: typeof navItems[0]; isActive: b
 
             {/* Right: mega menu panel */}
             {item.megaKey && activeSubItem && (
-              <MegaMenuPanel menuKey={item.megaKey} activeItem={activeSubItem} />
+              <MegaMenuPanel menuKey={item.megaKey} activeItem={activeSubItem} closeMenu={() => setIsOpen(false)} />
             )}
           </div>
         </div>
@@ -378,8 +384,8 @@ export function Header() {
   }, [pathname]);
 
   const isItemActive = (item: typeof navItems[0]) => {
-    if (item.href === "/careers") {
-      return pathname.startsWith("/careers");
+    if (item.href && !item.href.startsWith("#")) {
+      return pathname.startsWith(item.href);
     }
     if (pathname === "/") {
       const sectionId = item.href?.startsWith("#") ? item.href.slice(1) : "";
