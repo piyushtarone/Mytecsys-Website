@@ -108,7 +108,7 @@ const sections: DomainSection[] = [
 
 export function ServiceDomainSection() {
   return (
-    <section id="explore" className="py-24 px-4 md:px-8 bg-white text-slate-800">
+    <section id="service-domains" className="py-24 px-4 md:px-6 relative overflow-hidden bg-transparent">
       <div className="max-w-7xl mx-auto space-y-32">
         {sections.map((sec, index) => {
           const isEven = index % 2 === 0;
@@ -155,9 +155,6 @@ export function ServiceDomainSection() {
                           <h4 className="text-[10px] font-extrabold text-slate-800 uppercase tracking-wide">
                             {item.title}
                           </h4>
-                          <span className="text-[9px] text-[#1976D2] font-semibold mt-1 inline-block cursor-pointer hover:underline">
-                            View details
-                          </span>
                         </div>
                       </div>
                     ))}
@@ -205,10 +202,10 @@ export function ServiceDomainSection() {
                   <span className="text-[#1976D2] font-bold text-xs uppercase tracking-wider">
                     {sec.tag}
                   </span>
-                  <h2 className="text-3xl md:text-4xl font-extrabold text-indigo-950 font-sans tracking-tight leading-tight">
+                  <h2 className="text-[32px] font-extrabold text-indigo-950 font-sans tracking-tight leading-tight">
                     {sec.title}
                   </h2>
-                  <p className="text-slate-500 font-medium leading-relaxed text-sm md:text-base">
+                  <p className="text-slate-500 font-medium leading-relaxed text-[18px]">
                     {sec.desc}
                   </p>
                 </div>
@@ -219,10 +216,10 @@ export function ServiceDomainSection() {
                     <div key={cIdx} className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-indigo-600 mt-0.5 shrink-0" />
                       <div>
-                        <h4 className="text-sm font-extrabold text-slate-900 font-sans">
+                        <h4 className="text-[18px] font-extrabold text-slate-900 font-sans">
                           {item.title}
                         </h4>
-                        <p className="text-xs text-slate-500 mt-0.5 font-medium">
+                        <p className="text-[18px] text-slate-500 mt-0.5 font-medium">
                           {item.desc}
                         </p>
                       </div>

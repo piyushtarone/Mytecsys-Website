@@ -204,7 +204,22 @@ export default function CareersPage() {
   });
 
   return (
-    <div className="relative min-h-screen bg-white">
+    <div className="relative min-h-screen bg-white overflow-hidden">
+      {/* Static Background Images */}
+      <div
+        className="fixed left-0 top-1/2 -translate-y-1/2 w-[160px] sm:w-[220px] md:w-[280px] h-[350px] md:h-[420px] z-0 bg-no-repeat bg-left bg-contain pointer-events-none opacity-[0.9] select-none"
+        style={{
+          backgroundImage: `url('${process.env.NEXT_PUBLIC_BASE_PATH || ""}/back.png')`,
+          filter: 'brightness(0.5) contrast(1.3) saturate(1.2)'
+        }}
+      />
+      <div
+        className="fixed right-0 top-1/2 -translate-y-1/2 w-[160px] sm:w-[220px] md:w-[280px] h-[350px] md:h-[420px] z-0 bg-no-repeat bg-right bg-contain pointer-events-none opacity-[0.9] select-none"
+        style={{
+          backgroundImage: `url('${process.env.NEXT_PUBLIC_BASE_PATH || ""}/back_right.png')`,
+          filter: 'brightness(0.5) contrast(1.3) saturate(1.2)'
+        }}
+      />
 
       {/* Hero Section with Office Banner Image (always visible at the top) */}
       <div className="animate-in fade-in duration-500 pt-20">
@@ -264,7 +279,7 @@ export default function CareersPage() {
       {viewMode === "landing" && (
         <div className="animate-in fade-in duration-500">
           {/* Let's Grow Together Section */}
-          <div className="py-16 md:py-24 bg-[#fafbfc] border-b border-slate-100">
+          <div className="py-16 md:py-24 bg-transparent border-b border-slate-100 relative z-10">
             <div className="container mx-auto px-4 max-w-7xl">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 {/* Left Column: Heading and Description */}

@@ -35,7 +35,7 @@ const FounderSection = () => {
           <p className="text-slate-500 font-bold text-[9px] md:text-[11px] mt-4 uppercase tracking-[0.3em] opacity-70 text-center">
             (Who Build Mytecsys)
           </p>
-          <div className="w-14 h-1.5 bg-blue-600 mt-5 rounded-full mx-auto" />
+
         </div>
 
         <div className="relative border border-tech/20 rounded-[1.5rem] overflow-hidden bg-white/50 backdrop-blur-sm flex flex-col md:flex-row items-stretch">

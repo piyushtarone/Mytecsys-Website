@@ -133,6 +133,7 @@ const navItems = [
   },
   { href: "#news", label: "Research & Insights" },
   { href: "/careers", label: "Careers" },
+  { href: "/events", label: "Events" },
 ];
 
 // ─── Mega Menu Panel ──────────────────────────────────────────────────────────

@@ -45,7 +45,7 @@ const steps: Step[] = [
 
 export function ProcessTimeline() {
   return (
-    <section className="py-20 px-4 md:px-6 bg-slate-50 text-slate-800">
+    <section className="py-20 px-4 md:px-6 bg-transparent text-slate-800">
       <div className="max-w-7xl mx-auto space-y-16">
         <div className="text-center space-y-4">
           <span className="text-[#1976D2] font-semibold text-sm uppercase tracking-wider">
@@ -62,7 +62,7 @@ export function ProcessTimeline() {
         {/* Steps display - Horizontal on desktop, vertical on mobile */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 relative">
           {/* Connector Line for Desktop */}
-          <div className="hidden lg:block absolute top-[52px] left-[5%] right-[5%] h-0.5 bg-gradient-to-r from-blue-500/10 via-[#1976D2]/60 to-indigo-500/10 -z-0" />
+          <div className="hidden lg:block absolute top-8 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-blue-500/10 via-[#1976D2]/60 to-indigo-500/10 -z-0" />
           {/* Connector Line for Mobile */}
           <div className="lg:hidden absolute top-[32px] bottom-12 left-[31px] w-0.5 bg-gradient-to-b from-blue-500/10 via-[#1976D2]/60 to-indigo-500/10 -z-0" />
           

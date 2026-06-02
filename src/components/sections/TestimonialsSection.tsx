@@ -93,7 +93,7 @@ const TestimonialsSection = () => {
           <p className="text-slate-500 font-bold text-[9px] md:text-[11px] mt-4 uppercase tracking-[0.3em] opacity-70 text-center">
             (Customers Words)
           </p>
-          <div className="w-14 h-1.5 bg-blue-600 mt-5 rounded-full mx-auto" />
+
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-[600px] overflow-hidden relative">

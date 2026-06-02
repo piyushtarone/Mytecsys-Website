@@ -91,7 +91,7 @@ const WhyUsSection = () => {
           <p className="text-slate-500 font-bold text-[9px] md:text-[11px] mt-4 uppercase tracking-[0.3em] opacity-70 text-center mb-8">
             (Why we are best)
           </p>
-          <div className="w-14 h-1.5 bg-blue-600 mt-5 rounded-full mx-auto mb-8" />
+
         </div>
 
         <div className="flex justify-center">

@@ -96,7 +96,7 @@ const categories: TechCategory[] = [
 
 export function TechStackMarquee() {
   return (
-    <section className="py-24 px-4 md:px-8 bg-slate-50 text-slate-800 relative overflow-hidden border-t border-b border-slate-200/80">
+    <section className="py-24 px-4 md:px-8 bg-transparent text-slate-800 relative overflow-hidden border-t border-b border-slate-200/80">
       {/* Visual background glows */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,#f1f5f9,transparent)] opacity-60 -z-10" />
 
@@ -107,10 +107,10 @@ export function TechStackMarquee() {
           <span className="text-[#1976D2] font-extrabold text-xs uppercase tracking-wider block">
             TECHNOLOGIES WE MASTER
           </span>
-          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
+          <h2 className="text-[32px] font-extrabold tracking-tight text-slate-900 leading-tight">
             Our Enterprise Tech Stack
           </h2>
-          <p className="text-slate-500 text-sm md:text-base leading-relaxed font-medium">
+          <p className="text-[18px] text-slate-500 leading-relaxed font-medium">
             We use industry-standard platforms, frameworks, and tools to construct lightweight, performant, and hyper-scalable infrastructures.
           </p>
         </div>
@@ -149,7 +149,7 @@ export function TechStackMarquee() {
                       <motion.div
                         key={nIdx}
                         whileHover={{ x: 3, scale: 1.01 }}
-                        className="bg-slate-50 hover:bg-slate-100/50 border border-slate-100 rounded-xl p-2.5 flex items-center justify-between transition-all duration-200"
+                        className="bg-slate-50 hover:bg-slate-100/50 border border-slate-100 rounded-xl p-2.5 flex items-center justify-start transition-all duration-200"
                       >
                         <div className="flex items-center gap-2">
                           <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
@@ -157,21 +157,12 @@ export function TechStackMarquee() {
                             {node.name}
                           </span>
                         </div>
-                        <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded-md border border-black/5 ${node.metricColor}`}>
-                          {node.metric}
-                        </span>
                       </motion.div>
                     ))}
                   </div>
                 </div>
 
-                {/* Bottom Card Footer */}
-                <div className="mt-8 pt-3 border-t border-slate-100 flex items-center justify-between text-[9px] font-bold text-slate-400">
-                  <span className="flex items-center gap-1">
-                    <Terminal className="w-3 h-3 text-[#1976D2]" /> Status: Optimized
-                  </span>
-                  <span className="text-emerald-500">Live</span>
-                </div>
+
               </motion.div>
             );
           })}

@@ -1,17 +1,13 @@
-import { ServicesHero } from "@/components/sections/services/ServicesHero";
-import { ServiceDomainSection } from "@/components/sections/services/ServiceDomainSection";
-import { TechStackMarquee } from "@/components/sections/services/TechStackMarquee";
-import { ProcessTimeline } from "@/components/sections/services/ProcessTimeline";
+"use client";
+
+import React from "react";
 import Footer from "@/components/Footer";
+import { EventsHero } from "@/components/sections/events/EventsHero";
+import { EventsGrid } from "@/components/sections/events/EventsGrid";
 
-export const metadata = {
-  title: "Services — Mytecsys Web, Mobile & AI Solutions",
-  description: "Explore our fully featured engineering, mobile application development, and custom machine learning capabilities.",
-};
-
-export default function ServicesPage() {
+export default function EventsPage() {
   return (
-    <div className="relative bg-white min-h-screen overflow-hidden">
+    <div className="relative min-h-screen bg-white overflow-hidden">
       {/* Static Background Images */}
       <div
         className="fixed left-0 top-1/2 -translate-y-1/2 w-[160px] sm:w-[220px] md:w-[280px] h-[350px] md:h-[420px] z-0 bg-no-repeat bg-left bg-contain pointer-events-none opacity-[0.9] select-none"
@@ -29,11 +25,10 @@ export default function ServicesPage() {
       />
 
       <div className="relative z-10">
-        <ServicesHero />
-        <ServiceDomainSection />
-        <TechStackMarquee />
-        <ProcessTimeline />
+        <EventsHero />
+        <EventsGrid />
       </div>
+      
       <Footer />
     </div>
   );

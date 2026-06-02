@@ -16,7 +16,7 @@ const ContactSection = () => {
           <p className="text-slate-500 font-bold text-[9px] md:text-[11px] mt-4 uppercase tracking-[0.3em] opacity-70 text-center">
             (Let&apos;s Connect)
           </p>
-          <div className="w-14 h-1.5 bg-blue-600 mt-5 rounded-full mx-auto" />
+
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">

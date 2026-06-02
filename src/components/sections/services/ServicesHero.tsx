@@ -7,9 +7,9 @@ import SoftwareDevImg from "@/assets/software_development.png";
 export function ServicesHero() {
   return (
     <section className="relative z-30 w-full grid grid-cols-1 lg:grid-cols-2 overflow-hidden border-b border-slate-200 lg:h-screen lg:min-h-[750px] h-auto">
-      
+
       {/* Left Column: Colored background block with text */}
-      <div className="flex flex-col justify-center bg-[#eae5f5] pt-[100px] md:pt-[120px] lg:pt-[140px] pb-12 md:pb-24 px-6 md:px-16 lg:px-24 text-left relative z-10 h-auto lg:h-full">
+      <div className="flex flex-col justify-center bg-transparent pt-[100px] md:pt-[120px] lg:pt-[140px] pb-12 md:pb-24 px-6 md:px-16 lg:px-24 text-left relative z-10 h-auto lg:h-full">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}

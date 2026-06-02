@@ -130,8 +130,17 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="block group relative w-full"
             >
-              <div className="bg-white/40 backdrop-blur-sm rounded-[2rem] p-6 border border-blue-100 shadow-sm relative overflow-hidden h-[200px] flex flex-col items-center justify-center group-hover:border-blue-300 transition-all duration-500">
-                <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/hexellence.png")' }} />
+              <div className="bg-white/10 rounded-[2rem] p-6 border border-blue-100 shadow-sm relative overflow-hidden h-[200px] flex flex-col items-center justify-center group-hover:border-blue-300 transition-all duration-500">
+                <div 
+                  className="absolute inset-0 z-0 opacity-[0.85]" 
+                  style={{ 
+                    backgroundImage: `url('${process.env.NEXT_PUBLIC_BASE_PATH || ""}/footer_map_bg.png')`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                  }} 
+                />
+                {/* Subtle gradient overlay to blend map and make text pop */}
+                <div className="absolute inset-0 z-0 bg-gradient-to-t from-white/80 via-white/40 to-transparent" />
                 <div className="relative z-10 flex flex-col items-center">
                   <div className="bg-white rounded-2xl px-5 py-3.5 shadow-xl border border-slate-50 text-center relative">
                     <p className="text-slate-900 font-black text-sm">Mytecsys</p>
