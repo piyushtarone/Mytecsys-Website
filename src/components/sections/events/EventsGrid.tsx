@@ -5,109 +5,207 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Play } from "lucide-react";
 
-type MediaType = "image" | "video";
+type MediaType = "image" | "video" | "slideshow";
 
 interface MediaItem {
   id: number;
   type: MediaType;
-  src?: string; // For images and local videos
+  src?: string; // For single image and local videos
+  images?: string[]; // For slideshows
   link?: string; // Optional external link to open on click
-  thumbnail?: string;
+  thumbnail?: string; // Optional poster image for video
   title: string;
   spanClasses: string;
 }
 
 const MEDIA_ITEMS: MediaItem[] = [
   {
-    id: 1,
-    type: "video",
-    src: "/video1.mp4",
-    link: "https://youtu.be/p7wrWQA5idY",
-    thumbnail: "https://img.youtube.com/vi/p7wrWQA5idY/maxresdefault.jpg",
-    title: "Company Hackathon",
+    id: 101,
+    type: "image",
+    src: "/events_media/IMG_4599.JPG.jpeg",
+    title: "Team Outing",
     spanClasses: "col-span-1 md:col-span-2 lg:col-span-2 row-span-2",
   },
   {
-    id: 10,
+    id: 102,
     type: "video",
-    src: "/shorts2.mp4",
-    link: "https://youtu.be/H9WtAJjKyqE",
-    thumbnail: "https://img.youtube.com/vi/H9WtAJjKyqE/hqdefault.jpg",
-    title: "Independence Day Celebration",
+    src: "/events_media/IMG_6071.MP4",
+    title: "Event Highlights",
     spanClasses: "col-span-1 md:col-span-1 lg:col-span-1 row-span-2",
   },
   {
-    id: 3,
-    type: "video",
-    src: "/shorts1.mp4",
-    link: "https://youtu.be/GhOb1fvIpoU",
-    thumbnail: "https://img.youtube.com/vi/GhOb1fvIpoU/hqdefault.jpg",
-    title: "Team Brainstorming",
-    spanClasses: "col-span-1 md:col-span-1 lg:col-span-1 row-span-2",
-  },
-  {
-    id: 7,
+    id: 103,
     type: "image",
-    src: "https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&q=80",
-    title: "Company Retreat 2023",
+    src: "/events_media/IMG_4600.JPG.jpeg",
+    title: "Group Photo",
+    spanClasses: "col-span-1 md:col-span-1 lg:col-span-1 row-span-1",
+  },
+  {
+    id: 104,
+    type: "image",
+    src: "/events_media/IMG_4610.JPG.jpeg",
+    title: "Celebration",
+    spanClasses: "col-span-1 md:col-span-1 lg:col-span-1 row-span-1",
+  },
+  {
+    id: 105,
+    type: "slideshow",
+    title: "Life at Mytecsys",
+    spanClasses: "col-span-1 md:col-span-1 lg:col-span-1 row-span-2",
+    images: [
+      "/events_media/IMG_6105.JPG.jpeg",
+      "/events_media/IMG_6106.JPG.jpeg",
+      "/events_media/IMG_6109.JPG.jpeg",
+    ],
+  },
+  {
+    id: 106,
+    type: "video",
+    src: "/events_media/IMG_6095.MP4",
+    title: "Office Fun",
+    spanClasses: "col-span-1 md:col-span-2 lg:col-span-2 row-span-1",
+  },
+  {
+    id: 107,
+    type: "image",
+    src: "/events_media/IMG_4611.JPG.jpeg",
+    title: "Memories",
+    spanClasses: "col-span-1 md:col-span-1 lg:col-span-1 row-span-1",
+  },
+  {
+    id: 108,
+    type: "image",
+    src: "/events_media/IMG_6210.PNG",
+    title: "Awards",
+    spanClasses: "col-span-1 md:col-span-1 lg:col-span-1 row-span-1",
+  },
+  {
+    id: 109,
+    type: "video",
+    src: "/events_media/IMG_6139.MP4",
+    title: "Behind the Scenes",
+    spanClasses: "col-span-1 md:col-span-1 lg:col-span-1 row-span-2",
+  },
+  {
+    id: 110,
+    type: "image",
+    src: "/events_media/IMG_6717.JPG.jpeg",
+    title: "Team Lunch",
     spanClasses: "col-span-1 md:col-span-2 lg:col-span-2 row-span-2",
   },
   {
-    id: 2,
-    type: "image",
-    src: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80",
-    title: "AI Summit Seminar",
-    spanClasses: "col-span-1 md:col-span-1 lg:col-span-1 row-span-1",
-  },
-  {
-    id: 4,
-    type: "image",
-    src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
-    title: "Strategy Planning",
-    spanClasses: "col-span-1 md:col-span-1 lg:col-span-1 row-span-1",
-  },
-  {
-    id: 11,
+    id: 111,
     type: "video",
-    src: "/shorts3.mp4",
-    link: "https://youtu.be/CZevvxTgSB4",
-    thumbnail: "https://img.youtube.com/vi/CZevvxTgSB4/hqdefault.jpg",
-    title: "Ganesh Chaturthi Pooja",
-    spanClasses: "col-span-1 md:col-span-1 lg:col-span-1 row-span-2",
-  },
-  {
-    id: 6,
-    type: "image",
-    src: "https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=800&q=80",
-    title: "Annual Awards Night",
+    src: "/events_media/IMG_6074.MP4",
+    title: "Project Milestone",
     spanClasses: "col-span-1 md:col-span-1 lg:col-span-1 row-span-1",
   },
   {
-    id: 5,
-    type: "video",
-    src: "/video1.mp4",
-    link: "https://youtu.be/p7wrWQA5idY",
-    thumbnail: "https://img.youtube.com/vi/p7wrWQA5idY/hqdefault.jpg",
-    title: "Developer Code Sprint",
-    spanClasses: "col-span-1 md:col-span-3 lg:col-span-2 row-span-1",
-  },
-  {
-    id: 8,
+    id: 112,
     type: "image",
-    src: "https://images.unsplash.com/photo-1556761175-4b46a572b786?w=800&q=80",
-    title: "Client Pitch & Demo",
+    src: "/events_media/IMG_6718.JPG.jpeg",
+    title: "Conference",
     spanClasses: "col-span-1 md:col-span-1 lg:col-span-1 row-span-1",
   },
   {
-    id: 9,
-    type: "video",
-    src: "/video1.mp4",
-    link: "https://youtu.be/p7wrWQA5idY",
-    thumbnail: "https://img.youtube.com/vi/p7wrWQA5idY/maxresdefault.jpg",
-    title: "Hackathon Finals",
-    spanClasses: "col-span-1 md:col-span-3 lg:col-span-4 row-span-1",
+    id: 113,
+    type: "slideshow",
+    title: "Team Moments",
+    spanClasses: "col-span-1 md:col-span-1 lg:col-span-1 row-span-1",
+    images: [
+      "/events_media/IMG_7009.PNG",
+      "/events_media/IMG_7010.PNG",
+    ],
   },
+  {
+    id: 114,
+    type: "video",
+    src: "/events_media/IMG_6072.MP4",
+    title: "Tech Demo",
+    spanClasses: "col-span-1 md:col-span-2 lg:col-span-2 row-span-1",
+  },
+  {
+    id: 115,
+    type: "video",
+    src: "/events_media/IMG_6138.MP4",
+    title: "Team Connect",
+    spanClasses: "col-span-1 md:col-span-1 lg:col-span-1 row-span-1",
+  },
+  {
+    id: 116,
+    type: "video",
+    src: "/events_media/IMG_6103.MP4",
+    title: "Innovation Summit",
+    spanClasses: "col-span-1 md:col-span-2 lg:col-span-2 row-span-1",
+  },
+  {
+    id: 117,
+    type: "video",
+    src: "/events_media/IMG_5917.MP4",
+    title: "Friday Fun",
+    spanClasses: "col-span-1 md:col-span-1 lg:col-span-1 row-span-1",
+  },
+  {
+    id: 118,
+    type: "video",
+    src: "/events_media/IMG_6075.MP4",
+    title: "Awards & Recognition",
+    spanClasses: "col-span-1 md:col-span-1 lg:col-span-1 row-span-1",
+  },
+  {
+    id: 119,
+    type: "slideshow",
+    title: "Celebration Moments",
+    spanClasses: "col-span-1 md:col-span-2 lg:col-span-2 row-span-1",
+    images: [
+      "/events_media/WhatsApp Image 2026-06-02 at 3.42.59 PM (1).jpeg",
+      "/events_media/WhatsApp Image 2026-06-02 at 3.42.59 PM (2).jpeg",
+      "/events_media/WhatsApp Image 2026-06-02 at 3.43.00 PM (1).jpeg",
+      "/events_media/WhatsApp Image 2026-06-02 at 3.43.00 PM (2).jpeg",
+      "/events_media/WhatsApp Image 2026-06-02 at 3.43.01 PM (1).jpeg",
+    ]
+  }
 ];
+
+function SlideshowTile({ item }: { item: MediaItem }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (!item.images || item.images.length === 0) return;
+    
+    // Cycle image every 4 seconds
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % item.images!.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [item.images]);
+
+  if (!item.images || item.images.length === 0) return null;
+
+  return (
+    <div className="relative w-full h-full bg-slate-900">
+      <AnimatePresence initial={false}>
+        <motion.div
+          key={currentIndex}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.2, ease: "easeInOut" }}
+          className="absolute inset-0 w-full h-full"
+        >
+          <Image
+            src={item.images[currentIndex]}
+            alt={`${item.title} - ${currentIndex + 1}`}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover group-hover/item:scale-[1.05] transition-transform duration-700 ease-in-out cursor-pointer"
+          />
+        </motion.div>
+      </AnimatePresence>
+    </div>
+  );
+}
 
 function VideoTile({ item }: { item: MediaItem }) {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -117,21 +215,22 @@ function VideoTile({ item }: { item: MediaItem }) {
     if (videoRef.current) {
       videoRef.current.muted = true;
       videoRef.current.defaultMuted = true;
-      videoRef.current.play().catch((e) => console.log("Autoplay prevented:", e));
     }
   }, []);
 
   return (
     <>
-      {/* Fallback Thumbnail Image */}
-      <Image
-        src={item.thumbnail!}
-        alt={item.title}
-        fill
-        className={`object-cover transition-opacity duration-1000 ease-in-out ${isLoaded ? "opacity-0" : "opacity-100"} z-0`}
-      />
+      {/* Fallback Thumbnail Image (Optional if provided) */}
+      {item.thumbnail && (
+        <Image
+          src={item.thumbnail}
+          alt={item.title}
+          fill
+          className={`object-cover transition-opacity duration-1000 ease-in-out ${isLoaded ? "opacity-0" : "opacity-100"} z-0`}
+        />
+      )}
 
-      {/* HTML5 Video acting like a GIF */}
+      {/* HTML5 Video acting like a GIF. It shows thumbnail implicitly if no poster is provided before loading. */}
       <video
         ref={videoRef}
         src={item.src}
@@ -139,9 +238,9 @@ function VideoTile({ item }: { item: MediaItem }) {
         loop
         muted
         playsInline
-        preload="auto"
+        preload="metadata" // Load metadata (including first frame) early
         className={`absolute inset-0 w-full h-full object-cover group-hover/item:scale-[1.05] transition-transform duration-700 ease-in-out ${isLoaded ? "opacity-100" : "opacity-0"}`}
-        onLoadedData={() => {
+        onCanPlay={() => {
           setIsLoaded(true);
           videoRef.current?.play().catch((e) => console.log("Autoplay prevented:", e));
         }}
@@ -174,7 +273,9 @@ export function EventsGrid() {
                 }
               }}
             >
-              {item.type === "image" ? (
+              {item.type === "slideshow" ? (
+                <SlideshowTile item={item} />
+              ) : item.type === "image" ? (
                 <Image
                   src={item.src!}
                   alt={item.title}

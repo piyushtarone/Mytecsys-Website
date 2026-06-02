@@ -239,13 +239,13 @@ export default function CareersPage() {
 
           {/* Centered search capsule */}
           <div className="relative z-10 container mx-auto px-4 max-w-3xl text-center space-y-6">
-            {/* Hero Heading: 56px */}
-            <h1 className="text-3xl md:text-[56px] font-black text-white leading-tight font-tech tracking-normal">
+            {/* Hero Heading */}
+            <h1 className="text-3xl md:text-[44px] font-black text-white leading-tight font-tech tracking-normal">
               {viewMode === "roles" ? "Explore Opportunities at Mytecsys" : "Work at the Frontier of Innovation"}
             </h1>
 
-            {/* Body: 16px */}
-            <p className="text-slate-200 text-[16px] max-w-xl mx-auto font-normal leading-relaxed tracking-normal">
+            {/* Body */}
+            <p className="text-slate-200 text-[20px] max-w-xl mx-auto font-normal leading-relaxed tracking-normal">
               We design custom AI engines and secure cloud infrastructures. Build the future with our team of elite developers and researchers.
             </p>
 
@@ -335,8 +335,8 @@ export default function CareersPage() {
                 <h3 className="text-2xl md:text-[32px] font-extrabold font-tech tracking-normal leading-snug">
                   Culture at Mytecsys
                 </h3>
-                {/* Body: 16px */}
-                <p className="text-slate-300 text-[16px] leading-relaxed font-normal tracking-normal">
+                {/* Body: 18px */}
+                <p className="text-slate-300 text-[18px] leading-relaxed font-normal tracking-normal">
                   A culture built on innovation, collaboration, and a relentless drive for excellence, where every team member is empowered to grow, make a meaningful impact, and succeed together.
                 </p>
               </div>
@@ -365,8 +365,8 @@ export default function CareersPage() {
                 <h3 className="text-2xl md:text-[32px] font-extrabold font-tech tracking-normal leading-snug">
                   Benefits for You
                 </h3>
-                {/* Body: 16px */}
-                <p className="text-slate-300 text-[16px] leading-relaxed font-normal tracking-normal">
+                {/* Body: 18px */}
+                <p className="text-slate-300 text-[18px] leading-relaxed font-normal tracking-normal">
                   Enjoy comprehensive benefits framework that support your journey with wellness initiatives, career development programs with work-life harmony at the core.
                 </p>
               </div>
@@ -379,8 +379,8 @@ export default function CareersPage() {
                 <h3 className="text-2xl md:text-[32px] font-extrabold font-tech tracking-normal leading-snug">
                   Drive Meaningful Change
                 </h3>
-                {/* Body: 16px */}
-                <p className="text-slate-300 text-[16px] leading-relaxed font-normal tracking-normal">
+                {/* Body: 18px */}
+                <p className="text-slate-300 text-[18px] leading-relaxed font-normal tracking-normal">
                   Our commitment to social impact empowers communities through dedicated initiatives that create lasting and positive transformations.
                 </p>
               </div>
