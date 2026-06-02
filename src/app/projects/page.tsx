@@ -47,9 +47,9 @@ const projects = [
     title: "ERP",
     description: "Manage products, supply chain, and make accurate records of imports and exports. Optimize inventory control and demand forecasting.",
     features: ["Inventory Tracking", "Supply Chain", "Product Recording", "Stock Analytics"],
-    image: Component18,
+    image: `${basePath}/projects/ERP.png`,
     link: "#",
-    imageClassName: "object-contain bg-white"
+    imageClassName: "object-cover object-top"
   },
   {
     id: "mixeventz",

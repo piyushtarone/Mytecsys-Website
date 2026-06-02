@@ -220,7 +220,7 @@ function NavDropdown({ item, isActive }: { item: typeof navItems[0]; isActive: b
       </button>
 
       {isOpen && (
-        <div className="absolute left-1/2 -translate-x-1/2 top-full mt-3 z-50">
+        <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 z-50">
           {/* Arrow */}
           <div className="flex justify-center mb-1">
             <div className="w-3 h-3 bg-white border-l border-t border-slate-100 rotate-45 shadow-sm" />
