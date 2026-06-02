@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Play } from "lucide-react";
+import GallerySection, { GalleryImage } from "../GallerySection";
 
 type MediaType = "image" | "video" | "slideshow";
 
@@ -16,6 +17,7 @@ interface MediaItem {
   thumbnail?: string; // Optional poster image for video
   title: string;
   spanClasses: string;
+  objectFit?: "cover" | "contain"; // Allow overriding object-cover for paintings
 }
 
 const MEDIA_ITEMS: MediaItem[] = [
@@ -63,7 +65,7 @@ const MEDIA_ITEMS: MediaItem[] = [
     type: "video",
     src: "/events_media/IMG_6095.MP4",
     title: "Office Fun",
-    spanClasses: "col-span-1 md:col-span-2 lg:col-span-2 row-span-1",
+    spanClasses: "col-span-1 md:col-span-1 lg:col-span-1 row-span-2",
   },
   {
     id: 107,
@@ -75,8 +77,8 @@ const MEDIA_ITEMS: MediaItem[] = [
   {
     id: 108,
     type: "image",
-    src: "/events_media/IMG_6210.PNG",
-    title: "Awards",
+    src: "/events_media/WhatsApp Image 2026-06-02 at 3.42.59 PM (1).jpeg",
+    title: "Special Moments",
     spanClasses: "col-span-1 md:col-span-1 lg:col-span-1 row-span-1",
   },
   {
@@ -106,12 +108,14 @@ const MEDIA_ITEMS: MediaItem[] = [
     src: "/events_media/IMG_6718.JPG.jpeg",
     title: "Conference",
     spanClasses: "col-span-1 md:col-span-1 lg:col-span-1 row-span-1",
+    objectFit: "contain",
   },
   {
     id: 113,
     type: "slideshow",
     title: "Team Moments",
     spanClasses: "col-span-1 md:col-span-1 lg:col-span-1 row-span-1",
+    objectFit: "contain",
     images: [
       "/events_media/IMG_7009.PNG",
       "/events_media/IMG_7010.PNG",
@@ -122,7 +126,7 @@ const MEDIA_ITEMS: MediaItem[] = [
     type: "video",
     src: "/events_media/IMG_6072.MP4",
     title: "Tech Demo",
-    spanClasses: "col-span-1 md:col-span-2 lg:col-span-2 row-span-1",
+    spanClasses: "col-span-1 md:col-span-1 lg:col-span-1 row-span-2",
   },
   {
     id: 115,
@@ -136,7 +140,7 @@ const MEDIA_ITEMS: MediaItem[] = [
     type: "video",
     src: "/events_media/IMG_6103.MP4",
     title: "Innovation Summit",
-    spanClasses: "col-span-1 md:col-span-2 lg:col-span-2 row-span-1",
+    spanClasses: "col-span-1 md:col-span-1 lg:col-span-1 row-span-2",
   },
   {
     id: 117,
@@ -175,6 +179,21 @@ function getMediaUrl(path?: string) {
   return `${basePath}${path}`;
 }
 
+const GALLERY_ITEMS: GalleryImage[] = MEDIA_ITEMS.flatMap(item => {
+  if (item.type === "slideshow" && item.images) {
+    return item.images.map((src, idx) => ({
+      type: "image",
+      src: getMediaUrl(src),
+      alt: `${item.title} ${idx + 1}`
+    }));
+  }
+  return [{
+    type: item.type === "video" ? "video" : "image",
+    src: getMediaUrl(item.src),
+    alt: item.title
+  }];
+});
+
 function SlideshowTile({ item }: { item: MediaItem }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -207,7 +226,7 @@ function SlideshowTile({ item }: { item: MediaItem }) {
             alt={`${item.title} - ${currentIndex + 1}`}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover group-hover/item:scale-[1.05] transition-transform duration-700 ease-in-out cursor-pointer"
+            className={`${item.objectFit === "contain" ? "object-contain bg-slate-900/50" : "object-cover"} group-hover/item:scale-[1.05] transition-transform duration-700 ease-in-out cursor-pointer`}
           />
         </motion.div>
       </AnimatePresence>
@@ -215,19 +234,32 @@ function SlideshowTile({ item }: { item: MediaItem }) {
   );
 }
 
+import { useInView } from "framer-motion";
+
 function VideoTile({ item }: { item: MediaItem }) {
   const [isLoaded, setIsLoaded] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  
+  // Only trigger when the video comes into the viewport
+  const isInView = useInView(containerRef, { margin: "100px", once: false });
 
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.muted = true;
       videoRef.current.defaultMuted = true;
+      
+      // Play if in view, pause if out of view to save resources
+      if (isInView) {
+        videoRef.current.play().catch((e) => console.log("Autoplay prevented:", e));
+      } else {
+        videoRef.current.pause();
+      }
     }
-  }, []);
+  }, [isInView]);
 
   return (
-    <>
+    <div ref={containerRef} className="absolute inset-0 w-full h-full bg-slate-900 overflow-hidden">
       {/* Fallback Thumbnail Image (Optional if provided) */}
       {item.thumbnail && (
         <Image
@@ -238,27 +270,56 @@ function VideoTile({ item }: { item: MediaItem }) {
         />
       )}
 
-      {/* HTML5 Video acting like a GIF. It shows thumbnail implicitly if no poster is provided before loading. */}
+      {/* HTML5 Video lazy-loaded */}
+      {/* Appending #t=0.001 forces the browser to load the first frame as a native thumbnail */}
       <video
         ref={videoRef}
-        src={getMediaUrl(item.src)}
-        autoPlay
+        src={`${getMediaUrl(item.src)}#t=0.001`}
         loop
         muted
         playsInline
-        preload="metadata" // Load metadata (including first frame) early
-        className={`absolute inset-0 w-full h-full object-cover group-hover/item:scale-[1.05] transition-transform duration-700 ease-in-out ${isLoaded ? "opacity-100" : "opacity-0"}`}
-        onCanPlay={() => {
+        preload="metadata" // Only load the first frame initially
+        className="absolute inset-0 w-full h-full object-cover group-hover/item:scale-[1.05] transition-all duration-1000 ease-in-out"
+        onLoadedData={() => {
           setIsLoaded(true);
-          videoRef.current?.play().catch((e) => console.log("Autoplay prevented:", e));
         }}
       />
-    </>
+    </div>
   );
 }
 
 export function EventsGrid() {
-  const [selectedMedia, setSelectedMedia] = useState<MediaItem | null>(null);
+  const [galleryIndex, setGalleryIndex] = useState<number | null>(null);
+
+  // Keyboard navigation for lightbox
+  useEffect(() => {
+    if (galleryIndex === null) return;
+    
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight") {
+        setGalleryIndex((prev) => (prev! + 1) % GALLERY_ITEMS.length);
+      } else if (e.key === "ArrowLeft") {
+        setGalleryIndex((prev) => (prev! - 1 + GALLERY_ITEMS.length) % GALLERY_ITEMS.length);
+      } else if (e.key === "Escape") {
+        setGalleryIndex(null);
+      }
+    };
+    
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [galleryIndex]);
+
+  const handleNext = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setGalleryIndex((prev) => (prev! + 1) % GALLERY_ITEMS.length);
+  };
+
+  const handlePrev = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setGalleryIndex((prev) => (prev! - 1 + GALLERY_ITEMS.length) % GALLERY_ITEMS.length);
+  };
+
+  const currentGalleryItem = galleryIndex !== null ? GALLERY_ITEMS[galleryIndex] : null;
 
   return (
     <section className="relative z-10 pb-24 px-4 md:px-6 bg-transparent">
@@ -277,7 +338,9 @@ export function EventsGrid() {
                 if (item.type === "video" && item.link) {
                   window.open(item.link, "_blank");
                 } else {
-                  setSelectedMedia(item);
+                  const matchSrc = item.type === "slideshow" ? item.images![0] : item.src;
+                  const idx = GALLERY_ITEMS.findIndex((g) => g.src === matchSrc);
+                  setGalleryIndex(idx !== -1 ? idx : 0);
                 }
               }}
             >
@@ -288,7 +351,7 @@ export function EventsGrid() {
                   src={getMediaUrl(item.src)}
                   alt={item.title}
                   fill
-                  className="object-cover group-hover/item:scale-[1.05] transition-transform duration-700 ease-in-out cursor-pointer"
+                  className={`${item.objectFit === "contain" ? "object-contain bg-slate-900/50" : "object-cover"} group-hover/item:scale-[1.05] transition-transform duration-700 ease-in-out cursor-pointer`}
                 />
               ) : (
                 <VideoTile item={item} />
@@ -305,57 +368,13 @@ export function EventsGrid() {
         </div>
       </div>
 
-      {/* Lightbox / Media Modal */}
-      <AnimatePresence>
-        {selectedMedia && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4"
-            onClick={() => setSelectedMedia(null)}
-          >
-            {/* Close Button */}
-            <button
-              onClick={() => setSelectedMedia(null)}
-              className="absolute top-6 right-6 lg:top-10 lg:right-10 bg-white/10 hover:bg-white/20 text-white rounded-full p-3 transition-colors backdrop-blur-md z-[110]"
-            >
-              <X className="w-6 h-6" />
-            </button>
-
-            <motion.div
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative w-full max-w-6xl max-h-[85vh] rounded-2xl overflow-hidden shadow-2xl flex items-center justify-center"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {selectedMedia.type === "image" ? (
-                <img
-                  src={getMediaUrl(selectedMedia.src)}
-                  alt={selectedMedia.title}
-                  className="w-auto h-auto max-w-full max-h-[85vh] object-contain rounded-xl"
-                />
-              ) : (
-                <video
-                  src={getMediaUrl(selectedMedia.src)}
-                  autoPlay
-                  controls
-                  className="w-auto h-auto max-w-full max-h-[85vh] object-contain rounded-xl bg-black"
-                />
-              )}
-              
-              {/* Media Title in Lightbox */}
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 pointer-events-none">
-                <h3 className="text-white text-2xl font-bold tracking-normal font-tech drop-shadow-lg">
-                  {selectedMedia.title}
-                </h3>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Reusable Premium Gallery Modal */}
+      <GallerySection
+        isOpen={galleryIndex !== null}
+        onClose={() => setGalleryIndex(null)}
+        initialIndex={galleryIndex || 0}
+        customImages={GALLERY_ITEMS}
+      />
     </section>
   );
 }

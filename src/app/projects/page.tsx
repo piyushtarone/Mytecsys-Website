@@ -4,50 +4,51 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import HexagonBackground from "@/components/HexagonBackground";
 import { MacbookMockup } from "@/components/ui/MacbookMockup";
 import Footer from "@/components/Footer";
+import Component9 from "@/assets/Component 9.png";
+import Component10 from "@/assets/Component 10.png";
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 const projects = [
-  {
-    id: "erp",
-    title: "Enterprise Resource Planning (ERP)",
-    description: "Manage products, supply chain, and make accurate records of imports and exports. Experience real-time inventory tracking and comprehensive supply chain logistics in a single interface.",
-    features: ["Inventory Tracking", "Supply Chain", "Product Recording", "Stock Analytics"],
-    image: "/projects/erp.png",
-    link: "http://erp.mixoop.com/"
-  },
-  {
-    id: "processos",
-    title: "ProcessOS",
-    description: "Comprehensive workflow, access, project, and employee management platform. Automate processes and track tasks with our seamless, role-based security system.",
-    features: ["Project Management", "Access Control", "Employee Directory", "Workflow Builder"],
-    image: "/projects/processos.png",
-    link: "https://processos.mixoop.com/"
-  },
-  {
-    id: "formflow",
-    title: "FormFlow",
-    description: "Manage, collect, and process form data at a single centralized location. Build dynamic drag-and-drop forms and consolidate all your data with cloud sync.",
-    features: ["Unified Inbox", "Form Builder", "Cloud Sync", "Real-time Analytics"],
-    image: "/projects/formflow.png",
-    link: "https://formflow.mixoop.com/"
-  },
   {
     id: "hrms",
     title: "HRMS",
     description: "Keep digital records of employee attendance, punch-ins/outs, and leaves. Maintain a centralized, secure digital vault for all your employee documentation and tracking.",
     features: ["Attendance Tracking", "Leave Management", "Digital Records", "Employee Hub"],
-    image: "/projects/hrms.png",
-    link: "https://hrms.mixoop.com/"
+    image: `${basePath}/hrms.jpg`,
+    link: "#",
+    imageClassName: "object-cover object-top"
   },
   {
-    id: "mixeventz",
-    title: "Mixeventz",
-    description: "Manage multiple event flows, coordination, and attendee engagements seamlessly. Provide event timelines, insights, and comprehensive RSVP tracking.",
-    features: ["Multi-Event Flow", "Event Timelines", "Attendee Management", "Event Insights"],
-    image: "/projects/mixeventz.png",
-    link: "https://mixeventz.mixoop.com/"
+    id: "biometric-iot",
+    title: "Biometric IOT",
+    description: "Advanced biometric integration for secure and seamless access control. Experience real-time hardware tracking and comprehensive physical security in a single digital interface.",
+    features: ["Access Control", "Real-time Tracking", "Security Integration", "Hardware Sync"],
+    image: Component9,
+    link: "#",
+    imageClassName: "object-contain"
+  },
+  {
+    id: "astrospark",
+    title: "AstroSpark",
+    description: "A modern E-commerce platform built for scale. Manage products, supply chain logistics, and make accurate records of your digital storefront with powerful analytics.",
+    features: ["E-commerce", "Supply Chain", "Product Management", "Storefront Analytics"],
+    image: Component10,
+    link: "#",
+    imageClassName: "object-contain"
+  },
+  {
+    id: "portocreate",
+    title: "PortoCreate",
+    description: "Streamlined event flow and coordination platform. Manage multiple events, timelines, and attendee engagements seamlessly with our comprehensive event builder.",
+    features: ["Event Flow", "Timelines", "Attendee Management", "Insights"],
+    image: `${basePath}/event flow.jpeg`,
+    link: "#",
+    imageClassName: "object-contain object-top bg-white"
   }
 ];
 
@@ -78,7 +79,7 @@ export default function ProjectsPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tight text-slate-900 mb-6 drop-shadow-sm">
+            <h1 className="text-[44px] font-black tracking-tight text-slate-900 mb-6 drop-shadow-sm leading-tight">
               Our <span className="text-[#1976D2]">Projects</span>
             </h1>
           </motion.div>
@@ -88,7 +89,7 @@ export default function ProjectsPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <p className="text-lg md:text-xl lg:text-2xl text-slate-600 max-w-3xl mx-auto font-medium leading-relaxed">
+            <p className="text-[20px] text-slate-600 max-w-3xl mx-auto font-medium leading-relaxed">
               Discover our cutting-edge SaaS products and platforms designed to streamline operations, enhance productivity, and drive business growth.
             </p>
           </motion.div>
@@ -115,7 +116,11 @@ export default function ProjectsPage() {
                   transition={{ duration: 0.7 }}
                   className="w-full lg:w-3/5"
                 >
-                  <MacbookMockup src={project.image} alt={project.title} />
+                  <MacbookMockup 
+                    src={typeof project.image === 'string' ? project.image : (project.image as any).src} 
+                    alt={project.title} 
+                    imageClassName={(project as any).imageClassName}
+                  />
                 </motion.div>
 
                 {/* Content Side */}
@@ -126,10 +131,10 @@ export default function ProjectsPage() {
                   transition={{ duration: 0.7, delay: 0.2 }}
                   className="w-full lg:w-2/5 flex flex-col items-start"
                 >
-                  <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight">
+                  <h2 className="text-[32px] font-bold text-slate-900 mb-4 tracking-tight leading-snug">
                     {project.title}
                   </h2>
-                  <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+                  <p className="text-[20px] text-slate-600 mb-8 leading-relaxed">
                     {project.description}
                   </p>
 

@@ -18,7 +18,13 @@ import achievementPurple from "@/assets/achievement_purple.png";
 import achievementBni from "@/assets/achievement_bni.png";
 import achievementLogo from "@/assets/achievement_logo.png";
 
-const images = [
+export interface GalleryImage {
+  src: any;
+  alt: string;
+  type?: "image" | "video";
+}
+
+const images: GalleryImage[] = [
   { src: achievementCheck, alt: "Cyber Hack 1st Runner Up" },
   { src: achievementStage, alt: "Cyber Hack 2024" },
   { src: achievementBag, alt: "Innovation Award" },
@@ -30,11 +36,6 @@ const images = [
   { src: achievementBni, alt: "Special Recognition" },
   { src: achievementLogo, alt: "MTS Logo" },
 ];
-
-export interface GalleryImage {
-  src: any;
-  alt: string;
-}
 
 interface GalleryModalProps {
   isOpen: boolean;
@@ -260,16 +261,29 @@ const GallerySection = ({ isOpen, onClose, initialIndex = 0, singleImageMode = f
                   className="relative flex items-center justify-center w-full h-full"
                   onClick={(e) => e.stopPropagation()}
                 >
-                  <img
-                    src={imgSrc}
-                    alt={activeImage?.alt || "Gallery Image"}
-                    loading="eager"
-                    className={cn(
-                      "max-w-full max-h-full w-auto h-auto object-contain rounded-2xl shadow-xl transition-opacity duration-300",
-                      isLoaded ? "opacity-100" : "opacity-0"
-                    )}
-                    onLoad={() => setIsLoaded(true)}
-                  />
+                  {activeImage?.type === "video" ? (
+                    <video
+                      src={imgSrc}
+                      autoPlay
+                      controls
+                      className={cn(
+                        "max-w-full max-h-full w-auto h-auto object-contain rounded-2xl shadow-xl transition-opacity duration-300",
+                        isLoaded ? "opacity-100" : "opacity-0"
+                      )}
+                      onLoadedData={() => setIsLoaded(true)}
+                    />
+                  ) : (
+                    <img
+                      src={imgSrc}
+                      alt={activeImage?.alt || "Gallery Image"}
+                      loading="eager"
+                      className={cn(
+                        "max-w-full max-h-full w-auto h-auto object-contain rounded-2xl shadow-xl transition-opacity duration-300",
+                        isLoaded ? "opacity-100" : "opacity-0"
+                      )}
+                      onLoad={() => setIsLoaded(true)}
+                    />
+                  )}
                   {/* Loading spinner */}
                   {!isLoaded && (
                     <div className="absolute inset-0 flex items-center justify-center">
@@ -326,7 +340,11 @@ const GallerySection = ({ isOpen, onClose, initialIndex = 0, singleImageMode = f
                             : "border-transparent opacity-60 hover:opacity-100 hover:border-slate-300"
                         )}
                       >
-                        <Image src={img.src} alt={img.alt} fill className="object-contain p-0.5" sizes="96px" />
+                        {img.type === "video" ? (
+                          <video src={`${typeof img.src === "string" ? img.src : (img.src as any).src}#t=0.001`} preload="metadata" muted className="object-contain w-full h-full p-0.5 pointer-events-none" />
+                        ) : (
+                          <Image src={img.src} alt={img.alt} fill className="object-contain p-0.5" sizes="96px" />
+                        )}
                       </button>
                     ))}
                   </div>

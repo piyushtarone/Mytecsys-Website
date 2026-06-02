@@ -6,9 +6,10 @@ interface MacbookMockupProps {
   src: string;
   alt: string;
   className?: string;
+  imageClassName?: string;
 }
 
-export function MacbookMockup({ src, alt, className }: MacbookMockupProps) {
+export function MacbookMockup({ src, alt, className, imageClassName = "object-cover object-top" }: MacbookMockupProps) {
   return (
     <div className={cn("relative w-full max-w-xl mx-auto flex flex-col items-center justify-center my-6", className)}>
       {/* Wrapper */}
@@ -30,7 +31,7 @@ export function MacbookMockup({ src, alt, className }: MacbookMockupProps) {
               src={src}
               alt={alt}
               fill
-              className="object-cover"
+              className={imageClassName}
               priority
             />
             {/* Screen Glossy Reflection */}
