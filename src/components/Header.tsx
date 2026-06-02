@@ -59,16 +59,16 @@ const megaMenuData: Record<string, Record<string, {
       ],
     },
   },
-  Products: {
+  Projects: {
     "ERP": {
       title: "ERP",
       description: "Manage products, supply chain, and make accurate records of imports and exports.",
       icon: Package,
       items: [
-        { icon: Boxes, label: "Inventory Tracking", desc: "Real-time record of inverts & outverts", href: "http://erp.mixoop.com/" },
-        { icon: Truck, label: "Supply Chain", desc: "Seamless logistics & vendor tracking", href: "http://erp.mixoop.com/" },
-        { icon: ClipboardList, label: "Product Recording", desc: "Precise digital stock records", href: "http://erp.mixoop.com/" },
-        { icon: BarChart3, label: "Stock Analytics", desc: "Optimize inventory control & demand", href: "http://erp.mixoop.com/" },
+        { icon: Boxes, label: "Inventory Tracking", desc: "Real-time record of inverts & outverts", href: "/projects#erp" },
+        { icon: Truck, label: "Supply Chain", desc: "Seamless logistics & vendor tracking", href: "/projects#erp" },
+        { icon: ClipboardList, label: "Product Recording", desc: "Precise digital stock records", href: "/projects#erp" },
+        { icon: BarChart3, label: "Stock Analytics", desc: "Optimize inventory control & demand", href: "/projects#erp" },
       ],
     },
     "ProcessOS": {
@@ -76,10 +76,10 @@ const megaMenuData: Record<string, Record<string, {
       description: "Comprehensive workflow, access, project, and employee management platform.",
       icon: Workflow,
       items: [
-        { icon: FolderKanban, label: "Project Management", desc: "Track tasks, timelines & milestones", href: "https://processos.mixoop.com/" },
-        { icon: Key, label: "Access Control", desc: "Role-based permissions & security", href: "https://processos.mixoop.com/" },
-        { icon: Users, label: "Employee Directory", desc: "Assign and track staff efficiently", href: "https://processos.mixoop.com/" },
-        { icon: Zap, label: "Workflow Builder", desc: "Automate processes & approvals", href: "https://processos.mixoop.com/" },
+        { icon: FolderKanban, label: "Project Management", desc: "Track tasks, timelines & milestones", href: "/projects#processos" },
+        { icon: Key, label: "Access Control", desc: "Role-based permissions & security", href: "/projects#processos" },
+        { icon: Users, label: "Employee Directory", desc: "Assign and track staff efficiently", href: "/projects#processos" },
+        { icon: Zap, label: "Workflow Builder", desc: "Automate processes & approvals", href: "/projects#processos" },
       ],
     },
     "FormFlow": {
@@ -87,10 +87,10 @@ const megaMenuData: Record<string, Record<string, {
       description: "Manage, collect, and process form data at a single centralized location.",
       icon: FileSpreadsheet,
       items: [
-        { icon: Database, label: "Unified Inbox", desc: "Consolidate all form submissions", href: "https://formflow.mixoop.com/" },
-        { icon: FileText, label: "Form Builder", desc: "Create dynamic drag-and-drop forms", href: "https://formflow.mixoop.com/" },
-        { icon: Cloud, label: "Cloud Sync", desc: "Connect data to external platforms", href: "https://formflow.mixoop.com/" },
-        { icon: Activity, label: "Real-time Analytics", desc: "Track conversions & response rates", href: "https://formflow.mixoop.com/" },
+        { icon: Database, label: "Unified Inbox", desc: "Consolidate all form submissions", href: "/projects#formflow" },
+        { icon: FileText, label: "Form Builder", desc: "Create dynamic drag-and-drop forms", href: "/projects#formflow" },
+        { icon: Cloud, label: "Cloud Sync", desc: "Connect data to external platforms", href: "/projects#formflow" },
+        { icon: Activity, label: "Real-time Analytics", desc: "Track conversions & response rates", href: "/projects#formflow" },
       ],
     },
     "HRMS": {
@@ -98,10 +98,10 @@ const megaMenuData: Record<string, Record<string, {
       description: "Keep digital records of employee attendance, punch-ins/outs, and leaves.",
       icon: Fingerprint,
       items: [
-        { icon: Clock, label: "Attendance Tracking", desc: "Digital punch-in & punch-out logs", href: "https://hrms.mixoop.com/" },
-        { icon: Calendar, label: "Leave Management", desc: "Track applications & approvals", href: "https://hrms.mixoop.com/" },
-        { icon: Shield, label: "Digital Records", desc: "Secure profiles & document vault", href: "https://hrms.mixoop.com/" },
-        { icon: Users, label: "Employee Hub", desc: "Centralized employee database", href: "https://hrms.mixoop.com/" },
+        { icon: Clock, label: "Attendance Tracking", desc: "Digital punch-in & punch-out logs", href: "/projects#hrms" },
+        { icon: Calendar, label: "Leave Management", desc: "Track applications & approvals", href: "/projects#hrms" },
+        { icon: Shield, label: "Digital Records", desc: "Secure profiles & document vault", href: "/projects#hrms" },
+        { icon: Users, label: "Employee Hub", desc: "Centralized employee database", href: "/projects#hrms" },
       ],
     },
     "Mixeventz": {
@@ -109,10 +109,10 @@ const megaMenuData: Record<string, Record<string, {
       description: "Manage multiple event flows, coordination, and attendee engagements seamlessly.",
       icon: CalendarRange,
       items: [
-        { icon: Layers, label: "Multi-Event Flow", desc: "Manage multiple concurrent flows", href: "https://mixeventz.mixoop.com/" },
-        { icon: Activity, label: "Event Timelines", desc: "Coordinate schedules & programs", href: "https://mixeventz.mixoop.com/" },
-        { icon: Ticket, label: "Attendee Management", desc: "RSVPs, ticketing & entry tracking", href: "https://mixeventz.mixoop.com/" },
-        { icon: BarChart3, label: "Event Insights", desc: "Feedback & post-event analytics", href: "https://mixeventz.mixoop.com/" },
+        { icon: Layers, label: "Multi-Event Flow", desc: "Manage multiple concurrent flows", href: "/projects#mixeventz" },
+        { icon: Activity, label: "Event Timelines", desc: "Coordinate schedules & programs", href: "/projects#mixeventz" },
+        { icon: Ticket, label: "Attendee Management", desc: "RSVPs, ticketing & entry tracking", href: "/projects#mixeventz" },
+        { icon: BarChart3, label: "Event Insights", desc: "Feedback & post-event analytics", href: "/projects#mixeventz" },
       ],
     },
   },
@@ -128,7 +128,7 @@ const navItems = [
   },
   { href: "#industries", label: "Industries" },
   {
-    href: "#products", label: "Products", megaKey: "Products",
+    href: "/projects", label: "Projects", megaKey: "Projects",
     items: ["ERP", "ProcessOS", "FormFlow", "HRMS", "Mixeventz"]
   },
   { href: "#news", label: "Research & Insights" },
