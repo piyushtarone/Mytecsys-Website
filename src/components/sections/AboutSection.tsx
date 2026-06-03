@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import EventsPreview from "./EventsPreview";
 
 const AnimatedCounter = ({ value }: { value: string }) => {
   const [count, setCount] = useState(0);
@@ -179,6 +180,9 @@ const AboutSection = () => {
             ))}
           </div>
         </div>
+
+        {/* Events Preview Ribbon */}
+        <EventsPreview />
       </div>
     </section>
   );
