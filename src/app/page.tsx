@@ -10,23 +10,22 @@ import {
   Bot,
 } from "lucide-react";
 import logo from "@/assets/logo.png";
-import Footer from "@/components/Footer";
-import {
-  BrandsSection,
-  ProcessSection,
-  WhatWeDoSection,
-  CaseStudiesSection,
-  WhyUsSection,
-  AboutSection,
-  FounderSection,
-  NewsSection,
-  NewsMarqueeSection,
-  AchievementsSection,
-  TestimonialsSection,
-  ContactSection,
-  HomeImageSection,
-  HeroSection,
-} from "@/components/sections";
+import dynamic from "next/dynamic";
+import { HomeImageSection, HeroSection } from "@/components/sections";
+
+const BrandsSection = dynamic(() => import('@/components/sections/BrandsSection'));
+const ProcessSection = dynamic(() => import('@/components/sections/ProcessSection'));
+const WhatWeDoSection = dynamic(() => import('@/components/sections/WhatWeDoSection'));
+const CaseStudiesSection = dynamic(() => import('@/components/sections/CaseStudiesSection'));
+const WhyUsSection = dynamic(() => import('@/components/sections/WhyUsSection'));
+const AboutSection = dynamic(() => import('@/components/sections/AboutSection'));
+const FounderSection = dynamic(() => import('@/components/sections/FounderSection'));
+const NewsSection = dynamic(() => import('@/components/sections/NewsSection'));
+const NewsMarqueeSection = dynamic(() => import('@/components/sections/NewsMarqueeSection'));
+const AchievementsSection = dynamic(() => import('@/components/sections/AchievementsSection'));
+const TestimonialsSection = dynamic(() => import('@/components/sections/TestimonialsSection'));
+const ContactSection = dynamic(() => import('@/components/sections/ContactSection'));
+const Footer = dynamic(() => import('@/components/Footer'));
 import { Button } from "@/components/ui/button";
 
 export default function LandingPage() {
