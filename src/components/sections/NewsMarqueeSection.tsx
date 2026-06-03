@@ -1,4 +1,5 @@
 import React from "react";
+import ExportedImage from "next-image-export-optimizer";
 
 interface NewsBrandItem {
   name: string;
@@ -52,12 +53,12 @@ const NewsMarqueeSection = () => {
                 key={`n1-${index}`}
                 className="flex items-center group/item cursor-pointer grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-500 shrink-0"
               >
-                <img
+                <ExportedImage
                   src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}${brand.src}`}
                   alt={brand.name}
+                  width={brand.width}
+                  height={brand.height}
                   style={{
-                    height: `${brand.height}px`,
-                    width: `${brand.width}px`,
                     filter: brand.filter || undefined
                   }}
                   className="object-contain shrink-0"
@@ -73,12 +74,12 @@ const NewsMarqueeSection = () => {
                 key={`n2-${index}`}
                 className="flex items-center group/item cursor-pointer grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-500 shrink-0"
               >
-                <img
+                <ExportedImage
                   src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}${brand.src}`}
                   alt={brand.name}
+                  width={brand.width}
+                  height={brand.height}
                   style={{
-                    height: `${brand.height}px`,
-                    width: `${brand.width}px`,
                     filter: brand.filter || undefined
                   }}
                   className="object-contain shrink-0"

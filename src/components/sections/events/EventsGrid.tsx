@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Play } from "lucide-react";
 import GallerySection, { GalleryImage } from "../GallerySection";
@@ -230,7 +230,7 @@ function SlideshowTile({ item }: { item: MediaItem }) {
           transition={{ duration: 1.2, ease: "easeInOut" }}
           className="absolute inset-0 w-full h-full"
         >
-          <Image
+          <ExportedImage
             src={getMediaUrl(item.images[currentIndex])}
             alt={`${item.title} - ${currentIndex + 1}`}
             fill
@@ -271,7 +271,7 @@ function VideoTile({ item }: { item: MediaItem }) {
     <div ref={containerRef} className="absolute inset-0 w-full h-full bg-slate-900 overflow-hidden">
       {/* Fallback Thumbnail Image (Optional if provided) */}
       {item.thumbnail && (
-        <Image
+        <ExportedImage
           src={getMediaUrl(item.thumbnail)}
           alt={item.title}
           fill
@@ -356,7 +356,7 @@ export function EventsGrid() {
               {item.type === "slideshow" ? (
                 <SlideshowTile item={item} />
               ) : item.type === "image" ? (
-                <Image
+                <ExportedImage
                   src={getMediaUrl(item.src)}
                   alt={item.title}
                   fill

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import WhyCloudImg from "@/assets/why_cloud.png";
@@ -180,7 +180,7 @@ const WhyUsSection = () => {
                       transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
                       className="absolute inset-0"
                     >
-                      <Image
+                      <ExportedImage
                         src={img.src}
                         alt={`Feature ${img.id}`}
                         fill

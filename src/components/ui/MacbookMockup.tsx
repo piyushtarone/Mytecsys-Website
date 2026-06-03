@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
 import { cn } from "@/lib/utils";
 
 interface MacbookMockupProps {
@@ -27,7 +27,7 @@ export function MacbookMockup({ src, alt, className, imageClassName = "object-co
           
           {/* Screen Content */}
           <div className="relative w-full h-full bg-[#111] overflow-hidden mt-0.5 border border-black/80 rounded-sm">
-            <Image
+            <ExportedImage
               src={src}
               alt={alt}
               fill

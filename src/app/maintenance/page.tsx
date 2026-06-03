@@ -1,4 +1,4 @@
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
 import Link from "next/link";
 import { Mail, Phone } from "lucide-react";
 import logo from "@/assets/logo.png";
@@ -12,7 +12,7 @@ export default function MaintenancePage() {
 
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 pt-20">
         <div className="mb-8 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
-          <Image
+          <ExportedImage
             src={logo}
             alt="my tec sys - We bring your imagination into the Real World"
             className="h-16 md:h-20 w-auto"

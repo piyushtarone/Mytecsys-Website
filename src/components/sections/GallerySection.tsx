@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { createPortal } from "react-dom";
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
 import { ChevronLeft, ChevronRight, Minus, Plus, Maximize, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -273,12 +273,13 @@ const GallerySection = ({ isOpen, onClose, initialIndex = 0, singleImageMode = f
                       onLoadedData={() => setIsLoaded(true)}
                     />
                   ) : (
-                    <img
+                    <ExportedImage
                       src={imgSrc}
                       alt={activeImage?.alt || "Gallery Image"}
-                      loading="eager"
+                      priority
+                      fill
                       className={cn(
-                        "max-w-full max-h-full w-auto h-auto object-contain rounded-2xl shadow-xl transition-opacity duration-300",
+                        "object-contain rounded-2xl shadow-xl transition-opacity duration-300",
                         isLoaded ? "opacity-100" : "opacity-0"
                       )}
                       onLoad={() => setIsLoaded(true)}
@@ -343,7 +344,7 @@ const GallerySection = ({ isOpen, onClose, initialIndex = 0, singleImageMode = f
                         {img.type === "video" ? (
                           <video src={`${typeof img.src === "string" ? img.src : (img.src as any).src}#t=0.001`} preload="metadata" muted className="object-contain w-full h-full p-0.5 pointer-events-none" />
                         ) : (
-                          <Image src={img.src} alt={img.alt} fill className="object-contain p-0.5" sizes="96px" />
+                          <ExportedImage src={img.src} alt={img.alt} fill className="object-contain p-0.5" sizes="96px" />
                         )}
                       </button>
                     ))}

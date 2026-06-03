@@ -11,7 +11,7 @@ import achievementOutside from "@/assets/achievement_outside.png";
 import achievementPurple from "@/assets/achievement_purple.png";
 import achievementBni from "@/assets/achievement_bni.png";
 import achievementLogo from "@/assets/achievement_logo.png";
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
 import { ChevronRight, ArrowRight } from "lucide-react";
 import GallerySection from "./GallerySection";
 
@@ -63,7 +63,7 @@ const AchievementsSection = () => {
               <button
                 suppressHydrationWarning={true}
                 onClick={() => openImage(0)} className="w-full rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm h-[300px] md:h-[380px] cursor-pointer group/img">
-                <Image
+                <ExportedImage
                   src={achievementCheck}
                   alt="Cyber Hack 1st Runner Up"
                   className="w-full h-full object-cover group-hover/img:scale-[1.04] transition-transform duration-500"
@@ -75,7 +75,7 @@ const AchievementsSection = () => {
                 <button
                   suppressHydrationWarning={true}
                   onClick={() => openImage(7)} className="w-full h-full rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm cursor-pointer group/img">
-                  <Image
+                  <ExportedImage
                     src={achievementPurple}
                     alt="Special Recognition"
                     className="w-full h-full object-cover group-hover/img:scale-[1.04] transition-transform duration-500"
@@ -84,7 +84,7 @@ const AchievementsSection = () => {
                 <button
                   suppressHydrationWarning={true}
                   onClick={() => openImage(8)} className="w-full h-full rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm cursor-pointer group/img">
-                  <Image
+                  <ExportedImage
                     src={achievementBni}
                     alt="Special Recognition"
                     className="w-full h-full object-cover group-hover/img:scale-[1.04] transition-transform duration-500"
@@ -93,7 +93,7 @@ const AchievementsSection = () => {
                 <button
                   suppressHydrationWarning={true}
                   onClick={() => openImage(9)} className="bg-white/90 backdrop-blur-md p-3 md:p-4 rounded-2xl shadow-lg border border-slate-100 w-full h-full flex items-center justify-center cursor-pointer hover:bg-slate-50 transition-colors">
-                  <Image
+                  <ExportedImage
                     src={achievementLogo}
                     alt="MTS Logo"
                     className="w-12 md:w-16 h-auto drop-shadow-sm"
@@ -105,7 +105,7 @@ const AchievementsSection = () => {
               <button
                 suppressHydrationWarning={true}
                 onClick={() => openImage(1)} className="w-full rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm h-[200px] md:h-[240px] cursor-pointer group/img">
-                <Image
+                <ExportedImage
                   src={achievementStage}
                   alt="Cyber Hack 2024"
                   className="w-full h-full object-cover object-top group-hover/img:scale-[1.04] transition-transform duration-500"
@@ -120,7 +120,7 @@ const AchievementsSection = () => {
                 <button
                   suppressHydrationWarning={true}
                   onClick={() => openImage(6)} className="w-full h-full rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm cursor-pointer group/img">
-                  <Image
+                  <ExportedImage
                     src={achievementOutside}
                     alt="Industry Leadership"
                     className="w-full h-full object-cover group-hover/img:scale-[1.04] transition-transform duration-500"
@@ -129,7 +129,7 @@ const AchievementsSection = () => {
                 <button
                   suppressHydrationWarning={true}
                   onClick={() => openImage(3)} className="w-full h-full rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm cursor-pointer group/img">
-                  <Image
+                  <ExportedImage
                     src={achievementPolice}
                     alt="Govt of Maharashtra Recognition"
                     className="w-full h-full object-cover group-hover/img:scale-[1.04] transition-transform duration-500"
@@ -141,7 +141,7 @@ const AchievementsSection = () => {
               <button
                 suppressHydrationWarning={true}
                 onClick={() => openImage(4)} className="w-full rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm h-[270px] md:h-[340px] cursor-pointer group/img">
-                <Image
+                <ExportedImage
                   src={achievementAcademic}
                   alt="Academic Excellence"
                   className="w-full h-full object-cover group-hover/img:scale-[1.04] transition-transform duration-500"
@@ -153,7 +153,7 @@ const AchievementsSection = () => {
                 <button
                   suppressHydrationWarning={true}
                   onClick={() => openImage(5)} className="w-full h-full rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm cursor-pointer group/img">
-                  <Image
+                  <ExportedImage
                     src={achievementEcode}
                     alt="Achievement"
                     className="w-full h-full object-cover group-hover/img:scale-[1.04] transition-transform duration-500"
@@ -162,7 +162,7 @@ const AchievementsSection = () => {
                 <button
                   suppressHydrationWarning={true}
                   onClick={() => openImage(2)} className="w-full h-full rounded-2xl overflow-hidden shadow-md border border-white/50 bg-white/30 backdrop-blur-sm cursor-pointer group/img">
-                  <Image
+                  <ExportedImage
                     src={achievementBag}
                     alt="Innovation Award"
                     className="w-full h-full object-cover group-hover/img:scale-[1.04] transition-transform duration-500"

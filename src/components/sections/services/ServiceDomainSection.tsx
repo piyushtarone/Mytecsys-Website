@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
 import { CheckCircle2, Globe, Smartphone, Brain } from "lucide-react";
 
 import SoftwareDevImg from "@/assets/software_development.png";
@@ -145,7 +145,7 @@ export function ServiceDomainSection() {
                         className="bg-white border border-slate-200/60 rounded-xl p-3 flex flex-col gap-2 hover:border-[#1976D2]/30 transition-all duration-300 shadow-sm"
                       >
                         <div className="h-20 rounded-lg overflow-hidden bg-slate-100 relative">
-                          <Image
+                          <ExportedImage
                             src={item.img}
                             alt={item.title}
                             className="w-full h-full object-cover"
@@ -169,7 +169,7 @@ export function ServiceDomainSection() {
                     className="absolute -bottom-8 right-2 md:-right-6 w-[140px] md:w-[180px] bg-white border border-slate-200 rounded-2xl p-2.5 md:p-3 shadow-2xl flex flex-col gap-2 z-20"
                   >
                     <div className="h-16 rounded-xl overflow-hidden bg-slate-50">
-                      <Image
+                      <ExportedImage
                         src={sec.overlapImg}
                         alt="Overlap asset"
                         className="w-full h-full object-cover"

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useCallback, useRef } from "react";
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
 import { motion, AnimatePresence } from "framer-motion";
 import FarLeftImg from "@/assets/6.jpeg";
 import LeftImg from "@/assets/1.jpeg";
@@ -233,7 +233,7 @@ const HomeImageSection = () => {
                       className="relative w-full h-full overflow-hidden bg-[#0f172a]"
                       style={{ borderRadius: '22.5px' }}
                     >
-                      <Image
+                      <ExportedImage
                         src={card.img}
                         alt={card.title}
                         fill

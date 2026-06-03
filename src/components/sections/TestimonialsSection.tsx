@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import ExportedImage from "next-image-export-optimizer";
 import { cn } from "@/lib/utils";
 import { Star } from "lucide-react";
 
@@ -174,8 +175,8 @@ const TestimonialsSection = () => {
 const TestimonialCard = ({ testimonial: t }: { testimonial: any }) => (
   <div className="bg-white/60 backdrop-blur-sm border border-slate-200/50 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 hover:border-tech/30 group">
     <div className="flex items-center gap-4 mb-3">
-      <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm ring-1 ring-slate-100">
-        <img src={t.image} alt={t.name} className="w-full h-full object-cover" />
+      <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm ring-1 ring-slate-100 relative">
+        <ExportedImage src={t.image} alt={t.name} fill className="object-cover" />
       </div>
       <div>
         <h4 className="font-bold text-slate-900 group-hover:text-tech transition-colors text-sm capitalize">

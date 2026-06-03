@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useRef } from "react";
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
 import {
   Briefcase,
   MapPin,
@@ -226,7 +226,7 @@ export default function CareersPage() {
         <div className="relative h-[400px] md:h-[480px] w-full flex items-center justify-center overflow-hidden">
           {/* Background Office Image with overlay */}
           <div className="absolute inset-0 z-0">
-            <Image
+            <ExportedImage
               src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/careers_hero_bg.png`}
               alt="Mytecsys Office Banner"
               fill
@@ -300,7 +300,7 @@ export default function CareersPage() {
                     onClick={() => setViewMode("roles")}
                     className="relative w-full max-w-md h-[300px] rounded-2xl overflow-hidden cursor-pointer group shadow-lg border border-slate-100"
                   >
-                    <Image
+                    <ExportedImage
                       src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/careers_handshake.png`}
                       alt="Explore Opportunities"
                       fill
@@ -341,7 +341,7 @@ export default function CareersPage() {
                 </p>
               </div>
               <div className="relative min-h-[350px] md:min-h-full">
-                <Image
+                <ExportedImage
                   src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/careers_culture.png`}
                   alt="Culture at Mytecsys"
                   fill
@@ -353,7 +353,7 @@ export default function CareersPage() {
             {/* Benefits block */}
             <div className="grid grid-cols-1 md:grid-cols-2 min-h-[440px]">
               <div className="relative min-h-[350px] md:min-h-full order-2 md:order-1">
-                <Image
+                <ExportedImage
                   src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/careers_benefits.png`}
                   alt="Benefits for You"
                   fill
@@ -385,7 +385,7 @@ export default function CareersPage() {
                 </p>
               </div>
               <div className="relative min-h-[350px] md:min-h-full">
-                <Image
+                <ExportedImage
                   src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/careers_change.png`}
                   alt="Drive Meaningful Change"
                   fill

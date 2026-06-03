@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
 import {
   Carousel,
   CarouselContent,
@@ -87,7 +87,7 @@ const NewsSection = () => {
       onClick={() => openGallery(newsIndex)}
     >
       <div className="relative flex-1 rounded-[1.5rem] overflow-hidden bg-slate-50 border border-slate-50 min-h-[200px]">
-        <Image
+        <ExportedImage
           src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}${item.image}`}
           alt={item.title}
           fill

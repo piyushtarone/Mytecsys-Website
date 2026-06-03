@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useRef } from "react";
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
 import { Twitter, Linkedin, Instagram, Facebook } from "lucide-react";
 import FounderImage from "@/assets/Component 18.png";
 
@@ -123,7 +123,7 @@ const FounderSection = () => {
             {/* Entrance Animation Wrapper */}
             <div className="absolute inset-0 w-full h-full animate-camera-focus">
               {/* Default Base Image */}
-              <Image
+              <ExportedImage
                 src={FounderImage}
                 alt="Shhreyas Kawale"
                 fill
@@ -134,7 +134,7 @@ const FounderSection = () => {
             {/* Reflection - Full-width mirror of the picture */}
             <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-20 smooth-fade-in">
               <div className="absolute inset-0 w-full h-full -scale-x-100">
-                <Image
+                <ExportedImage
                   src={FounderImage}
                   alt="Reflection"
                   fill

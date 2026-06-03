@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
 import SoftwareDevImg from "@/assets/software_development.png";
 
 export function ServicesHero() {
@@ -33,7 +33,7 @@ export function ServicesHero() {
           transition={{ duration: 0.8 }}
           className="w-full h-full absolute inset-0"
         >
-          <Image
+          <ExportedImage
             src={SoftwareDevImg}
             alt="Software Engineering Services"
             fill

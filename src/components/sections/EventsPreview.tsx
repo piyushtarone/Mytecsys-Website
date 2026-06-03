@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -45,7 +45,7 @@ const EventsPreview = () => {
               key={index}
               className="relative w-64 h-40 md:w-72 md:h-48 shrink-0 rounded-xl overflow-hidden shadow-sm group mx-2"
             >
-              <Image
+              <ExportedImage
                 src={getMediaUrl(src)}
                 alt={`Event Preview ${index + 1}`}
                 fill

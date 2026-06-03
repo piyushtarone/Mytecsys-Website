@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
 import { Phone, Mail, MapPin, Twitter, Linkedin, Instagram, Facebook, Youtube } from "lucide-react";
 import LogoImg from "@/assets/logo.png";
 
@@ -22,7 +22,7 @@ const Footer = () => {
           {/* Logo & Description */}
           <div className="w-full lg:w-[25%] space-y-6 flex flex-col justify-start items-center lg:items-start text-center lg:text-left">
             <div className="flex items-center gap-3">
-              <Image src={LogoImg} alt="Mytecsys" width={160} height={40} className="object-contain" />
+              <ExportedImage src={LogoImg} alt="Mytecsys" width={160} height={40} className="object-contain" />
             </div>
             <div className="hidden lg:block space-y-4">
               <p className="text-slate-600 text-[12px] leading-relaxed max-w-[280px] font-semibold">
@@ -78,7 +78,7 @@ const Footer = () => {
                 {/* Google Play */}
                 <div className="bg-black text-white px-3 py-1.5 rounded-lg flex items-center gap-2 cursor-pointer shadow-md border border-white/5 w-fit">
                   <div className="relative w-6 h-6 flex items-center justify-center">
-                    <Image src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/playstore.png`} alt="Google Play" width={24} height={24} className="object-contain" />
+                    <ExportedImage src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/playstore.png`} alt="Google Play" width={24} height={24} className="object-contain" />
                   </div>
                   <div className="leading-[1.1] pr-1 text-left">
                     <p className="text-[7px] font-bold opacity-90 uppercase tracking-wider">GET IT ON</p>
@@ -98,7 +98,7 @@ const Footer = () => {
                 {/* Chrome Store */}
                 <div className="bg-black text-white px-3 py-1.5 rounded-lg flex items-center gap-2 cursor-pointer shadow-md border border-white/5 w-fit">
                   <div className="relative w-6 h-6 flex items-center justify-center">
-                    <Image src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/cromstore.png`} alt="Chrome Store" width={24} height={24} className="object-contain" />
+                    <ExportedImage src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/cromstore.png`} alt="Chrome Store" width={24} height={24} className="object-contain" />
                   </div>
                   <div className="leading-[1.1] pr-1 text-left">
                     <p className="text-[7px] font-bold opacity-90 uppercase tracking-wider">Available in the</p>
@@ -260,7 +260,7 @@ const Footer = () => {
             {/* Chrome Store */}
             <div className="bg-black text-white px-3 py-1.5 rounded-lg flex items-center gap-2 cursor-pointer hover:bg-slate-900 transition-all shadow-md border border-white/5">
               <div className="relative w-6 h-6 flex items-center justify-center">
-                <Image 
+                <ExportedImage 
                   src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/cromstore.png`} 
                   alt="Chrome Store" 
                   width={24} 
@@ -277,7 +277,7 @@ const Footer = () => {
             {/* Google Play */}
             <div className="bg-black text-white px-3 py-1.5 rounded-lg flex items-center gap-2 cursor-pointer hover:bg-slate-900 transition-all shadow-md border border-white/5">
               <div className="relative w-6 h-6 flex items-center justify-center">
-                <Image 
+                <ExportedImage 
                   src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/playstore.png`} 
                   alt="Google Play" 
                   width={24} 

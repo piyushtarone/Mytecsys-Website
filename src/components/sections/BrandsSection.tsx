@@ -1,4 +1,5 @@
 import React from "react";
+import ExportedImage from "next-image-export-optimizer";
 import { Cpu } from "lucide-react";
 
 interface BrandItem {
@@ -62,25 +63,25 @@ const BrandsSection = () => {
                 {brand.style === "image" && brand.src && (
                   brand.isDarkBox ? (
                     <div className="flex items-center bg-[#1a1a1a] px-3.5 py-2 rounded-xl h-12 shrink-0">
-                      <img
-                        src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}${brand.src}`}
-                        alt={brand.name}
-                        style={{
-                          height: `${brand.height}px`,
-                          width: `${brand.width}px`,
-                          filter: brand.filter || undefined,
-                          transform: brand.transform || undefined
-                        }}
-                        className="object-contain shrink-0"
-                      />
-                    </div>
-                  ) : (
-                    <img
+                      <ExportedImage
                       src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}${brand.src}`}
                       alt={brand.name}
+                      width={brand.width || 100}
+                      height={brand.height || 100}
                       style={{
-                        height: `${brand.height}px`,
-                        width: `${brand.width}px`,
+                        filter: brand.filter || undefined,
+                        transform: brand.transform || undefined
+                      }}
+                      className="object-contain shrink-0"
+                    />
+                    </div>
+                  ) : (
+                    <ExportedImage
+                      src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}${brand.src}`}
+                      alt={brand.name}
+                      width={brand.width || 100}
+                      height={brand.height || 100}
+                      style={{
                         filter: brand.filter || undefined,
                         transform: brand.transform || undefined
                       }}
@@ -138,25 +139,25 @@ const BrandsSection = () => {
                 {brand.style === "image" && brand.src && (
                   brand.isDarkBox ? (
                     <div className="flex items-center bg-[#1a1a1a] px-3.5 py-2 rounded-xl h-12 shrink-0">
-                      <img
-                        src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}${brand.src}`}
-                        alt={brand.name}
-                        style={{
-                          height: `${brand.height}px`,
-                          width: `${brand.width}px`,
-                          filter: brand.filter || undefined,
-                          transform: brand.transform || undefined
-                        }}
-                        className="object-contain shrink-0"
-                      />
-                    </div>
-                  ) : (
-                    <img
+                      <ExportedImage
                       src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}${brand.src}`}
                       alt={brand.name}
+                      width={brand.width || 100}
+                      height={brand.height || 100}
                       style={{
-                        height: `${brand.height}px`,
-                        width: `${brand.width}px`,
+                        filter: brand.filter || undefined,
+                        transform: brand.transform || undefined
+                      }}
+                      className="object-contain shrink-0"
+                    />
+                    </div>
+                  ) : (
+                    <ExportedImage
+                      src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}${brand.src}`}
+                      alt={brand.name}
+                      width={brand.width || 100}
+                      height={brand.height || 100}
+                      style={{
                         filter: brand.filter || undefined,
                         transform: brand.transform || undefined
                       }}

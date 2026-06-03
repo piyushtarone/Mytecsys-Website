@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
 import { motion } from "framer-motion";
 
 const keywords = [
@@ -49,37 +49,37 @@ const Cube = ({ logos }: { logos: { src: string; alt: string }[] }) => {
         {/* Front Face */}
         <div className="cube-face face-front">
           <div className="relative w-full h-full flex items-center justify-center">
-            <img src={`${basePath}${logos[0].src}`} alt={logos[0].alt} className={getLogoClass(logos[0].alt)} />
+            <ExportedImage src={`${basePath}${logos[0].src}`} alt={logos[0].alt} fill className={getLogoClass(logos[0].alt)} />
           </div>
         </div>
         {/* Top Face */}
         <div className="cube-face face-top">
           <div className="relative w-full h-full flex items-center justify-center">
-            <img src={`${basePath}${logos[1].src}`} alt={logos[1].alt} className={getLogoClass(logos[1].alt)} />
+            <ExportedImage src={`${basePath}${logos[1].src}`} alt={logos[1].alt} fill className={getLogoClass(logos[1].alt)} />
           </div>
         </div>
         {/* Right Face */}
         <div className="cube-face face-right">
           <div className="relative w-full h-full flex items-center justify-center">
-            <img src={`${basePath}${logos[2].src}`} alt={logos[2].alt} className={getLogoClass(logos[2].alt)} />
+            <ExportedImage src={`${basePath}${logos[2].src}`} alt={logos[2].alt} fill className={getLogoClass(logos[2].alt)} />
           </div>
         </div>
         {/* Bottom Face */}
         <div className="cube-face face-bottom">
           <div className="relative w-full h-full flex items-center justify-center">
-            <img src={`${basePath}${logos[3].src}`} alt={logos[3].alt} className={getLogoClass(logos[3].alt)} />
+            <ExportedImage src={`${basePath}${logos[3].src}`} alt={logos[3].alt} fill className={getLogoClass(logos[3].alt)} />
           </div>
         </div>
         {/* Left Face */}
         <div className="cube-face face-left">
           <div className="relative w-full h-full flex items-center justify-center">
-            <img src={`${basePath}${logos[4].src}`} alt={logos[4].alt} className={getLogoClass(logos[4].alt)} />
+            <ExportedImage src={`${basePath}${logos[4].src}`} alt={logos[4].alt} fill className={getLogoClass(logos[4].alt)} />
           </div>
         </div>
         {/* Back Face (fallback) */}
         <div className="cube-face face-back">
           <div className="relative w-full h-full flex items-center justify-center">
-            <img src={`${basePath}${logos[0].src}`} alt={logos[0].alt} className={getLogoClass(logos[0].alt)} />
+            <ExportedImage src={`${basePath}${logos[0].src}`} alt={logos[0].alt} fill className={getLogoClass(logos[0].alt)} />
           </div>
         </div>
       </div>

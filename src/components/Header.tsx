@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 import { usePathname } from "next/navigation";
@@ -405,7 +405,7 @@ export function Header() {
         {/* Logo */}
         <div className="flex-1 flex justify-start">
           <Link href="/" className="flex items-center gap-2 pl-4 md:pl-8">
-            <Image src={logo} alt="My Tec Sys" className="h-10 w-auto md:h-12" priority />
+            <ExportedImage src={logo} alt="My Tec Sys" className="h-10 w-auto md:h-12" priority />
           </Link>
         </div>
 

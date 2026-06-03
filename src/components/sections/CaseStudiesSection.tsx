@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
 import { ArrowRight } from "lucide-react";
 import Component9 from "@/assets/Component 9.png";
 import Component10 from "@/assets/Component 10.png";
@@ -195,7 +195,7 @@ const ProjectCard = ({
         animate={isSpecial ? { scale: isHovered ? 1.6 : 1, opacity: isHovered ? 0.7 : 1 } : { scale: 1, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeInOut" }}
       >
-        <Image
+        <ExportedImage
           src={project.image}
           alt={project.title}
           fill
@@ -212,7 +212,7 @@ const ProjectCard = ({
           transition={{ duration: 0.6, ease: "backOut" }}
         >
           <div className="relative w-1/4 h-1/2 ml-10 mt-16">
-            <Image
+            <ExportedImage
               src={project.secondaryImage}
               alt="Extra Detail"
               fill

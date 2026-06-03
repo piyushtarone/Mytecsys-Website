@@ -4,7 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
 import HexagonBackground from "@/components/HexagonBackground";
 import { MacbookMockup } from "@/components/ui/MacbookMockup";
 import Footer from "@/components/Footer";
