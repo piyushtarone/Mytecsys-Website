@@ -2,7 +2,7 @@
 
 import React from "react";
 import ExportedImage from "next-image-export-optimizer";
-import { motion } from "framer-motion";
+import { motion, useInView as motionUseInView } from "framer-motion";
 import { cn } from "@/lib/utils";
 import WhyCloudImg from "@/assets/why_cloud.png";
 import WhyCollaborationImg from "@/assets/why_collaboration.png";
@@ -37,13 +37,23 @@ const WhyUsSection = () => {
   const [activeImage, setActiveImage] = React.useState<number | null>(null);
   const [isAutoPlaying, setIsAutoPlaying] = React.useState(false);
   const [isMobile, setIsMobile] = React.useState(false);
+  const [mounted, setMounted] = React.useState(false);
+  const sectionRef = React.useRef<HTMLElement>(null);
+  const isInView = motionUseInView(sectionRef, { once: true, margin: "-100px" });
 
   React.useEffect(() => {
+    setMounted(true);
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
+
+  React.useEffect(() => {
+    if (isInView && !isAutoPlaying) {
+      setIsAutoPlaying(true);
+    }
+  }, [isInView, isAutoPlaying]);
 
   // Ordered in visual front-to-back stacking order (Security -> Innovation -> Collaboration -> Cloud)
   const images = [
@@ -79,7 +89,7 @@ const WhyUsSection = () => {
   };
 
   return (
-    <section id="industries" className="py-[60px] px-2 md:px-6 relative z-10 overflow-hidden bg-transparent scroll-mt-20">
+    <section ref={sectionRef} id="industries" className="py-[60px] px-2 md:px-6 relative z-10 overflow-hidden bg-transparent scroll-mt-20">
 
       {/* Removed Honeycomb Background Decoration */}
 
@@ -95,60 +105,80 @@ const WhyUsSection = () => {
         </div>
 
         <div className="flex justify-center">
-          <div className="relative flex flex-col md:flex-row items-center border border-blue-100 rounded-[2rem] bg-white p-6 md:p-10 shadow-[0_0_50px_-12px_rgba(59,130,246,0.15)] gap-8 md:gap-12 w-full max-w-7xl overflow-hidden">
+          <div className="relative flex flex-col md:flex-row items-center border border-blue-100 rounded-[2rem] bg-white p-6 md:p-10 shadow-[0_0_50px_-12px_rgba(59,130,246,0.15)] gap-4 md:gap-12 w-full max-w-7xl overflow-hidden min-h-[420px] md:min-h-[400px]">
 
             {/* Dark background fade-in to prevent text color contrast flashes */}
             <motion.div
-              animate={{ opacity: activeImage ? 1 : 0 }}
+              animate={{ opacity: activeImage && !isMobile ? 1 : 0 }}
               transition={{ duration: 0.4 }}
-              className="absolute inset-0 bg-slate-950 z-0 pointer-events-none"
+              className="absolute inset-0 bg-slate-950 z-0 pointer-events-none hidden md:block"
             />
 
             {/* Left Content Area */}
-            <div className="md:w-1/2 text-left order-2 md:order-1 relative z-[60] min-h-[140px] flex flex-col justify-center">
-              <motion.h3
-                key={currentContent.title}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                  color: activeImage ? "#ffffff" : "#0f172a"
-                }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
-                className="text-lg md:text-xl font-black mb-4 font-tech leading-snug"
-              >
-                {currentContent.title}
-              </motion.h3>
-              <motion.p
-                key={currentContent.copy}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                  color: activeImage ? "rgba(255, 255, 255, 0.9)" : "#64748b"
-                }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
-                className="text-sm md:text-sm leading-relaxed font-semibold"
-              >
-                {currentContent.copy}
-              </motion.p>
+            <div className="md:w-1/2 text-left order-2 md:order-1 relative z-[60] flex flex-col justify-center mt-2 md:mt-0">
+              
+              {/* Invisible placeholder to force container height based on the longest text */}
+              <div className="invisible pointer-events-none" aria-hidden="true">
+                <h3 className="text-lg md:text-xl font-black mb-4 font-tech leading-snug">
+                  {defaultContent.title}
+                </h3>
+                <p className="text-sm md:text-sm leading-relaxed font-semibold">
+                  {defaultContent.copy}
+                </p>
+              </div>
+
+              {/* Actual animated content */}
+              <div className="absolute inset-0 flex flex-col justify-center">
+                <motion.h3
+                  key={currentContent.title}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                    color: activeImage && !isMobile ? "#ffffff" : "#0f172a"
+                  }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                  className="text-lg md:text-xl font-black mb-4 font-tech leading-snug"
+                >
+                  {currentContent.title}
+                </motion.h3>
+                <motion.p
+                  key={currentContent.copy}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                    color: activeImage && !isMobile ? "rgba(255, 255, 255, 0.9)" : "#64748b"
+                  }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                  className="text-sm md:text-sm leading-relaxed font-semibold"
+                >
+                  {currentContent.copy}
+                </motion.p>
+              </div>
             </div>
 
             {/* Right Images Container Spacer */}
-            <div className="md:w-1/2 flex justify-center md:justify-end order-1 md:order-2 w-full relative h-[200px] md:h-[240px]" />
+            <div className="md:w-1/2 flex justify-center md:justify-end order-1 md:order-2 w-full relative h-[220px] md:h-[240px]" />
 
             {/* Layered Images */}
-            {images.map((img) => {
+            {mounted && images.map((img) => {
               const isActive = activeImage === img.id;
 
               const inactiveTop = isMobile ? 24 : 40;
               const inactiveBottom = isMobile ? "calc(100% - 204px)" : 40;
+              const activeTop = isMobile ? 24 : 0;
+              const activeBottom = isMobile ? "calc(100% - 244px)" : 0;
 
-              let inactiveLeft, inactiveRight;
+              let inactiveLeft: string | number | undefined, inactiveRight: string | number | undefined;
+              let activeLeft: string | number = isMobile ? 24 : 0, activeRight: string | number = isMobile ? 24 : 0;
+              
               if (isMobile) {
                 const translateX = (img.x + 120) * 0.6;
                 inactiveLeft = `calc(50% - 116px + ${translateX}px)`;
                 inactiveRight = `calc(50% - 44px - ${translateX}px)`;
+                activeLeft = "calc(50% - 140px)";
+                activeRight = "calc(50% - 140px)";
               } else {
                 const translateX = img.x;
                 inactiveRight = 40 - translateX;
@@ -161,12 +191,12 @@ const WhyUsSection = () => {
                   key={img.id}
                   initial={false}
                   animate={{
-                    top: isActive ? 0 : inactiveTop,
-                    bottom: isActive ? 0 : inactiveBottom,
-                    right: isActive ? 0 : inactiveRight,
-                    left: isActive ? 0 : inactiveLeft,
+                    top: isActive ? activeTop : inactiveTop,
+                    bottom: isActive ? activeBottom : inactiveBottom,
+                    right: isActive ? activeRight : inactiveRight,
+                    left: isActive ? activeLeft : inactiveLeft,
                     zIndex: isActive ? 50 : img.z,
-                    borderRadius: isActive ? "2rem" : "0.5rem",
+                    borderRadius: isActive ? (isMobile ? "1rem" : "2rem") : "0.5rem",
                   }}
                   transition={{
                     duration: 0.8,
@@ -189,9 +219,9 @@ const WhyUsSection = () => {
                     </motion.div>
                     {/* Rich black gradient overlay for readability */}
                     <motion.div
-                      animate={{ opacity: isActive ? 1 : 0 }}
+                      animate={{ opacity: isActive && !isMobile ? 1 : 0 }}
                       transition={{ duration: 0.5 }}
-                      className="absolute inset-0 bg-black/40 bg-gradient-to-t from-black/90 via-black/45 to-transparent md:bg-gradient-to-r md:from-black/95 md:via-black/50 md:to-transparent"
+                      className="absolute inset-0 bg-black/40 bg-gradient-to-t from-black/90 via-black/45 to-transparent md:bg-gradient-to-r md:from-black/95 md:via-black/50 md:to-transparent hidden md:block"
                     />
                   </div>
                 </motion.div>

@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import ExportedImage from "next-image-export-optimizer";
 import { motion } from "framer-motion";
+import { Trophy, ShieldCheck, Network } from "lucide-react";
 
 const keywords = [
   "AI-Powered Innovation",
@@ -87,16 +88,11 @@ const Cube = ({ logos }: { logos: { src: string; alt: string }[] }) => {
   );
 };
 
-export function HeroSection() {
+const TypewriterText = () => {
   const [text, setText] = useState("");
   const [keywordIndex, setKeywordIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [typingSpeed, setTypingSpeed] = useState(150);
-  const [active, setActive] = useState(false);
-
-  useEffect(() => {
-    setActive(true);
-  }, []);
 
   useEffect(() => {
     const handleTyping = () => {
@@ -123,6 +119,26 @@ export function HeroSection() {
   }, [text, isDeleting, keywordIndex, typingSpeed]);
 
   return (
+    <span className="inline-block py-0" style={{ color: '#1976D2' }}>
+      {text}
+      <motion.span
+        animate={{ opacity: [1, 0] }}
+        transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
+        className="ml-2 inline-block w-[3px] md:w-[5px] h-[28px] sm:h-[38px] md:h-[50px] align-middle"
+        style={{ backgroundColor: '#1976D2' }}
+      />
+    </span>
+  );
+};
+
+export function HeroSection() {
+  const [active, setActive] = useState(false);
+
+  useEffect(() => {
+    setActive(true);
+  }, []);
+
+  return (
     <section
       id="hero"
       className="relative z-30 min-h-[60vh] flex flex-col items-center justify-start px-2 md:px-6 pt-[140px] md:pt-[80px] pb-3 md:pb-4 overflow-visible"
@@ -134,15 +150,7 @@ export function HeroSection() {
           transition={{ duration: 0.6 }}
         >
           <h1 className="font-tech text-[24px] sm:text-[34px] md:text-[44px] font-bold mb-1 tracking-normal min-h-[1.1em] flex items-center justify-center leading-[1.1] whitespace-nowrap">
-            <span className="inline-block py-0" style={{ color: '#1976D2' }}>
-              {text}
-              <motion.span
-                animate={{ opacity: [1, 0] }}
-                transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
-                className="ml-2 inline-block w-[3px] md:w-[5px] h-[28px] sm:h-[38px] md:h-[50px] align-middle"
-                style={{ backgroundColor: '#1976D2' }}
-              />
-            </span>
+            <TypewriterText />
           </h1>
         </motion.div>
 
@@ -186,6 +194,41 @@ export function HeroSection() {
           <span className="text-[12px] text-slate-500 font-extrabold uppercase tracking-normal mt-8 md:mt-3">
             Trusted by 100+ Renowned Clients
           </span>
+        </motion.div>
+
+        {/* Info Cards */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="flex flex-row items-stretch justify-center gap-1 md:gap-3 mt-4 md:mt-8 w-full max-w-4xl mx-auto px-1 sm:px-4"
+        >
+          {/* Card 1 */}
+          <div className="flex flex-col md:flex-row flex-1 md:flex-none items-center justify-center gap-0 md:gap-3 bg-white/95 backdrop-blur-sm p-1 md:px-5 md:py-2.5 rounded-[8px] md:rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100/50 text-center md:text-left">
+            <Trophy className="w-3.5 h-3.5 md:w-6 md:h-6 text-[#1976D2] shrink-0" strokeWidth={1.5} />
+            <div className="flex flex-col items-center md:items-start">
+              <span className="text-[10px] md:text-[15px] font-bold text-slate-800 leading-[1.1] md:mb-1 mt-0.5 md:mt-0">100+</span>
+              <span className="text-[6px] md:text-[11px] text-slate-500 font-medium leading-[1.1] whitespace-nowrap md:whitespace-normal">Projects Delivered</span>
+            </div>
+          </div>
+          
+          {/* Card 2 */}
+          <div className="flex flex-col md:flex-row flex-1 md:flex-none items-center justify-center gap-0 md:gap-3 bg-white/95 backdrop-blur-sm p-1 md:px-5 md:py-2.5 rounded-[8px] md:rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100/50 text-center md:text-left">
+            <ShieldCheck className="w-3.5 h-3.5 md:w-6 md:h-6 text-[#1976D2] shrink-0" strokeWidth={1.5} />
+            <div className="flex flex-col items-center md:items-start">
+              <span className="text-[10px] md:text-[15px] font-bold text-slate-800 leading-[1.1] md:mb-1 mt-0.5 md:mt-0">15+</span>
+              <span className="text-[6px] md:text-[11px] text-slate-500 font-medium leading-[1.1] whitespace-nowrap md:whitespace-normal">Years Experience</span>
+            </div>
+          </div>
+
+          {/* Card 3 */}
+          <div className="flex flex-col md:flex-row flex-1 md:flex-none items-center justify-center gap-0 md:gap-3 bg-white/95 backdrop-blur-sm p-1 md:px-5 md:py-2.5 rounded-[8px] md:rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100/50 text-center md:text-left">
+            <Network className="w-3.5 h-3.5 md:w-6 md:h-6 text-[#1976D2] shrink-0" strokeWidth={1.5} />
+            <div className="flex flex-col items-center md:items-start w-full overflow-hidden mt-0.5 md:mt-0 gap-0 md:gap-1">
+              <span className="text-[6px] md:text-[12px] text-slate-700 font-semibold leading-[1.1] whitespace-nowrap md:whitespace-normal text-center w-full">AI • Cyber Security</span>
+              <span className="text-[6px] md:text-[12px] text-slate-700 font-semibold leading-[1.1] whitespace-nowrap md:whitespace-normal text-center w-full">Cloud • Engineering</span>
+            </div>
+          </div>
         </motion.div>
       </div>
 
@@ -267,7 +310,7 @@ export function HeroSection() {
       `}</style>
 
       {/* Decorative Elements */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 w-full h-full max-w-7xl">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 w-full h-full max-w-7xl hidden md:block">
         <div className="absolute top-1/4 left-10 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
       </div>

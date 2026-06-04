@@ -84,8 +84,8 @@ const AboutSection = () => {
   return (
     <section id="about" className="py-[60px] px-2 md:px-6 relative z-10 overflow-hidden bg-sky-400/[0.07] scroll-mt-20">
       {/* Decorative background elements */}
-      <div className="absolute top-0 right-0 -z-10 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 -z-10 w-96 h-96 bg-sky-300/20 rounded-full blur-3xl" />
+      <div className="absolute top-0 right-0 -z-10 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl hidden md:block" />
+      <div className="absolute bottom-0 left-0 -z-10 w-96 h-96 bg-sky-300/20 rounded-full blur-3xl hidden md:block" />
 
       <div className="container mx-auto max-w-7xl relative">
         <div className="text-center mb-[40px]">

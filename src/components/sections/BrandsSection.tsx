@@ -30,8 +30,8 @@ const BrandsSection = () => {
   return (
     <section className="pt-2 md:pt-4 pb-2 md:pb-6 bg-transparent overflow-hidden relative z-20">
       {/* Floating Accent Particles */}
-      <div className="absolute top-1/3 left-[15%] w-2 h-2 bg-blue-500 rounded-full blur-[1px] opacity-40 animate-pulse" />
-      <div className="absolute bottom-1/4 right-[12%] w-3 h-3 bg-blue-400 rounded-full blur-[2px] opacity-30 animate-pulse" />
+      <div className="absolute top-1/3 left-[15%] w-2 h-2 bg-blue-500 rounded-full blur-[1px] opacity-40 animate-pulse hidden md:block" />
+      <div className="absolute bottom-1/4 right-[12%] w-3 h-3 bg-blue-400 rounded-full blur-[2px] opacity-30 animate-pulse hidden md:block" />
       <div className="absolute top-1/4 right-[30%] w-1.5 h-1.5 bg-blue-600 rounded-full opacity-20" />
 
       <div className="container mx-auto max-w-7xl px-2 md:px-4 mb-2 md:mb-4 relative z-10">

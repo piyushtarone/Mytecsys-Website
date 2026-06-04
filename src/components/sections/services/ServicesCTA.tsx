@@ -7,7 +7,7 @@ export function ServicesCTA() {
   return (
     <section className="py-24 px-4 md:px-6 bg-[#090d16] text-white relative overflow-hidden">
       {/* Background Decorative glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#1976D2]/10 rounded-full blur-[120px] -z-10 animate-pulse" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#1976D2]/10 rounded-full blur-[120px] -z-10 animate-pulse hidden md:block" />
       
       <div className="max-w-4xl mx-auto text-center space-y-8 relative z-10">
         <motion.div

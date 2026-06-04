@@ -200,7 +200,7 @@ const HomeImageSection = () => {
                   </motion.span>
 
                   {/* Soft Background Glow */}
-                  <div className={`absolute -inset-8 rounded-[3rem] bg-blue-400/15 blur-3xl -z-10 transition-opacity duration-700 ${isActive ? 'opacity-90' : 'opacity-30'}`} />
+                  <div className={`absolute -inset-8 rounded-[3rem] bg-blue-400/15 blur-3xl -z-10 transition-opacity duration-700 hidden md:block ${isActive ? 'opacity-90' : 'opacity-30'}`} />
 
                   {/* Card Body — gradient border wrapper */}
                   <motion.div
@@ -254,7 +254,7 @@ const HomeImageSection = () => {
                   {isActive && (
                     <motion.div
                       layoutId="glow-bottom"
-                      className="absolute -bottom-16 w-[130%] h-16 bg-blue-500/10 blur-[60px] rounded-full -z-10"
+                      className="absolute -bottom-16 w-[130%] h-16 bg-blue-500/10 blur-[60px] rounded-full -z-10 hidden md:block"
                     />
                   )}
                 </motion.div>

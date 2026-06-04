@@ -47,12 +47,12 @@ function FloatingPartyElements() {
       <motion.div
         animate={{ y: [0, -60, 0], x: [0, 20, 0] }}
         transition={{ repeat: Infinity, duration: 10, ease: "easeInOut" }}
-        className="absolute top-[10%] right-[30%] w-24 h-24 bg-blue-300/20 rounded-full blur-2xl"
+        className="absolute top-[10%] right-[30%] w-24 h-24 bg-blue-300/20 rounded-full blur-2xl hidden md:block"
       />
       <motion.div
         animate={{ y: [0, 40, 0], x: [0, -30, 0] }}
         transition={{ repeat: Infinity, duration: 12, ease: "easeInOut", delay: 3 }}
-        className="absolute bottom-[10%] left-[10%] w-32 h-32 bg-cyan-300/20 rounded-full blur-2xl"
+        className="absolute bottom-[10%] left-[10%] w-32 h-32 bg-cyan-300/20 rounded-full blur-2xl hidden md:block"
       />
     </div>
   );

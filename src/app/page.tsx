@@ -35,25 +35,23 @@ export default function LandingPage() {
       <div className="relative overflow-hidden bg-white z-20">
         {/* Background Image with custom opacity */}
         <div
-          className="absolute inset-0 z-0 w-full h-full opacity-[0.55]"
+          className="absolute inset-0 z-0 w-full h-full"
           style={{
-            backgroundImage: `url('${process.env.NEXT_PUBLIC_BASE_PATH || ""}/hero_background.jpeg')`,
+            backgroundImage: `url('${process.env.NEXT_PUBLIC_BASE_PATH || ""}/background.png')`,
             backgroundSize: 'cover',
-            backgroundPosition: 'center -100px',
+            backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
-            maskImage: 'linear-gradient(to bottom, transparent 0%, black 10%, black 40%, transparent 55%)',
-            WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 10%, black 40%, transparent 55%)'
+            maskImage: 'linear-gradient(to bottom, black 0%, black 60%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 60%, transparent 100%)'
           }}
         />
         {/* Radial Gradient Overlay around cards */}
         <div
           className="absolute inset-0 z-10 w-full h-full pointer-events-none"
           style={{
-            background: "radial-gradient(ellipse at 50% 50%, rgba(25, 118, 210, 0.15) 2%, rgba(255, 255, 255, 1) 89%)"
+            background: "radial-gradient(ellipse at 50% 50%, rgba(25, 118, 210, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%)"
           }}
         />
-        {/* Smooth transition overlay to next section */}
-        <div className="absolute bottom-0 left-0 right-0 h-72 md:h-96 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none z-10" />
         <div className="relative z-50">
           <HeroSection />
           <HomeImageSection />
