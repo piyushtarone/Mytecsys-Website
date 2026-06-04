@@ -89,7 +89,7 @@ const Cube = ({ logos }: { logos: { src: string; alt: string }[] }) => {
 };
 
 const TypewriterText = () => {
-  const [text, setText] = useState("");
+  const [text, setText] = useState(keywords[0]);
   const [keywordIndex, setKeywordIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [typingSpeed, setTypingSpeed] = useState(150);
