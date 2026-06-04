@@ -144,45 +144,26 @@ export function HeroSection() {
       className="relative z-30 min-h-[60vh] flex flex-col items-center justify-start px-2 md:px-6 pt-[140px] md:pt-[80px] pb-3 md:pb-4 overflow-visible"
     >
       <div className="max-w-4xl mx-auto text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
+        <div className="opacity-0 hero-animate-1">
           <h1 className="font-tech text-[24px] sm:text-[34px] md:text-[44px] font-bold mb-1 tracking-normal min-h-[1.1em] flex items-center justify-center leading-[1.1] whitespace-nowrap">
             <TypewriterText />
           </h1>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="-mt-1 mb-[16px]"
-        >
+        <div className="opacity-0 hero-animate-2 -mt-1 mb-[16px]">
           <h2 className="text-[22px] sm:text-[28px] md:text-[32px] font-bold text-[#0f172a] mb-0 tracking-normal">
             For Your Business
           </h2>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mb-[30px] md:mb-[10px]"
-        >
+        <div className="opacity-0 hero-animate-3 mb-[30px] md:mb-[10px]">
           <p className="text-[14px] sm:text-[16px] md:text-[18px] text-slate-500 max-w-2xl mx-auto mb-0 leading-relaxed font-medium">
             Intelligent technology solutions combining AI research, cloud infrastructure, and engineering excellence.
           </p>
-        </motion.div>
+        </div>
 
         {/* Trusted Clients Section - 3D Cube Animation Version */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="flex flex-col items-center justify-center mb-2 mt-0 px-2 md:px-4 overflow-visible"
-        >
+        <div className="opacity-0 hero-animate-4 flex flex-col items-center justify-center mb-2 mt-0 px-2 md:px-4 overflow-visible">
           {/* Rotating Cubes Row */}
           <div className={`flex items-center justify-center gap-4 md:gap-6 pt-0 pb-4 overflow-visible ${active ? "animate-active" : ""}`}>
             <Cube logos={cube1Logos} />
@@ -190,19 +171,13 @@ export function HeroSection() {
             <Cube logos={cube3Logos} />
           </div>
 
-          {/* Label Below */}
           <span className="text-[12px] text-slate-500 font-extrabold uppercase tracking-normal mt-8 md:mt-3">
             Trusted by 100+ Renowned Clients
           </span>
-        </motion.div>
+        </div>
 
         {/* Info Cards */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="flex flex-row items-stretch justify-center gap-1 md:gap-3 mt-4 md:mt-8 w-full max-w-4xl mx-auto px-1 sm:px-4"
-        >
+        <div className="opacity-0 hero-animate-5 flex flex-row items-stretch justify-center gap-1 md:gap-3 mt-4 md:mt-8 w-full max-w-4xl mx-auto px-1 sm:px-4">
           {/* Card 1 */}
           <div className="flex flex-col md:flex-row flex-1 md:flex-none items-center justify-center gap-0 md:gap-3 bg-white/95 backdrop-blur-sm p-1 md:px-5 md:py-2.5 rounded-[8px] md:rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100/50 text-center md:text-left">
             <Trophy className="w-3.5 h-3.5 md:w-6 md:h-6 text-[#1976D2] shrink-0" strokeWidth={1.5} />
@@ -229,7 +204,7 @@ export function HeroSection() {
               <span className="text-[6px] md:text-[12px] text-slate-700 font-semibold leading-[1.1] whitespace-nowrap md:whitespace-normal text-center w-full">Cloud • Engineering</span>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
 
       {/* 3D Cube CSS Styles */}
@@ -255,6 +230,21 @@ export function HeroSection() {
           border-radius: 50%;
           z-index: -1;
         }
+        .scene {
+          width: 80px;
+          height: 80px;
+          perspective: 600px;
+          margin-bottom: -15px; /* Pull label closer */
+        }
+        @keyframes fade-in-up {
+          0% { opacity: 0; transform: translateY(20px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+        .hero-animate-1 { animation: fade-in-up 0.6s ease-out forwards; }
+        .hero-animate-2 { animation: fade-in-up 0.6s ease-out forwards 0.2s; }
+        .hero-animate-3 { animation: fade-in-up 0.6s ease-out forwards 0.4s; }
+        .hero-animate-4 { animation: fade-in-up 0.6s ease-out forwards 0.5s; }
+        .hero-animate-5 { animation: fade-in-up 0.6s ease-out forwards 0.6s; }
         @media (min-width: 768px) {
           .cube-scene {
             --cube-size: 56px;
