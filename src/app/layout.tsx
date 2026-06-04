@@ -68,7 +68,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="preload" href="/background.png" as="image" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

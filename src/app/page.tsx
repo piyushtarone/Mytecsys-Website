@@ -37,14 +37,19 @@ export default function LandingPage() {
         <div
           className="absolute inset-0 z-0 w-full h-full"
           style={{
-            backgroundImage: `url('${process.env.NEXT_PUBLIC_BASE_PATH || ""}/background.png')`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
             maskImage: 'linear-gradient(to bottom, black 0%, black 60%, transparent 100%)',
             WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 60%, transparent 100%)'
           }}
-        />
+        >
+          <ExportedImage 
+            src="/background.png" 
+            alt="Background" 
+            fill 
+            priority 
+            className="object-cover object-center" 
+            sizes="100vw"
+          />
+        </div>
         {/* Radial Gradient Overlay around cards */}
         <div
           className="absolute inset-0 z-10 w-full h-full pointer-events-none"
