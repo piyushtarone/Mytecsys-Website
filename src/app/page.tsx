@@ -27,7 +27,7 @@ const TestimonialsSection = dynamic(() => import('@/components/sections/Testimon
 const ContactSection = dynamic(() => import('@/components/sections/ContactSection'));
 const Footer = dynamic(() => import('@/components/Footer'));
 import { Button } from "@/components/ui/button";
-import bgImg from "../public/background.png";
+import bgImg from "../../public/background.png";
 
 export default function LandingPage() {
   return (
