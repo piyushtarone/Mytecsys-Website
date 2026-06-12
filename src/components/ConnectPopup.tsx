@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { X, MessageSquare, Briefcase, Headset, Users, Cpu, ArrowLeft, ChevronRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const departments = [
   {
@@ -45,24 +46,52 @@ const departments = [
 export function ConnectPopup() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedDeptId, setSelectedDeptId] = useState<string | null>(null);
+  const [hasInteracted, setHasInteracted] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!hasInteracted) {
+        setIsOpen(true);
+      }
+    }, 10000);
+    return () => clearTimeout(timer);
+  }, [hasInteracted]);
 
   const selectedDept = departments.find(d => d.id === selectedDeptId);
 
   return (
     <>
-      {/* Floating Button */}
-      {!isOpen && (
-        <button
-          onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 w-14 h-14 bg-purple-600 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-purple-700 transition-colors z-50 hover:scale-105 active:scale-95"
-        >
-          <MessageSquare size={24} />
-        </button>
-      )}
+      <AnimatePresence>
+        {/* Floating Button */}
+        {!isOpen && (
+          <motion.button
+            key="chat-button"
+            initial={{ opacity: 0, scale: 0.8, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.8, y: 20 }}
+            transition={{ duration: 0.3, type: "spring", stiffness: 260, damping: 20 }}
+            onClick={() => {
+              setIsOpen(true);
+              setHasInteracted(true);
+            }}
+            className="fixed bottom-6 right-6 w-14 h-14 bg-purple-600 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-purple-700 transition-colors z-50 hover:scale-105 active:scale-95"
+          >
+            <MessageSquare size={24} />
+          </motion.button>
+        )}
+      </AnimatePresence>
 
-      {/* Popup Window */}
-      {isOpen && (
-        <div className="fixed bottom-6 right-6 w-[320px] bg-white rounded-2xl shadow-2xl z-50 overflow-hidden flex flex-col border border-gray-100">
+      <AnimatePresence>
+        {/* Popup Window */}
+        {isOpen && (
+          <motion.div 
+            key="chat-popup"
+            initial={{ opacity: 0, scale: 0.9, y: 20, transformOrigin: "bottom right" }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+            transition={{ duration: 0.3, type: "spring", stiffness: 260, damping: 20 }}
+            className="fixed bottom-6 right-6 w-[320px] bg-white rounded-2xl shadow-2xl z-50 overflow-hidden flex flex-col border border-gray-100"
+          >
           {/* Top Gradient Border */}
           <div className="h-1.5 w-full bg-gradient-to-r from-purple-500 to-cyan-400" />
           
@@ -101,6 +130,7 @@ export function ConnectPopup() {
                 onClick={() => {
                   setIsOpen(false);
                   setSelectedDeptId(null);
+                  setHasInteracted(true);
                 }}
                 className="w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-500 transition-colors flex-shrink-0"
               >
@@ -178,8 +208,9 @@ export function ConnectPopup() {
               </form>
             )}
           </div>
-        </div>
+        </motion.div>
       )}
+      </AnimatePresence>
     </>
   );
 }
