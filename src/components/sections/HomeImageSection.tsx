@@ -125,8 +125,8 @@ const HomeImageSection = () => {
           className="relative max-w-7xl h-[420px] md:h-[420px] lg:h-[450px] flex items-end justify-center -mt-48 md:-mt-20"
           style={{
             width: isMobile ? '800px' : '100%',
-            maskImage: isMobile ? 'linear-gradient(to bottom, black 0%, black 55%, transparent 95%)' : 'linear-gradient(to bottom, black 0%, black 55%, transparent 95%)',
-            WebkitMaskImage: isMobile ? 'linear-gradient(to bottom, black 0%, black 55%, transparent 95%)' : 'linear-gradient(to bottom, black 0%, black 55%, transparent 95%)',
+            maskImage: isMobile ? 'linear-gradient(to bottom, black 0%, black 40%, transparent 85%)' : 'linear-gradient(to bottom, black 0%, black 40%, transparent 85%)',
+            WebkitMaskImage: isMobile ? 'linear-gradient(to bottom, black 0%, black 40%, transparent 85%)' : 'linear-gradient(to bottom, black 0%, black 40%, transparent 85%)',
             transformOrigin: "bottom center"
           }}
         >

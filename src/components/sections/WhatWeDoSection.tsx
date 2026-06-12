@@ -150,7 +150,7 @@ const WhatWeDoSection = () => {
                   className={cn(
                     "absolute inset-0 transition-all duration-700",
                     activeIndex === index
-                      ? "bg-black/45 bg-gradient-to-t from-black/95 via-black/50 to-transparent"
+                      ? "bg-black/10 bg-gradient-to-t from-black/80 via-transparent to-transparent"
                       : "bg-black/60 bg-gradient-to-t from-black/85 via-black/20 to-transparent"
                   )}
                 />
@@ -193,11 +193,7 @@ const WhatWeDoSection = () => {
                             {service.subtitle}
                           </p>
                         )}
-                        <div className="pointer-events-auto mt-2">
-                          <span className="text-white text-sm font-bold group-hover:underline cursor-pointer inline-flex items-center gap-1.5 transition-all duration-200">
-                            Learn More <span className="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
-                          </span>
-                        </div>
+
                       </motion.div>
                     )}
                   </div>

@@ -295,7 +295,7 @@ const GallerySection = ({ isOpen, onClose, initialIndex = 0, singleImageMode = f
               </AnimatePresence>
             </div>
 
-            {/* Image caption */}
+            {/* Image caption - Hidden as per user request
             <div className="absolute bottom-4 md:bottom-6 left-4 right-4 md:left-1/2 md:right-auto md:-translate-x-1/2 z-40 no-close flex justify-center">
               <motion.div
                 key={currentIndex}
@@ -307,6 +307,7 @@ const GallerySection = ({ isOpen, onClose, initialIndex = 0, singleImageMode = f
                 <span className="text-sm md:text-sm font-semibold text-slate-800 leading-snug inline-block">{galleryImages[currentIndex].alt}</span>
               </motion.div>
             </div>
+            */}
           </div>
 
           {/* ===== BOTTOM THUMBNAIL STRIP ===== */}

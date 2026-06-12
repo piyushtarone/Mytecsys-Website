@@ -28,6 +28,7 @@ const ContactSection = dynamic(() => import('@/components/sections/ContactSectio
 const Footer = dynamic(() => import('@/components/Footer'));
 import { Button } from "@/components/ui/button";
 import bgImg from "../../public/background.png";
+import { LazySection } from "@/components/LazySection";
 
 export default function LandingPage() {
   return (
@@ -38,8 +39,8 @@ export default function LandingPage() {
         <div
           className="absolute inset-0 z-0 w-full h-full"
           style={{
-            maskImage: 'linear-gradient(to bottom, black 0%, black 60%, transparent 100%)',
-            WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 60%, transparent 100%)'
+            maskImage: 'linear-gradient(to bottom, black 0%, black 40%, transparent 85%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 40%, transparent 85%)'
           }}
         >
           <ExportedImage 
@@ -47,7 +48,8 @@ export default function LandingPage() {
             alt="Background" 
             fill 
             priority 
-            className="object-cover object-center" 
+            unoptimized={true}
+            className="object-contain object-top" 
             sizes="100vw"
           />
         </div>
@@ -80,20 +82,20 @@ export default function LandingPage() {
         }}
       />
 
-      <BrandsSection />
-      <ProcessSection />
-      <WhatWeDoSection />
+      <LazySection><BrandsSection /></LazySection>
+      <LazySection><ProcessSection /></LazySection>
+      <LazySection><WhatWeDoSection /></LazySection>
 
-      <CaseStudiesSection />
-      <WhyUsSection />
-      <AboutSection />
-      <FounderSection />
-      <NewsSection />
-      <NewsMarqueeSection />
-      <TestimonialsSection />
-      <AchievementsSection />
-      <ContactSection />
-      <Footer />
+      <LazySection><CaseStudiesSection /></LazySection>
+      <LazySection><WhyUsSection /></LazySection>
+      <LazySection><AboutSection /></LazySection>
+      <LazySection><FounderSection /></LazySection>
+      <LazySection><NewsSection /></LazySection>
+      <LazySection><NewsMarqueeSection /></LazySection>
+      <LazySection><TestimonialsSection /></LazySection>
+      <LazySection><AchievementsSection /></LazySection>
+      <LazySection><ContactSection /></LazySection>
+      <LazySection><Footer /></LazySection>
     </div>
   );
 }

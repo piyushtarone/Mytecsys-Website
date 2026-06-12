@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Providers } from "@/components/Providers";
 import { Header } from "@/components/Header";
+import { ConnectPopup } from "@/components/ConnectPopup";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -89,6 +90,7 @@ export default function RootLayout({
         <Providers>
           <Header />
           <main className="min-h-screen">{children}</main>
+          <ConnectPopup />
         </Providers>
       </body>
     </html>

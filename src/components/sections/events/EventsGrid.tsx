@@ -203,7 +203,7 @@ const GALLERY_ITEMS: GalleryImage[] = MEDIA_ITEMS.flatMap(item => {
   }];
 });
 
-function SlideshowTile({ item }: { item: MediaItem }) {
+function SlideshowTile({ item, onImageClick }: { item: MediaItem, onImageClick?: (src: string) => void }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -220,7 +220,15 @@ function SlideshowTile({ item }: { item: MediaItem }) {
   if (!item.images || item.images.length === 0) return null;
 
   return (
-    <div className="relative w-full h-full bg-slate-900">
+    <div 
+      className="relative w-full h-full bg-slate-900"
+      onClick={(e) => {
+        if (onImageClick) {
+          e.stopPropagation();
+          onImageClick(item.images![currentIndex]);
+        }
+      }}
+    >
       <AnimatePresence initial={false}>
         <motion.div
           key={currentIndex}
@@ -347,14 +355,21 @@ export function EventsGrid() {
                 if (item.type === "video" && item.link) {
                   window.open(item.link, "_blank");
                 } else {
-                  const matchSrc = item.type === "slideshow" ? item.images![0] : item.src;
+                  const matchSrc = item.type === "slideshow" ? getMediaUrl(item.images![0]) : getMediaUrl(item.src);
                   const idx = GALLERY_ITEMS.findIndex((g) => g.src === matchSrc);
                   setGalleryIndex(idx !== -1 ? idx : 0);
                 }
               }}
             >
               {item.type === "slideshow" ? (
-                <SlideshowTile item={item} />
+                <SlideshowTile 
+                  item={item} 
+                  onImageClick={(src) => {
+                    const matchSrc = getMediaUrl(src);
+                    const idx = GALLERY_ITEMS.findIndex((g) => g.src === matchSrc);
+                    setGalleryIndex(idx !== -1 ? idx : 0);
+                  }}
+                />
               ) : item.type === "image" ? (
                 <ExportedImage
                   src={getMediaUrl(item.src)}
@@ -366,12 +381,13 @@ export function EventsGrid() {
                 <VideoTile item={item} />
               )}
 
-              {/* Hover Overlay */}
+              {/* Hover Overlay - Hidden as per user request
               <div className="absolute inset-0 bg-gradient-to-t from-[#090d16]/80 via-transparent to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-300 z-30 flex flex-col justify-end p-6 text-left pointer-events-none">
                 <h3 className="text-white font-bold text-lg md:text-xl font-tech tracking-normal drop-shadow-md transform translate-y-4 group-hover/item:translate-y-0 transition-transform duration-300">
                   {item.title}
                 </h3>
               </div>
+              */}
             </motion.div>
           ))}
         </div>
